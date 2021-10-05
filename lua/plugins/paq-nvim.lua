@@ -27,6 +27,10 @@ require('paq') {
 
   -- 'liuchengxu/vista.vim';
   'nvim-treesitter/nvim-treesitter';
+  'p00f/nvim-ts-rainbow';
+  'andymass/vim-matchup';
+  'windwp/nvim-ts-autotag';
+
   'neovim/nvim-lspconfig';
   'williamboman/nvim-lsp-installer';
   'hrsh7th/nvim-cmp';
@@ -44,5 +48,6 @@ require('paq') {
   'rbgrouleff/bclose.vim';
 
   'numtostr/FTerm.nvim';
+  'editorconfig/editorconfig-vim';
 }
 

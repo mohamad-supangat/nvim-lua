@@ -9,7 +9,7 @@
 
 Neovim init file
 
-Version: 0.3.0 - 2021/10/02
+Version: -2.3.0 - 2021/10/02
 Maintainer: Brainf+ck
 Website: https://github.com/brainfucksec/neovim-lua
 
@@ -18,9 +18,10 @@ Website: https://github.com/brainfucksec/neovim-lua
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
+
+require('plugins/paq-nvim')         -- plugin manager
 require('settings')                 -- settings
 require('keymaps')                  -- keymaps
-require('plugins/paq-nvim')         -- plugin manager
 require('plugins/nvim-tree')	      -- file manager
 require('plugins/bufferline')       -- beautiful bufferline
 require('plugins/feline')           -- statusline
@@ -32,3 +33,4 @@ require('plugins/nvim-autopairs')   -- autopairs
 require('plugins/indentline')       -- indent line
 require('plugins/comment')          -- auto comment
 require('plugins/floatterm')        -- floating terminal
+require('plugins/fzf')
