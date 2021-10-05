@@ -107,3 +107,10 @@ map('n', 'Y', 'y$', default_opts) -- Change Y to copy to end of line and behave 
 -- spliting window
 map('n', '<leader>-','<C-w>s', default_opts)
 map('n', '<leader>|', '<C-w>v<C-w>l',default_opts)
+
+
+-- floating terminal
+map('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', default_opts)
+map('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', default_opts)
+
+map('n', '<leader>git', ':lua lazygit()<CR>', default_opts)

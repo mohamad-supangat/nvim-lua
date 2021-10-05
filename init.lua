@@ -31,3 +31,4 @@ require('plugins/nvim-treesitter')  -- tree-sitter interface
 require('plugins/nvim-autopairs')   -- autopairs
 require('plugins/indentline')       -- indent line
 require('plugins/comment')          -- auto comment
+require('plugins/floatterm')        -- floating terminal

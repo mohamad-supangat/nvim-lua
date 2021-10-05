@@ -42,5 +42,7 @@ require('paq') {
 
   'mhinz/vim-startify';
   'rbgrouleff/bclose.vim';
+
+  'numtostr/FTerm.nvim';
 }
 
