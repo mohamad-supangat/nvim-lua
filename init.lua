@@ -10,8 +10,12 @@
 Neovim init file
 
 Version: -2.3.0 - 2021/10/02
-Maintainer: Brainf+ck
-Website: https://github.com/brainfucksec/neovim-lua
+
+https://hantamkoding.gitlab.io
+
+
+fork from: https://github.com/brainfucksec/neovim-lua
+Tanks to: Brainf+ck for your simple dotfiles and give me idea to use init.lua
 
 --]]
 
