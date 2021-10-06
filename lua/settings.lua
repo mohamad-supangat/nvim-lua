@@ -66,8 +66,12 @@ opt.synmaxcol = 240       -- max column for syntax highlight
 -----------------------------------------------------------
 -- Colorscheme
 -----------------------------------------------------------
-opt.termguicolors = true      -- enable 24-bit RGB colors
-cmd('colorscheme monokai')
+opt.termguicolors = true      -- enable 24-bit RGB
+
+g.tokyonight_style = "night"
+g.tokyonight_italic_functions = true
+
+cmd[[colorscheme tokyonight]]
 
 -----------------------------------------------------------
 -- Tabs, indent

@@ -38,4 +38,7 @@ require('plugins/nvim-autopairs')   -- autopairs
 require('plugins/indentline')       -- indent line
 require('plugins/comment')          -- auto comment
 require('plugins/floatterm')        -- floating terminal
-require('plugins/fzf')
+require('plugins/fzf')              -- file search
+require('plugins/git')              -- git integrations
+require('plugins/accelerated-jk')   -- accelerated-jk
+require('plugins/trouble')          -- lsp diagnostic and more

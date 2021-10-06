@@ -1,6 +1,4 @@
-vim.g.fzf_preview_window = "[]"
-
-
+vim.cmd('let $FZF_DEFAULT_COMMAND = \'ag --hidden --depth 10 --ignore .git -f -g ""\'')
 
 local actions = require "fzf-lua.actions"
 require'fzf-lua'.setup {
@@ -56,7 +54,7 @@ require'fzf-lua'.setup {
   },
   -- use skim instead of fzf?
   -- https://github.com/lotabout/skim
-  fzf_bin          = 'ag --hidden --depth 10 --ignore .git -f -g ""',
+  -- fzf_bin          = 'ag --hidden --depth 10 --ignore .git -f -g ""',
   fzf_opts = {
     -- options are sent as `<left>=<right>`
     -- set to `false` to remove a flag
