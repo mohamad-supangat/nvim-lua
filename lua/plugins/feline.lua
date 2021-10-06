@@ -13,12 +13,12 @@ see: https://github.com/ibhagwan/nvim-lua
 --]]
 
 local colors = {
-  bg = '#1d1f22',
-  fg = '#f8f8f0',
-  yellow = '#e6db74',
-  cyan = '#78dce8',
-  blue = '#27406b',
-  green = '#a6e22e',
+  bg = '#1a1b26',
+  fg = '#a9b1d6',
+  yellow = '#e0af68',
+  cyan = '#7dcfff',
+  blue = '#7aa2f7',
+  green = '#73daca',
   orange = '#fa8419',
   violet = '#9c64fe',
   pink = '#f92672',
