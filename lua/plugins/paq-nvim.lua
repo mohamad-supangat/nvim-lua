@@ -35,7 +35,7 @@ require("paq") {
     "L3MON4D3/LuaSnip",
     "b3nj5m1n/kommentary",
     "windwp/nvim-autopairs",
-    "folke/tokyonight.nvim",
+    "sainnhe/gruvbox-material",
     "sbdchd/neoformat",
     "nvim-lua/plenary.nvim",
     "lewis6991/gitsigns.nvim", -- git integration

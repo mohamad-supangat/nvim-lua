@@ -68,10 +68,9 @@ opt.synmaxcol = 240       -- max column for syntax highlight
 -----------------------------------------------------------
 opt.termguicolors = true      -- enable 24-bit RGB
 
-g.tokyonight_style = "night"
-g.tokyonight_italic_functions = true
-
-cmd[[colorscheme tokyonight]]
+g.ruvbox_material_palette = 'mix'
+g.gruvbox_material_background = 'hard'
+cmd[[colorscheme gruvbox-material]]
 
 -----------------------------------------------------------
 -- Tabs, indent
