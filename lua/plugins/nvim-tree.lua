@@ -36,6 +36,8 @@ g.nvim_tree_show_icons = {
   files = 1
 }
 
+g.nvim_tree_respect_buf_cwd = 1
+
 g.nvim_tree_icons = {
 	default = "‣ "
 }
@@ -92,8 +94,8 @@ require'nvim-tree'.setup {
       update_cwd          = false,
       lsp_diagnostics     = true,
       update_focused_file = {
-        enable      = false,
-        update_cwd  = false,
+        enable      = true,
+        update_cwd  = true,
         ignore_list = {}
       },
       system_open = {
@@ -104,7 +106,7 @@ require'nvim-tree'.setup {
         width = 30,
         height = 30,
         side = 'left',
-        auto_resize = false,
+        auto_resize = true,
         mappings = {
           custom_only = true,
           list = list

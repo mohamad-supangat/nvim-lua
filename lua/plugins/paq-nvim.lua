@@ -44,7 +44,7 @@ require('paq') {
   'windwp/nvim-autopairs';
   'tanvirtin/monokai.nvim';
 
-  'mhinz/vim-startify';
+  'mhinz/vim-startify';                 -- session manager and last file opened
   'rbgrouleff/bclose.vim';
 
   'numtostr/FTerm.nvim';
