@@ -42,3 +42,4 @@ require('plugins/fzf')              -- file search
 require('plugins/git')              -- git integrations
 require('plugins/accelerated-jk')   -- accelerated-jk
 require('plugins/trouble')          -- lsp diagnostic and more
+require('plugins/colorizer')        -- show color in editor

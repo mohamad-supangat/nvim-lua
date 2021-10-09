@@ -45,12 +45,12 @@ map('i', '{;<CR>', '{<CR};<ESC>0', default_opts)
 -- Plugins shortcuts:
 -----------------------------------------------------------
 -- nvim-tree
-map('n', '<C-n>', ':NvimTreeToggle<CR>', default_opts)       -- open/close
+map('n', '<leader>n', ':NvimTreeToggle<CR>', default_opts)       -- open/close
 map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
 -- map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
 -- Vista
-map('', '<C-m>', ':Vista<CR>', default_opts)  -- open/close vista window
+-- map('', '<C-m>', ':Vista<CR>', default_opts)  -- open/close vista window
 
 -- Fzf lua
 map('', '<C-p>', ':lua require(\'fzf-lua\').files()<CR>', default_opts) -- file search
@@ -119,10 +119,10 @@ map('n', '<leader>git', ':lua lazygit()<CR>', default_opts)
 
 
 -- neovim diagnostics
-vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
+map("n", "<leader>xx", "<cmd>Trouble<cr>",
   {silent = true, noremap = true}
 )
-vim.api.nvim_set_keymap("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>",
+map("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>",
   {silent = true, noremap = true}
 )
 vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble lsp_document_diagnostics<cr>",

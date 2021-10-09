@@ -23,7 +23,7 @@ require("paq") {
     -- 'liuchengxu/vista.vim';
     "nvim-treesitter/nvim-treesitter",
     "p00f/nvim-ts-rainbow",
-    "andymass/vim-matchup",
+
     "windwp/nvim-ts-autotag",
     "neovim/nvim-lspconfig",
     "williamboman/nvim-lsp-installer",
@@ -38,11 +38,13 @@ require("paq") {
     "sainnhe/gruvbox-material",
     "sbdchd/neoformat",
     "nvim-lua/plenary.nvim",
-    "lewis6991/gitsigns.nvim", -- git integration
-    "xiyaowong/accelerated-jk.nvim", -- fast jk
-    "mhinz/vim-startify", -- session manager and last file opened
-    "rbgrouleff/bclose.vim", -- close buffer without close split
-    "numtostr/FTerm.nvim",
-    "editorconfig/editorconfig-vim",
-    "folke/trouble.nvim"
+    "lewis6991/gitsigns.nvim",              -- git integration
+    "xiyaowong/accelerated-jk.nvim",        -- fast jk
+    "mhinz/vim-startify",                   -- session manager and last file opened
+    "rbgrouleff/bclose.vim",                -- close buffer without close split
+    "numtostr/FTerm.nvim",                  -- floating terminal
+    "editorconfig/editorconfig-vim",        -- editor config integration
+    "folke/trouble.nvim",                   -- diagnostic error
+    "mg979/vim-visual-multi",                -- enable multiple cursor,
+    "norcalli/nvim-colorizer.lua"           -- show color in text editor
 }

@@ -1,5 +1,3 @@
-vim.cmd('let $FZF_DEFAULT_COMMAND = \'ag --hidden --depth 10 --ignore .git -f -g ""\'')
-
 local actions = require "fzf-lua.actions"
 require'fzf-lua'.setup {
   winopts = {
@@ -84,7 +82,7 @@ require'fzf-lua'.setup {
   }, ]]
   preview_border      = 'border',       -- border|noborder
   preview_wrap        = 'nowrap',       -- wrap|nowrap
-  preview_opts        = 'nohidden',     -- hidden|nohidden
+  preview_opts        = 'hidden',     -- hidden|nohidden
   preview_vertical    = 'down:45%',     -- up|down:size
   preview_horizontal  = 'right:60%',    -- right|left:size
   preview_layout      = 'flex',         -- horizontal|vertical|flex
@@ -127,7 +125,7 @@ require'fzf-lua'.setup {
   files = {
     -- previewer         = "cat",       -- uncomment to override previewer
     prompt            = 'Files❯ ',
-    cmd               = '',             -- "find . -type f -printf '%P\n'",
+    cmd               = 'ag --hidden --depth 10 --ignore .git -f -g ""',             -- "find . -type f -printf '%P\n'",
     git_icons         = true,           -- show git icons?
     file_icons        = true,           -- show file icons?
     color_icons       = true,           -- colorize file|git icons
