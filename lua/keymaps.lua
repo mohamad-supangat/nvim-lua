@@ -113,6 +113,10 @@ map('n', '<leader>|', '<C-w>v<C-w>l',default_opts)
 map('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>', default_opts)
 map('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', default_opts)
 
+map('n', '<F1>', ':lua fterm1()<CR>', default_opts)
+map('t', '<F1>', '<C-\\><C-n><CMD>lua fterm1()<CR>', default_opts)
+map('n', '<F2>', ':lua fterm2()<CR>', default_opts)
+map('t', '<F2>', '<C-\\><C-n><CMD>lua fterm2()<CR>', default_opts)
 map('n', '<leader>git', ':lua lazygit()<CR>', default_opts)
 
 
