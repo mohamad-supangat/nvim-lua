@@ -11,7 +11,7 @@ require("nvim-treesitter.configs").setup {
     },
     autotag = {
         enable = true,
-        filetypes = { "html" , "xml" },
+        filetypes = { "html" , "xml" , "vue"},
     },
     highlight = {
         enable = true, -- false will disable the whole extension
