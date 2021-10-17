@@ -34,6 +34,7 @@ opt.number = true             -- show line number
 opt.showmatch = true          -- highlight matching parenthesis
 -- opt.foldmethod = 'marker'     -- enable folding (default 'foldmarker')
 opt.colorcolumn = '80'        -- line lenght marker at 80 columns
+cmd[[autocmd FileType text,markdown,tex setlocal textwidth=80]]
 opt.splitright = true         -- vertical split to the right
 opt.splitbelow = true         -- orizontal split to the bottom
 opt.ignorecase = true         -- ignore case letters when search
@@ -91,12 +92,6 @@ cmd[[
   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
 ]]
 
--- IndentLine
---g.indentLine_setColors = 0  -- set indentLine color
-g.indent_blankline_char = '▏'       -- set indentLine character
-
-g.indent_blankline_use_treesitter = 1
-g.indent_blankline_show_end_of_line = 1
 
 -----------------------------------------------------------
 -- Autocompletion
@@ -108,4 +103,22 @@ opt.completeopt = 'menuone,noselect,noinsert' -- completion options
 -- Don't automatically collapse markdown and Latex
 opt.conceallevel = 0
 g.tex_conceal = ""
+
+
+
+-- startify best home dashboard and session mamager for my neovim ide
+cmd[[
+  let g:startify_session_persistence = 1
+  let g:startify_change_to_vcs_root = 1
+  let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
+  let g:startify_custom_footer = ['Neovim dotfiles at IDE https://hantamkoding.my.id']
+  let g:startify_bookmarks = [ '~/.config/nvim', '~/.dotfiles' ]
+  let g:startify_lists = [
+          \ { 'type': 'sessions',  'header': ['   Sessions']       },
+          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+          \ { 'type': 'files',     'header': ['   MRU']            },
+          \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+          \ { 'type': 'commands',  'header': ['   Commands']       },
+          \ ]
+]]
 

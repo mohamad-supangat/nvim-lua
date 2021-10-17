@@ -11,32 +11,36 @@ local paq = require("paq-nvim").paq -- import module with `paq` function
 -- Add packages
 -- for package info see: init.lua (Lua modules)
 require("paq") {
-    "savq/paq-nvim", -- let paq manage itself
-    "alexghergh/nvim-tmux-navigation",
-    "famiu/feline.nvim",
-    "ibhagwan/fzf-lua",
+    "savq/paq-nvim",                          -- let paq manage itself
+    "alexghergh/nvim-tmux-navigation",        -- better tmux integrations
+    "famiu/feline.nvim",                      -- statusline
+    "ibhagwan/fzf-lua",                       -- fzf base on lua
     "vijaymarupudi/nvim-fzf",
-    "kyazdani42/nvim-web-devicons",
-    "kyazdani42/nvim-tree.lua",
-    "akinsho/nvim-bufferline.lua",
-    "lukas-reineke/indent-blankline.nvim",
-    -- 'liuchengxu/vista.vim';
-    "nvim-treesitter/nvim-treesitter",
-    "p00f/nvim-ts-rainbow",
 
-    "windwp/nvim-ts-autotag",
-    "neovim/nvim-lspconfig",
-    "williamboman/nvim-lsp-installer",
-    "hrsh7th/nvim-cmp",
+    "kyazdani42/nvim-web-devicons",           -- icon for neovim
+    "kyazdani42/nvim-tree.lua",               -- nvim tree file manager base on lua
+    "akinsho/nvim-bufferline.lua",            -- buffer and tab manager
+    "lukas-reineke/indent-blankline.nvim",    -- indentline blank line plugin
+    -- 'liuchengxu/vista.vim';
+    "nvim-treesitter/nvim-treesitter",        -- treesitter
+    "p00f/nvim-ts-rainbow",                   -- rainbow brackets
+    "windwp/nvim-ts-autotag",                 -- auto tag base on treesitter
+    "neovim/nvim-lspconfig",                  -- neovim lsp configuration
+    "williamboman/nvim-lsp-installer",        -- neovim lsp auto installer
+    "hrsh7th/nvim-cmp",                       -- completion plugin
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-buffer",
     "saadparwaiz1/cmp_luasnip",
     "L3MON4D3/LuaSnip",
-    "b3nj5m1n/kommentary",
-    "windwp/nvim-autopairs",
-    "sainnhe/gruvbox-material",
-    "sbdchd/neoformat",
+
+    "b3nj5m1n/kommentary",                   -- auto comment plugin
+    "windwp/nvim-autopairs",                 -- auto pair
+    "sainnhe/gruvbox-material",              -- colorschemes
+    "sbdchd/neoformat",                      -- formater
+
+
+
     "nvim-lua/plenary.nvim",
     "lewis6991/gitsigns.nvim",              -- git integration
     "xiyaowong/accelerated-jk.nvim",        -- fast jk
