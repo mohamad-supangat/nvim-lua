@@ -91,8 +91,7 @@ require'nvim-tree'.setup {
       auto_close          = true,
       open_on_tab         = false,
       hijack_cursor       = false,
-      update_cwd          = true,
-      lsp_diagnostics     = true,
+      update_cwd          = false,
       update_focused_file = {
         enable      = true,
         update_cwd  = true,
@@ -101,6 +100,15 @@ require'nvim-tree'.setup {
       system_open = {
         cmd  = 'pcmanfm-qt',
         args = {}
+      },
+      diagnostics = {
+        enable = true,
+        icons = {
+          hint = "",
+          info = "",
+          warning = "",
+          error = "",
+        }
       },
       view = {
         width = 30,
