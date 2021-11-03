@@ -18,13 +18,17 @@ require("paq") {
     "vijaymarupudi/nvim-fzf",
 
     "kyazdani42/nvim-web-devicons",           -- icon for neovim
-    "kyazdani42/nvim-tree.lua",               -- nvim tree file manager base on lua
+    -- "kyazdani42/nvim-tree.lua",               -- nvim tree file manager base on Lua
+    "ms-jpq/chadtree",
+
+
     "akinsho/nvim-bufferline.lua",            -- buffer and tab manager
     "lukas-reineke/indent-blankline.nvim",    -- indentline blank line plugin
     -- 'liuchengxu/vista.vim';
     "nvim-treesitter/nvim-treesitter",        -- treesitter
     "p00f/nvim-ts-rainbow",                   -- rainbow brackets
     "windwp/nvim-ts-autotag",                 -- auto tag base on treesitter
+    -- "code-biscuits/nvim-biscuits",
     "neovim/nvim-lspconfig",                  -- neovim lsp configuration
     "williamboman/nvim-lsp-installer",        -- neovim lsp auto installer
     "hrsh7th/nvim-cmp",                       -- completion plugin

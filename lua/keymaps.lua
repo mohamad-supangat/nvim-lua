@@ -45,12 +45,11 @@ map('i', '{;<CR>', '{<CR};<ESC>0', default_opts)
 -- Plugins shortcuts:
 -----------------------------------------------------------
 -- nvim-tree
-map('n', '<leader>n', ':NvimTreeToggle<CR>', default_opts)       -- open/close
-map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
+-- map('n', '<leader>n', ':NvimTreeToggle<CR>', default_opts)       -- open/close
+-- map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
 -- map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
--- Vista
--- map('', '<C-m>', ':Vista<CR>', default_opts)  -- open/close vista window
+map('n', '<leader>n', ':CHADopen<CR>', default_opts)
 
 -- Fzf lua
 map('', '<C-p>', ':lua require(\'fzf-lua\').files()<CR>', default_opts) -- file search
