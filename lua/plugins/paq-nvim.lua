@@ -45,6 +45,7 @@ require("paq") {
 
 
 
+    "sheerun/vim-polyglot",
     "nvim-lua/plenary.nvim",
     "lewis6991/gitsigns.nvim",              -- git integration
     "xiyaowong/accelerated-jk.nvim",        -- fast jk
