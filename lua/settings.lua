@@ -41,6 +41,7 @@ opt.ignorecase = true         -- ignore case letters when search
 opt.smartcase = true          -- ignore lowercase for the whole pattern
 opt.signcolumn = 'yes'
 opt.wrap = true
+opt.cursorline = true
 
 
 
