@@ -40,7 +40,7 @@ require("paq") {
 
     "b3nj5m1n/kommentary",                   -- auto comment plugin
     "windwp/nvim-autopairs",                 -- auto pair
-    "sainnhe/gruvbox-material",              -- colorschemes
+    "tanvirtin/monokai.nvim",              -- colorschemes
     "sbdchd/neoformat",                      -- formater
 
 

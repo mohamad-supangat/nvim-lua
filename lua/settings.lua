@@ -68,11 +68,7 @@ opt.synmaxcol = 240       -- max column for syntax highlight
 -- Colorscheme
 -----------------------------------------------------------
 opt.termguicolors = true      -- enable 24-bit RGB
-
-g.ruvbox_material_palette = 'mix'
-g.gruvbox_material_background = 'hard'
-cmd[[colorscheme gruvbox-material]]
-
+require('monokai').setup {}
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------
