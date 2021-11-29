@@ -34,7 +34,7 @@ end
 require('plugins/paq-nvim')         -- plugin manager
 require('settings')                 -- settings
 require('keymaps')                  -- keymaps
--- require('plugins/nvim-tree')	      -- file manager
+require('plugins/nvim-tree')	      -- file manager
 require('plugins/chadtree')
 require('plugins/bufferline')       -- beautiful bufferline
 require('plugins/feline')           -- statusline

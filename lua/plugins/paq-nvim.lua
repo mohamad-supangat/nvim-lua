@@ -17,9 +17,10 @@ require("paq") {
     "ibhagwan/fzf-lua",                       -- fzf base on lua
     "vijaymarupudi/nvim-fzf",
 
+    "brooth/far.vim",                         -- find and replace
+
     "kyazdani42/nvim-web-devicons",           -- icon for neovim
-    -- "kyazdani42/nvim-tree.lua",               -- nvim tree file manager base on Lua
-    "ms-jpq/chadtree",
+    "kyazdani42/nvim-tree.lua",               -- nvim tree file manager base on Lua
 
 
     "akinsho/nvim-bufferline.lua",            -- buffer and tab manager

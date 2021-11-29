@@ -23,10 +23,7 @@ See: `help NvimTree`
 local g = vim.g
 
 --g.nvim_tree_width = 30
-g.nvim_tree_ignore = {'.git', 'node_modules', '.cache'}
-g.nvim_tree_gitignore = 0
 g.nvim_tree_indent_markers = 1
-g.nvim_tree_hide_dotfiles = 0
 g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 1
 g.nvim_tree_width_allow_resize  = 1
