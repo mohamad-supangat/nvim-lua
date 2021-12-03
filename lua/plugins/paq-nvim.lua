@@ -32,12 +32,18 @@ require("paq") {
     -- "code-biscuits/nvim-biscuits",
     "neovim/nvim-lspconfig",                  -- neovim lsp configuration
     "williamboman/nvim-lsp-installer",        -- neovim lsp auto installer
-    "hrsh7th/nvim-cmp",                       -- completion plugin
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-buffer",
-    "saadparwaiz1/cmp_luasnip",
-    "L3MON4D3/LuaSnip",
+
+
+   "hrsh7th/cmp-nvim-lsp",
+   "hrsh7th/cmp-buffer",
+   "hrsh7th/cmp-path",
+   "hrsh7th/cmp-cmdline",
+   "hrsh7th/nvim-cmp",
+
+
+   "hrsh7th/cmp-vsnip",
+   "hrsh7th/vim-vsnip",
+
 
     "b3nj5m1n/kommentary",                   -- auto comment plugin
     "windwp/nvim-autopairs",                 -- auto pair
@@ -46,7 +52,7 @@ require("paq") {
 
 
 
-    "sheerun/vim-polyglot",
+    -- "sheerun/vim-polyglot",
     "nvim-lua/plenary.nvim",
     "lewis6991/gitsigns.nvim",              -- git integration
     "xiyaowong/accelerated-jk.nvim",        -- fast jk

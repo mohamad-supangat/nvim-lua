@@ -95,7 +95,7 @@ cmd[[
 -----------------------------------------------------------
 -- Autocompletion
 -----------------------------------------------------------
-opt.completeopt = 'menuone,noselect,noinsert' -- completion options
+opt.completeopt = 'menuone,noselect,menu' -- completion options
 --opt.shortmess = 'c' 	-- don't show completion messages
 
 
