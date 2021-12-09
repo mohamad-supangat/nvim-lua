@@ -17,7 +17,6 @@ require("paq") {
     "ibhagwan/fzf-lua",                       -- fzf base on lua
     "vijaymarupudi/nvim-fzf",
 
-    "brooth/far.vim",                         -- find and replace
 
     "kyazdani42/nvim-web-devicons",           -- icon for neovim
     "kyazdani42/nvim-tree.lua",               -- nvim tree file manager base on Lua
@@ -36,8 +35,6 @@ require("paq") {
 
    "hrsh7th/cmp-nvim-lsp",
    "hrsh7th/cmp-buffer",
-   "hrsh7th/cmp-path",
-   "hrsh7th/cmp-cmdline",
    "hrsh7th/nvim-cmp",
 
 
@@ -60,7 +57,4 @@ require("paq") {
     "rbgrouleff/bclose.vim",                -- close buffer without close split
     "numtostr/FTerm.nvim",                  -- floating terminal
     "editorconfig/editorconfig-vim",        -- editor config integration
-    "folke/trouble.nvim",                   -- diagnostic error
-    "mg979/vim-visual-multi",                -- enable multiple cursor,
-    "norcalli/nvim-colorizer.lua"           -- show color in text editor
 }
