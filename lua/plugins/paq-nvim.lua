@@ -2,11 +2,6 @@
 -- Plugin manager configuration file
 -----------------------------------------------------------
 
--- Plugin manager: paq-nvim
--- https://github.com/savq/paq-nvim
-
-vim.cmd "packadd paq-nvim" -- load paq
-local paq = require("paq-nvim").paq -- import module with `paq` function
 
 -- Add packages
 -- for package info see: init.lua (Lua modules)

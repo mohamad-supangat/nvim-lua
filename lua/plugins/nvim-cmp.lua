@@ -10,11 +10,11 @@ local cmp = require 'cmp'
 
 cmp.setup {
   -- load snippet support
-  --[[ snippet = {
+  snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
     end
-  }, ]]
+  },
 
   -- key mapping
   mapping = {
@@ -32,11 +32,9 @@ cmp.setup {
 
   -- load sources, see: https://github.com/topics/nvim-cmp
   sources = {
-    {
-      { name = 'nvim_lsp' }
-    },
-    {
-      { name = 'buffer' },
-    },
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+    { name = 'path' },
+    { name = 'buffer' },
   },
 }
