@@ -11,7 +11,8 @@ local lazygit = fterm:new({
 
  -- Use this to toggle gitui in a floating terminal
 function _G.lazygit()
-  lazygit:toggle()
+  -- lazygit:toggle()
+  os.execute('/opt/sublime_merge/sublime_merge ' .. vim.fn.getcwd())
 end
 
 local fterm1 = fterm:new({
