@@ -22,19 +22,6 @@ See: `help NvimTree`
 
 local g = vim.g
 
---g.nvim_tree_width = 30
-g.nvim_tree_indent_markers = 1
-g.nvim_tree_git_hl = 1
-g.nvim_tree_highlight_opened_files = 1
-g.nvim_tree_width_allow_resize  = 1
-g.nvim_tree_show_icons = {
-  git = 1,
-  folders = 1,
-  files = 1
-}
-
--- g.nvim_tree_respect_buf_cwd = 1
-
 g.nvim_tree_icons = {
 	default = "‣ "
 }
@@ -79,7 +66,7 @@ local list = {
 require'nvim-tree'.setup {
       disable_netrw       = true,
       hijack_netrw        = true,
-      open_on_setup       = true,
+      open_on_setup       = false,
       ignore_ft_on_setup  = {},
       update_to_buf_dir   = {
         enable = true,
@@ -89,17 +76,8 @@ require'nvim-tree'.setup {
       open_on_tab         = false,
       hijack_cursor       = false,
       update_cwd          = false,
-      update_focused_file = {
-        enable      = true,
-        update_cwd  = true,
-        ignore_list = {}
-      },
-      system_open = {
-        cmd  = 'pcmanfm-qt',
-        args = {}
-      },
-      diagnostics = {
-        enable = true,
+      diagnostics         = {
+        enable = false,
         icons = {
           hint = "",
           info = "",
@@ -107,14 +85,37 @@ require'nvim-tree'.setup {
           error = "",
         }
       },
+      update_focused_file = {
+        enable      = true,
+        update_cwd  = false,
+        ignore_list = {}
+      },
+      system_open = {
+        cmd  = nil,
+        args = {}
+      },
+      git = {
+        enable = true,
+        ignore = false,
+      },
       view = {
         width = 30,
         height = 30,
         side = 'left',
-        auto_resize = true,
+        auto_resize = false,
+        number = false,
+        relativenumber = false,
         mappings = {
-          custom_only = true,
+          custom_only = false,
           list = list
         }
+      },
+      filters = {
+        dotfiles = false,
+        custom = {}
+      },
+      trash = {
+        cmd = "trash",
+        require_confirm = true,
       }
     }
