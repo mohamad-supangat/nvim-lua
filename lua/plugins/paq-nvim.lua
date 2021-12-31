@@ -37,6 +37,12 @@ require("paq") {
    "hrsh7th/vim-vsnip",
 
 
+   'SirVer/ultisnips',
+    'quangnguyen30192/cmp-nvim-ultisnips',
+
+   "folke/trouble.nvim",
+
+
     "b3nj5m1n/kommentary",                   -- auto comment plugin
     "windwp/nvim-autopairs",                 -- auto pair
     "tanvirtin/monokai.nvim",              -- colorschemes

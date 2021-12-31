@@ -78,14 +78,14 @@ map('n', "<C-Space>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()
 
 
 -- undo redo
-map('n', '<C-Z>', 'u', default_opts)
+--[[ map('n', '<C-Z>', 'u', default_opts)
 map('n', '<C-Y>', '<C-R>', default_opts)
 map('i', '<C-Z>', '<C-O>u', default_opts)
 map('i', '<C-Y>', '<C-O><C-R>', default_opts)
 map('v', '<C-Z>', '<C-O>u', default_opts)
 map('v', '<C-Y>', '<C-O><C-R>', default_opts)
 
-
+ ]]
 -- tab
 map('n', '<C-t>', ':enew<CR>', default_opts)
 map('i', '<C-t>', ':<Esc>:enew<CR>i', default_opts)
