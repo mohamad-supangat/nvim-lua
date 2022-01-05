@@ -69,11 +69,24 @@ opt.synmaxcol = 240       -- max column for syntax highlight
 -- Colorscheme
 -----------------------------------------------------------
 opt.termguicolors = true      -- enable 24-bit RGB
+g.t_Co = 256
+g.syntax_on = true
+
 require('github-theme').setup({
   theme_style = "dark_default",
   function_style = "italic",
   sidebars = {"qf", "vista_kind", "terminal", "packer"},
 })
+
+
+-----------------------------------------------------------
+-- Statusline
+-----------------------------------------------------------
+
+vim.opt.statusline =
+    "  %<   %f %m %r %w %= Ln %l, Col %c  %{&fileencoding?&fileencoding:&encoding}  "
+
+
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------

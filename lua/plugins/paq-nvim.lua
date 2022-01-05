@@ -8,12 +8,13 @@
 require("paq") {
     "savq/paq-nvim",                          -- let paq manage itself
     "alexghergh/nvim-tmux-navigation",        -- better tmux integrations
-    "famiu/feline.nvim",                      -- statusline
+    -- "famiu/feline.nvim",                      -- statusline
     "ibhagwan/fzf-lua",                       -- fzf base on lua
     "vijaymarupudi/nvim-fzf",
 
 
     "kyazdani42/nvim-web-devicons",           -- icon for neovim
+    "projekt0n/circles.nvim",
     "kyazdani42/nvim-tree.lua",               -- nvim tree file manager base on Lua
 
 
