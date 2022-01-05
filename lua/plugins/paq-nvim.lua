@@ -45,7 +45,7 @@ require("paq") {
 
     "b3nj5m1n/kommentary",                   -- auto comment plugin
     "windwp/nvim-autopairs",                 -- auto pair
-    "tanvirtin/monokai.nvim",              -- colorschemes
+    "projekt0n/github-nvim-theme",              -- colorschemes
     "sbdchd/neoformat",                      -- formater
 
 

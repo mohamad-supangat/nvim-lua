@@ -120,7 +120,7 @@ map('n', '<leader>git', ':lua lazygit()<CR>', default_opts)
 
 
 -- neovim diagnostics
-map("n", "<leader>xx", "<cmd>Trouble<cr>",
+map("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
   {silent = true, noremap = true}
 )
 map("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>",

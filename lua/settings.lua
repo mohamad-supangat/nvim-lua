@@ -69,7 +69,11 @@ opt.synmaxcol = 240       -- max column for syntax highlight
 -- Colorscheme
 -----------------------------------------------------------
 opt.termguicolors = true      -- enable 24-bit RGB
-require('monokai').setup {}
+require('github-theme').setup({
+  theme_style = "dark_default",
+  function_style = "italic",
+  sidebars = {"qf", "vista_kind", "terminal", "packer"},
+})
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------
@@ -106,12 +110,12 @@ g.tex_conceal = ""
 
 
 -- startify best home dashboard and session mamager for my neovim ide
+
+g.startify_session_persistence = 1
+g.startify_change_to_vcs_root = 1
+g.startify_custom_footer={'Neovim dotfiles at IDE https://hantamkoding.my.id'}
+g.startify_bookmarks = { '~/.config/nvim', '~/.dotfiles' }
 cmd[[
-  let g:startify_session_persistence = 1
-  let g:startify_change_to_vcs_root = 1
-  let g:startify_custom_header = 'startify#pad(startify#fortune#cowsay())'
-  let g:startify_custom_footer = ['Neovim dotfiles at IDE https://hantamkoding.my.id']
-  let g:startify_bookmarks = [ '~/.config/nvim', '~/.dotfiles' ]
   let g:startify_lists = [
           \ { 'type': 'sessions',  'header': ['   Sessions']       },
           \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
@@ -122,7 +126,4 @@ cmd[[
 ]]
 
 
--- ranger-masterg
-g.rnvimr_enable_ex = 1
-g.rnvimr_enable_picker = 1
-g.rnvimr_enable_bw = 1
+
