@@ -19,6 +19,11 @@ g.mapleader = ' '             -- change leader to a comma
 opt.mouse = 'a'               -- enable mouse support
 opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 opt.swapfile = false          -- don't use swapfile
+
+vim.o.backup = false -- This is recommended by coc
+vim.o.swapfile = false
+vim.o.writebackup = false -- This is recommended by coc
+
 g.backspace = 'indent,eol,start' -- backspace indent
 
 -- Automatically re-read file if a change was detected outside of vim
