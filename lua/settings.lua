@@ -79,8 +79,11 @@ g.syntax_on = true
 
 require('github-theme').setup({
   theme_style = "dark_default",
-  function_style = "italic",
   sidebars = {"qf", "vista_kind", "terminal", "packer"},
+  comment_style = "italic",
+  keyword_style = "italic",
+  function_style = "italic",
+  variable_style = "italic"
 })
 
 
