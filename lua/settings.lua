@@ -82,7 +82,7 @@ require('github-theme').setup({
   comment_style = "italic",
   keyword_style = "italic",
   function_style = "italic",
-  variable_style = "italic"
+  variable_style = "italic",
   function_style = "italic",
   sidebars = {"qf", "vista_kind", "terminal", "packer", "nvim-tree"},
 })
