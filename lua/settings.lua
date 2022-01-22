@@ -75,7 +75,7 @@ g.syntax_on = true
 require('github-theme').setup({
   theme_style = "dark_default",
   function_style = "italic",
-  sidebars = {"qf", "vista_kind", "terminal", "packer"},
+  sidebars = {"qf", "vista_kind", "terminal", "packer", "nvim-tree"},
 })
 
 

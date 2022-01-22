@@ -46,6 +46,7 @@ map('i', '{;<CR>', '{<CR};<ESC>0', default_opts)
 -----------------------------------------------------------
 -- nvim-tree
 map('n', '<leader>n', ':NvimTreeToggle<CR>', default_opts)       -- open/close
+map('n', '<leader>m', ':NvimTreeFocus<CR>', default_opts)       -- focus
 map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
 -- map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 

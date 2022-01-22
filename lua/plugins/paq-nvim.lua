@@ -14,7 +14,7 @@ require("paq") {
 
 
     "kyazdani42/nvim-web-devicons",           -- icon for neovim
-    "projekt0n/circles.nvim",
+    -- "projekt0n/circles.nvim",
     "kyazdani42/nvim-tree.lua",               -- nvim tree file manager base on Lua
 
 
@@ -35,12 +35,11 @@ require("paq") {
    "hrsh7th/nvim-cmp",
 
 
-   "hrsh7th/cmp-vsnip",
-   "hrsh7th/vim-vsnip",
 
-
-   'SirVer/ultisnips',
+    'SirVer/ultisnips',
+    "honza/vim-snippets",
     'quangnguyen30192/cmp-nvim-ultisnips',
+
 
    "folke/trouble.nvim",
 
