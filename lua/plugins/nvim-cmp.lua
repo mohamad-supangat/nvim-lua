@@ -4,9 +4,7 @@
 
 -- Plugin: nvim-cmp
 -- https://github.com/hrsh7th/nvim-cmp
-
-local cmp = require 'cmp'
-
+local cmp = require'cmp'
 
 cmp.setup {
   -- load snippet support
