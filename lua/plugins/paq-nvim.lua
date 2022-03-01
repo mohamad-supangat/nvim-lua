@@ -41,6 +41,9 @@ require("paq") {
     'quangnguyen30192/cmp-nvim-ultisnips',
 
 
+    -- "mg979/vim-visual-multi",
+
+
    "folke/trouble.nvim",
 
 
