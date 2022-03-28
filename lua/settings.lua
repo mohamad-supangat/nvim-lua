@@ -128,24 +128,3 @@ opt.completeopt = 'menuone,noselect,menu' -- completion options
 -- Don't automatically collapse markdown and Latex
 opt.conceallevel = 0
 g.tex_conceal = ""
-
-
-
--- startify best home dashboard and session mamager for my neovim ide
-
-g.startify_session_persistence = 1
-g.startify_change_to_vcs_root = 1
-g.startify_custom_footer={'Neovim dotfiles at IDE https://hantamkoding.my.id'}
-g.startify_bookmarks = { '~/.config/nvim', '~/.dotfiles' }
-cmd[[
-  let g:startify_lists = [
-          \ { 'type': 'sessions',  'header': ['   Sessions']       },
-          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-          \ { 'type': 'files',     'header': ['   MRU']            },
-          \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
-          \ { 'type': 'commands',  'header': ['   Commands']       },
-          \ ]
-]]
-
-
-

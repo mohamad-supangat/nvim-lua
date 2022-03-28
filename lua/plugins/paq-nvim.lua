@@ -58,7 +58,7 @@ require("paq") {
     "nvim-lua/plenary.nvim",
     "lewis6991/gitsigns.nvim",              -- git integration
     "xiyaowong/accelerated-jk.nvim",        -- fast jk
-    "mhinz/vim-startify",                   -- session manager and last file opened
+    "goolord/alpha-nvim",                   -- session manager and last file opened
     "rbgrouleff/bclose.vim",                -- close buffer without close split
     "numtostr/FTerm.nvim",                  -- floating terminal
     "editorconfig/editorconfig-vim",        -- editor config integration

@@ -41,6 +41,7 @@ require('plugins/chadtree')
 require('plugins/bufferline')       -- beautiful bufferline
 -- require('plugins/feline')           -- statusline
 -- require('plugins/vista')            -- tag viewer
+require('plugins/alpha-nvim')       -- dashboard
 require('plugins/indentline')       -- indent line
 require('plugins/comment')          -- auto comment
 require('plugins/floatterm')        -- floating terminal
