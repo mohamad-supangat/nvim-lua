@@ -45,9 +45,9 @@ map('i', '{;<CR>', '{<CR};<ESC>0', default_opts)
 -- Plugins shortcuts:
 -----------------------------------------------------------
 -- nvim-tree
-map('n', '<leader>n', ':NvimTreeToggle<CR>', default_opts)       -- open/close
-map('n', '<leader>m', ':NvimTreeFocus<CR>', default_opts)       -- focus
-map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
+map('n', '<C-n>', ':NvimTreeToggle<CR>', default_opts)          -- open/close
+map('n', '<C-m>', ':NvimTreeFocus<CR>', default_opts)           -- focus
+map('n', '<C-r>', ':NvimTreeRefresh<CR>', default_opts)         -- refresh
 -- map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
 -- Fzf lua
@@ -60,12 +60,9 @@ map('v', '<S-Tab>','<gv', default_opts)
 
 
 -- copy paste in neovim
-
-
 map('n', '<C-a>','<Esc>ggVG', default_opts) -- select all text in normal mode
 map('i', '<A-BS>', '<C-W>', default_opts) -- alt + backspace delete word
 map('v', '<BS>', '"_d', default_opts) -- delete witout cut / copy to buffer
-
 
 
 -- neovim tmux nvim-tmux-navigation
