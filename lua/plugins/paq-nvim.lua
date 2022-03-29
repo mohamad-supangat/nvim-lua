@@ -8,7 +8,7 @@
 require("paq") {
     "savq/paq-nvim",                          -- let paq manage itself
     "alexghergh/nvim-tmux-navigation",        -- better tmux integrations
-    -- "famiu/feline.nvim",                      -- statusline
+    "famiu/feline.nvim",                      -- statusline
     "ibhagwan/fzf-lua",                       -- fzf base on lua
     "vijaymarupudi/nvim-fzf",
 

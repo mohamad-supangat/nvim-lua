@@ -92,9 +92,9 @@ require('github-theme').setup({
 -- Statusline
 -----------------------------------------------------------
 
-vim.opt.statusline =
-    "  %<   %f %m %r %w %= Ln %l, Col %c  %{&fileencoding?&fileencoding:&encoding}  "
-
+--[[ vim.opt.statusline =
+    "  %   %f %m %r %w %= Ln %l, Col %c  %{&fileencoding?&fileencoding:&encoding}  "
+ ]]
 
 -----------------------------------------------------------
 -- Tabs, indent

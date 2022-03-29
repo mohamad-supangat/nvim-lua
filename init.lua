@@ -39,8 +39,9 @@ require('keymaps')                  -- keymaps
 require('plugins/nvim-tree')	      -- file manager
 require('plugins/chadtree')
 require('plugins/bufferline')       -- beautiful bufferline
--- require('plugins/feline')           -- statusline
+
 -- require('plugins/vista')            -- tag viewer
+
 require('plugins/alpha-nvim')       -- dashboard
 require('plugins/indentline')       -- indent line
 require('plugins/comment')          -- auto comment
@@ -56,6 +57,9 @@ require('plugins/nvim-lspconfig')   -- LSP settings
 require('plugins/nvim-cmp')         -- autocomplete
 require('plugins/nvim-treesitter')  -- tree-sitter interface
 require('plugins/nvim-autopairs')   -- autopairs
-require('plugins/nvim-gps')         -- show current context
 
+
+
+require('plugins/nvim-gps')
+require('plugins/feline')           -- statusline
 

@@ -2,6 +2,8 @@
 -- Statusline configuration file
 -----------------------------------------------------------
 
+local gps = require("nvim-gps")
+
 --[[
 
 Plugin: feline.nvim
@@ -221,6 +223,17 @@ table.insert(components.active[2], comps.file.os)
 table.insert(components.active[2], comps.file.position)
 table.insert(components.active[2], comps.file.line_percentage)
 table.insert(components.active[2], comps.file.scroll_bar)
+
+
+-- add nvim gps
+table.insert(components.active[1], {
+	provider = function()
+		return gps.get_location()
+	end,
+	enabled = function()
+		return gps.is_available()
+	end
+})
 
 require('feline').setup {
   colors = { bg = colors.bg, fg = colors.fg  },

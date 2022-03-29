@@ -98,11 +98,3 @@ require("nvim-gps").setup({
 	-- indicator used when context hits depth limit
 	depth_limit_indicator = ".."
 })
-
-
-func! NvimGps() abort
-	return luaeval("require'nvim-gps'.is_available()") ?
-		\ luaeval("require'nvim-gps'.get_location()") : ''
-endf
-
-set statusline+=%{NvimGps()}
