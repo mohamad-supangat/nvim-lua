@@ -1,1 +1,3 @@
-require'alpha'.setup(require'alpha.themes.startify'.config)
+local config = require'alpha.themes.dashboard'.config
+
+require'alpha'.setup(config)

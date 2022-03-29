@@ -8,7 +8,7 @@ require("indent_blankline").setup {
     show_current_context = false,
     show_current_context_start = true,
 
-    buftype_exclude = {"terminal", 'startify', 'nvim-tree', 'CHADTree', 'chad-tree', 'no-profile'},
-    filetype_exclude = {"terminal", 'startify', 'nvim-tree', 'CHADTree', 'chad-tree', 'no-profile'},
+    buftype_exclude = {"terminal", 'startify', 'nvim-tree', 'CHADTree', 'chad-tree', 'no-profile', 'alpha'},
+    filetype_exclude = {"terminal", 'startify', 'nvim-tree', 'CHADTree', 'chad-tree', 'no-profile', 'alpha', ''},
     show_end_of_line = true,
 }
