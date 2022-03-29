@@ -47,7 +47,7 @@ map('i', '{;<CR>', '{<CR};<ESC>0', default_opts)
 -- nvim-tree
 map('n', '<C-n>', ':NvimTreeToggle<CR>', default_opts)          -- open/close
 map('n', '<C-m>', ':NvimTreeFocus<CR>', default_opts)           -- focus
-map('n', '<C-r>', ':NvimTreeRefresh<CR>', default_opts)         -- refresh
+-- map('n', '<-r>', ':NvimTreeRefresh<CR>', default_opts)         -- refresh
 -- map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
 -- Fzf lua
