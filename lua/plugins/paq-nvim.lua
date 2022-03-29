@@ -24,7 +24,8 @@ require("paq") {
     "nvim-treesitter/nvim-treesitter",        -- treesitter
     "p00f/nvim-ts-rainbow",                   -- rainbow brackets
     "windwp/nvim-ts-autotag",                 -- auto tag base on treesitter
-    -- "romgrk/nvim-treesitter-context",         -- show code context
+    "SmiteshP/nvim-gps",                      -- show current context cursor
+
     -- "code-biscuits/nvim-biscuits",
     "neovim/nvim-lspconfig",                  -- neovim lsp configuration
     "williamboman/nvim-lsp-installer",        -- neovim lsp auto installer

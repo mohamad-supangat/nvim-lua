@@ -56,5 +56,6 @@ require('plugins/nvim-lspconfig')   -- LSP settings
 require('plugins/nvim-cmp')         -- autocomplete
 require('plugins/nvim-treesitter')  -- tree-sitter interface
 require('plugins/nvim-autopairs')   -- autopairs
+require('plugins/nvim-gps')         -- show current context
 
 
