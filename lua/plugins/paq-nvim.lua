@@ -26,7 +26,7 @@ require("paq") {
     "windwp/nvim-ts-autotag",
     "SmiteshP/nvim-gps",
     -- "code-biscuits/nvim-biscuits",
-
+    "tpope/vim-sleuth",
     --------------------------------------------
     -- LSP
     --------------------------------------------
