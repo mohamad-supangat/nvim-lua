@@ -54,5 +54,5 @@ require("paq") {
     "rbgrouleff/bclose.vim",
     "numtostr/FTerm.nvim",
     "gpanders/editorconfig.nvim",
-    "Shatur/neovim-session-manager"
+    -- "Shatur/neovim-session-manager"
 }

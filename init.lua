@@ -58,4 +58,4 @@ require("plugins/nvim-autopairs") -- autopairs
 
 require("plugins/nvim-gps")
 require("plugins/feline") -- statusline
-require("plugins/session-manager")
+-- require("plugins/session-manager")
