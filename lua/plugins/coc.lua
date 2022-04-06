@@ -21,6 +21,10 @@ map("n", "gd", "<Plug>(coc-definition)", {silent = true})
 map("n", "K", ":call CocActionAsync('doHover')<CR>", {silent = true, noremap = true})
 map("n", "<leader>rn", "<Plug>(coc-rename)", {})
 map("n", "<leader>f", ":CocCommand prettier.formatFile<CR>", {noremap = true})
+map("n", "<leader>coc", ":CocList<CR>", {noremap = true})
+map("n", "<leader>P", ":CocCommand<CR>", {noremap = true})
+
+
 map("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
 map("i", "<TAB>", "pumvisible() ? '<C-n>' : '<TAB>'", {noremap = true, silent = true, expr = true})
 map("i", "<S-TAB>", "pumvisible() ? '<C-p>' : '<C-h>'", {noremap = true, expr = true})
