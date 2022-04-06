@@ -35,8 +35,6 @@ require("settings") -- settings
 require("keymaps") -- keymaps
 
 -- require('plugins.circle-nvim')
-require("plugins/nvim-tree") -- file manager
-require("plugins/chadtree")
 require("plugins/bufferline") -- beautiful bufferline
 
 -- require('plugins/vista')            -- tag viewer
@@ -46,16 +44,11 @@ require("plugins/indentline") -- indent line
 require("plugins/comment") -- auto comment
 require("plugins/floatterm") -- floating terminal
 require("plugins/fzf") -- file search
-require("plugins/git") -- git integrations
+
 require("plugins/accelerated-jk") -- accelerated-jk
-require("plugins/trouble") -- lsp diagnostic and more
 -- require('plugins/colorizer')        -- show color in editor
 
-require("plugins/nvim-lspconfig") -- LSP settings
-require("plugins/nvim-cmp") -- autocomplete
-require("plugins/nvim-treesitter") -- tree-sitter interface
-require("plugins/nvim-autopairs") -- autopairs
-
-require("plugins/nvim-gps")
+-- require("plugins/nvim-gps")
 require("plugins/feline") -- statusline
 -- require("plugins/session-manager")
+require('plugins/coc')

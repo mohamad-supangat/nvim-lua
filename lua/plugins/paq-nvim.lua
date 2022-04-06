@@ -13,42 +13,32 @@ require("paq") {
     "kyazdani42/nvim-web-devicons",
     -- "projekt0n/circles.nvim",
 
-    "kyazdani42/nvim-tree.lua",
     "akinsho/nvim-bufferline.lua",
     "lukas-reineke/indent-blankline.nvim",
     -- 'liuchengxu/vista.vim';
 
     -------------------------------------------
-    -- treesitter section
+    -- Auto config
     -------------------------------------------
-    "nvim-treesitter/nvim-treesitter",
-    "p00f/nvim-ts-rainbow",
-    "windwp/nvim-ts-autotag",
-    "SmiteshP/nvim-gps",
-    -- "code-biscuits/nvim-biscuits",
+    "sheerun/vim-polyglot",
     "tpope/vim-sleuth",
+
     --------------------------------------------
     -- LSP
     --------------------------------------------
-    "neovim/nvim-lspconfig",
-    "williamboman/nvim-lsp-installer",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/nvim-cmp",
-    "SirVer/ultisnips",
+    {"neoclide/coc.nvim", branch="release"},
     "honza/vim-snippets",
-    "quangnguyen30192/cmp-nvim-ultisnips",
-    "folke/trouble.nvim",
+
     --------------------------------------------
     -- End LSP
     --------------------------------------------
 
     "b3nj5m1n/kommentary",
-    "windwp/nvim-autopairs",
     "projekt0n/github-nvim-theme",
+
     "sbdchd/neoformat",
     "nvim-lua/plenary.nvim",
-    "lewis6991/gitsigns.nvim",
+
     "xiyaowong/accelerated-jk.nvim",
     "goolord/alpha-nvim",
     "rbgrouleff/bclose.vim",

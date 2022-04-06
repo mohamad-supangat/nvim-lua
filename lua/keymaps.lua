@@ -42,11 +42,6 @@ map('i', '{;<CR>', '{<CR};<ESC>0', default_opts)
 -----------------------------------------------------------
 -- Plugins shortcuts:
 -----------------------------------------------------------
--- nvim-tree
-map("n", "<C-n>", ":NvimTreeToggle<CR>", default_opts) -- open/close
-map("n", "<C-m>", ":NvimTreeFocus<CR>", default_opts) -- focus
--- map('n', '<-r>', ':NvimTreeRefresh<CR>', default_opts)         -- refresh
--- map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
 -- Fzf lua
 map("", "<C-p>", ":lua require('fzf-lua').files()<CR>", default_opts) -- file search
@@ -54,6 +49,9 @@ map("", "<C-p>", ":lua require('fzf-lua').files()<CR>", default_opts) -- file se
 -- indent control
 map("v", "<Tab>", ">gv", default_opts)
 map("v", "<S-Tab>", "<gv", default_opts)
+map("v", ">", ">gv", default_opts)
+map("v", "<", "<gv", default_opts)
+
 
 -- copy paste in neovim
 map("n", "<C-a>", "<Esc>ggVG", default_opts) -- select all text in normal mode
