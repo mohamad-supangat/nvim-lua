@@ -98,16 +98,6 @@ map("n", "Y", "y$", default_opts) -- Change Y to copy to end of line and behave 
 map("n", "<leader>-", "<C-w>s", default_opts)
 map("n", "<leader>|", "<C-w>v<C-w>l", default_opts)
 
--- floating terminal
-map("n", "<A-i>", '<CMD>lua require("FTerm").toggle()<CR>', default_opts)
-map("t", "<A-i>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', default_opts)
-
-map("n", "<F1>", ":lua fterm1()<CR>", default_opts)
-map("t", "<F1>", "<C-\\><C-n><CMD>lua fterm1()<CR>", default_opts)
-map("n", "<F2>", ":lua fterm2()<CR>", default_opts)
-map("t", "<F2>", "<C-\\><C-n><CMD>lua fterm2()<CR>", default_opts)
-map("n", "<leader>git", ":lua lazygit()<CR>", default_opts)
-
 -- neovim diagnostics
 map("n", "<leader>xx", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
 map("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>", {silent = true, noremap = true})

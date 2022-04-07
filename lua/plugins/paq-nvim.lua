@@ -42,7 +42,7 @@ require("paq") {
     "xiyaowong/accelerated-jk.nvim",
     "goolord/alpha-nvim",
     "rbgrouleff/bclose.vim",
-    "numtostr/FTerm.nvim",
+    "akinsho/toggleterm.nvim",
     "gpanders/editorconfig.nvim",
     -- "Shatur/neovim-session-manager"
 }

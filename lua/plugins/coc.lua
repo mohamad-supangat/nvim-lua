@@ -20,7 +20,10 @@ map("n", "<leader>l", ":CocCommand eslint.executeAutofix<CR>", {})
 map("n", "gd", "<Plug>(coc-definition)", {silent = true})
 map("n", "K", ":call CocActionAsync('doHover')<CR>", {silent = true, noremap = true})
 map("n", "<leader>rn", "<Plug>(coc-rename)", {})
-map("n", "<leader>f", ":CocCommand prettier.formatFile<CR>", {noremap = true})
+
+map("n", "<leader>f", " <Plug>(coc-format-selected)", {noremap = true})
+map("x", "<leader>f", " <Plug>(coc-format-selected)", {noremap = true})
+
 map("n", "<leader>coc", ":CocList<CR>", {noremap = true})
 map("n", "<leader>P", ":CocCommand<CR>", {noremap = true})
 
@@ -33,7 +36,3 @@ map("i", "<CR>", "pumvisible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=coc#on
 
 g.coc_global_extensions =  {'coc-git', 'coc-json', 'coc-marketplace', 'coc-pairs', 'coc-explorer', 'coc-snippets'}
 
-opt.hidden = true
-opt.backup = false
-opt.writebackup = false
-opt.updatetime = 300
