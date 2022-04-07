@@ -15,7 +15,7 @@ require("paq") {
 
     "akinsho/nvim-bufferline.lua",
     "lukas-reineke/indent-blankline.nvim",
-    -- 'liuchengxu/vista.vim';
+    'liuchengxu/vista.vim',
 
     -------------------------------------------
     -- Auto config

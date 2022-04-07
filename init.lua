@@ -37,7 +37,7 @@ require("keymaps") -- keymaps
 -- require('plugins.circle-nvim')
 require("plugins/bufferline") -- beautiful bufferline
 
--- require('plugins/vista')            -- tag viewer
+require('plugins/vista')            -- tag viewer
 
 require("plugins/alpha-nvim") -- dashboard
 require("plugins/indentline") -- indent line
