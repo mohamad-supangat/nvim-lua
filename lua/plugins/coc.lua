@@ -21,8 +21,10 @@ map("n", "gd", "<Plug>(coc-definition)", {silent = true})
 map("n", "K", ":call CocActionAsync('doHover')<CR>", {silent = true, noremap = true})
 map("n", "<leader>rn", "<Plug>(coc-rename)", {})
 
-map("n", "<leader>f", " <Plug>(coc-format-selected)", {noremap = true})
-map("x", "<leader>f", " <Plug>(coc-format-selected)", {noremap = true})
+map("n", "<leader>f", ":call CocActionAsync('format')<CR>", {noremap = true})
+map("x", "<leader>f", " <Plug>(coc-format-selected)<CR>", {noremap = true})
+map("v", "<leader>f", " <Plug>(coc-format-selected)<CR>", {noremap = true})
+
 
 map("n", "<leader>coc", ":CocList<CR>", {noremap = true})
 map("n", "<leader>P", ":CocCommand<CR>", {noremap = true})
