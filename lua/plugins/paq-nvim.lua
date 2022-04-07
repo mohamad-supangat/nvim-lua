@@ -35,6 +35,7 @@ require("paq") {
 
     "b3nj5m1n/kommentary",
     "projekt0n/github-nvim-theme",
+    "sainnhe/gruvbox-material",
 
     "sbdchd/neoformat",
     "nvim-lua/plenary.nvim",
