@@ -45,6 +45,8 @@ map('i', '{;<CR>', '{<CR};<ESC>0', default_opts)
 
 -- Fzf lua
 map("", "<C-p>", ":lua require('fzf-lua').files()<CR>", default_opts) -- file search
+map("n", "<leader>fzf", ":FzfLua<CR>", default_opts) -- open fzf menu
+
 
 -- indent control
 map("v", "<Tab>", ">gv", default_opts)
