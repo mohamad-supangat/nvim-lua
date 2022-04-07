@@ -76,17 +76,9 @@ g.t_Co = 256
 g.syntax_on = true
 
 
-cmd [[colorscheme gruvbox-material]]
-
-cmd [[let g:gruvbox_material_transparent_background = 1]]
-cmd [[set background=dark]]
-
-g.gruvbox_material_background = 'hard'
-g.gruvbox_material_better_performance = true
-
---[[
 require("github-theme").setup(
     {
+        transparent = true,
         theme_style = "dark_default",
         comment_style = "italic",
         keyword_style = "italic",
@@ -95,7 +87,7 @@ require("github-theme").setup(
         function_style = "italic",
         sidebars = {"qf", "vista_kind", "terminal", "packer", "nvim-tree"}
     }
-) ]]
+)
 
 -----------------------------------------------------------
 -- Statusline
