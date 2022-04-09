@@ -52,7 +52,7 @@ end
 function _G.set_terminal_keymaps()
     local opts = {noremap = true}
     map("t", "<esc>", [[<C-\><C-n>]], opts)
-    map("t", "jk", [[<C-\><C-n>]], opts)
+    -- map("t", "jk", [[<C-\><C-n>]], opts)
     map("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
     map("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
     map("t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
