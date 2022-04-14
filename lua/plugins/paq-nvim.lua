@@ -46,4 +46,6 @@ require("paq") {
     "akinsho/toggleterm.nvim",
     "gpanders/editorconfig.nvim",
     -- "Shatur/neovim-session-manager"
+
+    "alvan/vim-closetag"
 }

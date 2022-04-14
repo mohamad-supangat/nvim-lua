@@ -52,3 +52,4 @@ require("plugins/accelerated-jk") -- accelerated-jk
 require("plugins/feline") -- statusline
 -- require("plugins/session-manager")
 require("plugins/coc")
+require("plugins/auto-closetag")
