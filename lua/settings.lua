@@ -92,7 +92,7 @@ require("github-theme").setup(
 -----------------------------------------------------------
 -- Statusline
 -----------------------------------------------------------
-
+opt.laststatus = 3
 --[[ vim.opt.statusline =
     "  %   %f %m %r %w %= Ln %l, Col %c  %{&fileencoding?&fileencoding:&encoding}  "
  ]]
