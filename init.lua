@@ -49,7 +49,7 @@ require("plugins/accelerated-jk") -- accelerated-jk
 -- require('plugins/colorizer')        -- show color in editor
 
 -- require("plugins/nvim-gps")
-require("plugins/feline") -- statusline
+require("plugins/statusline") -- statusline
 -- require("plugins/session-manager")
 require("plugins/coc")
 require("plugins/auto-closetag")
