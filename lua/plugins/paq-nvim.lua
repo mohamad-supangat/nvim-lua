@@ -7,7 +7,7 @@
 require("paq") {
     "savq/paq-nvim",
     "alexghergh/nvim-tmux-navigation",
-    "famiu/feline.nvim",
+    "nvim-lualine/lualine.nvim",
     "ibhagwan/fzf-lua",
     "vijaymarupudi/nvim-fzf",
     "kyazdani42/nvim-web-devicons",
