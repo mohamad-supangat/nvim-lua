@@ -47,5 +47,8 @@ require("paq") {
     "gpanders/editorconfig.nvim",
     -- "Shatur/neovim-session-manager"
 
-    "alvan/vim-closetag"
+    "alvan/vim-closetag",
+
+
+    "mattn/emmet-vim"
 }
