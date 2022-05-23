@@ -50,6 +50,11 @@ require("plugins/accelerated-jk") -- accelerated-jk
 
 -- require("plugins/nvim-gps")
 require("plugins/statusline") -- statusline
--- require("plugins/session-manager")
-require("plugins/coc")
+-- require("plugins/coc")
+
+require('plugins/nvim-lsp')
+require('plugins/autopair')
+
+
+
 require("plugins/auto-closetag")

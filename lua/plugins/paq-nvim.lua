@@ -26,8 +26,23 @@ require("paq") {
     --------------------------------------------
     -- LSP
     --------------------------------------------
-    {"neoclide/coc.nvim", branch="release"},
+
+    -- uncomment if using coc nvim
+    --[[ {"neoclide/coc.nvim", branch="release"},
+    "honza/vim-snippets", ]]
+
+    "windwp/nvim-autopairs",
+    "neovim/nvim-lspconfig",
+    "williamboman/nvim-lsp-installer",
+
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/nvim-cmp",
+    "SirVer/ultisnips",
     "honza/vim-snippets",
+    "quangnguyen30192/cmp-nvim-ultisnips",
+    "folke/trouble.nvim",
+
 
     --------------------------------------------
     -- End LSP
@@ -39,11 +54,12 @@ require("paq") {
 
     "sbdchd/neoformat",
     "nvim-lua/plenary.nvim",
+    "lewis6991/gitsigns.nvim",
 
     "xiyaowong/accelerated-jk.nvim",
     "goolord/alpha-nvim",
     "rbgrouleff/bclose.vim",
-    "akinsho/toggleterm.nvim",
+    "numtostr/FTerm.nvim",
     "gpanders/editorconfig.nvim",
     -- "Shatur/neovim-session-manager"
 
