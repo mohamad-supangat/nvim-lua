@@ -7,6 +7,10 @@
 require("paq") {
     "savq/paq-nvim",
 
+    -------------------------------------------------
+    --Icon
+    "kyazdani42/nvim-web-devicons",
+
     ----------------------------------------------
     -- Status line buffer and some required plugins
     "nvim-lua/plenary.nvim",
@@ -19,7 +23,6 @@ require("paq") {
     --------------------------------------------
     -- file finder
     "ibhagwan/fzf-lua",
-    "vijaymarupudi/nvim-fzf",
 
     ----------------------------------------------
     -- Theme
@@ -29,10 +32,6 @@ require("paq") {
 
 
 
-    -------------------------------------------------
-    -- Icon
-    "kyazdani42/nvim-web-devicons",
-    -- "projekt0n/circles.nvim",
 
 
     'liuchengxu/vista.vim',

@@ -75,19 +75,8 @@ opt.termguicolors = true -- enable 24-bit RGB
 g.t_Co = 256
 g.syntax_on = true
 
+vim.cmd('colorscheme base16-gruvbox-dark-hard')
 
-require("github-theme").setup(
-    {
-        transparent = true,
-        theme_style = "dark_default",
-        comment_style = "italic",
-        keyword_style = "italic",
-        function_style = "italic",
-        variable_style = "italic",
-        function_style = "italic",
-        sidebars = {"qf", "vista_kind", "terminal", "packer", "nvim-tree"}
-    }
-)
 
 -----------------------------------------------------------
 -- Statusline
