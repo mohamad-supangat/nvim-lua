@@ -21,11 +21,21 @@ map("n", "gd", "<Plug>(coc-definition)", {silent = true})
 map("n", "K", ":call CocActionAsync('doHover')<CR>", {silent = true, noremap = true})
 map("n", "<leader>rn", "<Plug>(coc-rename)", {})
 
+
+-- snippets
+-- map("i", "<leader>s", "<Plug>(coc-snippets-expand)", default_opts)
+map("x", "<leader>x", "<Plug>(coc-convert-snippet)", default_opts)
+
+-- map("v", "<leader>ss", "<Plug>(coc-snippets-select)", default_opts)
+
+-- formater command
 map("n", "<leader>f", ":call CocActionAsync('format')<CR>", {noremap = true})
 map("x", "<leader>f", " <Plug>(coc-format-selected)<CR>", {noremap = true})
 map("v", "<leader>f", " <Plug>(coc-format-selected)<CR>", {noremap = true})
 
 
+
+-- show list in fzf
 map("n", "<leader>coc", ":CocList<CR>", {noremap = true})
 map("n", "<leader>P", ":CocCommand<CR>", {noremap = true})
 

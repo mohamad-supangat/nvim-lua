@@ -42,5 +42,6 @@
     "js"
   ],
   // snipshet
-  "snippets.loadFromExtensions": true
+  "snippets.loadFromExtensions": true,
+  "snippets.ultisnips.directories": ["~/.config/nvim/snippets"]
 }

@@ -55,7 +55,7 @@ require("paq") {
 
 
 
-    "b3nj5m1n/kommentary",
+    "numToStr/Comment.nvim",
     "sbdchd/neoformat",
 
 
