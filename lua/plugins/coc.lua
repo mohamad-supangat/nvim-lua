@@ -14,7 +14,7 @@ local default_opts = {noremap = true, silent = true}
 
 -- coc multiple cursor
 map('n', "<C-c>", "<Plug>(coc-cursors-position)", default_opts)
-map('n', "<C-d>", "<Plug>(coc-cursors-words)", default_opts)
+map('n', "<C-d>", "<Plug>(coc-cursors-word)", default_opts)
 map('x', "<C-d>", "<Plug>(coc-cursors-range)", default_opts)
 map('n', "<leader>x", "<Plug>(coc-cursors-operator)", default_opts)
 
