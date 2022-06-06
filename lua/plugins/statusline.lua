@@ -1,12 +1,39 @@
+local colors = {
+  bg       = '#202328',
+  fg       = '#bbc2cf',
+  yellow   = '#ECBE7B',
+  cyan     = '#008080',
+  darkblue = '#081633',
+  green    = '#98be65',
+  orange   = '#FF8800',
+  violet   = '#a9a1e1',
+  magenta  = '#c678dd',
+  blue     = '#51afef',
+  red      = '#ec5f67',
+}
+
 require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {},
-    always_divide_middle = true,
-    globalstatus = false,
+  -- options = {
+  --   icons_enabled = true,
+  --   theme = 'auto',
+  --   component_separators = { left = '', right = ''},
+  --   section_separators = { left = '', right = ''},
+  --   disabled_filetypes = {},
+  --   always_divide_middle = true,
+  --   globalstatus = true,
+  -- },
+
+    options = {
+    -- Disable sections and component separators
+    component_separators = '',
+    section_separators = '',
+    theme = {
+      -- We are going to use lualine_c an lualine_x as left and
+      -- right section. Both are highlighted by c theme .  So we
+      -- are just setting default looks o statusline
+      normal = { c = { fg = colors.fg, bg = colors.bg } },
+      inactive = { c = { fg = colors.fg, bg = colors.bg } },
+    },
   },
   sections = {
     lualine_a = {'mode', 'g:coc_status'},
@@ -67,6 +94,8 @@ require('lualine').setup {
     'nvim-tree',
     'toggleterm',
     'fzf',
-
   }
 }
+
+
+-- vim.opt.laststatus = 1

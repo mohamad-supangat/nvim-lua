@@ -27,7 +27,7 @@ require("paq") {
     ----------------------------------------------
     -- Theme
     "projekt0n/github-nvim-theme",
-    "sainnhe/gruvbox-material",
+    "luisiacc/gruvbox-baby",
     "RRethy/nvim-base16",
 
 
