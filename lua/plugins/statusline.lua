@@ -26,6 +26,7 @@ require('lualine').setup {
     options = {
     -- Disable sections and component separators
     component_separators = '',
+    globalstatus = true,
     section_separators = '',
     theme = {
       -- We are going to use lualine_c an lualine_x as left and

@@ -14,7 +14,7 @@ require("paq") {
     ----------------------------------------------
     -- Status line buffer and some required plugins
     "nvim-lua/plenary.nvim",
-    "alexghergh/nvim-tmux-navigation",
+    "christoomey/vim-tmux-navigator",
     "nvim-lualine/lualine.nvim",
     "akinsho/nvim-bufferline.lua",
     "lukas-reineke/indent-blankline.nvim",

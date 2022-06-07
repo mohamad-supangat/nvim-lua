@@ -60,19 +60,6 @@ map("n", "<C-a>", "<Esc>ggVG", default_opts) -- select all text in normal mode
 map("i", "<A-BS>", "<C-W>", default_opts) -- alt + backspace delete word
 map("v", "<BS>", '"_d', default_opts) -- delete witout cut / copy to buffer
 
--- neovim tmux nvim-tmux-navigation
-map("n", "<C-h>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>", {noremap = true, silent = true})
-map("n", "<C-j>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<cr>", {noremap = true, silent = true})
-map("n", "<C-k>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<cr>", {noremap = true, silent = true})
-map("n", "<C-l>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight()<cr>", {noremap = true, silent = true})
-map(
-    "n",
-    "<C-\\>",
-    ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<cr>",
-    {noremap = true, silent = true}
-)
-map("n", "<C-Space>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<cr>", {noremap = true, silent = true})
-
 -- undo redo
 --[[ map('n', '<C-Z>', 'u', default_opts)
 map('n', '<C-Y>', '<C-R>', default_opts)
@@ -87,6 +74,10 @@ map("n", "<C-t>", ":enew<CR>", default_opts)
 map("i", "<C-t>", ":<Esc>:enew<CR>i", default_opts)
 map("n", "<C-PageUp>", ":bprevious<CR>", default_opts)
 map("n", "<C-PageDown>", ":bnext<CR>", default_opts)
+
+map("n", "<C-Shift-h>", ":bprevious<CR>", default_opts)
+map("n", "<C-Shift-l>", ":bnext<CR>", default_opts)
+
 
 map("n", "<C-S-Tab>", ":bprevious<CR>", default_opts)
 map("n", "<C-Tab>", ":bnext<CR>", default_opts)
