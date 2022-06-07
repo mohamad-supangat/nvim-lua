@@ -23,6 +23,7 @@ require("paq") {
     --------------------------------------------
     -- file finder
     "ibhagwan/fzf-lua",
+    'antoinemadec/coc-fzf',
 
     ----------------------------------------------
     -- Theme

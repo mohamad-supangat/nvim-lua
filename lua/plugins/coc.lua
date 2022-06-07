@@ -44,8 +44,8 @@ map("v", "<leader>f", " <Plug>(coc-format-selected)<CR>", {noremap = true})
 
 
 -- show list in fzf
-map("n", "<leader>coc", ":CocList<CR>", {noremap = true})
-map("n", "<leader>P", ":CocCommand<CR>", {noremap = true})
+map("n", "<leader>coc", ":CocFzfList<CR>", {noremap = true})
+map("n", "<leader>P", ":CocFzfList commands<CR>", {noremap = true})
 
 
 map("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
