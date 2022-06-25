@@ -32,7 +32,7 @@ require('packer').startup(function(use)
     use "kyazdani42/nvim-web-devicons"
     use "nvim-lua/plenary.nvim"
 
-    -- lsp
+    -- lsp and syntax helper
     use {
         "neoclide/coc.nvim",
         branch = "release",
@@ -47,9 +47,12 @@ require('packer').startup(function(use)
 
     use "sheerun/vim-polyglot"
     use "tpope/vim-sleuth"
+    use "honza/vim-snippets"
+    use "alvan/vim-closetag"
 
 
     -- utils
+    use "gpanders/editorconfig.nvim"
     use {
         'echasnovski/mini.nvim',
         branch = 'stable',

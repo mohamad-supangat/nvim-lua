@@ -1,4 +1,4 @@
-local palette = require('mini.base16').mini_palette('#282828', '#fbf1c7', 75)
+local palette = require('mini.base16').mini_palette('#282828', '#fbf1c7', 100)
 require('mini.base16').setup({
     palette = palette,
     name = 'minischeme',
@@ -105,48 +105,48 @@ require('mini.tabline').setup({
     -- One of 'left', 'right', 'none'.
     tabpage_section = 'left'
 })
-
-require('mini.pairs').setup({
-    -- In which modes mappings from this `config` should be created
-    modes = {insert = true, command = false, terminal = false},
-
-    -- Global mappings. Each right hand side should be a pair information, a
-    -- table with at least these fields (see more in |MiniPairs.map|):
-    -- - <action> - one of 'open', 'close', 'closeopen'.
-    -- - <pair> - two character string for pair to be used.
-    -- By default pair is not inserted after `\`, quotes are not recognized by
-    -- `<CR>`, `'` does not insert pair after a letter.
-    -- Only parts of tables can be tweaked (others will use these defaults).
-    mappings = {
-        ['('] = {action = 'open', pair = '()', neigh_pattern = '[^\\].'},
-        ['['] = {action = 'open', pair = '[]', neigh_pattern = '[^\\].'},
-        ['{'] = {action = 'open', pair = '{}', neigh_pattern = '[^\\].'},
-
-        [')'] = {action = 'close', pair = '()', neigh_pattern = '[^\\].'},
-        [']'] = {action = 'close', pair = '[]', neigh_pattern = '[^\\].'},
-        ['}'] = {action = 'close', pair = '{}', neigh_pattern = '[^\\].'},
-
-        ['"'] = {
-            action = 'closeopen',
-            pair = '""',
-            neigh_pattern = '[^\\].',
-            register = {cr = false}
-        },
-        ["'"] = {
-            action = 'closeopen',
-            pair = "''",
-            neigh_pattern = '[^%a\\].',
-            register = {cr = false}
-        },
-        ['`'] = {
-            action = 'closeopen',
-            pair = '``',
-            neigh_pattern = '[^\\].',
-            register = {cr = false}
-        }
-    }
-})
-
+--
+-- require('mini.pairs').setup({
+--     -- In which modes mappings from this `config` should be created
+--     modes = {insert = true, command = false, terminal = false},
+--
+--     -- Global mappings. Each right hand side should be a pair information, a
+--     -- table with at least these fields (see more in |MiniPairs.map|):
+--     -- - <action> - one of 'open', 'close', 'closeopen'.
+--     -- - <pair> - two character string for pair to be used.
+--     -- By default pair is not inserted after `\`, quotes are not recognized by
+--     -- `<CR>`, `'` does not insert pair after a letter.
+--     -- Only parts of tables can be tweaked (others will use these defaults).
+--     mappings = {
+--         ['('] = {action = 'open', pair = '()', neigh_pattern = '[^\\].'},
+--         ['['] = {action = 'open', pair = '[]', neigh_pattern = '[^\\].'},
+--         ['{'] = {action = 'open', pair = '{}', neigh_pattern = '[^\\].'},
+--
+--         [')'] = {action = 'close', pair = '()', neigh_pattern = '[^\\].'},
+--         [']'] = {action = 'close', pair = '[]', neigh_pattern = '[^\\].'},
+--         ['}'] = {action = 'close', pair = '{}', neigh_pattern = '[^\\].'},
+--
+--         ['"'] = {
+--             action = 'closeopen',
+--             pair = '""',
+--             neigh_pattern = '[^\\].',
+--             register = {cr = false}
+--         },
+--         ["'"] = {
+--             action = 'closeopen',
+--             pair = "''",
+--             neigh_pattern = '[^%a\\].',
+--             register = {cr = false}
+--         },
+--         ['`'] = {
+--             action = 'closeopen',
+--             pair = '``',
+--             neigh_pattern = '[^\\].',
+--             register = {cr = false}
+--         }
+--     }
+-- })
+--
 require('mini.surround').setup({
     -- Add custom surroundings to be used on top of builtin ones. For more
     -- information with examples, see `:h MiniSurround.config`.
