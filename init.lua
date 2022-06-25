@@ -9,47 +9,93 @@
 
 Neovim init file
 
+
 Version: -2.3.0 - 2021/10/02
 
 https://hantamkoding.gitlab.io
+--]] local fn = vim.fn
 
-
-
-fork from: https://github.com/brainfucksec/neovim-lua
-Tanks to: Brainf+ck for your simple dotfiles and give me idea to use init.lua
-
---]]
-local fn = vim.fn
-
-local install_path = fn.stdpath("data") .. "/site/pack/paqs/start/paq-nvim"
-
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({"git", "clone", "--depth=1", "https://github.com/savq/paq-nvim.git", install_path})
+    packer_bootstrap = fn.system({
+        'git', 'clone', '--depth', '1',
+        'https://github.com/wbthomason/packer.nvim', install_path
+    })
 end
------------------------------------------------------------
--- Import Lua modules
------------------------------------------------------------
 
-require("plugins/paq-nvim") -- plugin manager
 require("settings") -- settings
 require("keymaps") -- keymaps
 
--- require('plugins.circle-nvim')
-require("plugins/bufferline") -- beautiful bufferline
+require('packer').startup(function(use)
+    use 'wbthomason/packer.nvim'
 
-require('plugins/vista')            -- tag viewer
+    use "kyazdani42/nvim-web-devicons"
+    use "nvim-lua/plenary.nvim"
 
-require("plugins/alpha-nvim") -- dashboard
-require("plugins/indentline") -- indent line
-require("plugins/comment") -- auto comment
-require("plugins/floatterm") -- floating terminal
-require("plugins/fzf") -- file search
+    -- lsp
+    use {
+        "neoclide/coc.nvim",
+        branch = "release",
+        config = function() require("plugins/coc") end
+    }
 
-require("plugins/accelerated-jk") -- accelerated-jk
--- require('plugins/colorizer')        -- show color in editor
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        config = function() require("plugins/treesitter") end
+    }
 
--- require("plugins/nvim-gps")
-require("plugins/statusline") -- statusline
--- require("plugins/session-manager")
-require("plugins/coc")
-require("plugins/auto-closetag")
+    use "sheerun/vim-polyglot"
+    use "tpope/vim-sleuth"
+
+
+    -- utils
+    use {
+        'echasnovski/mini.nvim',
+        branch = 'stable',
+        config = function() require("plugins/mini") end
+    }
+    use "sbdchd/neoformat"
+    use "rbgrouleff/bclose.vim"
+    use "christoomey/vim-tmux-navigator"
+    use {
+        "numtostr/FTerm.nvim",
+        config = function() require("plugins/floatterm") end
+    }
+
+    use {
+        "xiyaowong/accelerated-jk.nvim",
+        config = function() require("plugins/accelerated-jk") end
+    }
+
+    use {"ibhagwan/fzf-lua", config = function() require("plugins/fzf") end}
+    use {'antoinemadec/coc-fzf', requires = {'ibhagwan/fzf-lua'}}
+
+    if packer_bootstrap then require('packer').sync() end
+end)
+
+-- -----------------------------------------------------------
+-- -- Import Lua modules
+-- -----------------------------------------------------------
+--
+-- require("plugins/paq-nvim") -- plugin manager
+--
+-- -- require('plugins.circle-nvim')
+-- require("plugins/bufferline") -- beautiful bufferline
+--
+-- require('plugins/vista')            -- tag viewer
+--
+-- require("plugins/alpha-nvim") -- dashboard
+-- require("plugins/indentline") -- indent line
+-- require("plugins/comment") -- auto comment
+-- require("plugins/floatterm") -- floating terminal
+-- require("plugins/fzf") -- file search
+--
+-- require("plugins/accelerated-jk") -- accelerated-jk
+-- -- require('plugins/colorizer')        -- show color in editor
+--
+-- -- require("plugins/nvim-gps")
+-- require("plugins/statusline") -- statusline
+-- -- require("plugins/session-manager")
+-- require("plugins/coc")
+-- require("plugins/auto-closetag")

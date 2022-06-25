@@ -91,7 +91,7 @@ vim.g.gruvbox_baby_keyword_style = "italic"
 vim.g.gruvbox_baby_transparent_mode = 1
 
 -- Load the colorscheme
-vim.cmd[[colorscheme gruvbox-baby]]
+-- vim.cmd[[colorscheme gruvbox-baby]]
 
 -----------------------------------------------------------
 -- Tabs, indent
@@ -123,3 +123,7 @@ opt.completeopt = "menuone,noselect,menu" -- completion options
 -- Don't automatically collapse markdown and Latex
 opt.conceallevel = 0
 g.tex_conceal = ""
+
+
+
+opt.laststatus = 3

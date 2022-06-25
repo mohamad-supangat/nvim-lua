@@ -43,5 +43,8 @@
   ],
   // snipshet
   "snippets.loadFromExtensions": true,
-  "snippets.ultisnips.directories": ["~/.config/nvim/snippets"]
+  "snippets.ultisnips.directories": ["~/.config/nvim/snippets"],
+
+  // "suggest.enablePreselect": true,
+  // "colors.filetypes": ["*"]
 }

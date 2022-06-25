@@ -54,5 +54,5 @@ map("i", "<S-TAB>", "pumvisible() ? '<C-p>' : '<C-h>'", {noremap = true, expr = 
 map("i", "<CR>", "pumvisible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'", {silent = true, expr = true, noremap = true})
 
 
-g.coc_global_extensions =  {'coc-git', 'coc-json', 'coc-marketplace', 'coc-pairs', 'coc-explorer', 'coc-snippets'}
+g.coc_global_extensions =  {'coc-git', 'coc-json', 'coc-marketplace', 'coc-explorer', 'coc-snippets'}
 
