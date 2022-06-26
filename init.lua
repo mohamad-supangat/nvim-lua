@@ -48,11 +48,17 @@ require('packer').startup(function(use)
     use "sheerun/vim-polyglot"
     use "tpope/vim-sleuth"
     use "honza/vim-snippets"
-    use "alvan/vim-closetag"
-
+    use {
+        "alvan/vim-closetag",
+        config = function() require("plugins/auto-closetag") end
+    }
 
     -- utils
     use "gpanders/editorconfig.nvim"
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function() require("plugins/indentline") end
+    }
     use {
         'echasnovski/mini.nvim',
         branch = 'stable',
