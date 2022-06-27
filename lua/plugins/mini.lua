@@ -6,7 +6,7 @@ require("mini.base16").setup(
         use_cterm = true
     }
 )
-
+--
 -- require('mini.indentscope').setup({
 --     draw = {
 --         -- Delay (in ms) between event and start of drawing scope indicator
