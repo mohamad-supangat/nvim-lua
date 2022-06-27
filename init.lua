@@ -65,7 +65,6 @@ require('packer').startup(function(use)
         config = function() require("plugins/mini") end
     }
     use "sbdchd/neoformat"
-    use "rbgrouleff/bclose.vim"
     use "christoomey/vim-tmux-navigator"
     use {
         "numtostr/FTerm.nvim",

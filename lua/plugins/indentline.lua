@@ -1,11 +1,11 @@
 vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
+-- vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
 
-local exclude = {"terminal", 'startify', 'nvim-tree', 'CHADTree', 'chad-tree', 'no-profile', 'alpha', 'coc-explorer'}
+local exclude = {"terminal", 'startify', 'nvim-tree', 'CHADTree', 'chad-tree', 'no-profile', 'alpha', 'coc-explorer', 'Starter', 'starter'}
 require("indent_blankline").setup {
     -- space_char_blankline = "|",
-    space_char_blankline = " ",
+    -- space_char_blankline = " ",
     char = '▏',
     show_current_context = true,
     show_current_context_start = true,
