@@ -65,9 +65,9 @@ starter.setup(
         },
         content_hooks = {
             starter.gen_hook.adding_bullet(),
-            starter.gen_hook.aligning("center", "center"),
+            -- starter.gen_hook.aligning("center", "center"),
             starter.gen_hook.indexing("all", {"Builtin actions"}),
-            -- starter.gen_hook.padding(3, 2)
+            starter.gen_hook.padding(10, 0)
         }
     }
 )
@@ -99,6 +99,9 @@ require("mini.comment").setup(
 require("mini.cursorword").setup()
 require("mini.trailspace").setup()
 
+
+-- remove gui window separator for using global statusline
+vim.cmd [[hi WinSeparator guibg=none]]
 require("mini.statusline").setup({set_vim_settings = false})
 require("mini.tabline").setup(
     {

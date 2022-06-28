@@ -16,6 +16,7 @@ https://hantamkoding.gitlab.io
 --]]
 local fn = vim.fn
 
+-- bootstarping packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap =
@@ -41,6 +42,11 @@ require("packer").startup(
         use "kyazdani42/nvim-web-devicons"
         use "nvim-lua/plenary.nvim"
 
+
+        -- more hgithlight
+        use "sheerun/vim-polyglot"
+        use "tpope/vim-sleuth"
+
         -- lsp and syntax helper
         use {
             "neoclide/coc.nvim",
@@ -50,17 +56,27 @@ require("packer").startup(
             end
         }
 
-
         use {
             "nvim-treesitter/nvim-treesitter",
-            run = ":TSUpdate",
-            config = function()
-                require("plugins/treesitter")
-            end
+            run = ":TSUpdate"
         }
 
-        use "sheerun/vim-polyglot"
-        use "tpope/vim-sleuth"
+        use {
+            "code-biscuits/nvim-biscuits",
+            requires = {"nvim-treesitter/nvim-treesitter"}
+        }
+
+        use {
+            "p00f/nvim-ts-rainbow",
+            requires = {"nvim-treesitter/nvim-treesitter"}
+        }
+
+        -- auto generate commentstring base on treesitter
+        use {
+            "JoosepAlviste/nvim-ts-context-commentstring",
+            requires = {"nvim-treesitter/nvim-treesitter"}
+        }
+
         use "honza/vim-snippets"
         use {
             "alvan/vim-closetag",
@@ -113,3 +129,5 @@ require("packer").startup(
         end
     end
 )
+
+require("plugins/treesitter")
