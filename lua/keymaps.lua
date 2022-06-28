@@ -70,6 +70,7 @@ map("n", "<C-Tab>", ":bnext<CR>", default_opts)
 
 map("n", "<leader>bb", ":bprevious<CR>", default_opts)
 map("n", "<leader>bn", ":bnext<CR>", default_opts)
+map("n", "<leader>bd", ":lua require('mini.bufremove').delete()<CR>", default_opts)
 
 map("n", "Y", "y$", default_opts) -- Change Y to copy to end of line and behave like C
 
