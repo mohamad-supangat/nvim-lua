@@ -96,8 +96,8 @@ require("mini.comment").setup(
     }
 )
 
-require("mini.cursorword").setup()
-require("mini.trailspace").setup()
+-- require("mini.cursorword").setup()
+-- require("mini.trailspace").setup()
 
 
 -- remove gui window separator for using global statusline
