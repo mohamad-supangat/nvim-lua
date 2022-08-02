@@ -1,6 +1,6 @@
 {
-  // vetur for vue helper
-  // "vetur.dev.vlsPath": "/home/deve/.config/nvm/14.15.0/lib/node_modules/vls",
+  // suggensttions
+  "suggest.removeDuplicateItems": true,
   // explorer config
   "explorer.icon.expanded": "▾",
   "explorer.icon.collapsed": "▸",

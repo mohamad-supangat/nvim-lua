@@ -74,9 +74,12 @@ opt.synmaxcol = 240 -- max column for syntax highlight
 opt.termguicolors = true -- enable 24-bit RGB
 g.t_Co = 256
 g.syntax_on = true
+-- g.colors_name = 'catppuccin'
 
-vim.g.gruvbox_baby_function_style = "italic"
-vim.g.gruvbox_baby_keyword_style = "italic"
+g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+
+-- vim.g.gruvbox_baby_function_style = "italic"
+-- vim.g.gruvbox_baby_keyword_style = "italic"
 
 -- Each highlight group must follow the structure:
 -- ColorGroup = {fg = "foreground color", bg = "background_color", style = "some_style(:h attr-list)"}
@@ -88,7 +91,7 @@ vim.g.gruvbox_baby_keyword_style = "italic"
 -- vim.g.gruvbox_baby_telescope_theme = 1
 
 -- Enable transparent mode
-vim.g.gruvbox_baby_transparent_mode = 1
+-- vim.g.gruvbox_baby_transparent_mode = 1
 
 -- Load the colorscheme
 -- vim.cmd[[colorscheme gruvbox-baby]]

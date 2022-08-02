@@ -1,11 +1,12 @@
-local palette = require("mini.base16").mini_palette("#282828", "#fbf1c7", 100)
-require("mini.base16").setup(
-    {
-        palette = palette,
-        name = "minischeme",
-        use_cterm = true
-    }
-)
+-- local palette = require("mini.base16").mini_palette("#282828", "#fbf1c7", 100)
+
+-- require("mini.base16").setup(
+--     {
+--         palette = palette,
+--         name = "minischeme",
+--         use_cterm = true
+--     }
+-- )
 --
 -- require('mini.indentscope').setup({
 --     draw = {
