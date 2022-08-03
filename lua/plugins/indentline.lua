@@ -15,7 +15,7 @@ local exclude = {
     "starter"
 }
 
--- vim.cmd [[highlight IndentBlanklineIndent1 guifg=#666666 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent1 guifg=#666666 gui=nocombine]]
 require("indent_blankline").setup {
     -- space_char_blankline = "|",
     -- space_char_blankline = " ",

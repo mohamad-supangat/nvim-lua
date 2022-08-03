@@ -160,10 +160,11 @@ require("packer").startup(
             {
                 "catppuccin/nvim",
                 config = function()
+                    vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
                     require("catppuccin").setup(
                         {
                             dim_inactive = {
-                                enabled = false,
+                                enabled = true,
                                 shade = "dark",
                                 percentage = 0.15
                             },
@@ -176,7 +177,7 @@ require("packer").startup(
                             styles = {
                                 comments = {"italic"},
                                 conditionals = {"italic"},
-                                loops = {},
+                                loops = {"bold"},
                                 functions = {"italic"},
                                 keywords = {},
                                 strings = {},
@@ -184,7 +185,7 @@ require("packer").startup(
                                 numbers = {},
                                 booleans = {"bold"},
                                 properties = {},
-                                types = {},
+                                types = {"italic", "bold"},
                                 operators = {}
                             },
                             integrations = {
@@ -239,7 +240,7 @@ require("packer").startup(
                                 bufferline = false,
                                 markdown = false,
                                 lightspeed = false,
-                                ts_rainbow = false,
+                                ts_rainbow = true,
                                 hop = false,
                                 notify = true,
                                 telekasten = false,

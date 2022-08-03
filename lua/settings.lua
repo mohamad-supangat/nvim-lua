@@ -76,7 +76,7 @@ g.t_Co = 256
 g.syntax_on = true
 -- g.colors_name = 'catppuccin'
 
-g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+
 
 -- vim.g.gruvbox_baby_function_style = "italic"
 -- vim.g.gruvbox_baby_keyword_style = "italic"
