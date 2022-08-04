@@ -48,23 +48,23 @@ require("packer").startup(
             "nvim-treesitter/nvim-treesitter",
             run = ":TSUpdate",
             config = function()
-                require("plugins/treesitter")
+                -- require("plugins/treesitter")
             end
         }
 
-        use {
-            "code-biscuits/nvim-biscuits",
-            requires = {"nvim-treesitter/nvim-treesitter"},
-            config = function()
-                require("plugins/treesitter")
-            end
-        }
-
+        -- use {
+        --     "code-biscuits/nvim-biscuits",
+        --     requires = {"nvim-treesitter/nvim-treesitter"},
+        --     config = function()
+        --         require("plugins/treesitter")
+        --     end
+        -- }
+        --
         use {
             "p00f/nvim-ts-rainbow",
             requires = {"nvim-treesitter/nvim-treesitter"},
             config = function()
-                require("plugins/treesitter")
+                -- require("plugins/treesitter")
             end
         }
 
@@ -164,7 +164,7 @@ require("packer").startup(
                     require("catppuccin").setup(
                         {
                             dim_inactive = {
-                                enabled = true,
+                                enabled = false,
                                 shade = "dark",
                                 percentage = 0.15
                             },
@@ -229,7 +229,7 @@ require("packer").startup(
                                 },
                                 which_key = false,
                                 indent_blankline = {
-                                    enabled = true,
+                                    enabled = false,
                                     colored_indent_levels = false
                                 },
                                 dashboard = false,
