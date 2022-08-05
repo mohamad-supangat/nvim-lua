@@ -3,6 +3,7 @@ local fterm = require("FTerm")
 local lazygit = fterm:new({
     cmd = "lazygit",
     -- blend = 20,
+    border = 'double',
     dimensions = {
         height = 1,
         width = 1
