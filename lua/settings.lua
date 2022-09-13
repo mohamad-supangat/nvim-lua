@@ -129,4 +129,4 @@ g.tex_conceal = ""
 
 
 
-opt.laststatus = 3
+opt.laststatus = 2

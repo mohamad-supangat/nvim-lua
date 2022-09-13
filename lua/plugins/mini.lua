@@ -1,4 +1,4 @@
-local palette = require("mini.base16").mini_palette("#1e1e28", "#f5e0dc", 100)
+local palette = require("mini.base16").mini_palette("#1e1e28", "#d7dae0", 60)
 
 require("mini.base16").setup({
     palette = palette,
@@ -6,28 +6,28 @@ require("mini.base16").setup({
     use_cterm = true
 })
 
--- require("mini.base16").setup({
---     palette = {
---         base00 = '#1e1e28',
---         base01 = '#1a1826',
---         base02 = '#302d41',
---         base03 = '#575268',
---         base04 = '#6e6c7c',
---         base05 = '#d7dae0',
---         base06 = '#f5e0dc',
---         base07 = '#c9cbff',
---         base08 = '#f28fad',
---         base09 = '#f8bd96',
---         base0A = '#fae3b0',
---         base0B = '#abe9b3',
---         base0C = '#b5e8e0',
---         base0D = '#96cdfb',
---         base0E = '#ddb6f2',
---         base0F = '#f2cdcd',
---     },
---     name = "minischeme",
---     use_cterm = true
--- })
+require("mini.base16").setup({
+    palette = {
+        base00 = "#1e1e2e",
+        base01 = "#181825",
+        base02 = "#313244",
+        base03 = "#45475a",
+        base04 = "#585b70",
+        base05 = "#cdd6f4",
+        base06 = "#f5e0dc",
+        base07 = "#b4befe",
+        base08 = "#f38ba8",
+        base09 = "#fab387",
+        base0A = "#f9e2af",
+        base0B = "#a6e3a1",
+        base0C = "#94e2d5",
+        base0D = "#89b4fa",
+        base0E = "#cba6f7",
+        base0F = "#f2cdcd"
+    },
+    name = "minischeme",
+    use_cterm = true
+})
 
 -- require('mini.indentscope').setup({
 --     draw = {
