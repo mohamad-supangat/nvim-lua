@@ -125,9 +125,19 @@ require("packer").startup(function(use)
     use {"ibhagwan/fzf-lua", config = function() require("plugins/fzf") end}
     use {"antoinemadec/coc-fzf", requires = {"ibhagwan/fzf-lua"}}
 
+    -- use {
+    --     "NvChad/nvim-colorizer.lua",
+    --     config = function() require'colorizer'.setup() end
+    -- }
+
     use {
-        "norcalli/nvim-colorizer.lua",
-        config = function() require'colorizer'.setup() end
+        'brenoprata10/nvim-highlight-colors',
+        config = function()
+            require('nvim-highlight-colors').setup {
+                render = 'background', -- or 'foreground' or 'first_column'
+                enable_tailwind = false
+            }
+        end
     }
 
     use {
