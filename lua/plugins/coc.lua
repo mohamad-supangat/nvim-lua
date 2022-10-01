@@ -60,5 +60,5 @@ map("i", "<up>", "coc#pum#visible() ? coc#pum#prev(1) : '<up>'", {noremap = true
 map("i", "<CR>", "coc#pum#visible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'", {silent = true, expr = true, noremap = true})
 
 --
-g.coc_global_extensions =  {'coc-git', 'coc-json', 'coc-marketplace', 'coc-explorer', 'coc-snippets', 'coc-pairs'}
+g.coc_global_extensions =  {'coc-json', 'coc-marketplace', 'coc-explorer', 'coc-snippets', 'coc-pairs'}
 
