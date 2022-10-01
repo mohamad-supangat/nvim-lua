@@ -34,13 +34,13 @@ require("packer").startup(function(use)
         config = function() require("plugins/coc") end
     }
 
-    use {
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
-        config = function()
-            -- require("plugins/treesitter")
-        end
-    }
+    -- use {
+    --     "nvim-treesitter/nvim-treesitter",
+    --     run = ":TSUpdate",
+    --     config = function()
+    --         -- require("plugins/treesitter")
+    --     end
+    -- }
 
     -- use {
     --     "code-biscuits/nvim-biscuits",
@@ -50,20 +50,20 @@ require("packer").startup(function(use)
     --     end
     -- }
     --
-    use {
-        "p00f/nvim-ts-rainbow",
-        requires = {"nvim-treesitter/nvim-treesitter"},
-        config = function()
-            -- require("plugins/treesitter")
-        end
-    }
+    -- use {
+    --     "p00f/nvim-ts-rainbow",
+    --     requires = {"nvim-treesitter/nvim-treesitter"},
+    --     config = function()
+    --         -- require("plugins/treesitter")
+    --     end
+    -- }
 
     -- auto generate commentstring base on treesitter
-    use {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        requires = {"nvim-treesitter/nvim-treesitter"},
-        config = function() require("plugins/treesitter") end
-    }
+    -- use {
+    --     "JoosepAlviste/nvim-ts-context-commentstring",
+    --     requires = {"nvim-treesitter/nvim-treesitter"},
+    --     config = function() require("plugins/treesitter") end
+    -- }
 
     use "honza/vim-snippets"
     use {
