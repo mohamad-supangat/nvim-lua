@@ -25,7 +25,7 @@ require("indent_blankline").setup {
     buftype_exclude = exclude,
     filetype_exclude = exclude,
     show_end_of_line = true,
-    char_highlight_list = {
-        "IndentBlanklineIndent1"
-    }
+    -- char_highlight_list = {
+    --     "IndentBlanklineIndent1"
+    -- }
 }

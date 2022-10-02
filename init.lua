@@ -27,6 +27,12 @@ require("packer").startup(function(use)
     -- use "sheerun/vim-polyglot"
     use "tpope/vim-sleuth"
 
+    use {
+        "catppuccin/nvim",
+        as = "catppuccin",
+        config = function() require("plugins/catppuccin") end
+    }
+
     -- lsp and syntax helper
     use {
         "neoclide/coc.nvim",
