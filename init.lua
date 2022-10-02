@@ -24,48 +24,24 @@ require("packer").startup(function(use)
     use "nvim-lua/plenary.nvim"
 
     -- more hgithlight
-    use "sheerun/vim-polyglot"
+    -- use "sheerun/vim-polyglot"
     use "tpope/vim-sleuth"
 
     -- lsp and syntax helper
     use {
         "neoclide/coc.nvim",
+        requires = {'honza/vim-snippets'},
         branch = "release",
         config = function() require("plugins/coc") end
     }
 
-    -- use {
-    --     "nvim-treesitter/nvim-treesitter",
-    --     run = ":TSUpdate",
-    --     config = function()
-    --         -- require("plugins/treesitter")
-    --     end
-    -- }
-
-    -- use {
-    --     "code-biscuits/nvim-biscuits",
-    --     requires = {"nvim-treesitter/nvim-treesitter"},
-    --     config = function()
-    --         require("plugins/treesitter")
-    --     end
-    -- }
-    --
-    -- use {
-    --     "p00f/nvim-ts-rainbow",
-    --     requires = {"nvim-treesitter/nvim-treesitter"},
-    --     config = function()
-    --         -- require("plugins/treesitter")
-    --     end
-    -- }
-
     -- auto generate commentstring base on treesitter
-    -- use {
-    --     "JoosepAlviste/nvim-ts-context-commentstring",
-    --     requires = {"nvim-treesitter/nvim-treesitter"},
-    --     config = function() require("plugins/treesitter") end
-    -- }
+    use {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        requires = {"nvim-treesitter/nvim-treesitter", "p00f/nvim-ts-rainbow"},
+        config = function() require("plugins/treesitter") end
+    }
 
-    use "honza/vim-snippets"
     use {
         "alvan/vim-closetag",
         config = function() require("plugins/auto-closetag") end
