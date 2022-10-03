@@ -16,6 +16,7 @@ end
 
 require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
+
     use "kyazdani42/nvim-web-devicons"
     use "nvim-lua/plenary.nvim"
 
@@ -23,6 +24,7 @@ require("packer").startup(function(use)
     -- use "sheerun/vim-polyglot"
     use "tpope/vim-sleuth"
 
+    -- colorscheme
     use {"catppuccin/nvim", as = "catppuccin"}
 
     -- filer manager
@@ -65,12 +67,15 @@ require("packer").startup(function(use)
 
     -- another formater with external comandline
     use "sbdchd/neoformat"
-
     -- auto generate commentstring base on treesitter
     use {
         "JoosepAlviste/nvim-ts-context-commentstring",
-        requires = {"nvim-treesitter/nvim-treesitter", "p00f/nvim-ts-rainbow"}
+        requires = {"nvim-treesitter/nvim-treesitter"}
     }
+
+    use {"p00f/nvim-ts-rainbow", requires = {"nvim-treesitter/nvim-treesitter"}}
+
+    use {"windwp/nvim-autopairs"} -- Autopairs, integrates with both cmp and treesitter
 
     use {"alvan/vim-closetag"}
 
