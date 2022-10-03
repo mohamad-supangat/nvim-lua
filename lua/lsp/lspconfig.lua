@@ -3,7 +3,7 @@ if not lspconfig_status_ok then return end
 
 local servers = {
     "sumneko_lua", "cssls", "html", "tsserver", "pyright", "bashls", "jsonls",
-    "yamlls"
+    "yamlls", "intelephense"
 }
 
 local opts = {}
