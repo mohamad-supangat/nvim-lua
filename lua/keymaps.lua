@@ -10,6 +10,9 @@ local default_opts = {noremap = true, silent = true}
 -- Neovim shortcuts:
 -----------------------------------------------------------
 
+-- packer sync
+map("n", "<leader>uu", ":PackerSync<CR>", default_opts)
+
 -- clear search highlighting
 map("n", "<Esc><Esc>", ":nohl<CR>", default_opts)
 
@@ -24,7 +27,7 @@ map("i", "<C-s>", "<Esc>:update<CR>", default_opts)
 map("v", "<C-s>", "<C-C>:update<CR>", default_opts)
 
 -- close all windows and exit from neovim
-map("n", "<leader>q", ":quitall<CR>", default_opts)
+map("n", "<leader>q", ":quitall!<CR>", default_opts)
 -----------------------------------------------------------
 -- Plugins shortcuts:
 -----------------------------------------------------------
