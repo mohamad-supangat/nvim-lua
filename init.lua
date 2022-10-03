@@ -70,20 +70,14 @@ require("packer").startup(function(use)
 
     -- another formater with external comandline
     use "sbdchd/neoformat"
-    -- auto generate commentstring base on treesitter
+
     use {
+        "nvim-treesitter/nvim-treesitter",
         "JoosepAlviste/nvim-ts-context-commentstring",
-        requires = {"nvim-treesitter/nvim-treesitter"}
+        "p00f/nvim-ts-rainbow",
+        "windwp/nvim-ts-autotag",
+        "windwp/nvim-autopairs"
     }
-
-    use {"p00f/nvim-ts-rainbow", requires = {"nvim-treesitter/nvim-treesitter"}}
-
-    use "windwp/nvim-ts-autotag" -- auto close tag
-    -- use {"alvan/vim-closetag"}
-
-    use {"windwp/nvim-autopairs"} -- Autopairs, integrates with both cmp and treesitter
-
-    --
 
     -- utils
     use "gpanders/editorconfig.nvim"
