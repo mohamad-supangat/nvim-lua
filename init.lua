@@ -75,9 +75,12 @@ require("packer").startup(function(use)
 
     use {"p00f/nvim-ts-rainbow", requires = {"nvim-treesitter/nvim-treesitter"}}
 
+    use "windwp/nvim-ts-autotag" -- auto close tag
+    -- use {"alvan/vim-closetag"}
+
     use {"windwp/nvim-autopairs"} -- Autopairs, integrates with both cmp and treesitter
 
-    use {"alvan/vim-closetag"}
+    --
 
     -- utils
     use "gpanders/editorconfig.nvim"

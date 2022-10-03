@@ -1,25 +1,23 @@
-require "nvim-treesitter.configs".setup {
+local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+if not status_ok then return end
+
+configs.setup {
     -- A list of parser names, or "all"
-    ensure_installed = {"php", "lua", "vue", "javascript", "json"},
-    -- Install parsers synchronously (only applied to `ensure_installed`)
+    ensure_installed = {"php", "lua", "vue", "javascript", "json", "html"},
     sync_install = false,
-    -- List of parsers to ignore installing (for "all")
     ignore_install = {},
     highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = true
-    },
-    context_commentstring = {
         enable = true
+        -- additional_vim_regex_highlighting = true
     },
-    rainbow = {
-        enable = true,
-        -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-        extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-        max_file_lines = nil -- Do not enable for files with more than n lines, int
-        -- colors = {}, -- table of hex strings
-        -- termcolors = {} -- table of colour name strings
-    }
+    autopairs = {enable = true},
+    autotag = {
+        enable = true
+        -- filetypes = {"html", "xml"}
+    },
+    context_commentstring = {enable = true},
+    indent = {enable = true, disable = {"python", "css"}},
+    rainbow = {enable = true, extended_mode = true}
 }
 
 -- require("nvim-biscuits").setup(
