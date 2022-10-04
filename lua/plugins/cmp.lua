@@ -9,7 +9,10 @@ require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
 
 local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    return col ~= 0 and
+        vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col,
+            col)
+        :match("%s") == nil
 
 end
 
@@ -92,12 +95,12 @@ cmp.setup({
         format = function(entry, vim_item)
             vim_item.kind = kind_icons[vim_item.kind]
             vim_item.menu = ({
-                nvim_lsp = "",
-                nvim_lua = "",
-                luasnip = "",
-                buffer = "",
-                path = "",
-                emoji = ""
+                nvim_lsp = "[LSP]",
+                nvim_lua = "[Lua]",
+                luasnip = "[LuaSnip]",
+                buffer = "[Buffer]",
+                path = "[Path]",
+                emoji = "[Emoji]"
             })[entry.source.name]
             return vim_item
         end
