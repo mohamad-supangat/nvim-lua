@@ -82,6 +82,10 @@ map("n", "Y", "y$", default_opts) -- Change Y to copy to end of line and behave 
 map("n", "<leader>-", "<C-w>s", default_opts)
 map("n", "<leader>|", "<C-w>v<C-w>l", default_opts)
 
+
+-- toggle SymbolOutline
+map("n", "<f7>", ":SymbolsOutline<CR>", default_opts)
+
 -- neovim diagnostics
 --[[ map("n", "<leader>xx", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
 map("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>", {silent = true, noremap = true})

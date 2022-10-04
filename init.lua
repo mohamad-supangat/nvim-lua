@@ -79,6 +79,9 @@ require("packer").startup(function(use)
         "windwp/nvim-autopairs"
     }
 
+    use 'simrat39/symbols-outline.nvim' -- A tree like view for symbols in Neovim using the Language Server Protocol
+
+
     -- utils
     use "gpanders/editorconfig.nvim"
     use { "lukas-reineke/indent-blankline.nvim" }
