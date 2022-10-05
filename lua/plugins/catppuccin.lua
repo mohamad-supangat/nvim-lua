@@ -20,10 +20,10 @@ require("catppuccin").setup({
     },
     integrations = {
         treesitter = true,
-        cmp = false,
+        cmp = true,
         gitsigns = true,
-        telescope = false,
-        nvimtree = false,
+        symbols_outline = true,
+        neotree = true,
         mini = true,
         ts_rainbow = true,
         indent_blankline = {enabled = true, colored_indent_levels = false}
