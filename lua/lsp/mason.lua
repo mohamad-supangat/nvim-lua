@@ -18,20 +18,25 @@ local lsp_status_ok, mason_lsp = pcall(require, "mason-lspconfig")
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 
 if not lsp_status_ok then return end
-mason_lsp.setup({
-    ensure_installed = { 'sumneko_lua' },
-})
-
+mason_lsp.setup({ ensure_installed = { 'sumneko_lua' } })
 
 mason_lsp.setup_handlers({
-    function(server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup {}
-    end,
-    ["sumneko_lua"] = function()
-        lspconfig.sumneko_lua.setup(require('lsp.settings.sumneko_lua'))
-    end,
+    function(server) -- default handler (optional)
+        opts = {
+            on_attach = require("lsp.handlers").on_attach,
+            capabilities = require("lsp.handlers").capabilities
+        }
 
-    ["pyright"] = function()
-        lspconfig.pyright.setup(require('lsp.settings.pyright'))
-    end,
+        if server == "sumneko_lua" then
+            local sumneko_opts = require "lsp.settings.sumneko_lua"
+            opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+        end
+
+        if server == "pyright" then
+            local pyright_opts = require "lsp.settings.pyright"
+            opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+        end
+
+        lspconfig[server].setup(opts)
+    end
 })
