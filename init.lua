@@ -116,6 +116,7 @@ require("packer").startup(function(use)
     use { 'brenoprata10/nvim-highlight-colors' }
 
     use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
+    use { "alpertuna/vim-header" }
 
     use { 'lewis6991/gitsigns.nvim' }
 
