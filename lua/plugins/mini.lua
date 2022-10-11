@@ -87,7 +87,7 @@ starter.setup({
     content_hooks = {
         starter.gen_hook.adding_bullet(),
         -- starter.gen_hook.aligning("center", "center"),
-        starter.gen_hook.indexing("all", {"Builtin actions"}),
+        starter.gen_hook.indexing("all", { "Builtin actions" }),
         starter.gen_hook.padding(10, 0)
     }
 })
@@ -116,8 +116,8 @@ require("mini.comment").setup({
 -- require("mini.trailspace").setup()
 
 -- remove gui window separator for using global statusline
-vim.cmd [[hi WinSeparator guibg=none]]
-require("mini.statusline").setup({set_vim_settings = false})
+-- vim.cmd [[hi WinSeparator guibg=none]]
+require("mini.statusline").setup({ set_vim_settings = false })
 
 -- require("mini.tabline").setup({
 --     -- Whether to show file icons (requires 'kyazdani42/nvim-web-devicons')
@@ -195,7 +195,7 @@ require("mini.surround").setup({
     search_method = "cover"
 })
 
-require("mini.bufremove").setup({set_vim_settings = true})
+require("mini.bufremove").setup({ set_vim_settings = true })
 
 require("mini.sessions").setup({
     -- Whether to read latest session if Neovim opened without file arguments
@@ -208,16 +208,14 @@ require("mini.sessions").setup({
     -- File for local session (use `''` to disable)
     file = "",
     -- Whether to force possibly harmful actions (meaning depends on function)
-    force = {read = false, write = true, delete = false},
+    force = { read = false, write = true, delete = false },
     -- Hook functions for actions. Default `nil` means 'do nothing'.
     hooks = {
         -- Before successful action
-        pre = {read = nil, write = nil, delete = nil},
+        pre = { read = nil, write = nil, delete = nil },
         -- After successful action
-        post = {read = nil, write = nil, delete = nil}
+        post = { read = nil, write = nil, delete = nil }
     },
     -- Whether to print session path after action
-    verbose = {read = false, write = true, delete = true}
+    verbose = { read = false, write = true, delete = true }
 })
-
-
