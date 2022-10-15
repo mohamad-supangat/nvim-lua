@@ -1,2 +1,1 @@
-vim.g.polyglot_disabled = { 'pug' }
-
+vim.g.polyglot_disabled = { 'pug', 'vue' }
