@@ -10,6 +10,9 @@ local default_opts = {noremap = true, silent = true}
 -- Neovim shortcuts:
 -----------------------------------------------------------
 
+-- packer sync
+map("n", "<leader>uu", ":PackerSync<CR>", default_opts)
+
 -- clear search highlighting
 map("n", "<Esc><Esc>", ":nohl<CR>", default_opts)
 
@@ -24,54 +27,28 @@ map("i", "<C-s>", "<Esc>:update<CR>", default_opts)
 map("v", "<C-s>", "<C-C>:update<CR>", default_opts)
 
 -- close all windows and exit from neovim
-map("n", "<leader>q", ":quitall<CR>", default_opts)
-
--- basic autopair
--- Use this if you don't want a plugin for brackets autopairs
--- slow when closing "{}" :(
-
---[[
-map('i', '"', '""<left>', default_opts)
-map('i', '`', '``<left>', default_opts)
-map('i', '(', '()<left>', default_opts)
-map('i', '[', '[]<left>', default_opts)
-map('i', '{', '{}<left>', default_opts)
-map('i', '{<CR>', '{<CR}<ESC>0', default_opts)
-map('i', '{;<CR>', '{<CR};<ESC>0', default_opts)
---]]
+map("n", "<leader>q", ":quitall!<CR>", default_opts)
 -----------------------------------------------------------
 -- Plugins shortcuts:
 -----------------------------------------------------------
--- nvim-tree
-map("n", "<C-n>", ":NvimTreeToggle<CR>", default_opts) -- open/close
-map("n", "<C-m>", ":NvimTreeFocus<CR>", default_opts) -- focus
--- map('n', '<-r>', ':NvimTreeRefresh<CR>', default_opts)         -- refresh
--- map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
+map("n", "<leader>fm", ":Neoformat<CR>", {noremap = true})
 
 -- Fzf lua
 map("", "<C-p>", ":lua require('fzf-lua').files()<CR>", default_opts) -- file search
+map("n", "<leader>fzf", ":FzfLua<CR>", default_opts) -- open fzf menu
+
 
 -- indent control
 map("v", "<Tab>", ">gv", default_opts)
 map("v", "<S-Tab>", "<gv", default_opts)
+map("v", ">", ">gv", default_opts)
+map("v", "<", "<gv", default_opts)
+
 
 -- copy paste in neovim
 map("n", "<C-a>", "<Esc>ggVG", default_opts) -- select all text in normal mode
 map("i", "<A-BS>", "<C-W>", default_opts) -- alt + backspace delete word
 map("v", "<BS>", '"_d', default_opts) -- delete witout cut / copy to buffer
-
--- neovim tmux nvim-tmux-navigation
-map("n", "<C-h>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>", {noremap = true, silent = true})
-map("n", "<C-j>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<cr>", {noremap = true, silent = true})
-map("n", "<C-k>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<cr>", {noremap = true, silent = true})
-map("n", "<C-l>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight()<cr>", {noremap = true, silent = true})
-map(
-    "n",
-    "<C-\\>",
-    ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<cr>",
-    {noremap = true, silent = true}
-)
-map("n", "<C-Space>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<cr>", {noremap = true, silent = true})
 
 -- undo redo
 --[[ map('n', '<C-Z>', 'u', default_opts)
@@ -88,11 +65,16 @@ map("i", "<C-t>", ":<Esc>:enew<CR>i", default_opts)
 map("n", "<C-PageUp>", ":bprevious<CR>", default_opts)
 map("n", "<C-PageDown>", ":bnext<CR>", default_opts)
 
+map("n", "<C-Shift-h>", ":bprevious<CR>", default_opts)
+map("n", "<C-Shift-l>", ":bnext<CR>", default_opts)
+
+
 map("n", "<C-S-Tab>", ":bprevious<CR>", default_opts)
 map("n", "<C-Tab>", ":bnext<CR>", default_opts)
 
 map("n", "<leader>bb", ":bprevious<CR>", default_opts)
 map("n", "<leader>bn", ":bnext<CR>", default_opts)
+map("n", "<leader>bd", ":lua require('mini.bufremove').delete()<CR>", default_opts)
 
 map("n", "Y", "y$", default_opts) -- Change Y to copy to end of line and behave like C
 
@@ -100,20 +82,6 @@ map("n", "Y", "y$", default_opts) -- Change Y to copy to end of line and behave 
 map("n", "<leader>-", "<C-w>s", default_opts)
 map("n", "<leader>|", "<C-w>v<C-w>l", default_opts)
 
--- floating terminal
-map("n", "<A-i>", '<CMD>lua require("FTerm").toggle()<CR>', default_opts)
-map("t", "<A-i>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', default_opts)
 
-map("n", "<F1>", ":lua fterm1()<CR>", default_opts)
-map("t", "<F1>", "<C-\\><C-n><CMD>lua fterm1()<CR>", default_opts)
-map("n", "<F2>", ":lua fterm2()<CR>", default_opts)
-map("t", "<F2>", "<C-\\><C-n><CMD>lua fterm2()<CR>", default_opts)
-map("n", "<leader>git", ":lua lazygit()<CR>", default_opts)
-
--- neovim diagnostics
-map("n", "<leader>xx", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
-map("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>xd", "<cmd>Trouble lsp_document_diagnostics<cr>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})
+-- toggle SymbolOutline
+map("n", "<f7>", ":SymbolsOutline<CR>", default_opts)

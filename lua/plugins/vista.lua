@@ -7,6 +7,9 @@
 
 local g = vim.g
 local cmd = vim.cmd
+local map = vim.api.nvim_set_keymap
+local default_opts = {noremap = true, silent = true}
+
 
 -- How each level is indented and what to prepend.
 --- This could make the display more compact or more spacious.
@@ -21,4 +24,16 @@ g.vista_default_executive = 'ctags'
 -- Ensure you have installed some decent font to show these pretty symbols,
 --- then you can enable icon for the kind.
 cmd[[let g:vista#renderer#enable_icon = 1]]
+cmd [[
+  let g:vista#renderer#icons = {
+  \   "function": "\u0192",
+  \   "variable": "\uf00d",
+  \   "prototype": "\uf013",
+  \   "macro": "\uf00b",
+  \ }
+]]
+
+
+
+map("n", "<F7>", ":Vista coc<CR>", default_opts)
 

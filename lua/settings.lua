@@ -74,26 +74,28 @@ opt.synmaxcol = 240 -- max column for syntax highlight
 opt.termguicolors = true -- enable 24-bit RGB
 g.t_Co = 256
 g.syntax_on = true
+-- g.colors_name = 'catppuccin'
 
-require("github-theme").setup(
-    {
-        theme_style = "dark_default",
-        comment_style = "italic",
-        keyword_style = "italic",
-        function_style = "italic",
-        variable_style = "italic",
-        function_style = "italic",
-        sidebars = {"qf", "vista_kind", "terminal", "packer", "nvim-tree"}
-    }
-)
 
------------------------------------------------------------
--- Statusline
------------------------------------------------------------
 
---[[ vim.opt.statusline =
-    "  %   %f %m %r %w %= Ln %l, Col %c  %{&fileencoding?&fileencoding:&encoding}  "
- ]]
+-- vim.g.gruvbox_baby_function_style = "italic"
+-- vim.g.gruvbox_baby_keyword_style = "italic"
+
+-- Each highlight group must follow the structure:
+-- ColorGroup = {fg = "foreground color", bg = "background_color", style = "some_style(:h attr-list)"}
+-- See also :h highlight-guifg
+-- Example:
+-- vim.g.gruvbox_baby_highlights = {Normal = {fg = "#123123", bg = "NONE", style="underline"}}
+
+-- Enable telescope theme
+-- vim.g.gruvbox_baby_telescope_theme = 1
+
+-- Enable transparent mode
+-- vim.g.gruvbox_baby_transparent_mode = 1
+
+-- Load the colorscheme
+-- vim.cmd[[colorscheme gruvbox-baby]]
+
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------
@@ -124,3 +126,7 @@ opt.completeopt = "menuone,noselect,menu" -- completion options
 -- Don't automatically collapse markdown and Latex
 opt.conceallevel = 0
 g.tex_conceal = ""
+
+
+
+opt.laststatus = 2
