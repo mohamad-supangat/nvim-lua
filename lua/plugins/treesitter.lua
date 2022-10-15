@@ -3,21 +3,21 @@ if not status_ok then return end
 
 configs.setup {
     -- A list of parser names, or "all"
-    ensure_installed = {"php", "lua", "vue", "javascript", "json", "html"},
+    ensure_installed = { "php", "lua", "vue", "javascript", "json", "html" },
     sync_install = false,
     ignore_install = {},
     highlight = {
         enable = true
         -- additional_vim_regex_highlighting = true
     },
-    autopairs = {enable = true},
+    autopairs = { enable = true },
     autotag = {
         enable = true
         -- filetypes = {"html", "xml"}
     },
-    context_commentstring = {enable = true},
-    indent = {enable = true, disable = {"python", "css", "vue", "pug"}},
-    rainbow = {enable = true, extended_mode = true}
+    context_commentstring = { enable = true },
+    indent = { enable = true, disable = { "python", "css", "vue", "pug" } },
+    rainbow = { enable = true, extended_mode = true }
 }
 
 -- require("nvim-biscuits").setup(
