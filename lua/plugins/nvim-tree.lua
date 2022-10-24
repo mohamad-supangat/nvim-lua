@@ -11,12 +11,18 @@ vim.g.loaded_netrwPlugin = 1
 map("n", "<C-n>", ":NvimTreeToggle<CR>", default_opts)
 
 nvim_tree.setup({
-  sort_by = "case_sensitive",
-  git = {
+  sort_by             = "case_sensitive",
+  git                 = {
     ignore = false,
   },
-  view = {
-    adaptive_size = true,
+  actions             = {
+    open_file = {
+      quit_on_open = true
+    }
+  },
+  view                = {
+    preserve_window_proportions = true,
+    adaptive_size = false,
     mappings = {
       list = {
         { key = "l", action = "edit" },
@@ -25,10 +31,13 @@ nvim_tree.setup({
       },
     },
   },
-  renderer = {
+  renderer            = {
     group_empty = true,
   },
-  filters = {
+  filters             = {
     dotfiles = false,
   },
+  update_focused_file = {
+    enable = true
+  }
 })
