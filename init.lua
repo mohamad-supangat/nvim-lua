@@ -26,10 +26,6 @@ require("packer").startup(function(use)
     requires = 'kyazdani42/nvim-web-devicons'
   }
 
-  -- more hgithlight
-  -- use "sheerun/vim-polyglot"
-  -- use "tpope/vim-sleuth"
-
   -- colorscheme
   use { "catppuccin/nvim", as = "catppuccin" }
 
