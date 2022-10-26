@@ -22,7 +22,7 @@ nvim_tree.setup({
   },
   view                = {
     preserve_window_proportions = true,
-    adaptive_size = false,
+    adaptive_size = true,
     mappings = {
       list = {
         { key = "l", action = "edit" },
