@@ -84,8 +84,11 @@ require("packer").startup(function(use)
 
   use {
     "nvim-treesitter/nvim-treesitter",
-    "JoosepAlviste/nvim-ts-context-commentstring", "p00f/nvim-ts-rainbow",
-    "windwp/nvim-ts-autotag", "windwp/nvim-autopairs"
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    "p00f/nvim-ts-rainbow",
+    "windwp/nvim-ts-autotag",
+    "windwp/nvim-autopairs",
+    "haringsrob/nvim_context_vt"
   }
 
   use {
