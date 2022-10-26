@@ -4,7 +4,7 @@
 -----------------------------------------------------------
 
 local map = vim.api.nvim_set_keymap
-local default_opts = {noremap = true, silent = true}
+local default_opts = { noremap = true, silent = true }
 
 -----------------------------------------------------------
 -- Neovim shortcuts:
@@ -17,9 +17,9 @@ map("n", "<leader>uu", ":PackerSync<CR>", default_opts)
 map("n", "<Esc><Esc>", ":nohl<CR>", default_opts)
 
 -- map esc
-map("i", "kk", "<Esc>", {noremap = true})
-map("i", "jj", "<Esc>", {noremap = true})
-map("i", "jk", "<Esc>", {noremap = true})
+map("i", "kk", "<Esc>", { noremap = true })
+map("i", "jj", "<Esc>", { noremap = true })
+map("i", "jk", "<Esc>", { noremap = true })
 
 -- fast saving with <leader> and s
 map("n", "<C-s>", ":update<CR>", default_opts)
@@ -31,7 +31,7 @@ map("n", "<leader>q", ":quitall!<CR>", default_opts)
 -----------------------------------------------------------
 -- Plugins shortcuts:
 -----------------------------------------------------------
-map("n", "<leader>fm", ":Neoformat<CR>", {noremap = true})
+map("n", "<leader>fm", ":Neoformat<CR>", { noremap = true })
 
 -- Fzf lua
 map("", "<C-p>", ":lua require('fzf-lua').files()<CR>", default_opts) -- file search
@@ -85,3 +85,4 @@ map("n", "<leader>|", "<C-w>v<C-w>l", default_opts)
 
 -- toggle SymbolOutline
 map("n", "<f7>", ":SymbolsOutline<CR>", default_opts)
+map("v", "/", "\"fy/\\V<C-R>f<CR>", default_opts)
