@@ -27,7 +27,7 @@ require("packer").startup(function(use)
   }
 
   -- more hgithlight
-  use "sheerun/vim-polyglot"
+  -- use "sheerun/vim-polyglot"
   -- use "tpope/vim-sleuth"
 
   -- colorscheme

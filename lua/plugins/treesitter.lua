@@ -16,7 +16,7 @@ configs.setup {
     -- filetypes = {"html", "xml"}
   },
   context_commentstring = { enable = true, enable_autocmd = false },
-  indent = { enable = true, disable = { "python", "css", "vue", "pug" } },
+  indent = { enable = true, disable = { "python", "css" } },
   rainbow = { enable = true, extended_mode = true }
 }
 
