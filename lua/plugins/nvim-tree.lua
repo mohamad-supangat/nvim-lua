@@ -37,6 +37,9 @@ nvim_tree.setup({
   filters             = {
     dotfiles = false,
   },
+  live_filter         = {
+    always_show_folders = false
+  },
   update_focused_file = {
     enable = true
   }
