@@ -126,6 +126,7 @@ require("packer").startup(function(use)
   use { "alpertuna/vim-header" }
 
   use { 'lewis6991/gitsigns.nvim' }
+  use { 'dyng/ctrlsf.vim' }
 
   if packer_bootstrap then require("packer").sync() end
 end)
