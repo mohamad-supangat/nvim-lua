@@ -1,8 +1,21 @@
---  ╭──────────────────────────────────────────────────────────╮
---  │ init lua                                                 │
---  │ powered by hantamkoding 2022                             │
---  │                                                          │
---  ╰──────────────────────────────────────────────────────────╯
+--[[--
+init.lua
+Copyright (c) 2022 Mohamad Supangat <moha.supangat@gmail.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+--]]--
 local fn = vim.fn
 
 -- bootstarping packer
@@ -27,8 +40,13 @@ require("packer").startup(function(use)
   }
 
   -- more hgithlight
-  -- use "sheerun/vim-polyglot"
+  use "sheerun/vim-polyglot"
   -- use "tpope/vim-sleuth"
+
+  use {
+    'Darazaki/indent-o-matic',
+    config = function() require('indent-o-matic').setup {} end,
+  }
 
   -- colorscheme
   use { "catppuccin/nvim", as = "catppuccin" }
@@ -89,11 +107,6 @@ require("packer").startup(function(use)
     "windwp/nvim-ts-autotag",
     "windwp/nvim-autopairs",
     "haringsrob/nvim_context_vt"
-  }
-
-  use {
-    'nmac427/guess-indent.nvim',
-    config = function() require('guess-indent').setup {} end,
   }
 
   use 'simrat39/symbols-outline.nvim' -- A tree like view for symbols in Neovim using the Language Server Protocol
