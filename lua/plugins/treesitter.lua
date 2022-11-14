@@ -7,7 +7,13 @@ configs.setup {
   sync_install = false,
   ignore_install = {},
   highlight = {
-    enable = true
+    enable = true,
+    disable = function(lang, buf)
+      local max_filesize = 100 * 1024 -- 100 KB
+      local ok, stats =
+      pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+      if ok and stats and stats.size > max_filesize then return true end
+    end,
     -- additional_vim_regex_highlighting = true
   },
   autopairs = { enable = true },
@@ -42,8 +48,6 @@ configs.setup {
 --     }
 -- )
 
-
-
 require('nvim_context_vt').setup({
   -- Enable by default. You can disable and use :NvimContextVtToggle to maually enable.
   -- Default: true
@@ -71,5 +75,5 @@ require('nvim_context_vt').setup({
 
   -- How many lines required after starting position to show virtual text
   -- Default: 1 (equals two lines total)
-  min_rows = 1,
+  min_rows = 1
 })
