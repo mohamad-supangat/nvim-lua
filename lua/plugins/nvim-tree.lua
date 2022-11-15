@@ -22,7 +22,7 @@ nvim_tree.setup({
   },
   view                = {
     preserve_window_proportions = true,
-    adaptive_size = false,
+    adaptive_size = true,
     mappings = {
       list = {
         { key = "l", action = "edit" },
@@ -36,6 +36,9 @@ nvim_tree.setup({
   },
   filters             = {
     dotfiles = false,
+  },
+  live_filter         = {
+    always_show_folders = false
   },
   update_focused_file = {
     enable = true
