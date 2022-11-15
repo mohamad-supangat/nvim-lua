@@ -37,13 +37,11 @@ map("n", "<leader>fm", ":Neoformat<CR>", { noremap = true })
 map("", "<C-p>", ":lua require('fzf-lua').files()<CR>", default_opts) -- file search
 map("n", "<leader>fzf", ":FzfLua<CR>", default_opts) -- open fzf menu
 
-
 -- indent control
 map("v", "<Tab>", ">gv", default_opts)
 map("v", "<S-Tab>", "<gv", default_opts)
 map("v", ">", ">gv", default_opts)
 map("v", "<", "<gv", default_opts)
-
 
 -- copy paste in neovim
 map("n", "<C-a>", "<Esc>ggVG", default_opts) -- select all text in normal mode
@@ -68,7 +66,6 @@ map("n", "<C-PageDown>", ":bnext<CR>", default_opts)
 map("n", "<C-Shift-h>", ":bprevious<CR>", default_opts)
 map("n", "<C-Shift-l>", ":bnext<CR>", default_opts)
 
-
 map("n", "<C-S-Tab>", ":bprevious<CR>", default_opts)
 map("n", "<C-Tab>", ":bnext<CR>", default_opts)
 
@@ -82,7 +79,11 @@ map("n", "Y", "y$", default_opts) -- Change Y to copy to end of line and behave 
 map("n", "<leader>-", "<C-w>s", default_opts)
 map("n", "<leader>|", "<C-w>v<C-w>l", default_opts)
 
-
 -- toggle SymbolOutline
 map("n", "<f7>", ":SymbolsOutline<CR>", default_opts)
-map("v", "/", "\"fy/\\V<C-R>f<CR>", default_opts)
+
+-- search hightligh text
+map("v", "/", '"fy/\\V<C-R>f<CR>', default_opts)
+
+-- toggle zen mode (full screen editing)
+map("n", "<leader>zen", ":lua require('zen-mode').toggle()<CR>", default_opts)

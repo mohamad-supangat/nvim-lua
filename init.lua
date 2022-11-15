@@ -45,7 +45,7 @@ require("packer").startup(function(use)
 	})
 
 	-- more hgithlight
-	-- use "sheerun/vim-polyglot"
+	use("sheerun/vim-polyglot")
 	-- use "tpope/vim-sleuth"
 
 	use({
@@ -103,13 +103,10 @@ require("packer").startup(function(use)
 		"neovim/nvim-lspconfig",
 	})
 
-	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-	})
+	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-	use({ "RRethy/vim-illuminate" })
+	-- use({ "RRethy/vim-illuminate" })
 
 	-- another formater with external comandline
 	use("sbdchd/neoformat")
@@ -154,6 +151,17 @@ require("packer").startup(function(use)
 
 	use({ "lewis6991/gitsigns.nvim" })
 	use({ "dyng/ctrlsf.vim" })
+
+	use({
+		"folke/zen-mode.nvim",
+		config = function()
+			require("zen-mode").setup({})
+		end,
+	})
+
+	use({
+		"anuvyklack/pretty-fold.nvim",
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

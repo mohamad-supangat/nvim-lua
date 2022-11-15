@@ -1,5 +1,5 @@
 --[[--
-/home/deve/.config/nvim/lua/plugins/autopairs.lua
+/home/deve/.config/nvim/lua/plugins/fold.lua
 Copyright (c) 2022 Mohamad Supangat <moha.supangat@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
@@ -16,20 +16,18 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --]]
 --
--- Setup nvim-cmp.
-local status_ok, npairs = pcall(require, "nvim-autopairs")
+local vim = vim
+local opt = vim.opt
+
+local status_ok, fold = pcall(require, "pretty-fold")
 if not status_ok then
 	return
 end
 
-npairs.setup({
-	check_ts = true, -- treesitter integration
-	disable_filetype = { "TelescopePrompt" },
-})
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.fillchars:append("fold:•")
 
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-	return
-end
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({}))
+fold.setup({
+	keep_indentation = true,
+})
