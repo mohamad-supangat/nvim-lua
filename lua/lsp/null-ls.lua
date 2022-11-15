@@ -24,6 +24,7 @@ null_ls.setup {
     formatting.google_java_format,
     formatting.phpcbf,
     formatting.phpcsfixer,
+    formatting.blade_formatter,
     formatting.fixjson,
     diagnostics.flake8,
     diagnostics.pydocstyle,
