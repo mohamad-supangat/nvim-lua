@@ -18,7 +18,7 @@ null_ls.setup {
       extra_filetypes = { "toml", "vue" },
       -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     },
-    formatting.black.with { extra_args = { "--fast" } },
+    -- formatting.black.with { extra_args = { "--fast" } },
     formatting.reorder_python_imports,
     formatting.stylua,
     formatting.google_java_format,
