@@ -13,9 +13,9 @@ local completion = null_ls.builtins.completion
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier,
+		-- formatting.prettier,
 		formatting.prettierd,
-		formatting.prettier_d_slim,
+		-- formatting.prettier_d_slim,
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.reorder_python_imports,
 		formatting.stylua,
