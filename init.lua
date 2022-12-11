@@ -81,13 +81,14 @@ require("packer").startup(function(use)
   use({
     "hrsh7th/nvim-cmp",
     requires = {
-
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-cmdline",
       "jcha0713/cmp-tw2css",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
       "onsails/lspkind.nvim",
     },
   })

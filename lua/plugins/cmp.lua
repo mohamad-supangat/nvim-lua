@@ -95,6 +95,7 @@ cmp.setup({
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
+		{ name = "nvim_lsp_signature_help" },
 		{ name = "path" },
 		{ name = "cmp-tw2css" },
 	},
@@ -106,10 +107,23 @@ cmp.setup({
 		-- 	side_padding = 0,
 		-- },
 
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		-- completion = cmp.config.window.bordered(),
+		-- documentation = cmp.config.window.bordered(),
 	},
-	experimental = { ghost_text = true },
+	experimental = { ghost_text = false },
+})
+
+-- enable cmd line
+cmp.setup.cmdline(":", {
+	sources = cmp.config.sources({
+		{ name = "path" },
+		{ name = "cmdline" },
+	}),
+})
+cmp.setup.cmdline("/", {
+	sources = {
+		{ name = "buffer" },
+	},
 })
 
 -- local cmp_h = {
