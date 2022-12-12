@@ -75,7 +75,9 @@
 --
 
 local my_items = {
+	{ name = "Open FZF file finder", action = "FzfLua files", section = "Builtin actions" },
 	{ name = "Open nvim tree", action = "NvimTreeOpen", section = "Builtin actions" },
+
 
 	{ name = "Config: init.lua", action = "e ~/.config/nvim/init.lua", section = "Nvim" },
 	{ name = "Snippets: package.json", action = "e ~/.config/nvim/snippets/package.json", section = "Nvim" },
