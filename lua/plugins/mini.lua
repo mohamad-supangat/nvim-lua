@@ -75,22 +75,13 @@
 --
 
 local my_items = {
-	{ name = "Echo random number", action = "lua print(math.random())", section = "Section 1" },
-	function()
-		return {
-			{ name = "Item #1 from function", action = [[echo 'Item #1']], section = "Nvim Config" },
-			{ name = "Placeholder (always incative) item", action = "", section = "From function" },
-			function()
-				return {
-					name = "Item #1 from double function",
-					action = [[echo 'Double function']],
-					section = "From double function",
-				}
-			end,
-		}
-	end,
-	{ name = [[Another item in 'Section 1']], action = "lua print(math.random() + 10)", section = "Section 1" },
+	{ name = "Open nvim tree", action = "NvimTreeOpen", section = "Builtin actions" },
+
+	{ name = "Config: init.lua", action = "e ~/.config/nvim/init.lua", section = "Nvim" },
+	{ name = "Snippets: package.json", action = "e ~/.config/nvim/snippets/package.json", section = "Nvim" },
 }
+
+
 local starter = require("mini.starter")
 starter.setup({
 	autoopen = true,
