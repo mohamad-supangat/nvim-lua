@@ -73,45 +73,64 @@
 --     symbol = '▏'
 -- })
 --
+
+local my_items = {
+	{ name = "Echo random number", action = "lua print(math.random())", section = "Section 1" },
+	function()
+		return {
+			{ name = "Item #1 from function", action = [[echo 'Item #1']], section = "Nvim Config" },
+			{ name = "Placeholder (always incative) item", action = "", section = "From function" },
+			function()
+				return {
+					name = "Item #1 from double function",
+					action = [[echo 'Double function']],
+					section = "From double function",
+				}
+			end,
+		}
+	end,
+	{ name = [[Another item in 'Section 1']], action = "lua print(math.random() + 10)", section = "Section 1" },
+}
 local starter = require("mini.starter")
 starter.setup({
-    autoopen = true,
-    evaluate_single = true,
-    items = {
-        starter.sections.sessions(5, true), -- starter.sections.telescope(),
-        starter.sections.builtin_actions(),
-        starter.sections.recent_files(10, false),
-        starter.sections.recent_files(10, true)
-        -- Use this if you set up 'mini.sessions'
-    },
-    content_hooks = {
-        starter.gen_hook.adding_bullet(),
-        -- starter.gen_hook.aligning("center", "center"),
-        starter.gen_hook.indexing("all", { "Builtin actions" }),
-        starter.gen_hook.padding(10, 0)
-    }
+	autoopen = true,
+	evaluate_single = true,
+	items = {
+		my_items,
+		starter.sections.sessions(5, true), -- starter.sections.telescope(),
+		starter.sections.builtin_actions(),
+		starter.sections.recent_files(10, false),
+		starter.sections.recent_files(10, true),
+		-- Use this if you set up 'mini.sessions'
+	},
+	content_hooks = {
+		starter.gen_hook.adding_bullet(),
+		-- starter.gen_hook.aligning("center", "center"),
+		starter.gen_hook.indexing("all", { "Builtin actions" }),
+		starter.gen_hook.padding(10, 0),
+	},
 })
 
 require("mini.comment").setup({
-    -- Module mappings. Use `''` (empty string) to disable one.
-    mappings = {
-        -- Toggle comment (like `gcip` - comment inner paragraph) for both
-        -- Normal and Visual modes
-        comment = "gc",
-        -- Toggle comment on current line
-        comment_line = "gcc",
-        -- Define 'comment' textobject (like `dgc` - delete whole comment block)
-        textobject = "gc"
-    },
-    -- Hook functions to be executed at certain stage of commenting
-    hooks = {
-        -- Before successful commenting. Does nothing by default.
-        pre = function()
-            require('ts_context_commentstring.internal').update_commentstring()
-        end,
-        -- After successful commenting. Does nothing by default.
-        post = function() end
-    }
+	-- Module mappings. Use `''` (empty string) to disable one.
+	mappings = {
+		-- Toggle comment (like `gcip` - comment inner paragraph) for both
+		-- Normal and Visual modes
+		comment = "gc",
+		-- Toggle comment on current line
+		comment_line = "gcc",
+		-- Define 'comment' textobject (like `dgc` - delete whole comment block)
+		textobject = "gc",
+	},
+	-- Hook functions to be executed at certain stage of commenting
+	hooks = {
+		-- Before successful commenting. Does nothing by default.
+		pre = function()
+			require("ts_context_commentstring.internal").update_commentstring()
+		end,
+		-- After successful commenting. Does nothing by default.
+		post = function() end,
+	},
 })
 
 -- require("mini.cursorword").setup()
@@ -174,50 +193,50 @@ require("mini.statusline").setup({ set_vim_settings = false })
 -- })
 --
 require("mini.surround").setup({
-    -- Add custom surroundings to be used on top of builtin ones. For more
-    -- information with examples, see `:h MiniSurround.config`.
-    custom_surroundings = nil,
-    -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
-    highlight_duration = 500,
-    -- Module mappings. Use `''` (empty string) to disable one.
-    mappings = {
-        add = "sa", -- Add surrounding in Normal and Visual modes
-        delete = "sd", -- Delete surrounding
-        find = "sf", -- Find surrounding (to the right)
-        find_left = "sF", -- Find surrounding (to the left)
-        highlight = "sh", -- Highlight surrounding
-        replace = "sr", -- Replace surrounding
-        update_n_lines = "sn" -- Update `n_lines`
-    },
-    -- Number of lines within which surrounding is searched
-    n_lines = 20,
-    -- How to search for surrounding (first inside current line, then inside
-    -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
-    -- 'cover_or_nearest'. For more details, see `:h MiniSurround.config`.
-    search_method = "cover"
+	-- Add custom surroundings to be used on top of builtin ones. For more
+	-- information with examples, see `:h MiniSurround.config`.
+	custom_surroundings = nil,
+	-- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
+	highlight_duration = 500,
+	-- Module mappings. Use `''` (empty string) to disable one.
+	mappings = {
+		add = "sa", -- Add surrounding in Normal and Visual modes
+		delete = "sd", -- Delete surrounding
+		find = "sf", -- Find surrounding (to the right)
+		find_left = "sF", -- Find surrounding (to the left)
+		highlight = "sh", -- Highlight surrounding
+		replace = "sr", -- Replace surrounding
+		update_n_lines = "sn", -- Update `n_lines`
+	},
+	-- Number of lines within which surrounding is searched
+	n_lines = 20,
+	-- How to search for surrounding (first inside current line, then inside
+	-- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
+	-- 'cover_or_nearest'. For more details, see `:h MiniSurround.config`.
+	search_method = "cover",
 })
 
 require("mini.bufremove").setup({ set_vim_settings = true })
 
 require("mini.sessions").setup({
-    -- Whether to read latest session if Neovim opened without file arguments
-    autoread = false,
-    -- Whether to write current session before quitting Neovim
-    autowrite = true,
-    -- Directory where global sessions are stored (use `''` to disable)
-    -- directory = --<"session" subdir of user data directory from |stdpath()|>,
+	-- Whether to read latest session if Neovim opened without file arguments
+	autoread = false,
+	-- Whether to write current session before quitting Neovim
+	autowrite = true,
+	-- Directory where global sessions are stored (use `''` to disable)
+	-- directory = --<"session" subdir of user data directory from |stdpath()|>,
 
-    -- File for local session (use `''` to disable)
-    file = "",
-    -- Whether to force possibly harmful actions (meaning depends on function)
-    force = { read = false, write = true, delete = false },
-    -- Hook functions for actions. Default `nil` means 'do nothing'.
-    hooks = {
-        -- Before successful action
-        pre = { read = nil, write = nil, delete = nil },
-        -- After successful action
-        post = { read = nil, write = nil, delete = nil }
-    },
-    -- Whether to print session path after action
-    verbose = { read = false, write = true, delete = true }
+	-- File for local session (use `''` to disable)
+	file = "",
+	-- Whether to force possibly harmful actions (meaning depends on function)
+	force = { read = false, write = true, delete = false },
+	-- Hook functions for actions. Default `nil` means 'do nothing'.
+	hooks = {
+		-- Before successful action
+		pre = { read = nil, write = nil, delete = nil },
+		-- After successful action
+		post = { read = nil, write = nil, delete = nil },
+	},
+	-- Whether to print session path after action
+	verbose = { read = false, write = true, delete = true },
 })

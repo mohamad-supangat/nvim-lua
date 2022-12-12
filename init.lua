@@ -87,7 +87,7 @@ require("packer").startup(function(use)
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
-      "jcha0713/cmp-tw2css",
+      -- "jcha0713/cmp-tw2css",
       "onsails/lspkind.nvim",
     },
   })
@@ -160,6 +160,7 @@ require("packer").startup(function(use)
   })
 
   use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
+  use({ "Abstract-IDE/penvim" })
 
   -- use({
   -- 	"anuvyklack/pretty-fold.nvim",
