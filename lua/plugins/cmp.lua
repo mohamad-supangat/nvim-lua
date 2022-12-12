@@ -81,20 +81,27 @@ cmp.setup({
   }),
   formatting = {
     fields = { "kind", "abbr", "menu" },
-    format = function(entry, vim_item)
-      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-      local strings = vim.split(kind.kind, "%s", { trimempty = true })
-      kind.kind = " " .. strings[1] .. " "
-      kind.menu = "    (" .. strings[2] .. ")"
-
-      return kind
-    end,
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[Latex]",
+      })
+    })
   },
   sources = {
-    { name = "luasnip" },
-    { name = "nvim_lua" },
     { name = "nvim_lsp" },
-    { name = "buffer" },
+    { name = "nvim_lua" },
+    { name = "luasnip" },
+    { name = "buffer", option = {
+      get_bufnrs = function()
+        return vim.api.nvim_list_bufs()
+      end
+    } },
+    { name = "nvim_lsp_signature_help" },
     { name = "path" },
     -- { name = "cmp-tw2css" },
   },
@@ -106,10 +113,27 @@ cmp.setup({
     -- 	side_padding = 0,
     -- },
 
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
   },
-  experimental = { ghost_text = true },
+  experimental = { ghost_text = false },
+})
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
 })
 
 -- local cmp_h = {

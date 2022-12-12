@@ -1,6 +1,6 @@
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
-  return
+	return
 end
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
@@ -9,26 +9,24 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local completion = null_ls.builtins.completion
 
-
 -- https://github.com/prettier-solidity/prettier-plugin-solidity
-null_ls.setup {
-  debug = false,
-  sources = {
-    formatting.prettier.with {
-      extra_filetypes = { "toml", "vue" },
-      -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-    },
-    -- formatting.black.with { extra_args = { "--fast" } },
-    formatting.reorder_python_imports,
-    formatting.stylua,
-    formatting.google_java_format,
-    formatting.phpcbf,
-    formatting.phpcsfixer,
-    formatting.blade_formatter,
-    formatting.fixjson,
-    diagnostics.flake8,
-    diagnostics.pydocstyle,
-    diagnostics.selene,
-    completion.tags
-  },
-}
+null_ls.setup({
+	debug = false,
+	sources = {
+		-- formatting.prettier,
+		formatting.prettierd,
+		-- formatting.prettier_d_slim,
+		formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.reorder_python_imports,
+		formatting.stylua,
+		formatting.google_java_format,
+		formatting.phpcbf,
+		formatting.phpcsfixer,
+		formatting.blade_formatter,
+		formatting.fixjson,
+		diagnostics.flake8,
+		diagnostics.pydocstyle,
+		diagnostics.selene,
+		completion.tags,
+	},
+})
