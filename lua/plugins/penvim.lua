@@ -7,7 +7,7 @@ end
 
 penvim.setup({
   rooter = {
-    enable = true, -- enable/disable rooter
+    enable = false, -- enable/disable rooter
     patterns = { ".__nvim__.lua", ".git", "node_modules" },
   },
   indentor = {
