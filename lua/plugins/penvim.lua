@@ -7,12 +7,12 @@ end
 
 penvim.setup({
   rooter = {
-    enable = true, -- enable/disable rooter
+    enable = false, -- enable/disable rooter
     patterns = { ".__nvim__.lua", ".git", "node_modules" },
   },
   indentor = {
     enable = true, -- enable/disable indentor
-    indent_length = 4, -- tab indent width
+    indent_length = 2, -- tab indent width
     accuracy = 5, -- positive integer. higher the number, the more accurate result (but affects the startup time)
     disable_types = {
       "help",

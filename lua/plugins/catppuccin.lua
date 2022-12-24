@@ -27,7 +27,7 @@ require("catppuccin").setup({
 		nvimtree = true,
 		mini = true,
 		ts_rainbow = true,
-		indent_blankline = { enabled = true, colored_indent_levels = false },
+		indent_blankline = { enabled = true, colored_indent_levels = true },
 		native_lsp = {
 			enabled = true,
 			virtual_text = {
