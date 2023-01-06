@@ -25,7 +25,7 @@ nvim_tree.setup({
 	view = {
 		preserve_window_proportions = true,
 		adaptive_size = true,
-		cursorline = false,
+		cursorline = true,
 		auto_resize = true,
 		mappings = {
 			list = {
