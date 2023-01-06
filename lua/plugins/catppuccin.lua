@@ -1,6 +1,11 @@
+local status_ok, catppuccin = pcall(require, "catppuccin")
+if not status_ok then
+	return
+end
+
 vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
 
-require("catppuccin").setup({
+catppuccin.setup({
 	transparent_background = true,
 	term_colors = true,
 	dim_inactive = { enabled = false, shade = "dark", percentage = 0.15 },
