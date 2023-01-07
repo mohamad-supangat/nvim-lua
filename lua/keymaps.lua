@@ -89,3 +89,6 @@ map("v", "/", '"fy/\\V<C-R>f<CR>', default_opts)
 
 -- toggle zen mode (full screen editing)
 map("n", "<leader>zen", ":lua require('zen-mode').toggle()<CR>", default_opts)
+
+-- change current cwd to current file dir
+map("n", "<leader>cd", ":cd %:p:h<CR>", default_opts)

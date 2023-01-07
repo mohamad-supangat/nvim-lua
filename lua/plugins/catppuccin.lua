@@ -1,6 +1,11 @@
+local status_ok, catppuccin = pcall(require, "catppuccin")
+if not status_ok then
+	return
+end
+
 vim.g.catppuccin_flavour = "frappe" -- latte, frappe, macchiato, mocha
 
-require("catppuccin").setup({
+catppuccin.setup({
 	transparent_background = true,
 	term_colors = true,
 	dim_inactive = { enabled = false, shade = "dark", percentage = 0.15 },
@@ -27,7 +32,7 @@ require("catppuccin").setup({
 		nvimtree = true,
 		mini = true,
 		ts_rainbow = true,
-		indent_blankline = { enabled = true, colored_indent_levels = false },
+		indent_blankline = { enabled = true, colored_indent_levels = true },
 		native_lsp = {
 			enabled = true,
 			virtual_text = {

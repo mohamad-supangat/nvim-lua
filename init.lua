@@ -22,153 +22,157 @@ local fn = vim.fn
 -- bootstarping packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  })
+	packer_bootstrap = fn.system({
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	})
 end
 
 require("packer").startup(function(use)
-  use("wbthomason/packer.nvim")
+	use("wbthomason/packer.nvim")
 
-  use("kyazdani42/nvim-web-devicons")
-  use("nvim-lua/plenary.nvim")
+	use("kyazdani42/nvim-web-devicons")
+	use("nvim-lua/plenary.nvim")
 
-  use({
-    "akinsho/bufferline.nvim",
-    tag = "v2.*",
-    requires = "kyazdani42/nvim-web-devicons",
-  })
+	use({
+		"akinsho/bufferline.nvim",
+		tag = "v2.*",
+		requires = "kyazdani42/nvim-web-devicons",
+	})
 
-  -- more hgithlight
-  use("sheerun/vim-polyglot")
-  -- use "tpope/vim-sleuth"
+	-- more hgithlight
+	use("sheerun/vim-polyglot")
+	-- use "tpope/vim-sleuth"
 
-  use({
-    "Darazaki/indent-o-matic",
-    config = function()
-      require("indent-o-matic").setup({})
-    end,
-  })
+	use({
+		"Darazaki/indent-o-matic",
+		config = function()
+			require("indent-o-matic").setup({})
+		end,
+	})
 
-  -- colorscheme
-  use({ "catppuccin/nvim", as = "catppuccin" })
+	-- colorscheme
+	-- use({ "catppuccin/nvim", as = "catppuccin" })
+	use("EdenEast/nightfox.nvim")
 
-  -- filer manager
-  use({
-    "nvim-tree/nvim-tree.lua",
-    requires = {
-      "nvim-tree/nvim-web-devicons", -- optional, for file icons
-    },
-    tag = "nightly", -- optional, updated every week. (see issue #1193)
-  })
+	-- filer manager
+	use({
+		"nvim-tree/nvim-tree.lua",
+		requires = {
+			"nvim-tree/nvim-web-devicons", -- optional, for file icons
+		},
+		tag = "nightly", -- optional, updated every week. (see issue #1193)
+	})
 
-  -- lsp and syntax helper
-  -- use {
-  --     "neoclide/coc.nvim",
-  --     requires = {'honza/vim-snippets'},
-  --     branch = "release",
-  --     config = function() require("plugins/coc") end
-  -- }
+	-- use({ "ms-jpq/chadtree", branch = "chad", run = "python3 -m chadtree deps" })
 
-  -- use {"antoinemadec/coc-fzf", requires = {"ibhagwan/fzf-lua"}}
+	-- lsp and syntax helper
+	-- use {
+	--     "neoclide/coc.nvim",
+	--     requires = {'honza/vim-snippets'},
+	--     branch = "release",
+	--     config = function() require("plugins/coc") end
+	-- }
 
-  -- cmp plugins
-  use({
-    "hrsh7th/nvim-cmp",
-    requires = {
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-nvim-lua",
-      "hrsh7th/cmp-cmdline",
-      "jcha0713/cmp-tw2css",
-      "hrsh7th/cmp-nvim-lsp-signature-help",
-      "onsails/lspkind.nvim",
-    },
-  })
+	-- use {"antoinemadec/coc-fzf", requires = {"ibhagwan/fzf-lua"}}
 
-  -- snippets
-  use({ "L3MON4D3/LuaSnip" }) -- snippet engine
-  use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
+	-- cmp plugins
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lua",
+			"hrsh7th/cmp-cmdline",
+			-- "jcha0713/cmp-tw2css",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"onsails/lspkind.nvim",
+		},
+	})
 
-  -- LSP
-  use({
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-  })
+	-- snippets
+	use({ "L3MON4D3/LuaSnip" }) -- snippet engine
+	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
-  use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
+	-- LSP
+	use({
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	})
 
-  use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-  -- use({ "RRethy/vim-illuminate" })
+	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 
-  -- another formater with external comandline
-  use("sbdchd/neoformat")
+	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
+	-- use({ "RRethy/vim-illuminate" })
 
-  use({
-    "nvim-treesitter/nvim-treesitter",
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    "p00f/nvim-ts-rainbow",
-    "windwp/nvim-ts-autotag",
-    "windwp/nvim-autopairs",
-    "haringsrob/nvim_context_vt",
-  })
+	-- another formater with external comandline
+	use("sbdchd/neoformat")
 
-  use("simrat39/symbols-outline.nvim") -- A tree like view for symbols in Neovim using the Language Server Protocol
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		"p00f/nvim-ts-rainbow",
+		"windwp/nvim-ts-autotag",
+		"windwp/nvim-autopairs",
+		"haringsrob/nvim_context_vt",
+	})
 
-  -- utils
-  use("gpanders/editorconfig.nvim")
-  use({ "lukas-reineke/indent-blankline.nvim" })
-  use({ "echasnovski/mini.nvim", branch = "stable" })
+	use("simrat39/symbols-outline.nvim") -- A tree like view for symbols in Neovim using the Language Server Protocol
 
-  use({ "danymat/neogen", requires = "nvim-treesitter/nvim-treesitter" })
+	-- utils
+	use("gpanders/editorconfig.nvim")
+	use({ "lukas-reineke/indent-blankline.nvim" })
+	use({ "echasnovski/mini.nvim", branch = "stable" })
 
-  use({ "LudoPinelli/comment-box.nvim" })
+	use({ "danymat/neogen", requires = "nvim-treesitter/nvim-treesitter" })
 
-  -- use "christoomey/vim-tmux-navigator"
-  use({ "alexghergh/nvim-tmux-navigation" })
-  use({ "numtostr/FTerm.nvim" })
+	use({ "LudoPinelli/comment-box.nvim" })
 
-  use({ "xiyaowong/accelerated-jk.nvim" })
+	-- use "christoomey/vim-tmux-navigator"
+	use({ "alexghergh/nvim-tmux-navigation" })
+	use({ "numtostr/FTerm.nvim" })
 
-  use({ "ibhagwan/fzf-lua" })
+	use({ "xiyaowong/accelerated-jk.nvim" })
 
-  -- use {
-  --     "NvChad/nvim-colorizer.lua",
-  --     config = function() require'colorizer'.setup() end
-  -- }
+	use({ "ibhagwan/fzf-lua" })
 
-  use({ "brenoprata10/nvim-highlight-colors" })
+	-- use {
+	--     "NvChad/nvim-colorizer.lua",
+	--     config = function() require'colorizer'.setup() end
+	-- }
 
-  use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
-  use({ "alpertuna/vim-header" })
+	use({ "brenoprata10/nvim-highlight-colors" })
 
-  use({ "lewis6991/gitsigns.nvim" })
-  use({ "dyng/ctrlsf.vim" })
+	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({ "alpertuna/vim-header" })
 
-  use({
-    "folke/zen-mode.nvim",
-    config = function()
-      require("zen-mode").setup({})
-    end,
-  })
+	use({ "lewis6991/gitsigns.nvim" })
+	use({ "dyng/ctrlsf.vim" })
 
-  use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({
+		"folke/zen-mode.nvim",
+		config = function()
+			require("zen-mode").setup({})
+		end,
+	})
 
-  -- use({
-  -- 	"anuvyklack/pretty-fold.nvim",
-  -- })
+	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({ "Abstract-IDE/penvim" })
 
-  if packer_bootstrap then
-    require("packer").sync()
-  end
+	-- use({
+	-- 	"anuvyklack/pretty-fold.nvim",
+	-- })
+
+	if packer_bootstrap then
+		require("packer").sync()
+	end
 end)
 
 require("settings") -- settings
