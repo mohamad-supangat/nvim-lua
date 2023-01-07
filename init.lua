@@ -57,7 +57,21 @@ require("packer").startup(function(use)
 
 	-- colorscheme
 	-- use({ "catppuccin/nvim", as = "catppuccin" })
-	use("EdenEast/nightfox.nvim")
+	-- use("EdenEast/nightfox.nvim")
+	use({
+		"projekt0n/github-nvim-theme",
+		config = function()
+			require("github-theme").setup({
+				theme_style = "dark_default",
+				comment_style = "italic",
+				keyword_style = "italic",
+				function_style = "italic",
+				variable_style = "italic",
+				dark_sidebar = true,
+				sidebars = { "qf", "vista_kind", "terminal", "packer", "NvimTree" },
+			})
+		end,
+	})
 
 	-- filer manager
 	use({
