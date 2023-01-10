@@ -136,7 +136,7 @@ require("packer").startup(function(use)
 			"hrsh7th/cmp-cmdline",
 			-- "jcha0713/cmp-tw2css",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
-			"onsails/lspkind.nvim",
+			-- "onsails/lspkind.nvim",
 		},
 	})
 
