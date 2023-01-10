@@ -78,11 +78,9 @@ local my_items = {
 	{ name = "Open FZF file finder", action = "FzfLua files", section = "Builtin actions" },
 	{ name = "Open nvim tree", action = "NvimTreeOpen", section = "Builtin actions" },
 
-
 	{ name = "Config: init.lua", action = "e ~/.config/nvim/init.lua", section = "Nvim" },
 	{ name = "Snippets: package.json", action = "e ~/.config/nvim/snippets/package.json", section = "Nvim" },
 }
-
 
 local starter = require("mini.starter")
 starter.setup({
@@ -130,19 +128,19 @@ require("mini.comment").setup({
 -- require("mini.trailspace").setup()
 
 -- remove gui window separator for using global statusline
--- vim.cmd [[hi WinSeparator guibg=none]]
+-- vim.cmd([[hi WinSeparator guibg=none]])
 require("mini.statusline").setup({ set_vim_settings = false })
 
--- require("mini.tabline").setup({
---     -- Whether to show file icons (requires 'kyazdani42/nvim-web-devicons')
---     show_icons = true,
---     -- Whether to set Vim's settings for tabline (make it always shown and
---     -- allow hidden buffers)
---     set_vim_settings = true,
---     -- Where to show tabpage section in case of multiple vim tabpages.
---     -- One of 'left', 'right', 'none'.
---     tabpage_section = "left"
--- })
+require("mini.tabline").setup({
+	-- Whether to show file icons (requires 'kyazdani42/nvim-web-devicons')
+	show_icons = true,
+	-- Whether to set Vim's settings for tabline (make it always shown and
+	-- allow hidden buffers)
+	set_vim_settings = true,
+	-- Where to show tabpage section in case of multiple vim tabpages.
+	-- One of 'left', 'right', 'none'.
+	tabpage_section = "right",
+})
 --
 -- require('mini.pairs').setup({
 --     -- In which modes mappings from this `config` should be created

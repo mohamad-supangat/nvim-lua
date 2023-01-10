@@ -12,8 +12,10 @@ bufferline.setup({
 			{ filetype = "NvimTree", text = "File Manager", padding = 1 },
 		},
 		-- indicator = {
-		--     stule = 'underline'
+		-- 	stule = "underline",
 		-- },
+
+		separator_style = "thin",
 		diagnostics = "nvim_lsp",
 		color_icons = true,
 		-- separator_style = 'slant'

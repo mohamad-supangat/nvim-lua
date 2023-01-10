@@ -38,11 +38,16 @@ require("packer").startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 	use("nvim-lua/plenary.nvim")
 
-	use({
-		"akinsho/bufferline.nvim",
-		tag = "v2.*",
-		requires = "kyazdani42/nvim-web-devicons",
-	})
+	-- use({
+	-- 	"akinsho/bufferline.nvim",
+	-- 	tag = "v3.*",
+	-- 	requires = "kyazdani42/nvim-web-devicons",
+	-- })
+
+	-- use({
+	-- 	"noib3/nvim-cokeline",
+	-- 	requires = "kyazdani42/nvim-web-devicons", -- If you want devicons
+	-- })
 
 	-- more hgithlight
 	use("sheerun/vim-polyglot")
@@ -58,18 +63,43 @@ require("packer").startup(function(use)
 	-- colorscheme
 	-- use({ "catppuccin/nvim", as = "catppuccin" })
 	-- use("EdenEast/nightfox.nvim")
+	-- use({
+	-- 	"projekt0n/github-nvim-theme",
+	-- 	config = function()
+	-- 		require("github-theme").setup({
+	-- 			theme_style = "dark_default",
+	-- 			comment_style = "italic",
+	-- 			keyword_style = "italic",
+	-- 			function_style = "italic",
+	-- 			variable_style = "italic",
+	-- 			dark_sidebar = true,
+	-- 			sidebars = { "qf", "vista_kind", "terminal", "packer", "NvimTree" },
+	-- 		})
+	-- 	end,
+	-- })
+
 	use({
-		"projekt0n/github-nvim-theme",
+		"ellisonleao/gruvbox.nvim",
 		config = function()
-			require("github-theme").setup({
-				theme_style = "dark_default",
-				comment_style = "italic",
-				keyword_style = "italic",
-				function_style = "italic",
-				variable_style = "italic",
-				dark_sidebar = true,
-				sidebars = { "qf", "vista_kind", "terminal", "packer", "NvimTree" },
+			require("gruvbox").setup({
+				undercurl = true,
+				underline = true,
+				bold = true,
+				italic = true,
+				strikethrough = true,
+				invert_selection = false,
+				invert_signs = false,
+				invert_tabline = false,
+				invert_intend_guides = false,
+				inverse = true, -- invert background for search, diffs, statuslines and errors
+				contrast = "hard", -- can be "hard", "soft" or empty string
+				palette_overrides = {},
+				overrides = {},
+				dim_inactive = false,
+				transparent_mode = true,
 			})
+			vim.o.background = "dark" -- or "light" for light mode
+			vim.cmd([[colorscheme gruvbox]])
 		end,
 	})
 

@@ -26,7 +26,7 @@ nvim_tree.setup({
 		preserve_window_proportions = true,
 		adaptive_size = true,
 		cursorline = true,
-		auto_resize = true,
+		-- auto_resize = true,
 		mappings = {
 			list = {
 				{ key = { "l", "<CR>", "<2-LeftMouse>" }, cb = tree_cb("edit") },
