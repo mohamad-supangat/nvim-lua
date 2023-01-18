@@ -207,7 +207,7 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
+	-- use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "Abstract-IDE/penvim" })
 
 	-- use({
