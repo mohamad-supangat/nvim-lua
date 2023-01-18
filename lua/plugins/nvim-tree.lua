@@ -40,7 +40,7 @@ nvim_tree.setup({
 				{ key = "c", cb = tree_cb("create") },
 				{ key = "D", cb = tree_cb("remove") },
 				{ key = "r", cb = tree_cb("rename") },
-				{ key = "d", cb = tree_cb("cut") },
+				-- { key = "d", cb = tree_cb("cut") },
 				{ key = "y", cb = tree_cb("copy") },
 				{ key = "p", cb = tree_cb("paste") },
 				{ key = "gyn", cb = tree_cb("copy_name") },
