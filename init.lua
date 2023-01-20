@@ -89,16 +89,28 @@ require("packer").startup(function(use)
 	})
 
 	-- filer manager
+	-- use({
+	-- 	"nvim-tree/nvim-tree.lua",
+	-- 	requires = {
+	-- 		"nvim-tree/nvim-web-devicons", -- optional, for file icons
+	-- 	},
+	-- 	tag = "nightly", -- optional, updated every week. (see issue #1193)
+	-- })
+
 	use({
-		"nvim-tree/nvim-tree.lua",
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
 		requires = {
-			"nvim-tree/nvim-web-devicons", -- optional, for file icons
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			{
+				-- only needed if you want to use the commands with "_with_window_picker" suffix
+				"s1n7ax/nvim-window-picker",
+				tag = "v1.*",
+			},
 		},
-		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
-
-	-- use({ "ms-jpq/chadtree", branch = "chad", run = "python3 -m chadtree deps" })
-
 	-- lsp and syntax helper
 	-- use {
 	--     "neoclide/coc.nvim",
@@ -186,7 +198,7 @@ require("packer").startup(function(use)
 	})
 
 	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({ "Abstract-IDE/penvim" })
+	-- use({ "Abstract-IDE/penvim" })
 	use({ "weirongxu/plantuml-previewer.vim", requires = "tyru/open-browser.vim" })
 
 	-- use({
