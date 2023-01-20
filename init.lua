@@ -62,21 +62,6 @@ require("packer").startup(function(use)
 
 	-- colorscheme
 	-- use({ "catppuccin/nvim", as = "catppuccin" })
-	-- use("EdenEast/nightfox.nvim")
-	-- use({
-	-- 	"projekt0n/github-nvim-theme",
-	-- 	config = function()
-	-- 		require("github-theme").setup({
-	-- 			theme_style = "dark_default",
-	-- 			comment_style = "italic",
-	-- 			keyword_style = "italic",
-	-- 			function_style = "italic",
-	-- 			variable_style = "italic",
-	-- 			dark_sidebar = true,
-	-- 			sidebars = { "qf", "vista_kind", "terminal", "packer", "NvimTree" },
-	-- 		})
-	-- 	end,
-	-- })
 
 	use({
 		"ellisonleao/gruvbox.nvim",
@@ -153,7 +138,8 @@ require("packer").startup(function(use)
 
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 
-	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
+	use({ "jose-elias-alvarez/null-ls.nvim" })
+	-- for formatters and linters
 	-- use({ "RRethy/vim-illuminate" })
 
 	-- another formater with external comandline
@@ -177,20 +163,12 @@ require("packer").startup(function(use)
 
 	use({ "danymat/neogen", requires = "nvim-treesitter/nvim-treesitter" })
 
-	use({ "LudoPinelli/comment-box.nvim" })
-
-	-- use "christoomey/vim-tmux-navigator"
-	use({ "alexghergh/nvim-tmux-navigation" })
+	use({ "aserowy/tmux.nvim" })
 	use({ "numtostr/FTerm.nvim" })
 
 	use({ "xiyaowong/accelerated-jk.nvim" })
 
 	use({ "ibhagwan/fzf-lua" })
-
-	-- use {
-	--     "NvChad/nvim-colorizer.lua",
-	--     config = function() require'colorizer'.setup() end
-	-- }
 
 	use({ "brenoprata10/nvim-highlight-colors" })
 
@@ -201,15 +179,15 @@ require("packer").startup(function(use)
 	use({ "dyng/ctrlsf.vim" })
 
 	use({
-		"folke/zen-mode.nvim",
+		"beauwilliams/focus.nvim",
 		config = function()
-			require("zen-mode").setup({})
+			require("focus").setup()
 		end,
 	})
 
 	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "Abstract-IDE/penvim" })
-	use({ "weirongxu/plantuml-previewer.vim" })
+	use({ "weirongxu/plantuml-previewer.vim", requires = "tyru/open-browser.vim" })
 
 	-- use({
 	-- 	"anuvyklack/pretty-fold.nvim",
