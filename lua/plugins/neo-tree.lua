@@ -37,7 +37,6 @@ neo_tree.setup({
 	close_if_last_window = true,
 	window = {
 		mappings = {
-			["o"] = "system_open",
 			["<esc>"] = "revert_preview",
 			["P"] = { "toggle_preview", config = { use_float = true } },
 			["l"] = "open_with_window_picker",
@@ -51,14 +50,20 @@ neo_tree.setup({
 			end,
 		},
 	},
-	commands = {
-		system_open = function(state)
-			local node = state.tree:get_node()
-			local path = node:get_id()
-			vim.api.nvim_command(string.format("silent !xdg-open '%s'", path))
-		end,
-	},
+
 	filesystem = {
+		window = {
+			mappings = {
+				["o"] = "system_open",
+			},
+		},
+		commands = {
+			system_open = function(state)
+				local node = state.tree:get_node()
+				local path = node:get_id()
+				vim.api.nvim_command(string.format("silent !xdg-open '%s'", path))
+			end,
+		},
 		filtered_items = {
 			hide_dotfiles = false,
 			hide_gitignored = false,
