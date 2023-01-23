@@ -8,10 +8,10 @@ require 'fzf-lua'.setup {
     -- "aboveleft vnew   : split left
     -- Only valid when using a float window
     -- (i.e. when 'split' is not defined)
-    win_height = 0.58, -- window height
-    win_width  = 0.50, -- window width
-    win_row    = 0.20, -- window row position (0=top, 1=bottom)
-    win_col    = 0.50, -- window col position (0=left, 1=right)
+    -- win_height = 0.58, -- window height
+    -- win_width  = 0.50, -- window width
+    -- win_row    = 0.20, -- window row position (0=top, 1=bottom)
+    -- win_col    = 0.50, -- window col position (0=left, 1=right)
     -- win_border    = false,           -- window border? or borderchars?
     win_border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
     hl_normal  = 'Normal', -- window normal color
