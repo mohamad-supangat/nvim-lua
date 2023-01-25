@@ -40,6 +40,7 @@ neo_tree.setup({
 			["<esc>"] = "revert_preview",
 			["P"] = { "toggle_preview", config = { use_float = true } },
 			["l"] = "open_with_window_picker",
+			["h"] = "close_node",
 		},
 	},
 	event_handlers = {
