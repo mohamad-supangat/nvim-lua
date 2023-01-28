@@ -10,6 +10,8 @@ local default_opts = { noremap = true, silent = true }
 -- vim.g.loaded_netrwPlugin = 1
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 map("n", "<C-n>", ":Neotree reveal<CR>", default_opts)
+map("n", "<C-m>", ":Neotree buffers<CR>", default_opts)
+
 
 vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
 vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
