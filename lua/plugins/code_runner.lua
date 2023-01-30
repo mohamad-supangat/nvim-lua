@@ -5,10 +5,10 @@ end
 
 code_runner.setup({
 	-- mode = "toggle",
-  focus = false,
+	focus = false,
 	-- put here the commands by filetype
 	filetype = {
-
+		fish = "fish",
 		java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
 		python = "python3 -u",
 		typescript = "deno run",
