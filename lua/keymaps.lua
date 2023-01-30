@@ -94,4 +94,4 @@ map("n", "<leader>zen", ":lua require('zen-mode').toggle()<CR>", default_opts)
 map("n", "<leader>cd", ":cd %:p:h<CR>", default_opts)
 
 -- open current buffer in lazygit
-map("n", "<leader>git", ":LazyGitFilterCurrentFile<CR>", default_opts)
+map("n", "<leader>git", ":LazyGitCurrentFile<CR>", default_opts)
