@@ -50,15 +50,15 @@ require("packer").startup(function(use)
   -- })
 
   -- more hgithlight
-  use("sheerun/vim-polyglot")
+  -- use("sheerun/vim-polyglot")
   -- use "tpope/vim-sleuth"
-
-  use({
-    "Darazaki/indent-o-matic",
-    config = function()
-      require("indent-o-matic").setup({})
-    end,
-  })
+  --
+  -- use({
+  --   "Darazaki/indent-o-matic",
+  --   config = function()
+  --     require("indent-o-matic").setup({})
+  --   end,
+  -- })
 
   -- colorscheme
   -- use({ "catppuccin/nvim", as = "catppuccin" })
@@ -203,9 +203,9 @@ require("packer").startup(function(use)
   })
 
   use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
-  -- use({ "Abstract-IDE/penvim" })
+  use({ "Abstract-IDE/penvim" })
   use({ "weirongxu/plantuml-previewer.vim", requires = "tyru/open-browser.vim" })
-
+  use({ "kdheepak/lazygit.nvim" })
   -- use({
   -- 	"anuvyklack/pretty-fold.nvim",
   -- })
