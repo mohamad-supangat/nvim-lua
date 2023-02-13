@@ -22,7 +22,7 @@ local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lsp_status_ok then
 	return
 end
-mason_lsp.setup({ ensure_installed = { "sumneko_lua" } })
+mason_lsp.setup({ ensure_installed = { "lua_ls" } })
 
 mason_lsp.setup_handlers({
 	function(server) -- default handler (optional)
@@ -31,7 +31,7 @@ mason_lsp.setup_handlers({
 			capabilities = require("lsp.handlers").capabilities,
 		}
 
-		if server == "sumneko_lua" then
+		if server == "lua_ls" then
 			local sumneko_opts = require("lsp.settings.sumneko_lua")
 			opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 		end
