@@ -11,7 +11,7 @@ local default_opts = { noremap = true, silent = true }
 -----------------------------------------------------------
 
 -- packer sync
-map("n", "<leader>uu", ":PackerSync<CR>", default_opts)
+map("n", "<leader>uu", ":Lazy<CR>", default_opts)
 
 -- clear search highlighting
 map("n", "<Esc><Esc>", ":nohl<CR>", default_opts)
