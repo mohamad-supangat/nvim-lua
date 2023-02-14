@@ -42,6 +42,7 @@
   "open-browser.vim": { "branch": "master", "commit": "7d4c1d8198e889d513a030b5a83faa07606bac27" },
   "plantuml-previewer.vim": { "branch": "master", "commit": "192cbc2349d4a5c772089b4ea72e085fa61790ff" },
   "plenary.nvim": { "branch": "master", "commit": "9a0d3bf7b832818c042aaf30f692b081ddd58bd9" },
+  "symbols-outline.nvim": { "branch": "master", "commit": "512791925d57a61c545bc303356e8a8f7869763c" },
   "tmux.nvim": { "branch": "main", "commit": "feafcf8f48c49c720ee64e745648d69d42cb9c5a" },
   "todo-comments.nvim": { "branch": "main", "commit": "74c7d28cb50b0713c881ef69bcb6cdd77d8907d1" },
   "trouble.nvim": { "branch": "main", "commit": "556ef3089709a6e253df1e500381fec5eb48e48a" },
