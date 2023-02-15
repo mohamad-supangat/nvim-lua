@@ -31,7 +31,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	"folke/lazy.nvim",
-	"nvim-tree/nvim-web-devicons",
 	"nvim-lua/plenary.nvim",
 	{
 		"ellisonleao/gruvbox.nvim",
@@ -89,41 +88,45 @@ require("lazy").setup({
 		},
 	},
 	{
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
+			{ "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
+		},
 	},
-	{ "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
-	{ "jose-elias-alvarez/null-ls.nvim" },
+
 	"sbdchd/neoformat",
+
 	{
 		"nvim-treesitter/nvim-treesitter",
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		"mrjones2014/nvim-ts-rainbow",
-		"windwp/nvim-ts-autotag",
-		"windwp/nvim-autopairs",
-		"haringsrob/nvim_context_vt",
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			"mrjones2014/nvim-ts-rainbow",
+			"windwp/nvim-ts-autotag",
+			"windwp/nvim-autopairs",
+			"nvim-treesitter/nvim-treesitter-context",
+			-- "haringsrob/nvim_context_vt",
+		},
 	},
+
 	"gpanders/editorconfig.nvim",
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "echasnovski/mini.nvim", branch = "stable" },
+
+	-- comment document generator
 	{ "danymat/neogen", dependencies = "nvim-treesitter/nvim-treesitter" },
 
 	{ "aserowy/tmux.nvim" },
 	{ "numtostr/FTerm.nvim" },
-
 	{ "xiyaowong/accelerated-jk.nvim" },
-
 	{ "ibhagwan/fzf-lua" },
-
 	{ "brenoprata10/nvim-highlight-colors" },
-
 	{ "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim" },
 	{ "alpertuna/vim-header" },
-
 	{ "lewis6991/gitsigns.nvim" },
 	"simrat39/symbols-outline.nvim",
-
 	{
 		"windwp/nvim-spectre",
 		config = function()
@@ -138,7 +141,7 @@ require("lazy").setup({
 	},
 
 	{ "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
-	{ "weirongxu/plantuml-previewer.vim", dependencies = "tyru/open-browser.vim" },
+	-- { "weirongxu/plantuml-previewer.vim", dependencies = "tyru/open-browser.vim" },
 	{ "kdheepak/lazygit.nvim" },
 })
 

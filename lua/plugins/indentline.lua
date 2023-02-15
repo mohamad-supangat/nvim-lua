@@ -21,6 +21,11 @@ local exclude = {
 
 vim.cmd([[highlight IndentBlanklineIndent1 guifg=#666666 gui=nocombine]])
 indentline.setup({
+	char_highlight_list = {
+		"IndentBlanklineIndent1",
+	},
+	show_current_context = true,
+	show_current_context_start = true,
 	-- space_char_blankline = "|",
 	-- space_char_blankline = " ",
 	char = "▏",
