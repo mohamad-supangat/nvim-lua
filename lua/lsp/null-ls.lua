@@ -11,7 +11,9 @@ local completion = null_ls.builtins.completion
 
 -- https://github.com/prettier-solidity/prettier-plugin-solidity
 null_ls.setup({
+	cache = false,
 	debug = false,
+	temp_dir = "/tmp",
 	sources = {
 		-- formatting.prettier,
 		formatting.prettierd,
@@ -19,7 +21,7 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.reorder_python_imports,
 		formatting.stylua,
-		formatting.google_java_format,
+		-- formatting.google_java_format,
 		formatting.phpcbf,
 		formatting.phpcsfixer,
 		formatting.blade_formatter,
