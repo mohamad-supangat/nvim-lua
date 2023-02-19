@@ -1,7 +1,5 @@
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-  return
-end
+if not status_ok then return end
 
 configs.setup({
   -- A list of parser names, or "all"
@@ -12,21 +10,22 @@ configs.setup({
     enable = true,
     disable = function(lang, buf)
       local max_filesize = 100 * 1024 -- 100 KB
-      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+      local ok, stats = pcall(vim.loop.fs_stat,
+        vim.api.nvim_buf_get_name(buf))
       if ok and stats and stats.size > max_filesize then
         return true
       end
-    end,
+    end
     -- additional_vim_regex_highlighting = true
   },
   autopairs = { enable = true },
   autotag = {
-    enable = true,
+    enable = true
     -- filetypes = {"html", "xml"}
   },
   context_commentstring = { enable = true, enable_autocmd = false },
-  indent = { enable = true, disable = { "python" } },
-  rainbow = { enable = true, extended_mode = true },
+  indent = { enable = true, disable = { "python", "pug", "vue" } },
+  rainbow = { enable = true, extended_mode = true }
 })
 
 -- require("nvim-biscuits").setup(
@@ -62,67 +61,25 @@ require("treesitter-context").setup({
     -- By setting the 'default' entry below, you can control which nodes you want to
     -- appear in the context window.
     default = {
-      "class",
-      "function",
-      "method",
-      "for",
-      "while",
-      "if",
-      "switch",
-      "case",
-      "interface",
-      "struct",
-      "enum",
+      "class", "function", "method", "for", "while", "if", "switch",
+      "case", "interface", "struct", "enum"
     },
     -- Patterns for specific filetypes
     -- If a pattern is missing, *open a PR* so everyone can benefit.
-    tex = {
-      "chapter",
-      "section",
-      "subsection",
-      "subsubsection",
-    },
-    haskell = {
-      "adt",
-    },
-    rust = {
-      "impl_item",
-    },
-    terraform = {
-      "block",
-      "object_elem",
-      "attribute",
-    },
-    scala = {
-      "object_definition",
-    },
-    vhdl = {
-      "process_statement",
-      "architecture_body",
-      "entity_declaration",
-    },
-    markdown = {
-      "section",
-    },
+    tex = { "chapter", "section", "subsection", "subsubsection" },
+    haskell = { "adt" },
+    rust = { "impl_item" },
+    terraform = { "block", "object_elem", "attribute" },
+    scala = { "object_definition" },
+    vhdl = { "process_statement", "architecture_body", "entity_declaration" },
+    markdown = { "section" },
     elixir = {
-      "anonymous_function",
-      "arguments",
-      "block",
-      "do_block",
-      "list",
-      "map",
-      "tuple",
-      "quoted_content",
+      "anonymous_function", "arguments", "block", "do_block", "list",
+      "map", "tuple", "quoted_content"
     },
-    json = {
-      "pair",
-    },
-    typescript = {
-      "export_statement",
-    },
-    yaml = {
-      "block_mapping_pair",
-    },
+    json = { "pair" },
+    typescript = { "export_statement" },
+    yaml = { "block_mapping_pair" }
   },
   exact_patterns = {
     -- Example for a specific filetype with Lua patterns
@@ -137,7 +94,7 @@ require("treesitter-context").setup({
   mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
   -- Separator between context and content. Should be a single character string, like '-'.
   -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-  separator = "-",
+  separator = "-"
 })
 -- require("nvim_context_vt").setup({
 -- 	-- Enable by default. You can disable and use :NvimContextVtToggle to maually enable.
