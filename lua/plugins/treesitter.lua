@@ -20,10 +20,10 @@ configs.setup({
 		-- additional_vim_regex_highlighting = true
 	},
 	autopairs = { enable = true },
-	autotag = {
-		enable = true,
-		-- filetypes = {"html", "xml"}
-	},
+	-- autotag = {
+	-- 	enable = true,
+	-- 	-- filetypes = {"html", "xml"}
+	-- },
 	context_commentstring = { enable = true, enable_autocmd = false },
 	indent = { enable = true, disable = { "python", "pug", "vue" } },
 	rainbow = { enable = true, extended_mode = true },

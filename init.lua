@@ -128,7 +128,7 @@ require("lazy").setup({
 		dependencies = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"mrjones2014/nvim-ts-rainbow",
-			"windwp/nvim-ts-autotag",
+			-- "windwp/nvim-ts-autotag",
 			"windwp/nvim-autopairs",
 			"nvim-treesitter/nvim-treesitter-context",
 			-- "haringsrob/nvim_context_vt",
