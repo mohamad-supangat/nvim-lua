@@ -37,7 +37,7 @@ opt.number = true -- show line number
 opt.showmatch = true -- highlight matching parenthesis
 -- opt.foldmethod = 'marker'     -- enable folding (default 'foldmarker')
 -- opt.colorcolumn = '80'        -- line lenght marker at 80 columns
-cmd [[autocmd FileType text,markdown,tex setlocal textwidth=80]]
+cmd([[autocmd FileType text,markdown,tex setlocal textwidth=80]])
 opt.splitright = true -- vertical split to the right
 opt.splitbelow = true -- orizontal split to the bottom
 opt.ignorecase = true -- ignore case letters when search
@@ -47,17 +47,17 @@ opt.wrap = true
 opt.cursorline = true
 
 -- remove whitespace on save
-cmd [[au BufWritePre * :%s/\s\+$//e]]
+cmd([[au BufWritePre * :%s/\s\+$//e]])
 
 -- highlight on yank
 exec(
-    [[
+	[[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
   augroup end
 ]],
-    false
+	false
 )
 
 -----------------------------------------------------------
@@ -76,8 +76,6 @@ g.t_Co = 256
 g.syntax_on = true
 -- g.colors_name = 'catppuccin'
 
-
-
 -- vim.g.gruvbox_baby_function_style = "italic"
 -- vim.g.gruvbox_baby_keyword_style = "italic"
 
@@ -94,7 +92,7 @@ g.syntax_on = true
 -- vim.g.gruvbox_baby_transparent_mode = 1
 
 -- Load the colorscheme
--- vim.cmd[[colorscheme gruvbox-baby]]
+-- vim.cmd([[colorscheme base16-monokai]])
 
 -----------------------------------------------------------
 -- Tabs, indent
@@ -107,15 +105,15 @@ opt.smartindent = true -- autoindent new lines
 opt.autoindent = true
 -- cmd[[set autoindent]]
 -- don't auto commenting new lines
-cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
+cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
 
 -- remove line lenght marker for selected filetypes
-cmd [[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]]
+cmd([[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]])
 
 -- 2 spaces for selected filetypes
-cmd [[
+cmd([[
   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
-]]
+]])
 
 -----------------------------------------------------------
 -- Autocompletion
@@ -126,7 +124,5 @@ opt.completeopt = "menuone,noselect,menu" -- completion options
 -- Don't automatically collapse markdown and Latex
 opt.conceallevel = 0
 g.tex_conceal = ""
-
-
 
 opt.laststatus = 2

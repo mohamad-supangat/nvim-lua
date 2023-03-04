@@ -37,28 +37,42 @@ vim.g.polyglot_disabled = { "pug", "vue", "autoindent" }
 require("lazy").setup({
 	"folke/lazy.nvim",
 	"nvim-lua/plenary.nvim",
+	-- {
+	-- 	"ellisonleao/gruvbox.nvim",
+	-- 	config = function()
+	-- 		require("gruvbox").setup({
+	-- 			undercurl = true,
+	-- 			underline = true,
+	-- 			bold = true,
+	-- 			italic = true,
+	-- 			strikethrough = true,
+	-- 			invert_selection = false,
+	-- 			invert_signs = false,
+	-- 			invert_tabline = false,
+	-- 			invert_intend_guides = false,
+	-- 			inverse = true, -- invert background for search, diffs, statuslines and errors
+	-- 			contrast = "hard", -- can be "hard", "soft" or empty string
+	-- 			palette_overrides = {},
+	-- 			overrides = {},
+	-- 			dim_inactive = false,
+	-- 			transparent_mode = false,
+	-- 		})
+	-- 		vim.o.background = "dark" -- or "light" for light mode
+	-- 		vim.cmd([[colorscheme gruvbox]])
+	-- 	end,
+	-- },
+	-- { "RRethy/nvim-base16" },
 	{
-		"ellisonleao/gruvbox.nvim",
+		"rebelot/kanagawa.nvim",
 		config = function()
-			require("gruvbox").setup({
-				undercurl = true,
-				underline = true,
-				bold = true,
-				italic = true,
-				strikethrough = true,
-				invert_selection = false,
-				invert_signs = false,
-				invert_tabline = false,
-				invert_intend_guides = false,
-				inverse = true, -- invert background for search, diffs, statuslines and errors
-				contrast = "hard", -- can be "hard", "soft" or empty string
-				palette_overrides = {},
-				overrides = {},
-				dim_inactive = false,
-				transparent_mode = false,
+			require("kanagawa").setup({
+				-- style = "night",
+				transparent = true,
+				globalStatus = true,
+				-- variables = { italic = true },
+				functionStyle = { italic = true },
 			})
-			vim.o.background = "dark" -- or "light" for light mode
-			vim.cmd([[colorscheme gruvbox]])
+			vim.cmd([[colorscheme kanagawa]])
 		end,
 	},
 	{
