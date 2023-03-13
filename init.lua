@@ -111,6 +111,7 @@ require("lazy").setup({
 		},
 	},
 
+	"alvan/vim-closetag",
 	"gpanders/editorconfig.nvim",
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "echasnovski/mini.nvim", branch = "stable" },
