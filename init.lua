@@ -137,12 +137,12 @@ require("lazy").setup({
 	{
 		"b0o/incline.nvim",
 	},
-	{
-		"beauwilliams/focus.nvim",
-		config = function()
-			require("focus").setup()
-		end,
-	},
+	-- {
+	-- 	"beauwilliams/focus.nvim",
+	-- 	config = function()
+	-- 		require("focus").setup()
+	-- 	end,
+	-- },
 
 	{ "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
 	-- { "weirongxu/plantuml-previewer.vim", dependencies = "tyru/open-browser.vim" },
