@@ -106,8 +106,7 @@ require("lazy").setup({
 			"mrjones2014/nvim-ts-rainbow",
 			-- "windwp/nvim-ts-autotag",
 			"windwp/nvim-autopairs",
-			"nvim-treesitter/nvim-treesitter-context",
-			-- "haringsrob/nvim_context_vt",
+			"SmiteshP/nvim-navic",
 		},
 	},
 
