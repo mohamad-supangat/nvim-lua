@@ -133,9 +133,9 @@ require("lazy").setup({
 			require("spectre").setup()
 		end,
 	},
-	{
-		"b0o/incline.nvim",
-	},
+	-- {
+	-- 	"b0o/incline.nvim",
+	-- },
 	-- {
 	-- 	"beauwilliams/focus.nvim",
 	-- 	config = function()

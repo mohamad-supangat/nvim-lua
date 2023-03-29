@@ -113,7 +113,29 @@ require("mini.comment").setup({
 
 -- remove gui window separator for using global statusline
 -- vim.cmd([[hi WinSeparator guibg=none]])
-require("mini.statusline").setup({ set_vim_settings = false })
+MiniStatusline = require("mini.statusline")
+MiniStatusline.setup({
+	set_vim_settings = false,
+	context = {
+		active = function()
+			local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+			local git = MiniStatusline.section_git({ trunc_width = 75 })
+			local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+			local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+			local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+			local location = MiniStatusline.section_location({ trunc_width = 75 })
+			return MiniStatusline.combine_groups({
+				{ hl = mode_hl, strings = { mode } },
+				{ hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
+				"%<", -- Mark general truncate point
+				{ hl = "MiniStatuslineFilename", strings = { filename } },
+				"%=", -- End left alignment
+				{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+				{ hl = mode_hl, strings = { location } },
+			})
+		end,
+	},
+})
 
 -- require("mini.tabline").setup({
 -- 	-- Whether to show file icons (requires 'kyazdani42/nvim-web-devicons')
@@ -125,7 +147,6 @@ require("mini.statusline").setup({ set_vim_settings = false })
 -- 	-- One of 'left', 'right', 'none'.
 -- 	tabpage_section = "right",
 -- })
-
 
 --
 -- require('mini.pairs').setup({
@@ -194,26 +215,3 @@ require("mini.surround").setup({
 })
 
 require("mini.bufremove").setup({ set_vim_settings = true })
-
--- require("mini.sessions").setup({
--- 	-- Whether to read latest session if Neovim opened without file arguments
--- 	autoread = false,
--- 	-- Whether to write current session before quitting Neovim
--- 	autowrite = true,
--- 	-- Directory where global sessions are stored (use `''` to disable)
--- 	-- directory = --<"session" subdir of user data directory from |stdpath()|>,
---
--- 	-- File for local session (use `''` to disable)
--- 	file = "",
--- 	-- Whether to force possibly harmful actions (meaning depends on function)
--- 	force = { read = false, write = true, delete = false },
--- 	-- Hook functions for actions. Default `nil` means 'do nothing'.
--- 	hooks = {
--- 		-- Before successful action
--- 		pre = { read = nil, write = nil, delete = nil },
--- 		-- After successful action
--- 		post = { read = nil, write = nil, delete = nil },
--- 	},
--- 	-- Whether to print session path after action
--- 	verbose = { read = false, write = true, delete = true },
--- })
