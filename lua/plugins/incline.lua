@@ -44,6 +44,7 @@ require("incline").setup({
 		local modified = vim.api.nvim_buf_get_option(props.buf, "modified") and "bold,italic" or "bold"
 
 		local buffer = {
+			-- { require("nvim-navic").get_location() },
 			{ get_diagnostic_label(props) },
 			{ get_git_diff(props) },
 			{ ft_icon, guifg = ft_color },
