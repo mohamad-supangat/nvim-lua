@@ -104,13 +104,13 @@ require("lazy").setup({
 		dependencies = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"mrjones2014/nvim-ts-rainbow",
-			-- "windwp/nvim-ts-autotag",
+			"windwp/nvim-ts-autotag",
 			"windwp/nvim-autopairs",
 			"SmiteshP/nvim-navic",
 		},
 	},
 
-	"alvan/vim-closetag",
+	-- "alvan/vim-closetag",
 	"gpanders/editorconfig.nvim",
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "echasnovski/mini.nvim", branch = "stable" },
