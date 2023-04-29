@@ -116,38 +116,38 @@ require("mini.comment").setup({
 -- vim.cmd([[hi WinSeparator guibg=none]])
 MiniStatusline = require("mini.statusline")
 MiniStatusline.setup({
-	set_vim_settings = false,
-	context = {
-		active = function()
-			local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
-			local git = MiniStatusline.section_git({ trunc_width = 75 })
-			local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
-			local filename = MiniStatusline.section_filename({ trunc_width = 140 })
-			local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
-			local location = MiniStatusline.section_location({ trunc_width = 75 })
-			return MiniStatusline.combine_groups({
-				{ hl = mode_hl, strings = { mode } },
-				{ hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
-				"%<", -- Mark general truncate point
-				{ hl = "MiniStatuslineFilename", strings = { filename } },
-				"%=", -- End left alignment
-				{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
-				{ hl = mode_hl, strings = { location } },
-			})
-		end,
-	},
+  set_vim_settings = false,
+  context = {
+    active = function()
+      local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+      local git = MiniStatusline.section_git({ trunc_width = 75 })
+      local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+      local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+      local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+      local location = MiniStatusline.section_location({ trunc_width = 75 })
+      return MiniStatusline.combine_groups({
+        { hl = mode_hl,                 strings = { mode } },
+        { hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
+        "%<", -- Mark general truncate point
+        { hl = "MiniStatuslineFilename", strings = { filename } },
+        "%=", -- End left alignment
+        { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+        { hl = mode_hl,                  strings = { location } },
+      })
+    end,
+  },
 })
 
--- require("mini.tabline").setup({
--- 	-- Whether to show file icons (requires 'kyazdani42/nvim-web-devicons')
--- 	show_icons = true,
--- 	-- Whether to set Vim's settings for tabline (make it always shown and
--- 	-- allow hidden buffers)
--- 	set_vim_settings = true,
--- 	-- Where to show tabpage section in case of multiple vim tabpages.
--- 	-- One of 'left', 'right', 'none'.
--- 	tabpage_section = "right",
--- })
+require("mini.tabline").setup({
+  -- Whether to show file icons (requires 'kyazdani42/nvim-web-devicons')
+  show_icons = true,
+  -- Whether to set Vim's settings for tabline (make it always shown and
+  -- allow hidden buffers)
+  set_vim_settings = true,
+  -- Where to show tabpage section in case of multiple vim tabpages.
+  -- One of 'left', 'right', 'none'.
+  tabpage_section = "right",
+})
 
 --
 -- require('mini.pairs').setup({
@@ -199,12 +199,12 @@ require("mini.surround").setup({
   highlight_duration = 500,
   -- Module mappings. Use `''` (empty string) to disable one.
   mappings = {
-    add = "sa", -- Add surrounding in Normal and Visual modes
-    delete = "sd", -- Delete surrounding
-    find = "sf", -- Find surrounding (to the right)
-    find_left = "sF", -- Find surrounding (to the left)
-    highlight = "sh", -- Highlight surrounding
-    replace = "sr", -- Replace surrounding
+    add = "sa",            -- Add surrounding in Normal and Visual modes
+    delete = "sd",         -- Delete surrounding
+    find = "sf",           -- Find surrounding (to the right)
+    find_left = "sF",      -- Find surrounding (to the left)
+    highlight = "sh",      -- Highlight surrounding
+    replace = "sr",        -- Replace surrounding
     update_n_lines = "sn", -- Update `n_lines`
   },
   -- Number of lines within which surrounding is searched
