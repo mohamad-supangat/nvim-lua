@@ -12,6 +12,7 @@ code_runner.setup({
 		java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
 		python = "python3 -u",
 		typescript = "deno run",
+		php = "php",
 		javascript = "node",
 		rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
 	},
