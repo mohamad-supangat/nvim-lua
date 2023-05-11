@@ -1,4 +1,4 @@
-local palette = require("mini.base16").mini_palette("#0f1419", "#e6e1cf", 100)
+local palette = require("mini.base16").mini_palette("#010101", "#efefef", 100)
 --
 require("mini.base16").setup({
   palette = palette,
