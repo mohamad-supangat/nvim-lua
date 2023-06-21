@@ -105,15 +105,15 @@ opt.smartindent = true -- autoindent new lines
 opt.autoindent = true
 -- cmd[[set autoindent]]
 -- don't auto commenting new lines
-cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
+-- cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
 
 -- remove line lenght marker for selected filetypes
-cmd([[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]])
+-- cmd([[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]])
 
 -- 2 spaces for selected filetypes
-cmd([[
-  autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
-]])
+-- cmd([[
+--   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
+-- ]])
 
 -----------------------------------------------------------
 -- Autocompletion
