@@ -76,7 +76,6 @@ map("n", "<leader>bn", ":bnext<CR>", default_opts)
 map("n", "<leader>bd", ":lua require('mini.bufremove').delete(0, false)<CR>", default_opts)
 map("n", "<leader>bD", ":lua require('mini.bufremove').delete(0, true)<CR>", default_opts)
 
-
 map("n", "Y", "y$", default_opts) -- Change Y to copy to end of line and behave like C
 
 -- spliting window

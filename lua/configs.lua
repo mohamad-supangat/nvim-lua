@@ -1,6 +1,6 @@
 require("plugins.autopairs")
 require("plugins.accelerated-jk")
-require("plugins.auto-closetag")
+-- require("plugins.vim-closetag")
 require("plugins.catppuccin")
 require("plugins.comment")
 require("plugins.cmp")

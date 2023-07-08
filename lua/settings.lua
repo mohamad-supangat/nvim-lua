@@ -43,7 +43,7 @@ opt.splitbelow = true -- orizontal split to the bottom
 opt.ignorecase = true -- ignore case letters when search
 opt.smartcase = true -- ignore lowercase for the whole pattern
 opt.signcolumn = "yes"
-opt.wrap = true
+opt.wrap = false
 opt.cursorline = true
 
 -- remove whitespace on save
@@ -127,4 +127,3 @@ g.tex_conceal = ""
 
 -- opt.laststatus = 3
 -- vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-

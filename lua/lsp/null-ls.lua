@@ -14,6 +14,7 @@ null_ls.setup({
 	cache = false,
 	debug = false,
 	temp_dir = "/tmp",
+	on_attach = require("lsp.handlers").on_attach,
 	sources = {
 		-- formatting.prettier,
 		formatting.prettierd,
