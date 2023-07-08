@@ -30,9 +30,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
--- some polygot config are loaded before
-vim.cmd([[autocmd BufEnter * set indentexpr=]])
-vim.g.polyglot_disabled = { "pug", "vue", "autoindent" }
+require("pre-settings")
 
 require("lazy").setup({
 	"folke/lazy.nvim",
@@ -68,23 +66,7 @@ require("lazy").setup({
 			-- "onsails/lspkind.nvim",
 		},
 	},
-	{
-		"laytan/tailwind-sorter.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
-		build = "cd formatter && npm i && npm run build",
-		config = {},
-	},
 
-	-- show tailwind color in cmp
-	-- {
-	--   "roobert/tailwindcss-colorizer-cmp.nvim",
-	--   -- optionally, override the default options:
-	--   config = function()
-	--     require("tailwindcss-colorizer-cmp").setup({
-	--       color_square_width = 2,
-	--     })
-	--   end
-	-- },
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -95,26 +77,24 @@ require("lazy").setup({
 		},
 	},
 
-	{
-		"sbdchd/neoformat",
-		config = function()
-			-- vim.g.neoformat_verbose = 1
-			-- vim.g.neoformat_only_msg_on_error = 1
-
-			vim.g.neoformat_blade_blade_formatter = {
-				exe = "blade-formatter",
-				args = {
-					"--stdin",
-				},
-				stdin = 1,
-			}
-		end,
-	},
+	-- {
+	-- 	"sbdchd/neoformat",
+	-- 	config = function()
+	-- 		-- vim.g.neoformat_verbose = 1
+	-- 		-- vim.g.neoformat_only_msg_on_error = 1
+	--
+	-- 		vim.g.neoformat_blade_blade_formatter = {
+	-- 			exe = "blade-formatter",
+	-- 			args = {
+	-- 				"--stdin",
+	-- 			},
+	-- 			stdin = 1,
+	-- 		}
+	-- 	end,
+	-- },
 
 	{
 		"sheerun/vim-polyglot",
-		-- config = function()
-		-- end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -127,7 +107,7 @@ require("lazy").setup({
 		},
 	},
 
-	-- "alvan/vim-closetag",
+	"alvan/vim-closetag",
 	"gpanders/editorconfig.nvim",
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "echasnovski/mini.nvim", branch = "stable" },
@@ -163,6 +143,14 @@ require("lazy").setup({
 	{ "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
 	-- { "weirongxu/plantuml-previewer.vim", dependencies = "tyru/open-browser.vim" },
 	{ "kdheepak/lazygit.nvim" },
+	{
+		"folke/zen-mode.nvim",
+		opts = {
+			window = {
+				width = 0.90,
+			},
+		},
+	},
 })
 
 require("settings") -- settings
