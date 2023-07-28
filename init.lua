@@ -189,7 +189,7 @@ require("lazy").setup({
 		},
 		config = true,
 	},
-	"mattn/emmet-vim",
+	-- "mattn/emmet-vim",
 })
 
 require("settings") -- settings
