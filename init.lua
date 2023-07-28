@@ -62,15 +62,17 @@ require("lazy").setup({
 			"hrsh7th/cmp-cmdline",
 			-- "jcha0713/cmp-tw2css",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
-
-			-- snippets list
-			"L3MON4D3/LuaSnip",
-			"rafamadriz/friendly-snippets",
-			"droggol/VscOdooSnippets",
-			"onecentlin/laravel5-snippets-vscode",
-			"onecentlin/laravel-blade-snippets-vscode",
-			"mohamad-supangat/snippets",
 		},
+	},
+
+	{
+		-- snippets list
+		"L3MON4D3/LuaSnip",
+		"rafamadriz/friendly-snippets",
+		"droggol/VscOdooSnippets",
+		"onecentlin/laravel5-snippets-vscode",
+		"onecentlin/laravel-blade-snippets-vscode",
+		"mohamad-supangat/snippets",
 	},
 
 	{
@@ -128,6 +130,8 @@ require("lazy").setup({
 			"windwp/nvim-ts-autotag",
 			"windwp/nvim-autopairs",
 			"SmiteshP/nvim-navic",
+
+			"nvim-treesitter/nvim-treesitter-context",
 		},
 	},
 

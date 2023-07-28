@@ -33,7 +33,7 @@ map("n", "<leader>qa", ":quitall!<CR>", default_opts)
 -----------------------------------------------------------
 -- Plugins shortcuts:
 -----------------------------------------------------------
-map("n", "<leader>fm", ":Neoformat<CR>", { noremap = true })
+-- map("n", "<leader>fm", ":Neoformat<CR>", { noremap = true })
 
 -- Fzf lua
 map("", "<C-p>", ":lua require('fzf-lua').files()<CR>", default_opts) -- file search
