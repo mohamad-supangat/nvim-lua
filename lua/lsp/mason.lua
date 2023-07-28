@@ -41,6 +41,11 @@ mason_lsp.setup_handlers({
 			opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 		end
 
+		if server == "emmet_language_server" then
+			local emmet_opts = require("lsp.settings.emmet")
+			opts = vim.tbl_deep_extend("force", emmet_opts, opts)
+		end
+
 		lspconfig[server].setup(opts)
 	end,
 })
