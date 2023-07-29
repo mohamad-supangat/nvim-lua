@@ -189,6 +189,13 @@ require("lazy").setup({
 		},
 		config = true,
 	},
+
+	{
+		"niuiic/translate.nvim",
+		dependencies = {
+			"niuiic/core.nvim",
+		},
+	},
 	-- "mattn/emmet-vim",
 })
 
