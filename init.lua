@@ -196,6 +196,13 @@ require("lazy").setup({
 			"niuiic/core.nvim",
 		},
 	},
+
+	-- {
+	-- 	"rcarriga/nvim-notify",
+	-- 	config = function()
+	-- 		vim.notify = require("notify")
+	-- 	end,
+	-- },
 	-- "mattn/emmet-vim",
 })
 
