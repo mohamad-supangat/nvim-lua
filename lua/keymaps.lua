@@ -35,9 +35,6 @@ map("n", "<leader>qa", ":quitall!<CR>", default_opts)
 -----------------------------------------------------------
 -- map("n", "<leader>fm", ":Neoformat<CR>", { noremap = true })
 
--- Fzf lua
-map("", "<C-p>", ":lua require('fzf-lua').files()<CR>", default_opts) -- file search
-map("n", "<leader>fzf", ":FzfLua<CR>", default_opts) -- open fzf menu
 
 -- indent control
 map("v", "<Tab>", ">gv", default_opts)
@@ -70,6 +67,11 @@ map("n", "<C-Shift-l>", ":bnext<CR>", default_opts)
 
 map("n", "<C-S-Tab>", ":bprevious<CR>", default_opts)
 map("n", "<C-Tab>", ":bnext<CR>", default_opts)
+
+-- map("n", "bb", ":bprevious<CR>", default_opts)
+-- map("n", "bn", ":bnext<CR>", default_opts)
+-- map("n", "bd", ":lua require('mini.bufremove').delete(0, false)<CR>", default_opts)
+-- map("n", "bD", ":lua require('mini.bufremove').delete(0, true)<CR>", default_opts)
 
 map("n", "<leader>bb", ":bprevious<CR>", default_opts)
 map("n", "<leader>bn", ":bnext<CR>", default_opts)
