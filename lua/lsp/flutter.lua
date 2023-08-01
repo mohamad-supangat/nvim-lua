@@ -4,6 +4,9 @@ if not status_ok then
 end
 
 flutter.setup({
+    ui = {
+        border = "rounded",
+    },
     widget_guides = {
         enabled = true,
     },
@@ -15,7 +18,7 @@ flutter.setup({
     dev_log = {
         enabled = true,
         notify_errors = true, -- if there is an error whilst running then notify the user
-        open_cmd = "enew",    -- command to use to open the log buffer
+        open_cmd = "30vnew",  -- command to use to open the log buffer
     },
     dev_tools = {
         autostart = true,         -- autostart devtools server if not detected
