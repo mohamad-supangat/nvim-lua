@@ -123,6 +123,8 @@ require("lazy").setup({
     {
         "sheerun/vim-polyglot",
     },
+
+    "numToStr/Comment.nvim",
     {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
@@ -130,9 +132,20 @@ require("lazy").setup({
             "mrjones2014/nvim-ts-rainbow",
             "windwp/nvim-ts-autotag",
             "windwp/nvim-autopairs",
-            "SmiteshP/nvim-navic",
+            -- "nvim-treesitter/nvim-treesitter-context",
+        },
+    },
 
-            "nvim-treesitter/nvim-treesitter-context",
+    {
+        "utilyre/barbecue.nvim",
+        name = "barbecue",
+        version = "*",
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        opts = {
+            -- configurations go here
         },
     },
 

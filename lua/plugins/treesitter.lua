@@ -48,6 +48,6 @@ configs.setup({
 	rainbow = { enable = true, extended_mode = true },
 })
 
-require("treesitter-context").setup({
-	enable = true,
-})
+-- require("treesitter-context").setup({
+-- 	enable = true,
+-- })
