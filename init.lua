@@ -130,8 +130,8 @@ require("lazy").setup({
         dependencies = {
             "JoosepAlviste/nvim-ts-context-commentstring",
             "HiPhish/rainbow-delimiters.nvim",
-            "windwp/nvim-ts-autotag",
-            "windwp/nvim-autopairs",
+            -- "windwp/nvim-ts-autotag",
+            -- "windwp/nvim-autopairs",
             -- "nvim-treesitter/nvim-treesitter-context",
         },
     },
@@ -152,7 +152,7 @@ require("lazy").setup({
     "alvan/vim-closetag",
     "gpanders/editorconfig.nvim",
     { "lukas-reineke/indent-blankline.nvim" },
-    { "echasnovski/mini.nvim",              branch = "stable" },
+    { "echasnovski/mini.nvim", version = false },
 
     -- comment document generator
     { "danymat/neogen",                     dependencies = "nvim-treesitter/nvim-treesitter" },
@@ -160,13 +160,7 @@ require("lazy").setup({
     { "numtostr/FTerm.nvim" },
     { "xiyaowong/accelerated-jk.nvim" },
     { "ibhagwan/fzf-lua" },
-    --
-    -- {
-    -- 	"nvim-telescope/telescope.nvim",
-    -- 	tag = "0.1.2",
-    -- 	-- or                              , branch = '0.1.x',
-    -- 	dependencies = { "nvim-lua/plenary.nvim" },
-    -- },
+
 
     { "brenoprata10/nvim-highlight-colors" },
     { "folke/todo-comments.nvim",           dependencies = "nvim-lua/plenary.nvim" },
