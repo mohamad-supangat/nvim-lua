@@ -129,7 +129,7 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
             "JoosepAlviste/nvim-ts-context-commentstring",
-            "mrjones2014/nvim-ts-rainbow",
+            "HiPhish/rainbow-delimiters.nvim",
             "windwp/nvim-ts-autotag",
             "windwp/nvim-autopairs",
             -- "nvim-treesitter/nvim-treesitter-context",
