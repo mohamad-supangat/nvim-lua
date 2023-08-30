@@ -19,7 +19,7 @@ null_ls.setup({
         formatting.prettier,
         -- formatting.prettierd,
         -- formatting.prettier_d_slim,
-        formatting.black.with({ extra_args = { "--fast" } }),
+        -- formatting.black.with({ extra_args = { "--fast" } }),
         formatting.reorder_python_imports,
         -- formatting.stylua,
         -- formatting.google_java_format,
