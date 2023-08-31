@@ -68,17 +68,17 @@ M.on_attach = function(client, bufnr)
         -- client.server_capabilities.document_formatting = false
     end
 
-    require("lsp-format").on_attach(client)
-
-
-
     if client.server_capabilities["documentSymbolProvider"] then
-        local status_ok, navic = pcall(require, "nvim-navic")
-        if not status_ok then
-            return
+        local navic_ok, navic = pcall(require, "nvim-navic")
+        if navic_ok then
+            navic.attach(client, bufnr)
         end
+    end
 
-        navic.attach(client, bufnr)
+
+    local auto_format_ok, lsp_format = pcall(require, "lsp-format")
+    if auto_format_ok then
+        lsp_format.on_attach(client)
     end
 end
 

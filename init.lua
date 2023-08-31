@@ -100,7 +100,7 @@ require("lazy").setup({
             "williamboman/mason-lspconfig.nvim",
             "jose-elias-alvarez/null-ls.nvim",
             { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
-            "lukas-reineke/lsp-format.nvim"
+            -- "lukas-reineke/lsp-format.nvim"
         },
     },
 
@@ -152,7 +152,7 @@ require("lazy").setup({
     "alvan/vim-closetag",
     "gpanders/editorconfig.nvim",
     { "lukas-reineke/indent-blankline.nvim" },
-    { "echasnovski/mini.nvim", version = false },
+    { "echasnovski/mini.nvim",              version = false },
 
     -- comment document generator
     { "danymat/neogen",                     dependencies = "nvim-treesitter/nvim-treesitter" },
