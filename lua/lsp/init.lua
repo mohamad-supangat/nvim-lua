@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         -- quickfix implementation
         keymap("n", "<leader>qf", "<cmd>lua vim.lsp.buf.code_action({apply=true})<cr>", opts)
 
-        keymap("n", "<space>fm", function()
+        keymap("n", "<space>ff", function()
             vim.lsp.buf.format({ async = true })
         end, opts)
     end,

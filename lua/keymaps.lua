@@ -33,8 +33,6 @@ map("n", "<leader>qa", ":quitall!<CR>", default_opts)
 -----------------------------------------------------------
 -- Plugins shortcuts:
 -----------------------------------------------------------
--- map("n", "<leader>fm", ":Neoformat<CR>", { noremap = true })
-
 
 -- indent control
 map("v", "<Tab>", ">gv", default_opts)

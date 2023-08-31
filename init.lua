@@ -98,27 +98,29 @@ require("lazy").setup({
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            "jose-elias-alvarez/null-ls.nvim",
+            -- "jose-elias-alvarez/null-ls.nvim",
             { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
             -- "lukas-reineke/lsp-format.nvim"
         },
     },
 
-    -- {
-    -- 	"sbdchd/neoformat",
-    -- 	config = function()
-    -- 		-- vim.g.neoformat_verbose = 1
-    -- 		-- vim.g.neoformat_only_msg_on_error = 1
-    --
-    -- 		vim.g.neoformat_blade_blade_formatter = {
-    -- 			exe = "blade-formatter",
-    -- 			args = {
-    -- 				"--stdin",
-    -- 			},
-    -- 			stdin = 1,
-    -- 		}
-    -- 	end,
-    -- },
+    {
+        "sbdchd/neoformat",
+        config = function()
+            vim.api.nvim_set_keymap("n", "<leader>fm", ":Neoformat<CR>", { noremap = true })
+
+            -- vim.g.neoformat_verbose = 1
+            -- vim.g.neoformat_only_msg_on_error = 1
+
+            -- vim.g.neoformat_blade_blade_formatter = {
+            --     exe = "blade-formatter",
+            --     args = {
+            --         "--stdin",
+            --     },
+            --     stdin = 1,
+            -- }
+        end,
+    },
 
     {
         "sheerun/vim-polyglot",
