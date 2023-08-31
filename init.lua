@@ -105,22 +105,28 @@ require("lazy").setup({
     },
 
     {
-        "sbdchd/neoformat",
-        config = function()
-            vim.api.nvim_set_keymap("n", "<leader>fm", ":Neoformat<CR>", { noremap = true })
-
-            -- vim.g.neoformat_verbose = 1
-            -- vim.g.neoformat_only_msg_on_error = 1
-
-            -- vim.g.neoformat_blade_blade_formatter = {
-            --     exe = "blade-formatter",
-            --     args = {
-            --         "--stdin",
-            --     },
-            --     stdin = 1,
-            -- }
-        end,
+        'creativenull/efmls-configs-nvim',
+        version = 'v1.x.x', -- version is optional, but recommended
+        dependencies = { 'neovim/nvim-lspconfig' },
     },
+
+    -- {
+    --     "sbdchd/neoformat",
+    --     config = function()
+    --         vim.api.nvim_set_keymap("n", "<leader>fm", ":Neoformat<CR>", { noremap = true })
+    --
+    --         -- vim.g.neoformat_verbose = 1
+    --         -- vim.g.neoformat_only_msg_on_error = 1
+    --
+    --         -- vim.g.neoformat_blade_blade_formatter = {
+    --         --     exe = "blade-formatter",
+    --         --     args = {
+    --         --         "--stdin",
+    --         --     },
+    --         --     stdin = 1,
+    --         -- }
+    --     end,
+    -- },
 
     {
         "sheerun/vim-polyglot",

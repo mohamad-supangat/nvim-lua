@@ -7,7 +7,8 @@ require("lsp.mason")
 -- require("lsp.lspconfig")
 require("lsp.handlers").setup()
 require("lsp.trouble")
-require("lsp.null-ls")
+-- require("lsp.null-ls")
+require("lsp.efm")
 require("lsp.flutter")
 
 local keymap = vim.keymap.set
@@ -49,7 +50,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         -- quickfix implementation
         keymap("n", "<leader>qf", "<cmd>lua vim.lsp.buf.code_action({apply=true})<cr>", opts)
 
-        keymap("n", "<space>ff", function()
+        keymap("n", "<space>fm", function()
             vim.lsp.buf.format({ async = true })
         end, opts)
     end,
