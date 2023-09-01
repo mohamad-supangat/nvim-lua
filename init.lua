@@ -81,18 +81,21 @@ require("lazy").setup({
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
 			require("github-theme").setup({
-				dim_inactive = true,
-				styles = {
-					strings = "bold",
-					functions = "italic",
-					variables = "italic",
-					comments = "italic",
-					keywords = "bold",
-					types = "italic,bold",
+				options = {
+					transparent = true,
+					dim_inactive = true,
+					styles = {
+						strings = "bold",
+						functions = "italic",
+						variables = "italic",
+						comments = "italic",
+						keywords = "bold",
+						types = "italic,bold",
+					},
 				},
 			})
 
-			vim.cmd("colorscheme github_dark_high_contrast")
+			vim.cmd("colorscheme github_dark")
 		end,
 	},
 
