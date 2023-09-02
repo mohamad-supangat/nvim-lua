@@ -20,14 +20,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 --
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 
 vim.opt.rtp:prepend(lazypath)
@@ -35,204 +35,204 @@ vim.opt.rtp:prepend(lazypath)
 require("pre-settings")
 
 require("lazy").setup({
-	"folke/lazy.nvim",
-	"nvim-lua/plenary.nvim",
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
-			{
-				-- only needed if you want to use the commands with "_with_window_picker" suffix
-				"s1n7ax/nvim-window-picker",
-				version = "v1.*",
-			},
-		},
-	},
-	{
-		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lua",
-			"hrsh7th/cmp-cmdline",
-			-- "jcha0713/cmp-tw2css",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
-		},
-	},
+    "folke/lazy.nvim",
+    "nvim-lua/plenary.nvim",
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            {
+                -- only needed if you want to use the commands with "_with_window_picker" suffix
+                "s1n7ax/nvim-window-picker",
+                version = "v1.*",
+            },
+        },
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-cmdline",
+            -- "jcha0713/cmp-tw2css",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+        },
+    },
 
-	{
-		-- snippets list
-		"L3MON4D3/LuaSnip",
-		"rafamadriz/friendly-snippets",
-		"droggol/VscOdooSnippets",
-		"onecentlin/laravel5-snippets-vscode",
-		"onecentlin/laravel-blade-snippets-vscode",
-		"mohamad-supangat/snippets",
-	},
+    {
+        -- snippets list
+        "L3MON4D3/LuaSnip",
+        "rafamadriz/friendly-snippets",
+        "droggol/VscOdooSnippets",
+        "onecentlin/laravel5-snippets-vscode",
+        "onecentlin/laravel-blade-snippets-vscode",
+        "mohamad-supangat/snippets",
+    },
 
-	{
-		"projekt0n/github-nvim-theme",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
-			require("github-theme").setup({
-				options = {
-					transparent = true,
-					dim_inactive = true,
-					styles = {
-						strings = "bold",
-						functions = "italic",
-						variables = "italic",
-						comments = "italic",
-						keywords = "bold",
-						types = "italic,bold",
-					},
-				},
-			})
+    {
+        "projekt0n/github-nvim-theme",
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            require("github-theme").setup({
+                options = {
+                    transparent = true,
+                    dim_inactive = true,
+                    styles = {
+                        strings = "bold",
+                        functions = "italic",
+                        variables = "italic",
+                        comments = "italic",
+                        keywords = "bold",
+                        types = "italic,bold",
+                    },
+                },
+            })
 
-			vim.cmd("colorscheme github_dark_colorblind")
-		end,
-	},
+            vim.cmd("colorscheme github_dark_colorblind")
+        end,
+    },
 
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-			-- "jose-elias-alvarez/null-ls.nvim",
-			{ "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
-			-- "lukas-reineke/lsp-format.nvim"
-		},
-	},
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+            -- "jose-elias-alvarez/null-ls.nvim",
+            { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
+            -- "lukas-reineke/lsp-format.nvim"
+        },
+    },
 
-	{
-		"creativenull/efmls-configs-nvim",
-		dependencies = { "neovim/nvim-lspconfig" },
-	},
+    {
+        "creativenull/efmls-configs-nvim",
+        dependencies = { "neovim/nvim-lspconfig" },
+    },
 
-	-- {
-	--     "sbdchd/neoformat",
-	--     config = function()
-	--         vim.api.nvim_set_keymap("n", "<leader>fm", ":Neoformat<CR>", { noremap = true })
-	--
-	--         -- vim.g.neoformat_verbose = 1
-	--         -- vim.g.neoformat_only_msg_on_error = 1
-	--
-	--         -- vim.g.neoformat_blade_blade_formatter = {
-	--         --     exe = "blade-formatter",
-	--         --     args = {
-	--         --         "--stdin",
-	--         --     },
-	--         --     stdin = 1,
-	--         -- }
-	--     end,
-	-- },
+    -- {
+    --     "sbdchd/neoformat",
+    --     config = function()
+    --         vim.api.nvim_set_keymap("n", "<leader>fm", ":Neoformat<CR>", { noremap = true })
+    --
+    --         -- vim.g.neoformat_verbose = 1
+    --         -- vim.g.neoformat_only_msg_on_error = 1
+    --
+    --         -- vim.g.neoformat_blade_blade_formatter = {
+    --         --     exe = "blade-formatter",
+    --         --     args = {
+    --         --         "--stdin",
+    --         --     },
+    --         --     stdin = 1,
+    --         -- }
+    --     end,
+    -- },
 
-	{
-		"sheerun/vim-polyglot",
-	},
+    {
+        "sheerun/vim-polyglot",
+    },
 
-	"numToStr/Comment.nvim",
-	{
-		"nvim-treesitter/nvim-treesitter",
-		dependencies = {
-			"JoosepAlviste/nvim-ts-context-commentstring",
-			"HiPhish/rainbow-delimiters.nvim",
-			-- "windwp/nvim-ts-autotag",
-			-- "windwp/nvim-autopairs",
-			-- "nvim-treesitter/nvim-treesitter-context",
-		},
-	},
+    "numToStr/Comment.nvim",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        dependencies = {
+            "JoosepAlviste/nvim-ts-context-commentstring",
+            "HiPhish/rainbow-delimiters.nvim",
+            -- "windwp/nvim-ts-autotag",
+            -- "windwp/nvim-autopairs",
+            -- "nvim-treesitter/nvim-treesitter-context",
+        },
+    },
 
-	{
-		"utilyre/barbecue.nvim",
-		name = "barbecue",
-		version = "*",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons", -- optional dependency
-		},
-		opts = {
-			-- configurations go here
-		},
-	},
+    {
+        "utilyre/barbecue.nvim",
+        name = "barbecue",
+        version = "*",
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        opts = {
+            -- configurations go here
+        },
+    },
 
-	"alvan/vim-closetag",
-	"gpanders/editorconfig.nvim",
-	{ "lukas-reineke/indent-blankline.nvim" },
-	{ "echasnovski/mini.nvim", version = false },
+    "alvan/vim-closetag",
+    "gpanders/editorconfig.nvim",
+    { "lukas-reineke/indent-blankline.nvim" },
+    { "echasnovski/mini.nvim",              version = false },
 
-	-- comment document generator
-	{ "danymat/neogen", dependencies = "nvim-treesitter/nvim-treesitter" },
-	{ "aserowy/tmux.nvim" },
-	{ "numtostr/FTerm.nvim" },
-	{ "xiyaowong/accelerated-jk.nvim" },
-	{ "ibhagwan/fzf-lua" },
+    -- comment document generator
+    { "danymat/neogen",                     dependencies = "nvim-treesitter/nvim-treesitter" },
+    { "aserowy/tmux.nvim" },
+    { "numtostr/FTerm.nvim" },
+    { "xiyaowong/accelerated-jk.nvim" },
+    { "ibhagwan/fzf-lua" },
 
-	{ "brenoprata10/nvim-highlight-colors" },
-	{ "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim" },
-	{ "alpertuna/vim-header" },
-	{ "lewis6991/gitsigns.nvim" },
-	"simrat39/symbols-outline.nvim",
-	{
-		"windwp/nvim-spectre",
-		config = function()
-			require("spectre").setup()
-		end,
-	},
-	-- {
-	-- 	"b0o/incline.nvim",
-	-- },
-	-- {
-	-- 	"beauwilliams/focus.nvim",
-	-- 	config = function()
-	-- 		require("focus").setup()
-	-- 	end,
-	-- },
+    { "brenoprata10/nvim-highlight-colors" },
+    { "folke/todo-comments.nvim",           dependencies = "nvim-lua/plenary.nvim" },
+    { "alpertuna/vim-header" },
+    { "lewis6991/gitsigns.nvim" },
+    "simrat39/symbols-outline.nvim",
+    {
+        "windwp/nvim-spectre",
+        config = function()
+            require("spectre").setup()
+        end,
+    },
+    -- {
+    -- 	"b0o/incline.nvim",
+    -- },
+    -- {
+    -- 	"beauwilliams/focus.nvim",
+    -- 	config = function()
+    -- 		require("focus").setup()
+    -- 	end,
+    -- },
 
-	{ "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
-	-- { "weirongxu/plantuml-previewer.vim", dependencies = "tyru/open-browser.vim" },
-	{ "kdheepak/lazygit.nvim" },
-	{
-		"folke/zen-mode.nvim",
-		opts = {
-			window = {
-				width = 0.90,
-			},
-		},
-	},
+    { "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
+    -- { "weirongxu/plantuml-previewer.vim", dependencies = "tyru/open-browser.vim" },
+    { "kdheepak/lazygit.nvim" },
+    {
+        "folke/zen-mode.nvim",
+        opts = {
+            window = {
+                width = 0.90,
+            },
+        },
+    },
 
-	{
-		"akinsho/flutter-tools.nvim",
-		lazy = false,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"stevearc/dressing.nvim", -- optional for vim.ui.select
-		},
-		config = true,
-	},
+    {
+        "akinsho/flutter-tools.nvim",
+        lazy = false,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "stevearc/dressing.nvim", -- optional for vim.ui.select
+        },
+        config = true,
+    },
 
-	{
-		"niuiic/translate.nvim",
-		dependencies = {
-			"niuiic/core.nvim",
-		},
-	},
+    {
+        "niuiic/translate.nvim",
+        dependencies = {
+            "niuiic/core.nvim",
+        },
+    },
 
-	-- {
-	-- 	"rcarriga/nvim-notify",
-	-- 	config = function()
-	-- 		vim.notify = require("notify")
-	-- 	end,
-	-- },
-	-- "mattn/emmet-vim",
+    -- {
+    -- 	"rcarriga/nvim-notify",
+    -- 	config = function()
+    -- 		vim.notify = require("notify")
+    -- 	end,
+    -- },
+    -- "mattn/emmet-vim",
 })
 
 require("settings") -- settings
-require("keymaps") -- keymaps
+require("keymaps")  -- keymaps
 require("configs")
