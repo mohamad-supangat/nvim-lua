@@ -9,7 +9,7 @@ languages = vim.tbl_extend("force", languages, {
 	typescript = { prettier },
 	javascript = { prettier },
 	vue = { prettier },
-	lua = { stylua },
+	lua = {},
 })
 
 local efmls_config = {

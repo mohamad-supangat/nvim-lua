@@ -95,7 +95,7 @@ require("lazy").setup({
 				},
 			})
 
-			vim.cmd("colorscheme github_dark")
+			vim.cmd("colorscheme github_dark_colorblind")
 		end,
 	},
 
@@ -112,7 +112,6 @@ require("lazy").setup({
 
 	{
 		"creativenull/efmls-configs-nvim",
-		version = "v1.x.x", -- version is optional, but recommended
 		dependencies = { "neovim/nvim-lspconfig" },
 	},
 
