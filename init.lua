@@ -77,7 +77,7 @@ require("lazy").setup({
 
     {
         "projekt0n/github-nvim-theme",
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             require("github-theme").setup({
@@ -223,6 +223,25 @@ require("lazy").setup({
             "niuiic/core.nvim",
         },
     },
+
+    {
+        "smoka7/multicursors.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter',
+            'smoka7/hydra.nvim',
+        },
+        opts = {},
+        cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+        keys = {
+            {
+                mode = { 'v', 'n' },
+                '<C-d>',
+                '<cmd>MCstart<cr>',
+                desc = 'Create a selection for selected text or word under the cursor',
+            },
+        },
+    }
 
     -- {
     -- 	"rcarriga/nvim-notify",
