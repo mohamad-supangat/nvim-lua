@@ -124,11 +124,11 @@ cmp.setup({
         { name = "luasnip" },
         {
             name = "buffer",
-            -- option = {
-            --     get_bufnrs = function()
-            --         return vim.api.nvim_list_bufs()
-            --     end,
-            -- },
+            option = {
+                get_bufnrs = function()
+                    return vim.api.nvim_list_bufs()
+                end,
+            },
         },
         -- { name = "nvim_lsp_signature_help" },
         { name = "path" },
