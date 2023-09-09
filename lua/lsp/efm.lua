@@ -9,6 +9,7 @@ languages = vim.tbl_extend("force", languages, {
     typescript = { prettier },
     javascript = { prettier },
     vue = { prettier },
+    json = { prettier, require("efmls-configs.formatters.fixjson") },
     lua = {},
 })
 
