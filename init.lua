@@ -98,7 +98,7 @@ require("lazy").setup({
             require("github-theme").setup({
                 options = {
                     transparent = true,
-                    dim_inactive = true,
+                    -- dim_inactive = true,
                     styles = {
                         strings = "bold",
                         functions = "italic",
