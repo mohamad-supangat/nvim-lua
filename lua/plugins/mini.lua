@@ -52,7 +52,7 @@ MiniStatusline.setup({
     },
 })
 
-require("mini.files").setup()
+-- require("mini.files").setup()
 require("mini.splitjoin").setup()
 require("mini.tabline").setup()
 require('mini.pairs').setup()

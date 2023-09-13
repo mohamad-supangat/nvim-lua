@@ -43,7 +43,7 @@ require("lazy").setup({
     -- neovim file exploere
     {
         "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
+        branch = "v3.x",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -82,37 +82,37 @@ require("lazy").setup({
         "mohamad-supangat/snippets",
     },
 
-    {
-        "sainnhe/gruvbox-material",
-        config = function()
-            require('colorshceme')
-        end
-    },
-
-
     -- {
-    --     "projekt0n/github-nvim-theme",
-    --     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-    --     priority = 1000, -- make sure to load this before all the other start plugins
+    --     "sainnhe/gruvbox-material",
     --     config = function()
-    --         require("github-theme").setup({
-    --             options = {
-    --                 transparent = true,
-    --                 dim_inactive = true,
-    --                 styles = {
-    --                     strings = "bold",
-    --                     functions = "italic",
-    --                     variables = "italic",
-    --                     comments = "italic",
-    --                     keywords = "bold",
-    --                     types = "italic,bold",
-    --                 },
-    --             },
-    --         })
-    --
-    --         vim.cmd("colorscheme github_dark_colorblind")
-    --     end,
+    --         require('colorshceme')
+    --     end
     -- },
+
+
+    {
+        "projekt0n/github-nvim-theme",
+        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            require("github-theme").setup({
+                options = {
+                    transparent = true,
+                    dim_inactive = true,
+                    styles = {
+                        strings = "bold",
+                        functions = "italic",
+                        variables = "italic",
+                        comments = "italic",
+                        keywords = "bold",
+                        types = "italic,bold",
+                    },
+                },
+            })
+
+            vim.cmd("colorscheme github_dark_colorblind")
+        end,
+    },
     --
     {
         "neovim/nvim-lspconfig",
