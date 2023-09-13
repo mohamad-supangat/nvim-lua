@@ -35,8 +35,12 @@ vim.opt.rtp:prepend(lazypath)
 require("pre-settings")
 
 require("lazy").setup({
+    -- best neovim plugin manager
     "folke/lazy.nvim",
+
     "nvim-lua/plenary.nvim",
+
+    -- neovim file exploere
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
@@ -51,6 +55,8 @@ require("lazy").setup({
             },
         },
     },
+
+    -- neovim completion plugin and some helper
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -65,8 +71,9 @@ require("lazy").setup({
         },
     },
 
+    -- snippets list and group
     {
-        -- snippets list
+
         "L3MON4D3/LuaSnip",
         "rafamadriz/friendly-snippets",
         "droggol/VscOdooSnippets",
@@ -76,29 +83,37 @@ require("lazy").setup({
     },
 
     {
-        "projekt0n/github-nvim-theme",
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
+        "sainnhe/gruvbox-material",
         config = function()
-            require("github-theme").setup({
-                options = {
-                    transparent = true,
-                    dim_inactive = true,
-                    styles = {
-                        strings = "bold",
-                        functions = "italic",
-                        variables = "italic",
-                        comments = "italic",
-                        keywords = "bold",
-                        types = "italic,bold",
-                    },
-                },
-            })
-
-            vim.cmd("colorscheme github_dark_colorblind")
-        end,
+            require('colorshceme')
+        end
     },
 
+
+    -- {
+    --     "projekt0n/github-nvim-theme",
+    --     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    --     priority = 1000, -- make sure to load this before all the other start plugins
+    --     config = function()
+    --         require("github-theme").setup({
+    --             options = {
+    --                 transparent = true,
+    --                 dim_inactive = true,
+    --                 styles = {
+    --                     strings = "bold",
+    --                     functions = "italic",
+    --                     variables = "italic",
+    --                     comments = "italic",
+    --                     keywords = "bold",
+    --                     types = "italic,bold",
+    --                 },
+    --             },
+    --         })
+    --
+    --         vim.cmd("colorscheme github_dark_colorblind")
+    --     end,
+    -- },
+    --
     {
         "neovim/nvim-lspconfig",
         dependencies = {
@@ -115,29 +130,12 @@ require("lazy").setup({
         dependencies = { "neovim/nvim-lspconfig" },
     },
 
-    -- {
-    --     "sbdchd/neoformat",
-    --     config = function()
-    --         vim.api.nvim_set_keymap("n", "<leader>fm", ":Neoformat<CR>", { noremap = true })
-    --
-    --         -- vim.g.neoformat_verbose = 1
-    --         -- vim.g.neoformat_only_msg_on_error = 1
-    --
-    --         -- vim.g.neoformat_blade_blade_formatter = {
-    --         --     exe = "blade-formatter",
-    --         --     args = {
-    --         --         "--stdin",
-    --         --     },
-    --         --     stdin = 1,
-    --         -- }
-    --     end,
-    -- },
+    "numToStr/Comment.nvim",
 
+    -- syntax viewer
     {
         "sheerun/vim-polyglot",
     },
-
-    "numToStr/Comment.nvim",
     {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
@@ -185,15 +183,6 @@ require("lazy").setup({
             require("spectre").setup()
         end,
     },
-    -- {
-    -- 	"b0o/incline.nvim",
-    -- },
-    -- {
-    -- 	"beauwilliams/focus.nvim",
-    -- 	config = function()
-    -- 		require("focus").setup()
-    -- 	end,
-    -- },
 
     { "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
     -- { "weirongxu/plantuml-previewer.vim", dependencies = "tyru/open-browser.vim" },
