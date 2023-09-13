@@ -213,12 +213,12 @@ require("lazy").setup({
         },
     },
 
-    -- {
-    -- 	"rcarriga/nvim-notify",
-    -- 	config = function()
-    -- 		vim.notify = require("notify")
-    -- 	end,
-    -- },
+    {
+        "rcarriga/nvim-notify",
+        config = function()
+            vim.notify = require("notify")
+        end,
+    },
     -- "mattn/emmet-vim",
 })
 
