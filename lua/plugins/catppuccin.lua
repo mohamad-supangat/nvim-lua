@@ -168,4 +168,5 @@ vim.cmd([[colorscheme catppuccin]])
 -- settting notfiy background color to black
 require("notify").setup({
     background_colour = "#000000",
+    top_down = false
 })
