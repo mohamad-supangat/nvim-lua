@@ -234,7 +234,36 @@ require("lazy").setup({
         },
         dependencies = {
             "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
+            {
+                "rcarriga/nvim-notify",
+                opts = {
+                    background_color = "#000000"
+                }
+            }
+        }
+    },
+    {
+        "ellisonleao/carbon-now.nvim",
+        lazy = true,
+        cmd = "CarbonNow",
+        opts = {
+            base_url = "https://carbon.now.sh/",
+            open_cmd = "xdg-open",
+            options = {
+                bg = "gray",
+                drop_shadow_blur = "68px",
+                drop_shadow = false,
+                drop_shadow_offset_y = "20px",
+                font_family = "Source Code Pro",
+                font_size = "10px",
+                line_height = "133%",
+                line_numbers = true,
+                theme = "blackboard",
+                titlebar = "~#",
+                watermark = false,
+                width = "1000",
+                window_theme = false,
+            },
         }
     }
 })
