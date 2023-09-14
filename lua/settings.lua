@@ -28,7 +28,7 @@ g.backspace = "indent,eol,start" -- backspace indent
 
 -- Automatically re-read file if a change was detected outside of vim
 opt.autoread = true
-opt.lazyredraw = true -- improve scrolling performance when navigating through large results
+opt.lazyredraw = false -- improve scrolling performance when navigating through large results
 
 -----------------------------------------------------------
 -- Neovim UI
@@ -63,10 +63,10 @@ exec(
 -----------------------------------------------------------
 -- Memory, CPU
 -----------------------------------------------------------
-opt.hidden = true     -- enable background buffers
-opt.history = 100     -- remember n lines in history
-opt.lazyredraw = true -- faster scrolling
-opt.synmaxcol = 240   -- max column for syntax highlight
+opt.hidden = true      -- enable background buffers
+opt.history = 100      -- remember n lines in history
+opt.lazyredraw = false -- faster scrolling
+opt.synmaxcol = 240    -- max column for syntax highlight
 
 -----------------------------------------------------------
 -- Colorscheme
@@ -74,7 +74,7 @@ opt.synmaxcol = 240   -- max column for syntax highlight
 opt.termguicolors = true -- enable 24-bit RGB
 g.t_Co = 256
 g.syntax_on = true
--- g.colors_name = 'catppuccin'
+g.colors_name = 'catppuccin'
 
 -- vim.g.gruvbox_baby_function_style = "italic"
 -- vim.g.gruvbox_baby_keyword_style = "italic"

@@ -1,7 +1,7 @@
 require("plugins.autopairs")
 require("plugins.accelerated-jk")
 -- require("plugins.vim-closetag")
--- require("plugins.catppuccin")
+require("plugins.catppuccin")
 require("plugins.neogen")
 require("plugins.cmp")
 require("plugins.floatterm")

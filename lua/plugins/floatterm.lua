@@ -1,4 +1,5 @@
-local fterm = require("FTerm")
+local status_ok, fterm = pcall(require, "FTerm")
+if not status_ok then return end
 
 local lazygit = fterm:new({
     cmd = "lazygit",
@@ -26,13 +27,24 @@ local fterm1 = fterm:new({
     }
 })
 
+function getBasePath()
+    vim.notify("tesing")
+    local path = vim.api.nvim_buf_get_name(0)
+    local basepath = path:match("^(.*/)")
+    if basepath then
+        return "cd " .. basepath
+    else
+        return ""
+    end
+end
+
 local fterm2 = fterm:new({
-    cmd = os.getenv('SHELL'),
+    cmd = getBasePath,
     border = 'double',
     -- blend = 20,
     dimensions = {
         height = 1,
-        width = 0.3,
+        width = 0.8,
         x = 1,
     }
 })

@@ -89,30 +89,34 @@ require("lazy").setup({
     --     end
     -- },
 
-
     {
-        "projekt0n/github-nvim-theme",
-        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
-        config = function()
-            require("github-theme").setup({
-                options = {
-                    transparent = true,
-                    -- dim_inactive = true,
-                    styles = {
-                        strings = "bold",
-                        functions = "italic",
-                        variables = "italic",
-                        comments = "italic",
-                        keywords = "bold",
-                        types = "italic,bold",
-                    },
-                },
-            })
-
-            vim.cmd("colorscheme github_dark_colorblind")
-        end,
+        "catppuccin/nvim",
+        name = "catppuccin",
     },
+
+    -- {
+    --     "projekt0n/github-nvim-theme",
+    --     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    --     priority = 1000, -- make sure to load this before all the other start plugins
+    --     config = function()
+    --         require("github-theme").setup({
+    --             options = {
+    --                 transparent = true,
+    --                 dim_inactive = false,
+    --                 styles = {
+    --                     strings = "bold",
+    --                     functions = "italic",
+    --                     variables = "italic",
+    --                     comments = "italic",
+    --                     keywords = "bold",
+    --                     types = "italic,bold",
+    --                 },
+    --             },
+    --         })
+    --
+    --         vim.cmd("colorscheme github_dark_colorblind")
+    --     end,
+    -- },
     --
     {
         "neovim/nvim-lspconfig",
@@ -166,22 +170,28 @@ require("lazy").setup({
     { "echasnovski/mini.nvim",              version = false },
 
     -- comment document generator
-    { "danymat/neogen",                     dependencies = "nvim-treesitter/nvim-treesitter" },
+    {
+        "danymat/neogen",
+        dependencies = "nvim-treesitter/nvim-treesitter"
+    },
+
     { "aserowy/tmux.nvim" },
+
     { "numtostr/FTerm.nvim" },
     { "xiyaowong/accelerated-jk.nvim" },
     { "ibhagwan/fzf-lua" },
 
     { "brenoprata10/nvim-highlight-colors" },
-    { "folke/todo-comments.nvim",           dependencies = "nvim-lua/plenary.nvim" },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = "nvim-lua/plenary.nvim"
+    },
     { "alpertuna/vim-header" },
     { "lewis6991/gitsigns.nvim" },
     "simrat39/symbols-outline.nvim",
     {
         "windwp/nvim-spectre",
-        config = function()
-            require("spectre").setup()
-        end,
+        opts = {}
     },
 
     { "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
@@ -213,13 +223,20 @@ require("lazy").setup({
         },
     },
 
+
+
+    -- custom ui
     {
-        "rcarriga/nvim-notify",
-        config = function()
-            vim.notify = require("notify")
-        end,
-    },
-    -- "mattn/emmet-vim",
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- add any options here
+        },
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        }
+    }
 })
 
 require("settings") -- settings
