@@ -177,7 +177,7 @@ require("lazy").setup({
 
     { "aserowy/tmux.nvim" },
 
-    { "numtostr/FTerm.nvim" },
+    { "kessejones/term.nvim" },
     { "xiyaowong/accelerated-jk.nvim" },
     { "ibhagwan/fzf-lua" },
 
@@ -274,6 +274,12 @@ require("lazy").setup({
             -- your configuration comes here
             -- or leave it empty to use the default settings
             -- refer to the configuration section below
+        }
+    },
+    {
+        "f-person/git-blame.nvim",
+        opts = {
+            enabled = true
         }
     }
 })

@@ -1,71 +1,23 @@
-local status_ok, fterm = pcall(require, "FTerm")
+local status_ok, fterm = pcall(require, "term")
 if not status_ok then return end
 
-local lazygit = fterm:new({
-    cmd = "lazygit",
-    -- blend = 20,
-    border = 'double',
-    dimensions = {
-        height = 1,
-        width = 1
-    }
+require("term").setup({
+    shell = vim.o.shell,
+    width = 0.8,
+    height = 0.8,
+    anchor = "NW",
+    position = "center",
+    title = {
+        align = "center", -- left, center or right
+    },
+    border = {
+        chars = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+        hl = "TermBorder",
+    },
 })
 
--- Use this to toggle gitui in a floating terminal
-function _G.lazygit()
-    lazygit:toggle()
-end
 
-local fterm1 = fterm:new({
-    cmd = os.getenv('SHELL'),
-    border = 'double',
-    -- blend = 20,
-    dimensions = {
-        height = 1,
-        width = 0.3,
-        x = 0,
-    }
-})
-
-function getBasePath()
-    vim.notify("tesing")
-    local path = vim.api.nvim_buf_get_name(0)
-    local basepath = path:match("^(.*/)")
-    if basepath then
-        return "cd " .. basepath
-    else
-        return ""
-    end
-end
-
-local fterm2 = fterm:new({
-    cmd = getBasePath,
-    border = 'double',
-    -- blend = 20,
-    dimensions = {
-        height = 1,
-        width = 0.8,
-        x = 1,
-    }
-})
-
-function _G.fterm1()
-    fterm1:toggle()
-end
-
-function _G.fterm2()
-    fterm2:toggle()
-end
-
--- keymaping
-local map = vim.api.nvim_set_keymap
-local default_opts = { noremap = true, silent = true }
-
-map("n", "<A-i>", '<CMD>lua require("FTerm").toggle()<CR>', default_opts)
-map("t", "<A-i>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', default_opts)
-
-map("n", "<F1>", ":lua fterm1()<CR>", default_opts)
-map("t", "<F1>", "<C-\\><C-n><CMD>lua fterm1()<CR>", default_opts)
-map("n", "<F2>", ":lua fterm2()<CR>", default_opts)
-map("t", "<F2>", "<C-\\><C-n><CMD>lua fterm2()<CR>", default_opts)
--- map("n", "<leader>git", ":lua lazygit()<CR>", default_opts)
+vim.keymap.set({ 't' }, '<C-t>', require('term').new, { silent = true })
+vim.keymap.set({ 'n', 't' }, '<A-i>', require('term').toggle, { silent = true })
+vim.keymap.set({ 't' }, '<F2>', require('term').next, { silent = true })
+vim.keymap.set({ 't' }, '<F1>', require('term').prev, { silent = true })
