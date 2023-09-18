@@ -146,7 +146,7 @@ require("lazy").setup({
             "JoosepAlviste/nvim-ts-context-commentstring",
             "HiPhish/rainbow-delimiters.nvim",
             -- "windwp/nvim-ts-autotag",
-            -- "windwp/nvim-autopairs",
+            "windwp/nvim-autopairs",
             -- "nvim-treesitter/nvim-treesitter-context",
         },
     },
@@ -261,6 +261,19 @@ require("lazy").setup({
                 width = "1000",
                 window_theme = false,
             },
+        }
+    },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
         }
     }
 })
