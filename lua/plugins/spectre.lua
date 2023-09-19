@@ -28,6 +28,12 @@ require('spectre').setup({
                 '--with-filename',
                 '--line-number',
                 '--column',
+                "-uu",
+                -- "-g '!/**/.git'",
+                -- "-g '!/**/cache*/'",
+                -- "-g '!/**/node_modules'",
+                -- "-g '!/vendor'",
+                -- "-g '!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm}'"
             },
             options = {
                 ['ignore-case'] = {
@@ -36,8 +42,7 @@ require('spectre').setup({
                     desc = "ignore case"
                 },
                 ['hidden'] = {
-                    value =
-                    "--hidden -uu -g '!/**/.git' -g '!/**/cache*/' -g '!/**/node_modules' -g '!/vendor' -g '!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm}'",
+                    value = "--hidden",
                     desc = "hidden file",
                     icon = "[H]"
                 },
