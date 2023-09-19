@@ -14,13 +14,15 @@ map("n", "<leader>P", ":FzfLua commands<CR>", default_opts)           -- open fz
 local actions = require("fzf-lua.actions")
 require("fzf-lua").setup({
     files = {
-        -- previewer         = "cat",
-        prompt = "Files  ❯ ",
-        cmd = 'ag --hidden -U -g "" --ignore-dir={vendor,node_modules,.git}',
-        git_icons = true,   -- show git icons?
-        file_icons = true,  -- show file icons?
+        previewer   = "",
+        prompt      = "Files  ❯ ",
+        -- cmd = 'ag --hidden -U -g "" --ignore-dir={vendor,node_modules,.git}',
+        cmd         =
+        "rg --files ---ignore-case --hidden -uu -g '!/**/.git' -g '!/**/cache*/' -g '!/**/node_modules' -g '!/vendor' -g '!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm}'",
+        git_icons   = true, -- show git icons?
+        file_icons  = true, -- show file icons?
         color_icons = true, -- colorize file|git icons
-        actions = {
+        actions     = {
             -- set bind to 'false' to disable
             ["default"] = actions.file_edit,
             ["ctrl-s"] = actions.file_split,

@@ -189,10 +189,7 @@ require("lazy").setup({
     { "alpertuna/vim-header" },
     { "lewis6991/gitsigns.nvim" },
     "simrat39/symbols-outline.nvim",
-    {
-        "windwp/nvim-spectre",
-        opts = {}
-    },
+    { "windwp/nvim-spectre" },
 
     { "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
     -- { "weirongxu/plantuml-previewer.vim", dependencies = "tyru/open-browser.vim" },
