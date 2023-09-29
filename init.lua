@@ -260,30 +260,25 @@ require("lazy").setup({
             },
         }
     },
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-        end,
-        opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        }
-    },
-    {
-        "f-person/git-blame.nvim",
-        opts = {
-            enabled = true
-        }
-    },
-    {
-        -- 'martineausimon/nvim-bard',
-        dir = "~/projects/nvim-bard",
-        dependencies = 'MunifTanjim/nui.nvim',
-    }
+    -- {
+    --     "folke/which-key.nvim",
+    --     event = "VeryLazy",
+    --     init = function()
+    --         vim.o.timeout = true
+    --         vim.o.timeoutlen = 300
+    --     end,
+    --     opts = {
+    --         -- your configuration comes here
+    --         -- or leave it empty to use the default settings
+    --         -- refer to the configuration section below
+    --     }
+    -- },
+    -- {
+    --     "f-person/git-blame.nvim",
+    --     opts = {
+    --         enabled = true
+    --     }
+    -- },
 })
 
 require("settings") -- settings
