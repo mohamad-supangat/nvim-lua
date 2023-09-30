@@ -166,8 +166,9 @@ require("lazy").setup({
 
     "alvan/vim-closetag",
     "gpanders/editorconfig.nvim",
-    { "lukas-reineke/indent-blankline.nvim" },
-    { "echasnovski/mini.nvim",              version = false },
+    -- { "lukas-reineke/indent-blankline.nvim" },
+    { "shellRaining/hlchunk.nvim" },
+    { "echasnovski/mini.nvim",    version = false },
 
     -- comment document generator
     {
