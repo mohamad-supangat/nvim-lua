@@ -52,10 +52,12 @@ MiniStatusline.setup({
     },
 })
 
+require('mini.basics').setup()
 -- require("mini.files").setup()
 require("mini.splitjoin").setup()
 require("mini.tabline").setup()
 -- require('mini.pairs').setup()
 require("mini.surround").setup()
+require("mini.clue").setup()
 require("mini.bufremove").setup({ set_vim_settings = true })
 -- require("mini.cursorword").setup()

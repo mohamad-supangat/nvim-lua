@@ -66,6 +66,7 @@ require("lazy").setup({
             "hrsh7th/cmp-cmdline",
             -- "jcha0713/cmp-tw2css",
             "hrsh7th/cmp-nvim-lsp-signature-help",
+            "lukas-reineke/cmp-under-comparator",
         },
     },
 
@@ -251,24 +252,22 @@ require("lazy").setup({
     --     }
     -- },
     -- {
-    --     "folke/which-key.nvim",
-    --     event = "VeryLazy",
-    --     init = function()
-    --         vim.o.timeout = true
-    --         vim.o.timeoutlen = 300
-    --     end,
-    --     opts = {
-    --         -- your configuration comes here
-    --         -- or leave it empty to use the default settings
-    --         -- refer to the configuration section below
-    --     }
-    -- },
-    -- {
     --     "f-person/git-blame.nvim",
     --     opts = {
     --         enabled = true
     --     }
     -- },
+    --
+    --
+    -- buffer auto close
+    {
+        'axkirillov/hbac.nvim',
+        config = function()
+            require("hbac").setup({
+                autoclose = true,
+            })
+        end
+    }
 })
 
 require("settings") -- settings
