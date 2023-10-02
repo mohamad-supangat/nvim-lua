@@ -4,7 +4,7 @@ if not status_ok then return end
 require("term").setup({
     shell = vim.o.shell,
     width = 0.8,
-    height = 0.8,
+    height = 0.9,
     anchor = "NW",
     position = "center",
     title = {

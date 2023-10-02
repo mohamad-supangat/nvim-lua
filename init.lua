@@ -36,8 +36,6 @@ require("pre-settings")
 
 require("lazy").setup({
     -- best neovim plugin manager
-    "folke/lazy.nvim",
-
     "nvim-lua/plenary.nvim",
 
     -- neovim file exploere
@@ -123,7 +121,6 @@ require("lazy").setup({
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            -- "jose-elias-alvarez/null-ls.nvim",
             { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
             -- "lukas-reineke/lsp-format.nvim"
         },
@@ -168,7 +165,7 @@ require("lazy").setup({
     "gpanders/editorconfig.nvim",
     -- { "lukas-reineke/indent-blankline.nvim" },
     { "shellRaining/hlchunk.nvim" },
-    { "echasnovski/mini.nvim",    version = false },
+    { "echasnovski/mini.nvim" },
 
     -- comment document generator
     {
@@ -193,33 +190,28 @@ require("lazy").setup({
     { "windwp/nvim-spectre" },
 
     { "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
-    -- { "weirongxu/plantuml-previewer.vim", dependencies = "tyru/open-browser.vim" },
+
     { "kdheepak/lazygit.nvim" },
     {
         "folke/zen-mode.nvim",
         opts = {
             window = {
-                width = 0.90,
+                width = 0.99,
             },
         },
     },
 
-    {
-        "akinsho/flutter-tools.nvim",
-        lazy = false,
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "stevearc/dressing.nvim", -- optional for vim.ui.select
-        },
-        config = true,
-    },
+    -- {
+    --     "akinsho/flutter-tools.nvim",
+    --     lazy = false,
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --     },
+    --     config = true,
+    -- },
 
-    {
-        "potamides/pantran.nvim"
-    },
-
-
-
+    -- best translate plugin
+    { "potamides/pantran.nvim" },
     -- custom ui
     {
         "folke/noice.nvim",
