@@ -1,39 +1,20 @@
-local status_ok, translate = pcall(require, "translate")
+local status_ok, pantran = pcall(require, "pantran")
 if not status_ok then
     return
 end
 
-translate.setup({
-    output = {
-        float = {
-            -- max_width of float window
-            max_width = 40,
-            -- max_height of float window
-            max_height = 5,
-            -- whether close float window on cursor move
-            close_on_cursor_move = true,
-            -- key to enter float window
-            enter_key = "T",
+pantran.setup {
+    default_engine = "argos",
+    engines = {
+        argos = {
+            default_source = "auto",
+            default_target = "id"
         },
     },
-    translate = {
-        {
-            cmd = "TransToEN",
-            command = "trans",
-            args = function(trans_source)
-                return {
-                    "-b",
-                    "-e",
-                    "google",
-                    "-t",
-                    "en",
-                    trans_source,
-                }
-            end,
-            input = "selection",
-            output = { "notify", "clipboard", "insert", "float_win" },
-        },
-    },
-})
+}
 
-vim.keymap.set("v", "<space>tle", "<cmd>TransToEN<CR>")
+local opts = { noremap = true, silent = true, expr = true }
+vim.keymap.set("n", "<leader>tr", pantran.motion_translate, opts)
+vim.keymap.set("n", "<leader>trr", function() return pantran.motion_translate() .. "_" end, opts)
+vim.keymap.set("x", "<leader>tr", pantran.motion_translate, opts)
+

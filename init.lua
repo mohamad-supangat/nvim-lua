@@ -215,10 +215,7 @@ require("lazy").setup({
     },
 
     {
-        "niuiic/translate.nvim",
-        dependencies = {
-            "niuiic/core.nvim",
-        },
+        "potamides/pantran.nvim"
     },
 
 
@@ -237,30 +234,30 @@ require("lazy").setup({
             }
         }
     },
-    {
-        "ellisonleao/carbon-now.nvim",
-        lazy = true,
-        cmd = "CarbonNow",
-        opts = {
-            base_url = "https://carbon.now.sh/",
-            open_cmd = "xdg-open",
-            options = {
-                bg = "gray",
-                drop_shadow_blur = "68px",
-                drop_shadow = false,
-                drop_shadow_offset_y = "20px",
-                font_family = "Source Code Pro",
-                font_size = "10px",
-                line_height = "133%",
-                line_numbers = true,
-                theme = "blackboard",
-                titlebar = "~#",
-                watermark = false,
-                width = "1000",
-                window_theme = false,
-            },
-        }
-    },
+    -- {
+    --     "ellisonleao/carbon-now.nvim",
+    --     lazy = true,
+    --     cmd = "CarbonNow",
+    --     opts = {
+    --         base_url = "https://carbon.now.sh/",
+    --         open_cmd = "xdg-open",
+    --         options = {
+    --             bg = "gray",
+    --             drop_shadow_blur = "68px",
+    --             drop_shadow = false,
+    --             drop_shadow_offset_y = "20px",
+    --             font_family = "Source Code Pro",
+    --             font_size = "10px",
+    --             line_height = "133%",
+    --             line_numbers = true,
+    --             theme = "blackboard",
+    --             titlebar = "~#",
+    --             watermark = false,
+    --             width = "1000",
+    --             window_theme = false,
+    --         },
+    --     }
+    -- },
     -- {
     --     "folke/which-key.nvim",
     --     event = "VeryLazy",
