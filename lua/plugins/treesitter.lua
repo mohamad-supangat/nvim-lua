@@ -44,7 +44,7 @@ configs.setup({
     --     },
     -- },
     context_commentstring = { enable = true, enable_autocmd = false },
-    indent = { enable = true, disable = { } },
+    indent = { enable = true, disable = { 'pug', 'vue', 'blade' } },
 })
 
 -- require("treesitter-context").setup({
