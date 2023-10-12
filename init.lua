@@ -84,7 +84,7 @@ require("lazy").setup({
     -- {
     --     "sainnhe/gruvbox-material",
     --     config = function()
-    --         require('colorshceme')
+    --         require('colorscheme.gruvbox-material')
     --     end
     -- },
 
@@ -260,14 +260,21 @@ require("lazy").setup({
     --
     --
     -- buffer auto close
+    -- {
+    --     'axkirillov/hbac.nvim',
+    --     config = function()
+    --         require("hbac").setup({
+    --             autoclose = true,
+    --         })
+    --     end
+    -- },
     {
-        'axkirillov/hbac.nvim',
-        config = function()
-            require("hbac").setup({
-                autoclose = true,
-            })
-        end
-    }
+        "chrisgrieser/nvim-recorder",
+        dependencies = "rcarriga/nvim-notify",
+        opts = {
+            clear = true
+        }
+    },
 })
 
 require("settings") -- settings

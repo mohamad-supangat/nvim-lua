@@ -28,7 +28,7 @@ require('spectre').setup({
                 '--with-filename',
                 '--line-number',
                 '--column',
-                "-uu",
+                -- "-uu",
                 -- "-g '!/**/.git'",
                 -- "-g '!/**/cache*/'",
                 -- "-g '!/**/node_modules'",

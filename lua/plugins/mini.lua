@@ -40,12 +40,12 @@ MiniStatusline.setup({
             local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
             local location = MiniStatusline.section_location({ trunc_width = 75 })
             return MiniStatusline.combine_groups({
-                { hl = mode_hl,                 strings = { mode } },
+                { hl = mode_hl,                 strings = { mode, require("recorder").displaySlots } },
                 { hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
                 "%<", -- Mark general truncate point
                 { hl = "MiniStatuslineFilename", strings = { filename } },
                 "%=", -- End left alignment
-                { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+                { hl = "MiniStatuslineFileinfo", strings = { require("recorder").recordingStatus, fileinfo } },
                 { hl = mode_hl,                  strings = { location } },
             })
         end,
