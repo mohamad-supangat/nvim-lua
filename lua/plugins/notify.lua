@@ -3,6 +3,6 @@ if not status_ok then return end
 
 notify.setup({
     background_colour = "#000000",
-    top_down = false,
+    -- top_down = false,
     render = "compact"
 })
