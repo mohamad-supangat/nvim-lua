@@ -1,23 +1,24 @@
 local status_ok, code_runner = pcall(require, "code_runner")
 if not status_ok then
-	return
+    return
 end
 
 code_runner.setup({
-	-- mode = "toggle",
-	focus = false,
-	-- put here the commands by filetype
-	filetype = {
-		fish = "fish",
-		java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
-		python = "python3 -u",
-		typescript = "deno run",
-		php = "php",
-		javascript = "node",
-		rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
-	},
+    -- mode = "toggle",
+    focus = false,
+    -- put here the commands by filetype
+    filetype = {
+        fish = "fish",
+        java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        python = "python3 -u",
+        typescript = "deno run",
+        php = "php",
+        javascript = "node",
+        rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
+    },
 })
 
+vim.keymap.set("n", "<leader>re", "<Plug>RestNvim", { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>rr", ":RunCode<CR>", { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>rft", ":RunFile tab<CR>", { noremap = true, silent = false })

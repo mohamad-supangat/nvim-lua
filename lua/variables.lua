@@ -17,7 +17,8 @@ local filetypes = {
     "bash",
     "fish",
     "javascript",
-    "scss"
+    "scss",
+    "http"
 }
 
 return {
