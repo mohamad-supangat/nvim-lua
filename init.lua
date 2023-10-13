@@ -274,12 +274,6 @@ require("lazy").setup({
         opts = {
             clear = true
         }
-    },
-    {
-        "rest-nvim/rest.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        event = "VeryLazy",
-        opts = {}
     }
 })
 
