@@ -176,7 +176,7 @@ require("lazy").setup({
 
     { "aserowy/tmux.nvim" },
 
-    { "kessejones/term.nvim" },
+    { "numToStr/FTerm.nvim" },
     { "xiyaowong/accelerated-jk.nvim" },
     { "ibhagwan/fzf-lua" },
 
@@ -251,30 +251,13 @@ require("lazy").setup({
     --         },
     --     }
     -- },
-    -- {
-    --     "f-person/git-blame.nvim",
-    --     opts = {
-    --         enabled = true
-    --     }
-    -- },
-    --
-    --
-    -- buffer auto close
-    -- {
-    --     'axkirillov/hbac.nvim',
-    --     config = function()
-    --         require("hbac").setup({
-    --             autoclose = true,
-    --         })
-    --     end
-    -- },
     {
         "chrisgrieser/nvim-recorder",
         dependencies = "rcarriga/nvim-notify",
         opts = {
             clear = true
         }
-    }
+    },
 })
 
 require("settings") -- settings

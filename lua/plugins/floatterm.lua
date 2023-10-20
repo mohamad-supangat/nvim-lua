@@ -1,23 +1,78 @@
-local status_ok, fterm = pcall(require, "term")
+local status_ok, fterm = pcall(require, "FTerm")
 if not status_ok then return end
 
-require("term").setup({
-    shell = vim.o.shell,
-    width = 0.8,
-    height = 0.9,
-    anchor = "NW",
-    position = "center",
-    title = {
-        align = "center", -- left, center or right
-    },
-    border = {
-        chars = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-        hl = "TermBorder",
-    },
+
+local lazygit = fterm:new({
+    cmd = "lazygit",
+    -- blend = 20,
+    border = 'double',
+    dimensions = {
+        height = 1,
+        width = 1
+    }
 })
 
+-- Use this to toggle gitui in a floating terminal
+function _G.lazygit()
+    lazygit:toggle()
+end
 
-vim.keymap.set({ 't' }, '<C-t>', require('term').new, { silent = true })
-vim.keymap.set({ 'n', 't' }, '<A-i>', require('term').toggle, { silent = true })
-vim.keymap.set({ 't' }, '<F2>', require('term').next, { silent = true })
-vim.keymap.set({ 't' }, '<F1>', require('term').prev, { silent = true })
+local bard = fterm:new({
+    cmd = "bard-cli -i",
+    -- blend = 20,
+    border = 'double',
+    dimensions = {
+        height = 0.7,
+        width = 0.4
+    }
+})
+
+function _G.bard()
+    bard:toggle()
+end
+
+local fterm1 = fterm:new({
+    cmd = os.getenv('SHELL'),
+    border = 'double',
+    -- blend = 20,
+    dimensions = {
+        height = 1,
+        width = 0.3,
+        x = 0,
+    }
+})
+
+local fterm2 = fterm:new({
+    cmd = os.getenv('SHELL'),
+    border = 'double',
+    -- blend = 20,
+    dimensions = {
+        height = 1,
+        width = 0.3,
+        x = 1,
+    }
+})
+
+function _G.fterm1()
+    fterm1:toggle()
+end
+
+function _G.fterm2()
+    fterm2:toggle()
+end
+
+-- keymaping
+local map = vim.api.nvim_set_keymap
+local default_opts = { noremap = true, silent = true }
+
+map("n", "<A-i>", '<CMD>lua require("FTerm").toggle()<CR>', default_opts)
+map("t", "<A-i>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', default_opts)
+
+map("n", "<F1>", ":lua fterm1()<CR>", default_opts)
+map("t", "<F1>", "<C-\\><C-n><CMD>lua fterm1()<CR>", default_opts)
+map("n", "<F2>", ":lua fterm2()<CR>", default_opts)
+map("t", "<F2>", "<C-\\><C-n><CMD>lua fterm2()<CR>", default_opts)
+-- map("n", "<leader>git", ":lua lazygit()<CR>", default_opts)
+--
+map("n", "<A-b>", ":lua bard()<CR>", default_opts)
+map("t", "<A-b>", '<C-\\><C-n><CMD>lua bard()<CR>', default_opts)

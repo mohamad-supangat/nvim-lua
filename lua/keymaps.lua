@@ -3,7 +3,7 @@
 -- and plugins.
 -----------------------------------------------------------
 
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 local default_opts = { noremap = true, silent = true }
 
 -----------------------------------------------------------
@@ -41,9 +41,9 @@ map("v", ">", ">gv", default_opts)
 map("v", "<", "<gv", default_opts)
 
 -- copy paste in neovim
-map("n", "<C-a>", "<Esc>ggVG", default_opts) -- select all text in normal mode
-map("i", "<A-BS>", "<C-W>", default_opts) -- alt + backspace delete word
-map("v", "<BS>", '"_d', default_opts) -- delete witout cut / copy to buffer
+map("n", "<C-a>", "<Esc>ggVG", default_opts)     -- select all text in normal mode
+map({ "i", "t" }, "<A-BS>", "<C-W>", default_opts) -- alt + backspace delete word
+map("v", "<BS>", '"_d', default_opts)            -- delete witout cut / copy to buffer
 
 -- undo redo
 --[[ map('n', '<C-Z>', 'u', default_opts)
@@ -89,10 +89,10 @@ map("n", "<f7>", ":SymbolsOutline<CR>", default_opts)
 map("v", "/", '"fy/\\V<C-R>f<CR>', default_opts)
 
 -- toggle zen mode (full screen editing)
-map("n", "<leader>zen", ":lua require('zen-mode').toggle()<CR>", default_opts)
+map("n", "<leader>ze", ":lua require('zen-mode').toggle()<CR>", default_opts)
 
 -- change current cwd to current file dir
 map("n", "<leader>cd", ":cd %:p:h<CR>", default_opts)
 
 -- open current buffer in lazygit
-map("n", "<leader>git", ":LazyGitCurrentFile<CR>", default_opts)
+map("n", "<leader>gi", ":LazyGitCurrentFile<CR>", default_opts)
