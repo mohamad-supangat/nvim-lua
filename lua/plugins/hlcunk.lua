@@ -2,22 +2,17 @@ local status_ok, indentline = pcall(require, "hlchunk")
 if not status_ok then
     return
 end
+local ft = require('hlchunk.utils.filetype')
+
 vim.opt.list = true
 -- vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
 
-local exclude = {
-    "terminal",
-    "startify",
-    "nvim-tree",
-    "CHADTree",
-    "chad-tree",
-    "no-profile",
-    "alpha",
-    "coc-explorer",
-    "Starter",
-    "starter",
-}
+local excludes = vim.tbl_extend("force", ft.exclude_filetypes, {
+    terminal = true,
+    startify = true,
+    ["no-profile"] = true,
+})
 
 -- vim.cmd([[highlight IndentBlanklineIndent1 guifg=#666666 gui=nocombine]])
 indentline.setup({
@@ -28,7 +23,7 @@ indentline.setup({
         enable = true,
         use_treesitter = true,
         -- support_filetypes = exclude,
-        -- exclude_filetypes = exclude
+        exclude_filetypes = excludes
     },
     line_num = {
         enable = true,
