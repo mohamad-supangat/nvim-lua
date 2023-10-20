@@ -10,7 +10,7 @@ bard.setup({
     bard_api_key = api.bard_api_key,
     display_mode = "popup", -- "popup", "vsplit" or "tabnew"
     mappings = {
-        toggle_bard = "<space>ba",
+        toggle_bard = "<A-b>",
         hide_bard = { "q", "<esc>" },
         send_bard = "<cr>",
         new_chat = "<c-n>"
@@ -21,24 +21,24 @@ bard.setup({
                 signs = {
                     sign = "",
                     hi = "Function",
-                    style = "single"  -- "double", "none", "rounded", "solid"
+                    style = "rounded"  -- "double", "none", "rounded", "solid"
                 },
-                border = {            -- only for "popup" mode
-                    style = "single", -- "double", "none", "shadow", "rounded", "solid"
+                border = {             -- only for "popup" mode
+                    style = "double", -- "double", "none", "shadow", "rounded", "solid"
                     text = {
-                        top = "[Prompt]"
+                        top = "Whats Propmt ?????"
                     }
                 },
                 winhighlight = "Normal:Normal,FloatBorder:Normal"
             },
             bard = {
                 signs = {
-                    sign = "🟆",
+                    sign = "=>",
                     hi = "Statement",
-                    style = "single"
+                    style = "double"
                 },
                 border = {
-                    style = "single",
+                    style = "double",
                     text = {
                         top = "[Bard]"
                     }

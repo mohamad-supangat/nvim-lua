@@ -258,6 +258,12 @@ require("lazy").setup({
             clear = true
         }
     },
+
+    {
+        'martineausimon/nvim-bard',
+        dependencies = 'MunifTanjim/nui.nvim'
+    }
+
 })
 
 require("settings") -- settings

@@ -75,4 +75,4 @@ map("t", "<F2>", "<C-\\><C-n><CMD>lua fterm2()<CR>", default_opts)
 -- map("n", "<leader>git", ":lua lazygit()<CR>", default_opts)
 --
 map("n", "<A-b>", ":lua bard()<CR>", default_opts)
-map("t", "<A-b>", '<C-\\><C-n><CMD>lua bard()<CR>', default_opts)
+-- map("t", "<A-b>", '<C-\\><C-n><CMD>lua bard()<CR>', default_opts)
