@@ -88,9 +88,15 @@ require("lazy").setup({
     --     end
     -- },
 
+    -- {
+    --     "catppuccin/nvim",
+    --     name = "catppuccin",
+    -- },
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
     },
 
     -- {
@@ -259,10 +265,10 @@ require("lazy").setup({
         }
     },
 
-    {
-        'martineausimon/nvim-bard',
-        dependencies = 'MunifTanjim/nui.nvim'
-    }
+    -- {
+    --     'martineausimon/nvim-bard',
+    --     dependencies = 'MunifTanjim/nui.nvim'
+    -- }
 
 })
 
