@@ -19,7 +19,7 @@ bard.setup({
         ui = {
             question = {
                 signs = {
-                    sign = "",
+                    sign = " ",
                     hi = "Function",
                     style = "single"   -- "double", "none", "rounded", "solid"
                 },
@@ -33,7 +33,7 @@ bard.setup({
             },
             bard = {
                 signs = {
-                    sign = "🟆",
+                    sign = "󱜚 ",
                     hi = "Statement",
                     style = "single"
                 },
