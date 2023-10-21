@@ -11,39 +11,39 @@ local default_opts = { noremap = true, silent = true }
 -----------------------------------------------------------
 
 -- packer sync
-map("n", "<leader>uu", ":Lazy<CR>", default_opts)
+map("n", "<leader>uu", ":Lazy<CR>", { noremap = true, silent = true, desc = "Open Lazy.nvim Window" })
 
 -- clear search highlighting
-map("n", "<Esc><Esc>", ":nohl<CR>", default_opts)
+map("n", "<Esc><Esc>", ":nohl<CR>", { noremap = true, silent = true, desc = "Remove Search highlighting" })
 
 -- map esc
-map("i", "kk", "<Esc>", { noremap = true })
-map("i", "jj", "<Esc>", { noremap = true })
-map("i", "jk", "<Esc>", { noremap = true })
+map("i", "kk", "<Esc>", { noremap = true, silent = true, desc = "Exit insert mode" })
+map("i", "jj", "<Esc>", { noremap = true, silent = true, desc = "Exit insert mode" })
+map("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "Exit insert mode" })
 
 -- fast saving with <leader> and s
-map("n", "<C-s>", ":update<CR>", default_opts)
-map("i", "<C-s>", "<Esc>:update<CR>", default_opts)
-map("v", "<C-s>", "<C-C>:update<CR>", default_opts)
+map("n", "<C-s>", ":update<CR>", { noremap = true, silent = true, desc = "Save buffer" })
+map("i", "<C-s>", "<Esc>:update<CR>", { noremap = true, silent = true, desc = "Save buffer" })
+map("v", "<C-s>", "<C-C>:update<CR>", { noremap = true, silent = true, desc = "Save buffer" })
 
 -- close all windows and exit from neovim
-map("n", "<leader>q", ":q<CR>", default_opts)
-map("n", "<leader>qa", ":quitall!<CR>", default_opts)
+map("n", "<leader>q", ":q<CR>", { noremap = true, silent = true, desc = "Exit Neovim" })
+map("n", "<leader>qa", ":quitall!<CR>", { noremap = true, silent = true, desc = "Force Exit" })
 
 -----------------------------------------------------------
 -- Plugins shortcuts:
 -----------------------------------------------------------
 
 -- indent control
-map("v", "<Tab>", ">gv", default_opts)
-map("v", "<S-Tab>", "<gv", default_opts)
-map("v", ">", ">gv", default_opts)
-map("v", "<", "<gv", default_opts)
+map("v", "<Tab>", ">gv", { noremap = true, silent = true, desc = "Indent >" })
+map("v", "<S-Tab>", "<gv", { noremap = true, silent = true, desc = "Indent <" })
+map("v", ">", ">gv", { noremap = true, silent = true, desc = "Indent >" })
+map("v", "<", "<gv", { noremap = true, silent = true, desc = "Indent <" })
 
 -- copy paste in neovim
-map("n", "<C-a>", "<Esc>ggVG", default_opts)     -- select all text in normal mode
-map({ "i", "t" }, "<A-BS>", "<C-W>", default_opts) -- alt + backspace delete word
-map("v", "<BS>", '"_d', default_opts)            -- delete witout cut / copy to buffer
+map("n", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true, desc = "Select All Text in current file" })
+map({ "i", "t" }, "<A-BS>", "<C-W>", { noremap = true, silent = true, desc = "delete word" })
+map("v", "<BS>", '"_d', { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
 
 -- undo redo
 --[[ map('n', '<C-Z>', 'u', default_opts)
@@ -79,20 +79,20 @@ map("n", "<leader>bD", ":lua require('mini.bufremove').delete(0, true)<CR>", def
 map("n", "Y", "y$", default_opts) -- Change Y to copy to end of line and behave like C
 
 -- spliting window
-map("n", "<leader>-", "<C-w>s", default_opts)
-map("n", "<leader>|", "<C-w>v<C-w>l", default_opts)
+map("n", "<leader>-", "<C-w>s", { noremap = true, silent = true, desc = "Split window horizontal" })
+map("n", "<leader>|", "<C-w>v<C-w>l", { noremap = true, silent = true, desc = "Split window vertical" })
 
 -- toggle SymbolOutline
-map("n", "<f7>", ":SymbolsOutline<CR>", default_opts)
+map("n", "<f7>", ":SymbolsOutline<CR>", { noremap = true, silent = true, desc = "Open Symbol Outline" })
 
 -- search hightligh text
-map("v", "/", '"fy/\\V<C-R>f<CR>', default_opts)
+map("v", "/", '"fy/\\V<C-R>f<CR>', { noremap = true, silent = true, desc = "Search current tag" })
 
 -- toggle zen mode (full screen editing)
-map("n", "<leader>ze", ":lua require('zen-mode').toggle()<CR>", default_opts)
+map("n", "<leader>ze", ":lua require('zen-mode').toggle()<CR>", { noremap = true, silent = true, desc = "Open zen mode" })
 
 -- change current cwd to current file dir
-map("n", "<leader>cd", ":cd %:p:h<CR>", default_opts)
+map("n", "<leader>cd", ":cd %:p:h<CR>", { noremap = true, silent = true, desc = "Change dir to current opened file" })
 
 -- open current buffer in lazygit
-map("n", "<leader>gi", ":LazyGitCurrentFile<CR>", default_opts)
+map("n", "<leader>gi", ":LazyGitCurrentFile<CR>", { noremap = true, silent = true, desc = "Open lazygit" })
