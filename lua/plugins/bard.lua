@@ -21,10 +21,10 @@ bard.setup({
                 signs = {
                     sign = "",
                     hi = "Function",
-                    style = "rounded"  -- "double", "none", "rounded", "solid"
+                    style = "single"   -- "double", "none", "rounded", "solid"
                 },
                 border = {             -- only for "popup" mode
-                    style = "double", -- "double", "none", "shadow", "rounded", "solid"
+                    style = "rounded", -- "double", "none", "shadow", "rounded", "solid"
                     text = {
                         top = "Whats Propmt ?????"
                     }
@@ -33,12 +33,12 @@ bard.setup({
             },
             bard = {
                 signs = {
-                    sign = "=>",
+                    sign = "🟆",
                     hi = "Statement",
-                    style = "double"
+                    style = "single"
                 },
                 border = {
-                    style = "double",
+                    style = "rounded",
                     text = {
                         top = "[Bard]"
                     }
