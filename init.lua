@@ -35,19 +35,15 @@ vim.opt.rtp:prepend(lazypath)
 require("pre-settings")
 
 require("lazy").setup({
-    -- best neovim plugin manager
     "nvim-lua/plenary.nvim",
-
-    -- neovim file exploere
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
             {
-                -- only needed if you want to use the commands with "_with_window_picker" suffix
                 "s1n7ax/nvim-window-picker",
                 version = "v1.*",
             },
@@ -186,21 +182,34 @@ require("lazy").setup({
     { "xiyaowong/accelerated-jk.nvim" },
     { "ibhagwan/fzf-lua" },
 
-    { "brenoprata10/nvim-highlight-colors" },
+    { "brenoprata10/nvim-highlight-colors", event = "VeryLazy", },
+
     {
         "folke/todo-comments.nvim",
-        dependencies = "nvim-lua/plenary.nvim"
+        dependencies = "nvim-lua/plenary.nvim",
+        event = "VeryLazy",
     },
-    { "alpertuna/vim-header" },
+    -- { "alpertuna/vim-header" },
+    --
     { "lewis6991/gitsigns.nvim" },
-    "simrat39/symbols-outline.nvim",
-    { "windwp/nvim-spectre" },
+    {
+        "simrat39/symbols-outline.nvim",
+        cmd = 'SymbolsOutline'
+    },
+    { "windwp/nvim-spectre",    cmd = 'Spectre' },
 
-    { "CRAG666/code_runner.nvim", dependencies = "nvim-lua/plenary.nvim" },
+    {
+        "CRAG666/code_runner.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
+        cmd = {
+            'RunCode', 'RunFile', 'RunProject', 'RunClose', 'CRFiletype', 'CRProjects'
+        }
+    },
 
     { "kdheepak/lazygit.nvim" },
     {
         "folke/zen-mode.nvim",
+        cmd = 'ZenMode',
         opts = {
             window = {
                 width = 0.99,
@@ -219,7 +228,8 @@ require("lazy").setup({
 
     -- best translate plugin
     { "potamides/pantran.nvim" },
-    -- custom ui
+
+
     {
         "folke/noice.nvim",
         event = "VeryLazy",
