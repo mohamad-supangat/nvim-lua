@@ -1,3 +1,9 @@
+-- {
+--     'martineausimon/nvim-bard',
+--     dependencies = 'MunifTanjim/nui.nvim'
+-- }
+
+
 local status_ok, bard = pcall(require, "nvim-bard")
 if not status_ok then
     return

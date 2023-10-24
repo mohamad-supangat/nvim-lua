@@ -95,30 +95,7 @@ require("lazy").setup({
         opts = {},
     },
 
-    -- {
-    --     "projekt0n/github-nvim-theme",
-    --     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-    --     priority = 1000, -- make sure to load this before all the other start plugins
-    --     config = function()
-    --         require("github-theme").setup({
-    --             options = {
-    --                 transparent = true,
-    --                 dim_inactive = false,
-    --                 styles = {
-    --                     strings = "bold",
-    --                     functions = "italic",
-    --                     variables = "italic",
-    --                     comments = "italic",
-    --                     keywords = "bold",
-    --                     types = "italic,bold",
-    --                 },
-    --             },
-    --         })
-    --
-    --         vim.cmd("colorscheme github_dark_colorblind")
-    --     end,
-    -- },
-    --
+
     {
         "neovim/nvim-lspconfig",
         dependencies = {
@@ -177,10 +154,10 @@ require("lazy").setup({
     { "echasnovski/mini.nvim" },
 
     -- comment document generator
-    {
-        "danymat/neogen",
-        dependencies = "nvim-treesitter/nvim-treesitter"
-    },
+    -- {
+    --     "danymat/neogen",
+    --     dependencies = "nvim-treesitter/nvim-treesitter"
+    -- },
 
     { "aserowy/tmux.nvim" },
 
@@ -249,30 +226,6 @@ require("lazy").setup({
             }
         }
     },
-    -- {
-    --     "ellisonleao/carbon-now.nvim",
-    --     lazy = true,
-    --     cmd = "CarbonNow",
-    --     opts = {
-    --         base_url = "https://carbon.now.sh/",
-    --         open_cmd = "xdg-open",
-    --         options = {
-    --             bg = "gray",
-    --             drop_shadow_blur = "68px",
-    --             drop_shadow = false,
-    --             drop_shadow_offset_y = "20px",
-    --             font_family = "Source Code Pro",
-    --             font_size = "10px",
-    --             line_height = "133%",
-    --             line_numbers = true,
-    --             theme = "blackboard",
-    --             titlebar = "~#",
-    --             watermark = false,
-    --             width = "1000",
-    --             window_theme = false,
-    --         },
-    --     }
-    -- },
     {
         "chrisgrieser/nvim-recorder",
         dependencies = "rcarriga/nvim-notify",
@@ -280,12 +233,6 @@ require("lazy").setup({
             clear = true
         }
     },
-
-    -- {
-    --     'martineausimon/nvim-bard',
-    --     dependencies = 'MunifTanjim/nui.nvim'
-    -- }
-
 })
 
 require("settings") -- settings
