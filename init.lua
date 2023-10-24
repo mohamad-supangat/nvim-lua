@@ -128,14 +128,20 @@ require("lazy").setup({
             -- "lukas-reineke/lsp-format.nvim"
         },
     },
-
     {
         "creativenull/efmls-configs-nvim",
         dependencies = { "neovim/nvim-lspconfig" },
     },
-
+    {
+        "hinell/lsp-timeout.nvim",
+        dependencies = { "neovim/nvim-lspconfig" },
+        init = function()
+            vim.g["lsp-timeout-config"] = {
+                --
+            }
+        end
+    },
     "numToStr/Comment.nvim",
-
     -- syntax viewer
     {
         "sheerun/vim-polyglot",

@@ -18,7 +18,8 @@ local filetypes = {
     "fish",
     "javascript",
     "scss",
-    "http"
+    "http",
+    "xml"
 }
 
 return {
