@@ -154,10 +154,10 @@ require("lazy").setup({
     { "echasnovski/mini.nvim" },
 
     -- comment document generator
-    -- {
-    --     "danymat/neogen",
-    --     dependencies = "nvim-treesitter/nvim-treesitter"
-    -- },
+    {
+        "danymat/neogen",
+        dependencies = "nvim-treesitter/nvim-treesitter"
+    },
 
     { "aserowy/tmux.nvim" },
 

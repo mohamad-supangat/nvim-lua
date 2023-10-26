@@ -22,8 +22,8 @@ local bard = fterm:new({
     -- blend = 20,
     border = 'double',
     dimensions = {
-        height = 0.7,
-        width = 0.4
+        height = 1,
+        width = 0.7
     }
 })
 
