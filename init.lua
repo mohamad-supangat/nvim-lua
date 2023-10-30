@@ -237,16 +237,6 @@ require("lazy").setup({
             clear = true
         }
     },
-    {
-        'stevearc/dressing.nvim',
-        opts = {},
-    },
-    {
-        "ziontee113/icon-picker.nvim",
-        opts = {
-            disable_legacy_commands = true
-        }
-    }
 })
 
 require("settings") -- settings

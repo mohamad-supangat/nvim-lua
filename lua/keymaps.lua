@@ -96,8 +96,3 @@ map("n", "<leader>cd", ":cd %:p:h<CR>", { noremap = true, silent = true, desc = 
 
 -- open current buffer in lazygit
 map("n", "<leader>gi", ":LazyGitCurrentFile<CR>", { noremap = true, silent = true, desc = "Open lazygit" })
-
-
--- open icon picker
-map("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", default_opts)
-map("i", "<C-i>", "<cmd>IconPickerInsert<cr>", default_opts)
