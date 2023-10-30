@@ -1,3 +1,4 @@
+-- { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 local status_ok, indentline = pcall(require, "ibl")
 if not status_ok then
     return
@@ -20,12 +21,17 @@ local exclude = {
 }
 
 -- vim.cmd([[highlight IndentBlanklineIndent1 guifg=#666666 gui=nocombine]])
+--
+-- indentline.setup()
 indentline.setup({
     indent = {
         char = "▏",
     },
     exclude = {
-        language = exclude,
+        filetypes = exclude,
+    },
+    scope = {
+        enabled = false
     }
     -- show_end_of_line = true,
     -- char_highlight_list = {

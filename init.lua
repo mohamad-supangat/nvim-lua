@@ -149,8 +149,12 @@ require("lazy").setup({
 
     "alvan/vim-closetag",
     "gpanders/editorconfig.nvim",
-    -- { "lukas-reineke/indent-blankline.nvim" },
-    { "shellRaining/hlchunk.nvim" },
+
+    {
+        "shellRaining/hlchunk.nvim",
+        event = { "UIEnter" },
+    },
+
     { "echasnovski/mini.nvim" },
 
     -- comment document generator
@@ -233,6 +237,16 @@ require("lazy").setup({
             clear = true
         }
     },
+    {
+        'stevearc/dressing.nvim',
+        opts = {},
+    },
+    {
+        "ziontee113/icon-picker.nvim",
+        opts = {
+            disable_legacy_commands = true
+        }
+    }
 })
 
 require("settings") -- settings

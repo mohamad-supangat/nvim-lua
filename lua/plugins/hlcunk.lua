@@ -1,3 +1,5 @@
+-- { "shellRaining/hlchunk.nvim" }
+
 local status_ok, indentline = pcall(require, "hlchunk")
 if not status_ok then
     return
