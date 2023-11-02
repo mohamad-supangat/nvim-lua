@@ -113,8 +113,8 @@ require("lazy").setup({
         "hinell/lsp-timeout.nvim",
         dependencies = { "neovim/nvim-lspconfig" },
         init = function()
-            vim.g["lsp-timeout-config"] = {
-                --
+            vim.g.lspTimeoutConfig = {
+                -- see config below
             }
         end
     },

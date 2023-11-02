@@ -13,6 +13,7 @@ vim.opt.listchars:append("eol:↴")
 local excludes = vim.tbl_extend("force", ft.exclude_filetypes, {
     terminal = true,
     startify = true,
+    FTerm = true,
     ["no-profile"] = true,
 })
 
@@ -20,6 +21,7 @@ local excludes = vim.tbl_extend("force", ft.exclude_filetypes, {
 indentline.setup({
     indent = {
         chars = { "│", },
+        exclude_filetypes = excludes
     },
     chunk = {
         enable = true,
