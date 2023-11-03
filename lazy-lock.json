@@ -56,5 +56,6 @@
   "vim-closetag": { "branch": "master", "commit": "d0a562f8bdb107a50595aefe53b1a690460c3822" },
   "vim-polyglot": { "branch": "master", "commit": "bc8a81d3592dab86334f27d1d43c080ebf680d42" },
   "vscode-laravel-model-snippets": { "branch": "master", "commit": "540de37bf19a7071b7052fa5f4c7ba3349d46982" },
+  "vscode-quasar-snippets": { "branch": "master", "commit": "087cbeb09ad50b418c03ef415139bb3939f2371a" },
   "zen-mode.nvim": { "branch": "main", "commit": "50e2e2a36cc97847d9ab3b1a3555ba2ef6839b50" }
 }
