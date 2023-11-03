@@ -74,6 +74,8 @@ require("lazy").setup({
         "droggol/VscOdooSnippets",
         "onecentlin/laravel5-snippets-vscode",
         "onecentlin/laravel-blade-snippets-vscode",
+        "ahinkle/vscode-laravel-model-snippets",
+        "use-the-fork/laravel-vscode-snippets",
         "mohamad-supangat/snippets",
     },
 
@@ -109,15 +111,15 @@ require("lazy").setup({
         "creativenull/efmls-configs-nvim",
         dependencies = { "neovim/nvim-lspconfig" },
     },
-    {
-        "hinell/lsp-timeout.nvim",
-        dependencies = { "neovim/nvim-lspconfig" },
-        init = function()
-            vim.g.lspTimeoutConfig = {
-                -- see config below
-            }
-        end
-    },
+    -- {
+    --     "hinell/lsp-timeout.nvim",
+    --     dependencies = { "neovim/nvim-lspconfig" },
+    --     init = function()
+    --         vim.g.lspTimeoutConfig = {
+    --             -- see config below
+    --         }
+    --     end
+    -- },
     "numToStr/Comment.nvim",
     -- syntax viewer
     {
