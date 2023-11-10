@@ -37,7 +37,7 @@ local fterm1 = fterm:new({
     -- blend = 20,
     dimensions = {
         height = 1,
-        width = 0.3,
+        width = 0.8,
         x = 0,
     }
 })
@@ -48,7 +48,7 @@ local fterm2 = fterm:new({
     -- blend = 20,
     dimensions = {
         height = 1,
-        width = 0.3,
+        width = 0.8,
         x = 1,
     }
 })
