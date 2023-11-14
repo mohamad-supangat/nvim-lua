@@ -80,7 +80,7 @@ require("lazy").setup({
         "onecentlin/laravel-blade-snippets-vscode",
         "ahinkle/vscode-laravel-model-snippets",
         "use-the-fork/laravel-vscode-snippets",
-
+        "anburocky3/bootstrap5-snippets",
         -- quasar snippets
         "Abdelaziz18003/vscode-quasar-snippets",
         "mohamad-supangat/snippets",
