@@ -24,7 +24,7 @@ indentline.setup({
         exclude_filetypes = excludes
     },
     chunk = {
-        enable = true,
+        enable = false,
         use_treesitter = true,
         -- support_filetypes = exclude,
         exclude_filetypes = excludes
