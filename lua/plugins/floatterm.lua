@@ -1,4 +1,6 @@
-local fterm = require("FTerm")
+local status_ok, fterm = pcall(require, "FTerm")
+if not status_ok then return end
+
 
 local lazygit = fterm:new({
     cmd = "lazygit",
@@ -15,13 +17,27 @@ function _G.lazygit()
     lazygit:toggle()
 end
 
+local bard = fterm:new({
+    cmd = "bard-cli -i",
+    -- blend = 20,
+    border = 'double',
+    dimensions = {
+        height = 1,
+        width = 0.7
+    }
+})
+
+function _G.bard()
+    bard:toggle()
+end
+
 local fterm1 = fterm:new({
     cmd = os.getenv('SHELL'),
     border = 'double',
     -- blend = 20,
     dimensions = {
         height = 1,
-        width = 0.3,
+        width = 0.8,
         x = 0,
     }
 })
@@ -32,7 +48,7 @@ local fterm2 = fterm:new({
     -- blend = 20,
     dimensions = {
         height = 1,
-        width = 0.3,
+        width = 0.8,
         x = 1,
     }
 })
@@ -56,4 +72,7 @@ map("n", "<F1>", ":lua fterm1()<CR>", default_opts)
 map("t", "<F1>", "<C-\\><C-n><CMD>lua fterm1()<CR>", default_opts)
 map("n", "<F2>", ":lua fterm2()<CR>", default_opts)
 map("t", "<F2>", "<C-\\><C-n><CMD>lua fterm2()<CR>", default_opts)
-map("n", "<leader>git", ":lua lazygit()<CR>", default_opts)
+-- map("n", "<leader>git", ":lua lazygit()<CR>", default_opts)
+--
+map("n", "<A-b>", ":lua bard()<CR>", default_opts)
+map("t", "<A-b>", '<C-\\><C-n><CMD>lua bard()<CR>', default_opts)

@@ -4,7 +4,7 @@ if not lspconfig_status_ok then
 end
 
 local servers = {
-    "sumneko_lua",
+    "lua_ls",
     "cssls",
     "html",
     "tsserver",
@@ -24,7 +24,7 @@ for _, server in pairs(servers) do
         capabilities = require("lsp.handlers").capabilities,
     }
 
-    if server == "sumneko_lua" then
+    if server == "lua_ls" then
         local sumneko_opts = require("lsp.settings.sumneko_lua")
         opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
     end
@@ -32,6 +32,11 @@ for _, server in pairs(servers) do
     if server == "pyright" then
         local pyright_opts = require("lsp.settings.pyright")
         opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+    end
+
+    if server == "emmet_language_server" then
+        local emmet_opts = require("lsp.settings.emmet")
+        opts = vim.tbl_deep_extend("force", emmet_opts, opts)
     end
 
     lspconfig[server].setup(opts)

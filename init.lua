@@ -17,164 +17,237 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 --]]
 --
-local fn = vim.fn
-
--- bootstarping packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
+--
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 
-require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
+vim.opt.rtp:prepend(lazypath)
 
-	use("kyazdani42/nvim-web-devicons")
-	use("nvim-lua/plenary.nvim")
+require("pre-settings")
 
-	use({
-		"akinsho/bufferline.nvim",
-		tag = "v2.*",
-		requires = "kyazdani42/nvim-web-devicons",
-	})
+require("lazy").setup({
+    "nvim-lua/plenary.nvim",
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+            {
+                "s1n7ax/nvim-window-picker",
+                version = "v1.*",
+            },
+        },
+    },
 
-	-- more hgithlight
-	use("sheerun/vim-polyglot")
-	-- use "tpope/vim-sleuth"
+    -- neovim completion plugin and some helper
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-cmdline",
+            -- "jcha0713/cmp-tw2css",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+            "lukas-reineke/cmp-under-comparator",
+        },
+    },
 
-	use({
-		"Darazaki/indent-o-matic",
-		config = function()
-			require("indent-o-matic").setup({})
-		end,
-	})
+    -- snippets list and group
+    {
 
-	-- colorscheme
-	-- use({ "catppuccin/nvim", as = "catppuccin" })
-	use("EdenEast/nightfox.nvim")
+        "L3MON4D3/LuaSnip",
+        "rafamadriz/friendly-snippets",
 
-	-- filer manager
-	use({
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons", -- optional, for file icons
-		},
-		tag = "nightly", -- optional, updated every week. (see issue #1193)
-	})
+        -- odoo snippets
+        "droggol/VscOdooSnippets",
 
-	-- use({ "ms-jpq/chadtree", branch = "chad", run = "python3 -m chadtree deps" })
+        -- laravel snippets
+        "onecentlin/laravel5-snippets-vscode",
+        "onecentlin/laravel-blade-snippets-vscode",
+        "ahinkle/vscode-laravel-model-snippets",
+        "use-the-fork/laravel-vscode-snippets",
+        "anburocky3/bootstrap5-snippets",
+        -- quasar snippets
+        "Abdelaziz18003/vscode-quasar-snippets",
+        "mohamad-supangat/snippets",
+    },
 
-	-- lsp and syntax helper
-	-- use {
-	--     "neoclide/coc.nvim",
-	--     requires = {'honza/vim-snippets'},
-	--     branch = "release",
-	--     config = function() require("plugins/coc") end
-	-- }
+    -- {
+    --     "sainnhe/gruvbox-material",
+    --     config = function()
+    --         require('colorscheme.gruvbox-material')
+    --     end
+    -- },
 
-	-- use {"antoinemadec/coc-fzf", requires = {"ibhagwan/fzf-lua"}}
+    -- {
+    --     "catppuccin/nvim",
+    --     name = "catppuccin",
+    -- },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
 
-	-- cmp plugins
-	use({
-		"hrsh7th/nvim-cmp",
-		requires = {
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lua",
-			"hrsh7th/cmp-cmdline",
-			-- "jcha0713/cmp-tw2css",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
-			"onsails/lspkind.nvim",
-		},
-	})
 
-	-- snippets
-	use({ "L3MON4D3/LuaSnip" }) -- snippet engine
-	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+            { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
+            -- "lukas-reineke/lsp-format.nvim"
+        },
+    },
+    {
+        "creativenull/efmls-configs-nvim",
+        dependencies = { "neovim/nvim-lspconfig" },
+    },
+    -- {
+    --     "hinell/lsp-timeout.nvim",
+    --     dependencies = { "neovim/nvim-lspconfig" },
+    --     init = function()
+    --         vim.g.lspTimeoutConfig = {
+    --             -- see config below
+    --         }
+    --     end
+    -- },
+    "numToStr/Comment.nvim",
+    -- syntax viewer
+    {
+        "sheerun/vim-polyglot",
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        dependencies = {
+            "JoosepAlviste/nvim-ts-context-commentstring",
+            "HiPhish/rainbow-delimiters.nvim",
+            -- "windwp/nvim-ts-autotag",
+            "windwp/nvim-autopairs",
+            -- "nvim-treesitter/nvim-treesitter-context",
+        },
+    },
 
-	-- LSP
-	use({
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
-	})
+    {
+        "utilyre/barbecue.nvim",
+        name = "barbecue",
+        version = "*",
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        opts = {
+            -- configurations go here
+        },
+    },
 
-	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
+    "alvan/vim-closetag",
+    "gpanders/editorconfig.nvim",
 
-	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-	-- use({ "RRethy/vim-illuminate" })
+    {
+        "shellRaining/hlchunk.nvim",
+        event = { "UIEnter" },
+    },
 
-	-- another formater with external comandline
-	use("sbdchd/neoformat")
+    { "echasnovski/mini.nvim" },
 
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		"p00f/nvim-ts-rainbow",
-		"windwp/nvim-ts-autotag",
-		"windwp/nvim-autopairs",
-		"haringsrob/nvim_context_vt",
-	})
+    -- comment document generator
+    {
+        "danymat/neogen",
+        dependencies = "nvim-treesitter/nvim-treesitter"
+    },
 
-	use("simrat39/symbols-outline.nvim") -- A tree like view for symbols in Neovim using the Language Server Protocol
+    { "aserowy/tmux.nvim" },
 
-	-- utils
-	use("gpanders/editorconfig.nvim")
-	use({ "lukas-reineke/indent-blankline.nvim" })
-	use({ "echasnovski/mini.nvim", branch = "stable" })
+    { "numToStr/FTerm.nvim" },
+    { "xiyaowong/accelerated-jk.nvim" },
+    { "ibhagwan/fzf-lua" },
 
-	use({ "danymat/neogen", requires = "nvim-treesitter/nvim-treesitter" })
+    { "brenoprata10/nvim-highlight-colors", event = "VeryLazy", },
 
-	use({ "LudoPinelli/comment-box.nvim" })
+    {
+        "folke/todo-comments.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
+        event = "VeryLazy",
+    },
+    -- { "alpertuna/vim-header" },
+    --
+    { "lewis6991/gitsigns.nvim" },
+    {
+        "simrat39/symbols-outline.nvim",
+        cmd = 'SymbolsOutline'
+    },
+    { "windwp/nvim-spectre",    cmd = 'Spectre' },
 
-	-- use "christoomey/vim-tmux-navigator"
-	use({ "alexghergh/nvim-tmux-navigation" })
-	use({ "numtostr/FTerm.nvim" })
+    {
+        "CRAG666/code_runner.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
+        cmd = {
+            'RunCode', 'RunFile', 'RunProject', 'RunClose', 'CRFiletype', 'CRProjects'
+        }
+    },
 
-	use({ "xiyaowong/accelerated-jk.nvim" })
+    { "kdheepak/lazygit.nvim" },
+    {
+        "folke/zen-mode.nvim",
+        cmd = 'ZenMode',
+        opts = {
+            window = {
+                width = 0.99,
+            },
+        },
+    },
 
-	use({ "ibhagwan/fzf-lua" })
+    -- {
+    --     "akinsho/flutter-tools.nvim",
+    --     lazy = false,
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --     },
+    --     config = true,
+    -- },
 
-	-- use {
-	--     "NvChad/nvim-colorizer.lua",
-	--     config = function() require'colorizer'.setup() end
-	-- }
+    -- best translate plugin
+    { "potamides/pantran.nvim" },
 
-	use({ "brenoprata10/nvim-highlight-colors" })
 
-	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({ "alpertuna/vim-header" })
-
-	use({ "lewis6991/gitsigns.nvim" })
-	use({ "dyng/ctrlsf.vim" })
-
-	use({
-		"folke/zen-mode.nvim",
-		config = function()
-			require("zen-mode").setup({})
-		end,
-	})
-
-	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({ "Abstract-IDE/penvim" })
-
-	-- use({
-	-- 	"anuvyklack/pretty-fold.nvim",
-	-- })
-
-	if packer_bootstrap then
-		require("packer").sync()
-	end
-end)
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- add any options here
+        },
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            {
+                "rcarriga/nvim-notify",
+            }
+        }
+    },
+    {
+        "chrisgrieser/nvim-recorder",
+        dependencies = "rcarriga/nvim-notify",
+        opts = {
+            clear = true
+        }
+    },
+})
 
 require("settings") -- settings
-require("keymaps") -- keymaps
+require("keymaps")  -- keymaps
 require("configs")
