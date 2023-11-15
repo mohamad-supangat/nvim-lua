@@ -13,6 +13,18 @@ Tanks to: [Brainf+ck](https://github.com/brainfucksec/neovim-lua) for your simpl
 
 
 
+## Install
+
+- need to install git, nodejs, neovim, [pynvim](https://github.com/neovim/pynvim) > 0.5
+- (optional) `c` compiler and `make` for compile better highlighting and language parser in neovim [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- just clone this repo
+
+```bash
+git clone https://github.com/mohamad-supangat/nvim-lua.git ~/.config/nvim
+```
+
+- and run neovim, and viola
+
 ## Docs
 
 ### Shortcuts
