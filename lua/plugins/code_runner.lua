@@ -4,8 +4,11 @@ if not status_ok then
 end
 
 code_runner.setup({
-    -- mode = "toggle",
+    mode = "float",
     focus = false,
+    float = {
+        border = "rounded",
+    },
     -- put here the commands by filetype
     filetype = {
         fish = "fish",
