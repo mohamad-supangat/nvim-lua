@@ -43,7 +43,6 @@ configs.setup({
     --         "blade",
     --     },
     -- },
-    context_commentstring = { enable = true, enable_autocmd = false },
     indent = { enable = true, disable = { 'pug', 'vue', 'blade' } },
 })
 

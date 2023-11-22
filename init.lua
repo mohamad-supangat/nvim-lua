@@ -133,9 +133,14 @@ require("lazy").setup({
         "sheerun/vim-polyglot",
     },
     {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        opts = {
+            enable_autocmd = false,
+        }
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
-            "JoosepAlviste/nvim-ts-context-commentstring",
             "HiPhish/rainbow-delimiters.nvim",
             -- "windwp/nvim-ts-autotag",
             "windwp/nvim-autopairs",
