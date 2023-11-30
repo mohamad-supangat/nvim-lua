@@ -18,7 +18,7 @@ require("fzf-lua").setup({
         prompt      = "Files  ❯ ",
         -- cmd = 'ag --hidden -U -g "" --ignore-dir={vendor,node_modules,.git}',
         cmd         =
-        "rg --files ---ignore-case --hidden -uu -g '!/**/.git' -g '!/**/cache*/' -g '!/**/node_modules' -g '!/vendor' -g '!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm}'",
+        "rg --files --ignore-case --hidden -uu -g '!/**/.git' -g '!/**/cache*/' -g '!/**/node_modules' -g '!/vendor' -g '!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm}'",
         git_icons   = true, -- show git icons?
         file_icons  = true, -- show file icons?
         color_icons = true, -- colorize file|git icons
