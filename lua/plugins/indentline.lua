@@ -18,6 +18,7 @@ local exclude = {
     "coc-explorer",
     "Starter",
     "starter",
+    "FTermm"
 }
 
 -- vim.cmd([[highlight IndentBlanklineIndent1 guifg=#666666 gui=nocombine]])

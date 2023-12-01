@@ -35,20 +35,21 @@ vim.opt.rtp:prepend(lazypath)
 require("pre-settings")
 
 require("lazy").setup({
-    "nvim-lua/plenary.nvim",
-    {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons",
-            "MunifTanjim/nui.nvim",
-            {
-                "s1n7ax/nvim-window-picker",
-                version = "v1.*",
-            },
-        },
-    },
+    "nvim-tree/nvim-web-devicons",
+    -- "nvim-lua/plenary.nvim",
+    -- {
+    --     "nvim-neo-tree/neo-tree.nvim",
+    --     branch = "v3.x",
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-tree/nvim-web-devicons",
+    --         "MunifTanjim/nui.nvim",
+    --         {
+    --             "s1n7ax/nvim-window-picker",
+    --             version = "v1.*",
+    --         },
+    --     },
+    -- },
 
     -- neovim completion plugin and some helper
     {
@@ -110,7 +111,7 @@ require("lazy").setup({
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
-            { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
+            -- { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
             -- "lukas-reineke/lsp-format.nvim"
         },
     },
@@ -127,7 +128,7 @@ require("lazy").setup({
     --         }
     --     end
     -- },
-    "numToStr/Comment.nvim",
+    -- "numToStr/Comment.nvim",
     -- syntax viewer
     {
         "sheerun/vim-polyglot",
@@ -142,32 +143,33 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
             "HiPhish/rainbow-delimiters.nvim",
-            -- "windwp/nvim-ts-autotag",
-            "windwp/nvim-autopairs",
+            "windwp/nvim-ts-autotag",
+            -- "windwp/nvim-autopairs",
             -- "nvim-treesitter/nvim-treesitter-context",
         },
     },
-
-    {
-        "utilyre/barbecue.nvim",
-        name = "barbecue",
-        version = "*",
-        dependencies = {
-            "SmiteshP/nvim-navic",
-            "nvim-tree/nvim-web-devicons", -- optional dependency
-        },
-        opts = {
-            -- configurations go here
-        },
-    },
+    --
+    -- {
+    --     "utilyre/barbecue.nvim",
+    --     name = "barbecue",
+    --     version = "*",
+    --     dependencies = {
+    --         "SmiteshP/nvim-navic",
+    --         "nvim-tree/nvim-web-devicons", -- optional dependency
+    --     },
+    --     opts = {
+    --         -- configurations go here
+    --     },
+    -- },
 
     "alvan/vim-closetag",
     "gpanders/editorconfig.nvim",
 
-    {
-        "shellRaining/hlchunk.nvim",
-        event = { "UIEnter" },
-    },
+    -- { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    -- {
+    --     "shellRaining/hlchunk.nvim",
+    --     event = { "UIEnter" },
+    -- },
 
     { "echasnovski/mini.nvim" },
 
@@ -180,10 +182,10 @@ require("lazy").setup({
     { "aserowy/tmux.nvim" },
 
     { "numToStr/FTerm.nvim" },
-    { "xiyaowong/accelerated-jk.nvim" },
-    { "ibhagwan/fzf-lua" },
+    -- { "xiyaowong/accelerated-jk.nvim" },
+    -- { "ibhagwan/fzf-lua" },
 
-    { "brenoprata10/nvim-highlight-colors", event = "VeryLazy", },
+    -- { "brenoprata10/nvim-highlight-colors", event = "VeryLazy", },
 
     {
         "folke/todo-comments.nvim",
@@ -199,15 +201,15 @@ require("lazy").setup({
     },
     { "windwp/nvim-spectre",    cmd = 'Spectre' },
 
-    {
-        "CRAG666/code_runner.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-        cmd = {
-            'RunCode', 'RunFile', 'RunProject', 'RunClose', 'CRFiletype', 'CRProjects'
-        }
-    },
+    -- {
+    --     "CRAG666/code_runner.nvim",
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --     },
+    --     cmd = {
+    --         'RunCode', 'RunFile', 'RunProject', 'RunClose', 'CRFiletype', 'CRProjects'
+    --     }
+    -- },
 
     { "kdheepak/lazygit.nvim" },
     {
@@ -230,31 +232,31 @@ require("lazy").setup({
     -- },
 
     -- best translate plugin
-    { "potamides/pantran.nvim" },
+    -- { "potamides/pantran.nvim" },
 
 
-    {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        opts = {
-            -- add any options here
-        },
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            {
-                "rcarriga/nvim-notify",
-            }
-        }
-    },
-    {
-        "chrisgrieser/nvim-recorder",
-        dependencies = "rcarriga/nvim-notify",
-        opts = {
-            clear = true
-        }
-    },
+    -- {
+    --     "folke/noice.nvim",
+    --     event = "VeryLazy",
+    --     opts = {
+    --         -- add any options here
+    --     },
+    --     dependencies = {
+    --         "MunifTanjim/nui.nvim",
+    --         -- {
+    --         --     "rcarriga/nvim-notify",
+    --         -- }
+    --     }
+    -- },
+    -- {
+    --     "chrisgrieser/nvim-recorder",
+    --     -- dependencies = "rcarriga/nvim-notify",
+    --     opts = {
+    --         clear = true
+    --     }
+    -- },
 })
 
 require("settings") -- settings
-require("keymaps")  -- keymaps
+require("keymaps") -- keymaps
 require("configs")

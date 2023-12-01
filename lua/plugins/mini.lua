@@ -1,6 +1,12 @@
+local map = vim.keymap.set
+local default_opts = { noremap = true, silent = true }
+
+require('mini.hues').setup({ background = '#000000', foreground = '#cdc4c6', accent = 'blue' }) -- red
+
+
 local my_items = {
-    { name = "Open FZF file finder",   action = "FzfLua files",                           section = "Builtin actions" },
-    { name = "Open nvim tree",         action = "NvimTreeOpen",                           section = "Builtin actions" },
+    -- { name = "Open FZF file finder",   action = "FzfLua files",                           section = "Builtin actions" },
+    -- { name = "Open nvim tree",         action = "NvimTreeOpen",                           section = "Builtin actions" },
     { name = "Config: init.lua",       action = "e ~/.config/nvim/init.lua",              section = "Nvim" },
     { name = "Snippets: package.json", action = "e ~/.config/nvim/snippets/package.json", section = "Nvim" },
 }
@@ -52,15 +58,48 @@ MiniStatusline.setup({
     },
 })
 
-require('mini.basics').setup()
--- require("mini.files").setup()
+local hipatterns = require('mini.hipatterns')
+hipatterns.setup({
+    highlighters = {
+        -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+        -- fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+        -- hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+        -- todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+        -- wip       = { pattern = '%f[%w]()WIP()%f[%W]', group = 'MiniHipatternsTodo' },
+        -- note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+        --
+        -- Highlight hex color strings (`#rrggbb`) using that color
+        hex_color = hipatterns.gen_highlighter.hex_color(),
+    },
+})
+
+require('mini.basics').setup({
+    options = {
+        extra_ui = true,
+        win_borders = 'rounded'
+    }
+})
+
+-- {{ File explorer
+local MiniFiles = require("mini.files")
+MiniFiles.setup({ border = 'rounded' })
+
+-- toggle file explorer
+local minifiles_toggle = function(...)
+    if not MiniFiles.close() then MiniFiles.open(...) end
+end
+
+map("n", "<C-n>", minifiles_toggle, default_opts)
+-- }}
+
+
 require("mini.splitjoin").setup()
 require("mini.tabline").setup()
--- require('mini.pairs').setup()
+require('mini.pairs').setup()
 require("mini.surround").setup()
--- require('mini.indentscope').setup({
---     symbol = "▏"
--- })
+require('mini.indentscope').setup({
+    symbol = "▏"
+})
 
 local miniclue = require("mini.clue")
 miniclue.setup({
@@ -78,4 +117,50 @@ miniclue.setup({
     }
 })
 require("mini.bufremove").setup({ set_vim_settings = true })
--- require("mini.cursorword").setup()
+require('mini.comment').setup {
+    options = {
+        custom_commentstring = function()
+            return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
+        end,
+    },
+}
+require("mini.cursorword").setup()
+require('mini.animate').setup()
+-- require('mini.jump').setup()
+require('mini.jump2d').setup()
+require('mini.bracketed').setup()
+require('mini.move').setup()
+
+--- {{{ picker
+local MiniPick = require('mini.pick')
+--
+-- local win_config = function()
+--     height = math.floor(0.618 * vim.o.lines)
+--     width = math.floor(0.618 * vim.o.columns)
+--     return {
+--         border = 'rounded',
+--         anchor = 'NW',
+--         height = height,
+--         width = width,
+--         row = math.floor(0.5 * (vim.o.lines - height)),
+--         col = math.floor(0.5 * (vim.o.columns - width)),
+--     }
+-- end
+
+MiniPick.setup({
+    window = { config = {} },
+    mappings = {
+        move_down = '<C-j>',
+        move_up = '<C-k>'
+    }
+})
+
+require('mini.extra').setup()
+map("", "<C-p>", function()
+    -- MiniPick.builtin.cli({ command = { "rg --files --ignore-case --hidden -uu -g '!/**/.git' -g '!/**/cache*/' -g '!/**/node_modules' -g '!/vendor' -g '!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm}'" } })
+    MiniPick.builtin.files({ tool = 'rg' })
+end, default_opts)
+map("n", "<leader>P", ":Pick commands<CR>", default_opts)     -- open fzf menu
+map("n", "<leader>xx", ":Pick diagnostics<CR>", default_opts) -- open diagnostic aka trouble.nvim
+map("n", "<leader>xx", ":Pick buffers<CR>", default_opts)
+--}}}
