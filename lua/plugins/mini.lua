@@ -81,15 +81,15 @@ require('mini.basics').setup({
 })
 
 -- {{ File explorer
-local MiniFiles = require("mini.files")
-MiniFiles.setup({ border = 'rounded' })
-
--- toggle file explorer
-local minifiles_toggle = function(...)
-    if not MiniFiles.close() then MiniFiles.open(...) end
-end
-
-map("n", "<C-n>", minifiles_toggle, default_opts)
+-- local MiniFiles = require("mini.files")
+-- MiniFiles.setup({ border = 'rounded' })
+--
+-- -- toggle file explorer
+-- local minifiles_toggle = function(...)
+--     if not MiniFiles.close() then MiniFiles.open(...) end
+-- end
+--
+-- map("n", "<C-n>", minifiles_toggle, default_opts)
 -- }}
 
 
@@ -98,7 +98,10 @@ require("mini.tabline").setup()
 require('mini.pairs').setup()
 require("mini.surround").setup()
 require('mini.indentscope').setup({
-    symbol = "▏"
+    symbol = "▏",
+    draw = {
+        animation = require('mini.indentscope').gen_animation.none()
+    }
 })
 
 local miniclue = require("mini.clue")
@@ -124,8 +127,8 @@ require('mini.comment').setup {
         end,
     },
 }
-require("mini.cursorword").setup()
-require('mini.animate').setup()
+-- require("mini.cursorword").setup()
+-- require('mini.animate').setup()
 -- require('mini.jump').setup()
 require('mini.jump2d').setup()
 require('mini.bracketed').setup()
