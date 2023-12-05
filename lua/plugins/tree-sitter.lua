@@ -18,6 +18,23 @@ return {
                 return
             end
 
+
+            local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+            parser_config.blade = {
+                install_info = {
+                    url = "https://github.com/EmranMR/tree-sitter-blade",
+                    files = { "src/parser.c" },
+                    branch = "main",
+                },
+                filetype = "blade"
+            }
+
+            vim.filetype.add({
+                pattern = {
+                    ['.*%.blade%.php'] = 'blade',
+                }
+            })
+
             configs.setup({
                 -- A list of parser names, or "all"
                 ensure_installed = variables.filetypes,
@@ -57,7 +74,7 @@ return {
                         "blade",
                     },
                 },
-                indent = { enable = true, disable = { 'pug', 'vue', 'blade' } },
+                indent = { enable = true, disable = {} },
             })
 
             -- require("treesitter-context").setup({

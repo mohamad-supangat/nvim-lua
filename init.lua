@@ -39,4 +39,4 @@ require("settings")
 local lazy_opts = { ui = { border = "rounded" } }
 require("lazy").setup("plugins", lazy_opts)
 
-require("keymaps")  -- global keymaps
+require("keymaps") -- global keymaps

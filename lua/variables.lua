@@ -19,7 +19,8 @@ local filetypes = {
     "javascript",
     "scss",
     "http",
-    "xml"
+    "xml",
+    "blade"
 }
 
 return {
