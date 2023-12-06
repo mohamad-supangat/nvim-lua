@@ -1,5 +1,8 @@
 return {
     "windwp/nvim-spectre",
+    dependencies = {
+        "nvim-lua/plenary.nvim"
+    },
     cmd = 'Spectre',
     config = function()
         local status_ok, spectre = pcall(require, "spectre")

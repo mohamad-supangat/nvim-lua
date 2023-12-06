@@ -103,6 +103,21 @@ map("n", "<leader>gi", ":LazyGitCurrentFile<CR>", { noremap = true, silent = tru
 vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
     desc = "Toggle Spectre"
 })
+
+
+vim.keymap.set('n', '<leader>sf', function()
+    local currentFilePath = vim.api.nvim_buf_get_name(0)
+    local currentFileDirectory, fileName = string.match(currentFilePath,
+        "(.*/)(.*)")
+    require('spectre').open({
+        is_insert_mode = true,
+        cwd = currentFileDirectory,
+        is_close = false, -- close an exists instance of spectre and open new
+    })
+end, {
+    desc = "Toggle Spectre Curenf File Directory"
+})
+
 vim.keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
     desc = "Search current word"
 })
