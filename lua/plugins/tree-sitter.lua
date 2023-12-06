@@ -108,6 +108,11 @@ return {
     },
     {
         "danymat/neogen",
-        dependencies = "nvim-treesitter/nvim-treesitter"
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        config = function()
+            require('neogen').setup({})
+            vim.api.nvim_set_keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>",
+                { noremap = true, silent = true })
+        end
     }
 }
