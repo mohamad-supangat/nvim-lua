@@ -3,7 +3,7 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = {
             "williamboman/mason.nvim",
-            "williamoman/mason-lspconfig.nvim",
+            "williamboman/mason-lspconfig.nvim",
             { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
             -- "lukas-reineke/lsp-format.nvim"
         },
