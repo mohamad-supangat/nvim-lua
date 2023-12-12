@@ -5,6 +5,11 @@ local stylua = require("efmls-configs.formatters.stylua")
 local languages = require("efmls-configs.defaults").languages()
 languages = vim.tbl_extend("force", languages, {
     -- Custom languages, or override existing ones
+    --
+    php = {
+        require('efmls-configs.formatters.php_cs_fixer'),
+        -- require('efmls-configs.formatters.pint')
+    },
     html = { prettier },
     typescript = { prettier },
     javascript = { prettier },

@@ -22,7 +22,7 @@ local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lsp_status_ok then
     return
 end
-mason_lsp.setup({ ensure_installed = { "lua_ls" } })
+mason_lsp.setup({ ensure_installed = { "lua_ls", "efm" } })
 
 mason_lsp.setup_handlers({
     function(server) -- default handler (optional)
