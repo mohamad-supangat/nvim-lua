@@ -2,8 +2,6 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
             { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
             -- "lukas-reineke/lsp-format.nvim"
         },
@@ -16,4 +14,10 @@ return {
         "creativenull/efmls-configs-nvim",
         dependencies = { "neovim/nvim-lspconfig" },
     },
+    {
+        "williamboman/mason.nvim",
+    },
+
+    "williamboman/mason-lspconfig.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim"
 }
