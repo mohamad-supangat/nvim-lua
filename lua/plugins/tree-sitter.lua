@@ -70,7 +70,7 @@ return {
                         "blade",
                     },
                 },
-                indent = { enable = false, disable = {} },
+                indent = { enable = true, disable = {} },
             })
             --
             -- require("treesitter-context").setup({

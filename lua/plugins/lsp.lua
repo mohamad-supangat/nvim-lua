@@ -10,14 +10,26 @@ return {
             require('lsp')
         end
     },
-    {
-        "creativenull/efmls-configs-nvim",
-        dependencies = { "neovim/nvim-lspconfig" },
-    },
+    -- {
+    --     "creativenull/efmls-configs-nvim",
+    --     dependencies = { "neovim/nvim-lspconfig" },
+    -- },
     {
         "williamboman/mason.nvim",
     },
 
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim"
+
+    {
+        "jay-babu/mason-null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "nvimtools/none-ls.nvim",
+        },
+        config = function()
+            require('lsp.null-ls')
+        end,
+    }
 }

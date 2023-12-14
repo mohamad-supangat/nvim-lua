@@ -8,8 +8,8 @@ require("lsp.mason")
 require("lsp.handlers").setup()
 require("lsp.trouble")
 -- require("lsp.null-ls")
-require("lsp.efm")
-require("lsp.flutter")
+-- require("lsp.efm")
+-- require("lsp.flutter")
 
 local keymap = vim.keymap.set
 
