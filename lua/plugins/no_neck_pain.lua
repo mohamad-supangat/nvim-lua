@@ -2,7 +2,7 @@ return {
     "shortcuts/no-neck-pain.nvim",
     opts = {
         autocmds = {
-            enableOnVimEnter = true
+            enableOnVimEnter = false
         },
         mappings = {
             enabled = true
