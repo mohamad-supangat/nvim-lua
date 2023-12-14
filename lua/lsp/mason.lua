@@ -22,7 +22,7 @@ local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lsp_status_ok then
     return
 end
-mason_lsp.setup({ ensure_installed = { "lua_ls" } })
+mason_lsp.setup()
 
 mason_lsp.setup_handlers({
     function(server) -- default handler (optional)
@@ -48,4 +48,21 @@ mason_lsp.setup_handlers({
 
         lspconfig[server].setup(opts)
     end,
+})
+
+
+
+require('mason-tool-installer').setup({
+    ensure_installed = {
+        'efm',
+        'lua_ls',
+        'prettier',
+        'fixjson',
+        'intelephense',
+        'php-cs-fixer',
+        'phpcbf',
+        'blade-formatter',
+        'pyright',
+        'quick-lint-js'
+    }
 })
