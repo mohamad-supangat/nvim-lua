@@ -8,6 +8,8 @@ local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 local completion = null_ls.builtins.completion
+local hover = null_ls.builtins.hover
+
 
 -- https://github.com/prettier-solidity/prettier-plugin-solidity
 null_ls.setup({
@@ -23,13 +25,14 @@ null_ls.setup({
         -- formatting.reorder_python_imports,
         -- formatting.stylua,
         -- formatting.google_java_format,
-        -- formatting.phpcbf,
         formatting.phpcsfixer,
+        formatting.phpcbf,
         formatting.blade_formatter,
         formatting.fixjson,
         -- diagnostics.flake8,
         -- diagnostics.pydocstyle,
-        diagnostics.selene,
+        -- diagnostics.selene,
         completion.tags,
+        hover.dictionary
     },
 })
