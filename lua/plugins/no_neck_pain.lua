@@ -1,6 +1,6 @@
 return {
     "shortcuts/no-neck-pain.nvim",
-    disabled = true,
+    enabled = false,
     opts = {
         autocmds = {
             enableOnVimEnter = false
