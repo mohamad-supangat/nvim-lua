@@ -1,12 +1,7 @@
 return {
     "echasnovski/mini.nvim",
     config = function()
-        local map = vim.keymap.set
-        local default_opts = { noremap = true, silent = true }
-
         -- require('mini.hues').setup({ background = '#000000', foreground = '#cdc4c6', accent = 'blue' }) -- red
-
-
         local my_items = {
             -- { name = "Open FZF file finder",   action = "FzfLua files",                           section = "Builtin actions" },
             -- { name = "Open nvim tree",         action = "NvimTreeOpen",                           section = "Builtin actions" },

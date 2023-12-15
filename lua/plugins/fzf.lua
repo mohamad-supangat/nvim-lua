@@ -1,21 +1,16 @@
 return {
     "ibhagwan/fzf-lua",
     config = function()
-        local status_ok, fzf_lua = pcall(require, "fzf-lua")
-        if not status_ok then
-            return
-        end
-
+        local fzf_lua = require('fzf-lua')
         local map = vim.api.nvim_set_keymap
         local default_opts = { noremap = true, silent = true }
 
-        -- Fzf lua
-        map("", "<C-p>", ":lua require('fzf-lua').files()<CR>", default_opts) -- file search
-        map("n", "<leader>fzf", ":FzfLua<CR>", default_opts)                  -- open fzf menu
-        map("n", "<leader>P", ":FzfLua commands<CR>", default_opts)           -- open fzf menu
+        vim.keymap.set("", "<C-p>", ":lua require('fzf-lua').files()<CR>", default_opts) -- file search
+        vim.keymap.set("n", "<leader>fzf", ":FzfLua<CR>", default_opts)                  -- open fzf menu
+        vim.keymap.set("n", "<leader>P", ":FzfLua commands<CR>", default_opts)           -- open fzf menu
 
         local actions = require("fzf-lua.actions")
-        require("fzf-lua").setup({
+        fzf_lua.setup({
             files = {
                 previewer   = "",
                 prompt      = "Files  ❯ ",

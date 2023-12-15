@@ -12,14 +12,13 @@ return {
     },
     config = function()
         local neo_tree = require('neo-tree')
-        local map = vim.api.nvim_set_keymap
         local default_opts = { noremap = true, silent = true }
 
         -- vim.g.loaded_netrw = 1
         -- vim.g.loaded_netrwPlugin = 1
         vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-        map("n", "<C-n>", ":Neotree reveal<CR>", default_opts)
-        map("n", "<leader>m", ":Neotree buffers<CR>", default_opts)
+        vim.keymap.set("n", "<C-n>", ":Neotree reveal<CR>", default_opts)
+        vim.keymap.set("n", "<leader>m", ":Neotree buffers<CR>", default_opts)
 
         vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
         vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
