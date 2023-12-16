@@ -26,13 +26,14 @@ null_ls.setup({
         -- formatting.stylua,
         -- formatting.google_java_format,
         formatting.phpcsfixer,
-        formatting.phpcbf,
+        -- formatting.phpcbf,
         formatting.blade_formatter,
         formatting.fixjson,
         -- diagnostics.flake8,
         -- diagnostics.pydocstyle,
         -- diagnostics.selene,
         completion.tags,
+        -- completion.vsnip,
         hover.dictionary
     },
 })
