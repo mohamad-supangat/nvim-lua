@@ -37,6 +37,7 @@
   "nvim-window-picker": { "branch": "main", "commit": "5902827d0e338890a22849e2f18dc80d1cc1a8db" },
   "nvim_context_vt": { "branch": "master", "commit": "a14f9292b4bd68ceed433fc513f287641816dc6d" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
+  "prettier.nvim": { "branch": "main", "commit": "d98e732cb73690b07c00c839c924be1d1d9ac5c2" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "0b4c1ab6724062f3582746c6a5a8c0636bf7ed81" },
   "snippets": { "branch": "master", "commit": "3ac13c4d3f9fcd1ae9578a500fabdade80214339" },
   "symbols-outline.nvim": { "branch": "master", "commit": "512791925d57a61c545bc303356e8a8f7869763c" },

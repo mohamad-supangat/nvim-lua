@@ -31,5 +31,7 @@ return {
         config = function()
             require('lsp.null-ls')
         end,
-    }
+    },
+
+    "MunifTanjim/prettier.nvim"
 }
