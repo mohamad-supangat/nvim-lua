@@ -11,7 +11,7 @@ return {
                 },
             },
 
-            "andersevenrud/nvim_context_vt",
+            -- "andersevenrud/nvim_context_vt",
             -- "windwp/nvim-autopairs",
             -- "nvim-treesitter/nvim-treesitter-context",
         },
@@ -100,7 +100,7 @@ return {
                 blacklist = { 'c', 'cpp' },
             }
 
-            require('nvim_context_vt').setup()
+            -- require('nvim_context_vt').setup()
         end
     },
     {
