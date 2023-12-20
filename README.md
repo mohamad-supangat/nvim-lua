@@ -1,29 +1,25 @@
 # Neovim as main idea
 
-hello in this repo using native LSP from neovim  >= 0.5
+hello in this repo using native LSP from neovim >= 0.5
 if you use are using COC.nvim check this repo
 
 https://github.com/mohamad-supangat/nvim
 
 ![screenshot_20220328-120014.png](./assets/screenshot_20220328-120014.png)
 
-
 Tanks to: [Brainf+ck](https://github.com/brainfucksec/neovim-lua) for your simple dotfiles and give me idea to use init.lua and native LSP
-
-
-
 
 ## Install
 
-- need to install git, nodejs, neovim, [pynvim](https://github.com/neovim/pynvim) > 0.5
-- (optional) `c` compiler and `make` for compile better highlighting and language parser in neovim [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- just clone this repo
+-   need to install git, nodejs, neovim, [pynvim](https://github.com/neovim/pynvim) > 0.5
+-   (optional) `c` compiler and `make` for compile better highlighting and language parser in neovim [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+-   just clone this repo
 
 ```bash
 git clone https://github.com/mohamad-supangat/nvim-lua.git ~/.config/nvim
 ```
 
-- and run neovim, and viola
+-   and run neovim, and viola
 
 ## Docs
 
@@ -31,20 +27,19 @@ git clone https://github.com/mohamad-supangat/nvim-lua.git ~/.config/nvim
 
 Some of the shortcuts I use frequently are listed here. In the following shortcuts, `<leader>` represents ASCII character `,`.
 
-| Shortcut                          | Mode   | Description                                                                         |
-| --------------------------------- | ------ | ----------------------------------------------------------------------------------- |
-| `<ctrl>p`                         | Normal | Fuzzy file searching in a floating window                                           |
-| `<ctrl>n`                         | Normal | Open sidebar file explorer                                                          |
-| `<ctrl>t`                         | Normal | New file                                                                            |
-| `<ctrl>PageDown` / `<ctrl>PageUp` | Normal | Change tab to next and prev                                                         |
-| `<space>bd`                       | Normal | Close Buffer / File                                                                 |
-| `<alt>i` / `F1` / `F2`            | Normal | Toogle floating terminal                                                            |
-| `<space>uu`                      | Normal | Open lazy.nvim updater                                                      |
-| `<space>P`                        | Normal | Open list of coc commands                                                           |
-| `F7`                              | Normal | Toogle sidebar tags explorer                                                        |
-| `<space>rr`                       | Normal | Run current file by [code_runner.nvim](https://github.com/CRAG666/code_runner.nvim) |
+| Shortcut                          | Mode   | Description                                                                                        |
+| --------------------------------- | ------ | -------------------------------------------------------------------------------------------------- |
+| `<ctrl>p`                         | Normal | Fuzzy file searching in a floating window                                                          |
+| `<ctrl>n`                         | Normal | Open sidebar file explorer                                                                         |
+| `<ctrl>t`                         | Normal | New file                                                                                           |
+| `<ctrl>PageDown` / `<ctrl>PageUp` | Normal | Change tab to next and prev                                                                        |
+| `<space>bd`                       | Normal | Close Buffer / File                                                                                |
+| `<alt>i` / `F1` / `F2`            | Normal | Toogle floating terminal                                                                           |
+| `<space>uu`                       | Normal | Open lazy.nvim updater                                                                             |
+| `<space>P`                        | Normal | Open list of coc commands                                                                          |
+| `F7`                              | Normal | Toogle sidebar tags explorer                                                                       |
+| `<space>rr`                       | Normal | Run current file by [code_runner.nvim](https://github.com/CRAG666/code_runner.nvim)                |
 | `<space>git                       | Normal | Run lazygit(install lazygit first) [code_runner.nvim](https://github.com/CRAG666/code_runner.nvim) |
-
 
 ### Structure
 

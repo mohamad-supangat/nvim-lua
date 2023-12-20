@@ -1,4 +1,4 @@
-return{
+return {
     "aserowy/tmux.nvim",
     opts = {}
 }
