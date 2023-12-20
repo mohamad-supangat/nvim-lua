@@ -39,7 +39,7 @@ return {
                     buftype = { "terminal", "quickfix" },
                 },
             },
-            other_win_hl_color = "#e35e4f",
+            other_win_hl_color = "#900000",
         })
 
         neo_tree.setup({
