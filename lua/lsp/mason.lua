@@ -65,6 +65,12 @@ require('mason-tool-installer').setup({
         -- 'phpcbf',
         'blade-formatter',
         'pyright',
-        'quick-lint-js'
+        'quick-lint-js',
+
+        -- 'autopep8',
+        -- 'autoflake',
+        -- 'flake8',
+        'reorder-python-imports',
+        'blue'
     }
 })

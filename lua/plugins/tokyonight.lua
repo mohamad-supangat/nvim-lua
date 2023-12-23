@@ -17,7 +17,7 @@ return {
                 booleans = { bold = true, italic = true },
                 numbers = { italic = true },
                 types = { italic = true },
-                strings = {},
+                strings = { italic = true },
                 variables = {},
                 sidebars = 'transparent',
                 floats = 'transparent'

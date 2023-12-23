@@ -25,25 +25,33 @@ null_ls.setup({
         -- formatting.prettierd,
         -- formatting.prettier_d_slim,
         -- formatting.black.with({ extra_args = { "--fast" } }),
-        -- formatting.reorder_python_imports,
+
         -- formatting.stylua,
         -- formatting.google_java_format,
+
+        -- python {{{
+        -- diagnostics.flake8,
+        -- formatting.reorder_python_imports,
+        formatting.autoflake,
+        formatting.autopep8,
+        formatting.blue,
+        -- }}}
+        --
         formatting.phpcsfixer,
         -- formatting.phpcbf,
         formatting.blade_formatter,
         formatting.fixjson,
-        -- diagnostics.flake8,
-        -- diagnostics.pydocstyle,
-        -- diagnostics.selene,
         completion.tags,
         -- completion.vsnip,
-        hover.dictionary
+        hover.dictionary,
+
+        diagnostics.fish
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
-            vim.keymap.set("n", "<Leader>f", function()
-                vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
-            end, { buffer = bufnr, desc = "[lsp] format" })
+            -- vim.keymap.set("n", "<Leader>f", function()
+            --     vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+            -- end, { buffer = bufnr, desc = "[lsp] format" })
 
             -- format on save
             vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
@@ -57,10 +65,10 @@ null_ls.setup({
             })
         end
 
-        if client.supports_method("textDocument/rangeFormatting") then
-            vim.keymap.set("x", "<Leader>f", function()
-                vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
-            end, { buffer = bufnr, desc = "[lsp] format" })
-        end
+        -- if client.supports_method("textDocument/rangeFormatting") then
+        --     vim.keymap.set("x", "<Leader>f", function()
+        --         vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+        --     end, { buffer = bufnr, desc = "[lsp] format" })
+        -- end
     end,
 })

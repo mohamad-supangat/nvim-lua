@@ -33,5 +33,5 @@ return {
         end,
     },
 
-    "MunifTanjim/prettier.nvim"
+    -- "MunifTanjim/prettier.nvim"
 }
