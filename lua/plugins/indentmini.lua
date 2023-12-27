@@ -17,16 +17,12 @@ local exclude = {
 }
 
 return {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    enabled = false,
+    'nvimdev/indentmini.nvim',
+    event = 'BufEnter',
+    enabled = true,
     opts = {
-        indent = {
-            char = "▏",
-        },
-        exclude = {
-            filetypes = exclude,
-        },
+        char = "▏",
+        exclude =  exclude,
         scope = {
             enabled = false
         }
