@@ -1,6 +1,7 @@
 return {
     {
         "neovim/nvim-lspconfig",
+        enabled = false,
         dependencies = {
             { "folke/trouble.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
             -- "lukas-reineke/lsp-format.nvim"
@@ -16,13 +17,15 @@ return {
     -- },
     {
         "williamboman/mason.nvim",
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        enabled = false,
     },
 
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    "williamboman/mason-lspconfig.nvim",
 
     {
         "jay-babu/mason-null-ls.nvim",
+        enabled = false,
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "williamboman/mason.nvim",

@@ -15,14 +15,14 @@ local exclude = {
     "starter",
     "FTermm"
 }
-
+vim.cmd.highlight("default link IndentLine Comment")
 return {
     'nvimdev/indentmini.nvim',
     event = 'BufEnter',
     enabled = true,
     opts = {
         char = "▏",
-        exclude =  exclude,
+        exclude = exclude,
         scope = {
             enabled = false
         }
