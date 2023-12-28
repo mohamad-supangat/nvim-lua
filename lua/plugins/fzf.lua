@@ -6,8 +6,8 @@ return {
         local default_opts = { noremap = true, silent = true }
 
         vim.keymap.set("", "<C-p>", ":lua require('fzf-lua').files()<CR>", default_opts) -- file search
-        vim.keymap.set("n", "<leader>fzf", ":FzfLua<CR>", default_opts)                  -- open fzf menu
-        vim.keymap.set("n", "<leader>P", ":FzfLua commands<CR>", default_opts)           -- open fzf menu
+        -- vim.keymap.set("n", "<leader>fzf", ":FzfLua<CR>", default_opts)                  -- open fzf menu
+        -- vim.keymap.set("n", "<leader>P", ":FzfLua commands<CR>", default_opts)           -- open fzf menu
 
         local actions = require("fzf-lua.actions")
         fzf_lua.setup({

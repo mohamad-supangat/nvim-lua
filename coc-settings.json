@@ -1,0 +1,91 @@
+{
+    // vetur for vue helper
+    // "vetur.dev.vlsPath": "/home/deve/.config/nvm/14.15.0/lib/node_modules/vls",
+    // explorer config
+    "explorer.icon.expanded": "▾",
+    "explorer.icon.collapsed": "▸",
+    /* "explorer.width": 80, */
+    "explorer.icon.enableNerdfont": true,
+    "explorer.quitOnOpen": true,
+    "explorer.floating.width": -20,
+    "explorer.floating.height": -10,
+    "explorer.openAction.strategy": "sourceWindow",
+    "explorer.file.showHiddenFiles": true,
+    //diagnostic
+    "diagnostic.errorSign": "●",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "●",
+    "diagnostic.displayByAle": false,
+    "diagnostic.refreshOnInsertMode": true,
+    "diagnostic.checkCurrentLine": false,
+    //git
+    "git.enableGutters": true,
+    "git.branchCharacter": "\uf418",
+    "git.addGBlameToBufferVar": false,
+    "git.addGBlameToVirtualText": false,
+    "git.virtualTextPrefix": " ❯❯❯ ",
+    "git.addedSign.hlGroup": "GitGutterAdd",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.topRemovedSign.hlGroup": "GitGutterDelete",
+    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+    "git.addedSign.text": "▋",
+    "git.changedSign.text": "▋",
+    "git.removedSign.text": "▋",
+    "git.topRemovedSign.text": "▔",
+    "git.changeRemovedSign.text": "▋",
+    // pretier
+    "coc.preferences.formatOnSaveFiletypes": [
+        "php",
+        "markdown",
+        "dart",
+        "json",
+        "xml",
+        "js"
+    ],
+    // snipshet
+    "snippets.loadFromExtensions": true,
+    "coc.preferences.snippetStatusText": "Ⓢ ",
+    "suggest.completionItemKindLabels": {
+        "keyword": "",
+        "variable": "",
+        "value": "",
+        "operator": "Ψ",
+        "function": "⨕",
+        "reference": "渚",
+        "constant": "",
+        "method": "",
+        "struct": "פּ",
+        "class": "",
+        "interface": "",
+        "text": "♣",
+        "enum": "",
+        "enumMember": "",
+        "module": "",
+        "color": "",
+        "property": "",
+        "field": "",
+        "unit": "",
+        "event": "鬒",
+        "file": "",
+        "folder": "",
+        "snippet": "",
+        "typeParameter": "",
+        "default": ""
+    },
+    // emmet
+    "emmet.includeLanguages": {
+        "blade": "html",
+        "vue-html": "html",
+        "javascript": "javascriptreact"
+    },
+    // flutter
+    "flutter.runDevToolsAtStartup": true,
+    "flutter.autoOpenDevLog": true,
+    "flutter.openDevLogSplitCommand": "30vnew",
+    // translator
+    "translator.toLang": "en|id",
+    "tailwindCSS.includeLanguages": {
+        "blade": "html",
+    }
+}
