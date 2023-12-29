@@ -1,4 +1,5 @@
 local filetypes = {
+    "vimdoc",
     "lua",
     "typescript",
     "vue",
