@@ -47,6 +47,9 @@ map("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
 
 map("i", "<TAB>", "coc#pum#visible() ? coc#pum#next(1) : '<TAB>'", { noremap = true, silent = true, expr = true })
 map("i", "<S-TAB>", "coc#pum#visible() ? coc#pum#prev(1) : '<C-h>'", { noremap = true, silent = true, expr = true })
+map("i", "<C-j>", "coc#pum#visible() ? coc#pum#next(1) : '<C-j>'", { noremap = true, silent = true, expr = true })
+map("i", "<C-k>", "coc#pum#visible() ? coc#pum#prev(1) : '<C-k>'", { noremap = true, silent = true, expr = true })
+
 
 map("i", "<down>", "coc#pum#visible() ? coc#pum#next(1) : '<down>'", { noremap = true, silent = true, expr = true })
 map("i", "<up>", "coc#pum#visible() ? coc#pum#prev(1) : '<up>'", { noremap = true, silent = true, expr = true })
@@ -56,7 +59,7 @@ map("i", "<CR>", "coc#pum#visible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=c
     { silent = true, expr = true, noremap = true })
 
 
-g.coc_global_extensions = { 'coc-json', 'coc-marketplace', 'coc-explorer', 'coc-snippets', 'coc-pairs', 'coc-lua' }
+g.coc_global_extensions = { 'coc-json', 'coc-marketplace', 'coc-explorer', 'coc-snippets', 'coc-lua', 'coc-prettier'}
 
 return {
     'neoclide/coc.nvim',

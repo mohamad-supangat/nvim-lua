@@ -15,8 +15,14 @@
     "diagnostic.errorSign": "●",
     "diagnostic.warningSign": "⚠",
     "diagnostic.infoSign": "●",
-    "diagnostic.displayByAle": false,
-    "diagnostic.refreshOnInsertMode": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": true,
+    "diagnostic.enableSign": true,
+    "diagnostic.enableMessage": "never",
+    "diagnostic.floatConfig": {},
+    // "diagnostic.virtualTextCurrentLineOnly": true,
+    // "diagnostic.messageTarget": ,
+    // "diagnostic.refreshOnInsertMode": true,
     "diagnostic.checkCurrentLine": false,
     //git
     "git.enableGutters": true,
@@ -86,6 +92,6 @@
     // translator
     "translator.toLang": "en|id",
     "tailwindCSS.includeLanguages": {
-        "blade": "html",
+        "blade": "html"
     }
 }
