@@ -9,7 +9,6 @@ local filetypes = {
     "phpdoc",
     "prisma",
     "markdown",
-    "dart",
     "html",
     "vim",
     "json",
