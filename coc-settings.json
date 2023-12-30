@@ -25,6 +25,11 @@
     // "diagnostic.messageTarget": ,
     // "diagnostic.refreshOnInsertMode": true,
     // "diagnostic.checkCurrentLine": false,
+
+    // pyright
+    "pyright.inlayHints.functionReturnTypes": false,
+    "pyright.inlayHints.variableTypes": false,
+
     //git
     "git.enableGutters": true,
     "git.branchCharacter": "\uf418",
@@ -41,18 +46,12 @@
     "git.removedSign.text": "▋",
     "git.topRemovedSign.text": "▔",
     "git.changeRemovedSign.text": "▋",
+
     // pretier
-    "coc.preferences.formatOnSaveFiletypes": [
-        "php",
-        "markdown",
-        "dart",
-        "json",
-        "xml",
-        "js"
-    ],
+    "coc.preferences.formatOnSave": true,
+
     // snipshet
     "snippets.loadFromExtensions": true,
-    "coc.preferences.snippetStatusText": "Ⓢ ",
     "suggest.completionItemKindLabels": {
         "keyword": "",
         "variable": "",
@@ -80,6 +79,7 @@
         "typeParameter": "",
         "default": ""
     },
+
     // emmet
     "emmet.includeLanguages": {
         "blade": "html",
@@ -90,6 +90,7 @@
     "flutter.runDevToolsAtStartup": true,
     "flutter.autoOpenDevLog": true,
     "flutter.openDevLogSplitCommand": "30vnew",
+
     // translator
     "translator.toLang": "en|id",
     "tailwindCSS.includeLanguages": {

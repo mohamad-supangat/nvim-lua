@@ -79,7 +79,7 @@ map("i", "<CR>", "coc#pum#visible() ? coc#pum#confirm() : '<C-G>u<CR><C-R>=coc#o
 
 
 g.coc_global_extensions = { 'coc-json', 'coc-marketplace', 'coc-explorer', 'coc-snippets', 'coc-lua', 'coc-prettier',
-    'coc-pairs' }
+    'coc-pairs', 'coc-emmet' }
 
 return {
     'neoclide/coc.nvim',
