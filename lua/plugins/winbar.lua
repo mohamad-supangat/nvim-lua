@@ -20,6 +20,20 @@ return {
         show_file_path = true,
         show_symbols = true,
         exclude_filetype = {
+            'help',
+            'startify',
+            'dashboard',
+            'packer',
+            'neogitstatus',
+            'NvimTree',
+            'Trouble',
+            'alpha',
+            'lir',
+            'Outline',
+            'spectre_panel',
+            'toggleterm',
+            'qf',
+            "fzf",
             "term",
             "term:",
             "NvimTree",
@@ -33,7 +47,8 @@ return {
             "coc-explorer",
             "Starter",
             "starter",
-            "FTermm"
+            "FTerm",
+            "lazygit",
         }
     },
 
