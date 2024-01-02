@@ -1,5 +1,8 @@
 return {
     "echasnovski/mini.nvim",
+    dependencies = {
+
+    },
     config = function()
         -- require('mini.hues').setup({ background = '#000000', foreground = '#cdc4c6', accent = 'blue' }) -- red
         local my_items = {
@@ -34,8 +37,8 @@ return {
         -- vim.cmd([[hi WinSeparator guibg=none]])
         MiniStatusline = require("mini.statusline")
         MiniStatusline.setup({
-            set_vim_settings = false,
-            context = {
+            set_vim_settings = true,
+            content = {
                 active = function()
                     local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
                     local git = MiniStatusline.section_git({ trunc_width = 75 })
@@ -43,13 +46,16 @@ return {
                     local filename = MiniStatusline.section_filename({ trunc_width = 140 })
                     local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
                     local location = MiniStatusline.section_location({ trunc_width = 75 })
+
+                    -- local current_gps = gps.get_location()
+
                     return MiniStatusline.combine_groups({
-                        { hl = mode_hl,                 strings = { mode, require("recorder").displaySlots } },
+                        { hl = mode_hl,                 strings = { mode } },
                         { hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
                         "%<", -- Mark general truncate point
                         { hl = "MiniStatuslineFilename", strings = { filename } },
                         "%=", -- End left alignment
-                        { hl = "MiniStatuslineFileinfo", strings = { require("recorder").recordingStatus, fileinfo } },
+                        { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
                         { hl = mode_hl,                  strings = { location } },
                     })
                 end,
