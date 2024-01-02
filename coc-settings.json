@@ -95,5 +95,9 @@
     "translator.toLang": "en|id",
     "tailwindCSS.includeLanguages": {
         "blade": "html"
-    }
+    },
+
+    // xml
+    "xml.format.enabled": true
+    // "xml.java.home": "/usr/lib/jvm/java-11-openjdk"
 }

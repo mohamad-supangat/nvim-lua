@@ -4,7 +4,7 @@ return {
         {
             "ColinKennedy/nvim-gps",
             opts = {
-                separator = ' / ',
+                -- separator = ' / ',
                 icons = {
                     ["class-name"] = ' ', -- Classes and class-like objects
                     ["function-name"] = ' ', -- Functions
