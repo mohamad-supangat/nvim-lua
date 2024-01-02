@@ -20,6 +20,9 @@ return {
         show_file_path = true,
         show_symbols = true,
         exclude_filetype = {
+            "term",
+            "term:",
+            "NvimTree",
             "terminal",
             "startify",
             "nvim-tree",
