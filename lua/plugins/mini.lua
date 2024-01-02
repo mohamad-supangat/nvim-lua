@@ -53,7 +53,7 @@ return {
                         { hl = mode_hl,                 strings = { mode } },
                         { hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
                         "%<", -- Mark general truncate point
-                        { hl = "MiniStatuslineFilename", strings = { filename } },
+                        { hl = "MiniStatuslineFilename", strings = { filename, vim.g.coc_status } },
                         "%=", -- End left alignment
                         { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
                         { hl = mode_hl,                  strings = { location } },
