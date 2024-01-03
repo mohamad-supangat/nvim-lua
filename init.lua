@@ -34,6 +34,8 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("pre-settings")
-require("lazy").setup("plugins", { ui = { border = "rounded" } })
 require("settings")
+require("lazy").setup("plugins", { ui = { border = "rounded" } })
+
+vim.opt.laststatus = 3
 require("keymaps") -- global keymaps
