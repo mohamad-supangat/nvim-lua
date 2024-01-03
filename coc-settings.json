@@ -98,6 +98,9 @@
     },
 
     // xml
-    "xml.format.enabled": true
-    // "xml.java.home": "/usr/lib/jvm/java-11-openjdk"
+    "xml.format.enabled": true,
+    // "xml.java.home": "/usr/lib/jvm/java-11-openjdk",
+
+    "outline.keepWindow": true
+    // "outline.autoPreview": true
 }

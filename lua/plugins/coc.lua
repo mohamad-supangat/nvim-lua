@@ -28,7 +28,6 @@ map("n", "<leader>rn", "<Plug>(coc-rename)", {})
 -- snippets
 -- map("i", "<leader>s", "<Plug>(coc-snippets-expand)", default_opts)
 map("x", "<leader>x", "<Plug>(coc-convert-snippet)", default_opts)
-
 -- map("v", "<leader>ss", "<Plug>(coc-snippets-select)", default_opts)
 
 -- formater command
@@ -38,17 +37,10 @@ map("v", "<leader>f", " <Plug>(coc-format-selected)<CR>", { noremap = true })
 
 
 -- diagnostic
-
 map("n", "[g", "<Plug>(coc-diagnostic-prev)", { noremap = true })
 map("n", "]g", "<Plug>(coc-diagnostic-next)", { noremap = true })
-map("n", "<leader>xx", ":CocList diagnostic", { noremap = true })
+map("n", "<leader>xx", "<cmd>CocDiagnostic<cr>", { noremap = true })
 map("n", "gl", ":call CocActionAsync('diagnosticInfo')<CR>", default_opts)
-
-
-
-
-
-
 
 -- show list in fzf
 map("n", "<leader>coc", ":CocList<CR>", { noremap = true })
@@ -65,18 +57,15 @@ map("i", "<C-j>", "coc#pum#visible() ? coc#pum#next(1) : '<C-j>'",
     { noremap = true, silent = true, expr = true })
 map("i", "<C-k>", "coc#pum#visible() ? coc#pum#prev(1) : '<C-k>'",
     { noremap = true, silent = true, expr = true })
-
-
 map("i", "<down>", "coc#pum#visible() ? coc#pum#next(1) : '<down>'",
     { noremap = true, silent = true, expr = true })
 map("i", "<up>", "coc#pum#visible() ? coc#pum#prev(1) : '<up>'",
     { noremap = true, silent = true, expr = true })
-
-
 map("i", "<CR>", "coc#pum#visible() ? coc#pum#confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'",
     { silent = true, expr = true, noremap = true })
 
 
+map("n", "<f7>", "<cmd>CocOutline<cr>", default_opts)
 
 g.coc_global_extensions = { 'coc-json', 'coc-marketplace', 'coc-snippets', 'coc-lua', 'coc-prettier',
     'coc-pairs', 'coc-emmet' }

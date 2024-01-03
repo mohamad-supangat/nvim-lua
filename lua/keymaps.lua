@@ -82,15 +82,10 @@ vim.keymap.set("n", "Y", "y$", default_opts) -- Change Y to copy to end of line 
 vim.keymap.set("n", "<leader>-", "<C-w>s", { noremap = true, silent = true, desc = "Split window horizontal" })
 vim.keymap.set("n", "<leader>|", "<C-w>v<C-w>l", { noremap = true, silent = true, desc = "Split window vertical" })
 
--- toggle SymbolOutline
-vim.keymap.set("n", "<f7>", ":SymbolsOutline<CR>", { noremap = true, silent = true, desc = "Open Symbol Outline" })
 
 -- search hightligh text
 vim.keymap.set("v", "/", '"fy/\\V<C-R>f<CR>', { noremap = true, silent = true, desc = "Search current tag" })
 
--- toggle zen mode (full screen editing)
-vim.keymap.set("n", "<leader>ze", ":lua require('zen-mode').toggle()<CR>",
-    { noremap = true, silent = true, desc = "Open zen mode" })
 
 -- change current cwd to current file dir
 vim.keymap.set("n", "<leader>cd", ":cd %:p:h<CR>",
