@@ -1,6 +1,3 @@
-vim.keymap.set('n',)
-
-
 return {
     "windwp/nvim-spectre",
     dependencies = {
