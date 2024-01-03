@@ -1,5 +1,6 @@
 return {
     "ColinKennedy/winbar.nvim",
+    enabled = true,
     dependencies = {
         {
             "ColinKennedy/nvim-gps",
@@ -51,5 +52,4 @@ return {
             "lazygit",
         }
     },
-
 }
