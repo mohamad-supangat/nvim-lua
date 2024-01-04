@@ -101,6 +101,9 @@
     "xml.format.enabled": true,
     // "xml.java.home": "/usr/lib/jvm/java-11-openjdk",
 
-    "outline.keepWindow": true
+    "outline.keepWindow": true,
+    "prettier.useEditorConfig": true,
+    // "prettier.configPath": "/home/deve/.config/nvim/.prettierrc.json",
+    // "prettier.resolveGlobalModules": true,
     // "outline.autoPreview": true
 }

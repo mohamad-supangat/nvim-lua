@@ -15,7 +15,7 @@ map('n', "<leader>x", "<Plug>(coc-cursors-operator)", default_opts)
 
 
 -- coc-explorer
--- map("n", "<C-n>", ":CocCommand explorer<CR>", default_opts) -- open/close
+map("n", "<C-n>", ":CocCommand explorer<CR>", default_opts) -- open/close
 
 
 map("n", "<leader>.", "<Plug>(coc-codeaction)", {})
@@ -67,7 +67,7 @@ map("i", "<CR>", "coc#pum#visible() ? coc#pum#confirm() : '<C-G>u<CR><C-R>=coc#o
 
 map("n", "<f7>", "<cmd>CocOutline<cr>", default_opts)
 
-g.coc_global_extensions = { 'coc-json', 'coc-marketplace', 'coc-snippets', 'coc-lua', 'coc-prettier',
+g.coc_global_extensions = { 'coc-json', 'coc-marketplace', 'coc-snippets', 'coc-lua', 'coc-prettier', 'coc-explorer',
     'coc-pairs', 'coc-emmet' }
 
 return {

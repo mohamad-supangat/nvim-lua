@@ -3,6 +3,7 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons"
     },
+    enabled = false,
     config = function()
         local map = vim.api.nvim_set_keymap
         -- local tree_cb = require("nvim-tree.config").nvim_tree_callback
