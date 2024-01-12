@@ -29,6 +29,9 @@
     // pyright
     "pyright.inlayHints.functionReturnTypes": false,
     "pyright.inlayHints.variableTypes": false,
+    "pyright.inlayHints.parameterTypes": false,
+    "python.formatting.provider": "none",
+    // "inlayHint.enable": false,
 
     //git
     "git.enableGutters": true,
@@ -103,6 +106,7 @@
 
     "outline.keepWindow": true,
     "prettier.useEditorConfig": true,
+    // "snippets.ultisnips.pythonPrompt": false,
     // "prettier.configPath": "/home/deve/.config/nvim/.prettierrc.json",
     // "prettier.resolveGlobalModules": true,
     // "outline.autoPreview": true
