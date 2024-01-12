@@ -70,6 +70,12 @@ return {
                         desc = "hidden file",
                         icon = "[H]"
                     },
+
+                    ['no-ignore'] = {
+                        value = "--no-ignore",
+                        desc = "Don't respect ignore files",
+                        icon = "[N-I]"
+                    },
                     -- you can put any rg search option you want here it can toggle with
                     -- show_option function
                 }
@@ -79,7 +85,7 @@ return {
             find = {
                 --pick one of item in find_engine
                 cmd = "rg",
-                options = {}
+                options = { 'no-ignore' }
             },
         },
     }

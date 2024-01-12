@@ -97,6 +97,7 @@ return {
         -- }}
 
 
+        require("mini.notify").setup()
         require("mini.splitjoin").setup()
         require("mini.tabline").setup()
         -- require('mini.pairs').setup()

@@ -6,7 +6,7 @@
   "code_runner.nvim": { "branch": "main", "commit": "701807c4f181cd00d4fad0280bbc821324cbe3c1" },
   "editorconfig.nvim": { "branch": "master", "commit": "5b9e303e1d6f7abfe616ce4cc8d3fffc554790bf" },
   "friendly-snippets": { "branch": "main", "commit": "69a2c1675b66e002799f5eef803b87a12f593049" },
-  "fzf-lua": { "branch": "main", "commit": "2cd8e0c32fcdad48d8d56120c559d15a10affb3f" },
+  "fzf-lua": { "branch": "main", "commit": "ada262b4235c86a4365eb49d51e4f7616c8f7da5" },
   "gitsigns.nvim": { "branch": "main", "commit": "3e6e91b09f0468c32d3b96dcacf4b947f037ce25" },
   "indentmini.nvim": { "branch": "main", "commit": "a58129ae424fd6d8e0e2e7f6ce06c0443101e370" },
   "laravel-vscode-snippets": { "branch": "main", "commit": "98744db1148d674be8c7a77c0941376c598f577a" },
