@@ -133,7 +133,14 @@ return {
             },
         }
         -- require("mini.cursorword").setup()
-        -- require('mini.animate').setup()
+        -- require('mini.animate').setup({
+        --     scroll = {
+        --         enable = false,
+        --     },
+        --     cursor = {
+        --         timing = require('mini.animate').gen_timing.cubic({ duration = 50, unit = 'total' })
+        --     },
+        -- })
         -- require('mini.jump').setup()
         -- require('mini.jump2d').setup()
         require('mini.bracketed').setup()
@@ -172,38 +179,5 @@ return {
         -- map("n", "<leader>xx", ":Pick diagnostics<CR>", default_opts) -- open diagnostic aka trouble.nvim
         -- map("n", "<leader>xx", ":Pick buffers<CR>", default_opts)
         -- --}}}
-
-
-        -- mini auto complete {{{{
-        -- require('mini.completion').setup({
-        --     window = {
-        --         info = { height = 30, width = 80, border = 'single' },
-        --         signature = { height = 30, width = 80, border = 'single' },
-        --     },
-        -- })
-        --
-        -- local keys = {
-        --     ['cr']        = vim.api.nvim_replace_termcodes('<CR>', true, true, true),
-        --     ['ctrl-y']    = vim.api.nvim_replace_termcodes('<C-y>', true, true, true),
-        --     ['ctrl-y_cr'] = vim.api.nvim_replace_termcodes('<C-y><CR>', true, true, true),
-        -- }
-        --
-        -- _G.cr_action = function()
-        --     if vim.fn.pumvisible() ~= 0 then
-        --         local item_selected = vim.fn.complete_info()['selected'] ~= -1
-        --         return item_selected and keys['ctrl-y'] or keys['ctrl-y_cr']
-        --     else
-        --         return require('mini.pairs').cr()
-        --         -- return keys['cr']
-        --     end
-        -- end
-        --
-        -- vim.keymap.set('i', '<CR>', 'v:lua._G.cr_action()', { expr = true })
-        -- vim.keymap.set('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
-        -- vim.keymap.set('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
-        -- vim.keymap.set('i', '<C-j>', [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
-        -- vim.keymap.set('i', '<C-k>', [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
-
-        -- }}}} end of mini auto complete
     end
 }
