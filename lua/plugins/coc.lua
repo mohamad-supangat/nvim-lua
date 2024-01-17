@@ -90,23 +90,23 @@ return {
             expr = true
         },
 
-        {
-            mode = "i",
-            "<down>",
-            "coc#pum#visible() ? coc#pum#next(1) : '<down>'",
-            noremap = true,
-            silent = true,
-            expr = true
-        },
-
-        {
-            mode = "i",
-            "<up>",
-            "coc#pum#visible() ? coc#pum#prev(1) : '<up>'",
-            noremap = true,
-            silent = true,
-            expr = true
-        },
+        -- {
+        --     mode = "i",
+        --     "<down>",
+        --     "coc#pum#visible() ? coc#pum#next(1) : '<down>'",
+        --     noremap = true,
+        --     silent = true,
+        --     expr = true
+        -- },
+        --
+        -- {
+        --     mode = "i",
+        --     "<up>",
+        --     "coc#pum#visible() ? coc#pum#prev(1) : '<up>'",
+        --     noremap = true,
+        --     silent = true,
+        --     expr = true
+        -- },
 
         {
             mode = "i",
