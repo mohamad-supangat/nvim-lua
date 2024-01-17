@@ -3,7 +3,12 @@ return {
     dependencies = {
     },
     config = function()
-        -- require('mini.hues').setup({ background = '#000000', foreground = '#cdc4c6', accent = 'blue' }) -- red
+        require('mini.hues').setup({ background = '#000000', foreground = '#cdc4c6', accent = "blue" })
+        vim.api.nvim_set_hl(0, 'Comment', { italic = true, fg = "#857d7f" })
+        -- require('mini.colors').setup()
+
+
+
         local my_items = {
             -- { name = "Open FZF file finder",   action = "FzfLua files",                           section = "Builtin actions" },
             -- { name = "Open nvim tree",         action = "NvimTreeOpen",                           section = "Builtin actions" },

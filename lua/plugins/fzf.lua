@@ -12,7 +12,7 @@ return {
         local actions = require("fzf-lua.actions")
         fzf_lua.setup({
             files = {
-                previewer   = "",
+                previewer   = false,
                 prompt      = "Files  ❯ ",
                 -- cmd = 'ag --hidden -U -g "" --ignore-dir={vendor,node_modules,.git}',
                 cmd         =
