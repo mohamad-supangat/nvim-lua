@@ -1,7 +1,14 @@
 return {
     "kdheepak/lazygit.nvim",
-    config = function()
-        vim.keymap.set("n", "<leader>gi", ":LazyGitCurrentFile<CR>",
-            { noremap = true, silent = true, desc = "Open lazygit" })
-    end
+    -- event = "VeryLazy",
+    cmd = { 'LazyGitCurrentFile' },
+    keys = {
+        {
+            "<leader>gi",
+            ":LazyGitCurrentFile<CR>",
+            noremap = true,
+            silent = true,
+            desc = "Open lazygit"
+        }
+    }
 }
