@@ -1,6 +1,6 @@
 return {
     "ColinKennedy/winbar.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = {
         {
             "ColinKennedy/nvim-gps",

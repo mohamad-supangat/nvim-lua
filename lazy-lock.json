@@ -1,5 +1,6 @@
 {
   "FTerm.nvim": { "branch": "master", "commit": "d1320892cc2ebab472935242d9d992a2c9570180" },
+  "LuaSnip": { "branch": "master", "commit": "82108e7e31cc6fc223cc5df5cae6d89f70bb199f" },
   "VscOdooSnippets": { "branch": "master", "commit": "12a69616ac7dda5169a7fb292a900ad361085c8f" },
   "aerial.nvim": { "branch": "master", "commit": "8ccc18055ba855affec5c251e615b92595ac2dba" },
   "bootstrap5-snippets": { "branch": "master", "commit": "5c64d43bbc2293cc2b6d3758be82ab77013a594c" },
@@ -16,6 +17,8 @@
   "mason.nvim": { "branch": "main", "commit": "e110bc3be1a7309617cecd77bfe4bf86ba1b8134" },
   "mini.nvim": { "branch": "main", "commit": "e578f353d0b1d9f21a9640458d8e506c0c9acf5e" },
   "neogen": { "branch": "main", "commit": "70127baaff25611deaf1a29d801fc054ad9d2dc1" },
+  "none-ls.nvim": { "branch": "main", "commit": "cf81e765460f722a381e5f3f5e3cbdce88398517" },
+  "nvim-gps": { "branch": "master", "commit": "79bfff315c712384f5149b388cd9f3af99729835" },
   "nvim-lspconfig": { "branch": "master", "commit": "7eed8b2150192e5ad05e1886fdf133493ddf2928" },
   "nvim-spectre": { "branch": "master", "commit": "d8906855f1949ac97b1e77aaf8d3fe12ed158ddc" },
   "nvim-tree.lua": { "branch": "master", "commit": "f24afa2cef551122b8bd53bb2e4a7df42343ce2e" },
@@ -31,5 +34,6 @@
   "tokyonight.nvim": { "branch": "main", "commit": "f247ee700b569ed43f39320413a13ba9b0aef0db" },
   "vim-polyglot": { "branch": "master", "commit": "bc8a81d3592dab86334f27d1d43c080ebf680d42" },
   "vim-vsnip": { "branch": "master", "commit": "02a8e79295c9733434aab4e0e2b8c4b7cea9f3a9" },
-  "vscode-javascript-snippet-pack": { "branch": "master", "commit": "2350c241605cf001259c92c6ee803a699de6c1e2" }
+  "vscode-javascript-snippet-pack": { "branch": "master", "commit": "2350c241605cf001259c92c6ee803a699de6c1e2" },
+  "winbar.nvim": { "branch": "main", "commit": "0002415b70ce7c112f4831661196638ca8ec724a" }
 }

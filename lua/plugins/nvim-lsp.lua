@@ -15,7 +15,22 @@ return {
             end,
         },
 
-        -- { 'hrsh7th/cmp-nvim-lsp' },
+        {
+            "hrsh7th/nvim-cmp",
+            dependencies = {
+                "hrsh7th/cmp-buffer",
+                "hrsh7th/cmp-path",
+                -- "saadparwaiz1/cmp_luasnip",
+                "hrsh7th/cmp-nvim-lsp",
+                "hrsh7th/cmp-nvim-lua",
+                "hrsh7th/cmp-vsnip",
+                -- "hrsh7th/cmp-cmdline",
+                -- "jcha0713/cmp-tw2css",
+                "hrsh7th/cmp-nvim-lsp-signature-help",
+                "lukas-reineke/cmp-under-comparator",
+                "onsails/lspkind.nvim"
+            },
+        },
         {
             'williamboman/mason-lspconfig.nvim',
             dependencies = {
@@ -41,7 +56,59 @@ return {
                 "nvim-treesitter/nvim-treesitter",
                 "nvim-tree/nvim-web-devicons"
             },
+        },
+        {
+            "nvimtools/none-ls.nvim",
+            dependencies = {
+                "L3MON4D3/LuaSnip",
+            },
+            config = function()
+                -- load all snippets
+                require("luasnip.loaders.from_vscode").lazy_load()
+
+                null_ls = require("null-ls")
+                local formatting = null_ls.builtins.formatting
+                local diagnostics = null_ls.builtins.diagnostics
+                local completion = null_ls.builtins.completion
+                local hover = null_ls.builtins.hover
+
+                null_ls.setup({
+                    cache = false,
+                    debug = false,
+                    temp_dir = "/tmp",
+                    -- on_attach = require("lsp.handlers").on_attach,
+                    sources = {
+                        completion.tags,
+                        completion.luasnip,
+                        formatting.prettier,
+                        -- formatting.prettierd,
+                        -- formatting.prettier_d_slim,
+                        -- formatting.black.with({ extra_args = { "--fast" } }),
+
+                        -- formatting.stylua,
+                        -- formatting.google_java_format,
+
+                        -- python {{{
+                        -- diagnostics.flake8,
+                        -- formatting.reorder_python_imports,
+                        formatting.autoflake,
+                        formatting.autopep8,
+                        formatting.blue,
+                        -- }}}
+                        --
+                        formatting.phpcsfixer,
+                        -- formatting.phpcbf,
+                        formatting.blade_formatter,
+                        formatting.fixjson,
+                        hover.dictionary,
+
+                        diagnostics.fish
+                    },
+                })
+            end
         }
+
+
     },
     keys         = {
         { "<leader>li",        "<cmd>LspInfo<cr>" },
@@ -62,6 +129,12 @@ return {
             ['ctrl-y']    = vim.api.nvim_replace_termcodes('<C-y>', true, true, true),
             ['ctrl-y_cr'] = vim.api.nvim_replace_termcodes('<C-y><CR>', true, true, true),
         }
+
+
+
+        vim.diagnostic.config({
+            virtual_text = false,
+        })
 
         _G.cr_action = function()
             if vim.fn.pumvisible() ~= 0 then

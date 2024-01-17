@@ -1,7 +1,6 @@
 return {
     "echasnovski/mini.nvim",
     dependencies = {
-
     },
     config = function()
         -- require('mini.hues').setup({ background = '#000000', foreground = '#cdc4c6', accent = 'blue' }) -- red
@@ -53,7 +52,12 @@ return {
                         { hl = mode_hl,                 strings = { mode } },
                         { hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
                         "%<", -- Mark general truncate point
-                        { hl = "MiniStatuslineFilename", strings = { vim.g.coc_status } },
+                        {
+                            hl = "MiniStatuslineFilename",
+                            strings = {
+                                vim.g.coc_status,
+                            }
+                        },
                         "%=", -- End left alignment
                         { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
                         { hl = mode_hl,                  strings = { location } },
