@@ -60,12 +60,8 @@ return {
         {
             "nvimtools/none-ls.nvim",
             dependencies = {
-                "L3MON4D3/LuaSnip",
             },
             config = function()
-                -- load all snippets
-                require("luasnip.loaders.from_vscode").lazy_load()
-
                 null_ls = require("null-ls")
                 local formatting = null_ls.builtins.formatting
                 local diagnostics = null_ls.builtins.diagnostics
@@ -79,7 +75,6 @@ return {
                     -- on_attach = require("lsp.handlers").on_attach,
                     sources = {
                         completion.tags,
-                        completion.luasnip,
                         formatting.prettier,
                         -- formatting.prettierd,
                         -- formatting.prettier_d_slim,
@@ -112,15 +107,8 @@ return {
     },
     keys         = {
         { "<leader>li",        "<cmd>LspInfo<cr>" },
-        { "<leader>fm",        "<cmd>lua vim.lsp.buf.format({async = true})<cr>", noremap = true,                           silent = true, desc = 'Format Buffer' },
+        { "<leader>fm",        "<cmd>lua vim.lsp.buf.format({async = true})<cr>", noremap = true,         silent = true, desc = 'Format Buffer' },
         { mode = { "n", "v" }, "<space>ca",                                       vim.lsp.buf.code_action },
-
-        -- mini completion
-        { mode = 'i',          '<CR>',                                            'v:lua._G.cr_action()',                   expr = true },
-        { mode = 'i',          '<Tab>',                                           [[pumvisible() ? "\<C-n>" : "\<Tab>"]],   expr = true },
-        { mode = 'i',          '<S-Tab>',                                         [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], expr = true },
-        { mode = 'i',          '<C-j>',                                           [[pumvisible() ? "\<C-n>" : "\<C-j>"]],   expr = true },
-        { mode = 'i',          '<C-k>',                                           [[pumvisible() ? "\<C-p>" : "\<C-k>"]],   expr = true },
     },
 
     init         = function()
@@ -148,12 +136,7 @@ return {
     end,
     config       = function()
         require('mini.pairs').setup()
-        require('mini.completion').setup({
-            window = {
-                info = { border = 'rounded' },
-                signature = { border = 'rounded' },
-            },
-        })
+
 
         -- This is where all the LSP shenanigans will live
         local lsp_zero = require('lsp-zero')
@@ -180,6 +163,71 @@ return {
                     require('lspconfig').lua_ls.setup(lua_opts)
                 end,
             }
+        })
+
+
+        -- completion plugin setup
+        local cmp = require('cmp')
+        local lspkind = require("lspkind")
+        cmp.setup({
+            view = {
+                entries = "custom",
+            },
+            snippet = {
+                expand = function(args)
+                    vim.fn["vsnip#anonymous"](args.body)
+                end,
+            },
+            mapping = cmp.mapping.preset.insert({
+                ["<C-k>"] = cmp.mapping.select_prev_item(),
+                ["<C-j>"] = cmp.mapping.select_next_item(),
+                ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+                ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+                ["<C-Space>"] = cmp.mapping.complete(),
+                ["<C-e>"] = cmp.mapping({
+                    i = cmp.mapping.abort(),
+                    c = cmp.mapping.close(),
+                }),
+                ["<CR>"] = cmp.mapping.confirm({ select = true }),
+            }),
+            formatting = {
+
+                format = lspkind.cmp_format()
+            },
+            sources = {
+                { name = "nvim_lsp" },
+                { name = "nvim_lua" },
+                { name = 'vsnip' },
+                {
+                    name = "buffer",
+                    option = {
+                        get_bufnrs = function()
+                            return vim.api.nvim_list_bufs()
+                        end,
+                    },
+                },
+                -- { name = "nvim_lsp_signature_help" },
+                { name = "path" },
+                -- { name = "cmp-tw2css" },
+            },
+            confirm_opts = { behavior = cmp.ConfirmBehavior.Replace, select = false },
+            window = {
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
+            },
+            sorting = {
+                comparators = {
+                    cmp.config.compare.offset,
+                    cmp.config.compare.exact,
+                    cmp.config.compare.score,
+                    require "cmp-under-comparator".under,
+                    cmp.config.compare.kind,
+                    cmp.config.compare.sort_text,
+                    cmp.config.compare.length,
+                    cmp.config.compare.order,
+                },
+            },
+            -- experimental = { ghost_text = false },
         })
     end
 }
