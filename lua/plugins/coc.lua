@@ -2,12 +2,20 @@
 -- Neovim API aliases
 -----------------------------------------------------------
 --local map = map  -- set global keymap
-vim.g.coc_global_extensions = { 'coc-json', 'coc-marketplace', 'coc-snippets', 'coc-lua', 'coc-prettier', 'coc-explorer',
-    'coc-pairs', 'coc-emmet' }
+vim.g.coc_global_extensions = {
+    'coc-json',
+    'coc-marketplace',
+    'coc-snippets',
+    'coc-lua',
+    'coc-prettier',
+    -- 'coc-explorer',
+    'coc-pairs',
+    'coc-emmet'
+}
 
 return {
     'neoclide/coc.nvim',
-    enabled = false,
+    enabled = true,
     branch = 'release',
     dependencies = {
         "nvim-tree/nvim-web-devicons"
@@ -21,7 +29,7 @@ return {
 
 
         -- coc-explorer
-        { mode = "n", "<C-n>",       ":CocCommand explorer<CR>" },
+        -- { mode = "n", "<C-n>",       ":CocCommand explorer<CR>" },
 
 
         { mode = "n", "<leader>.",   "<Plug>(coc-codeaction)" },
