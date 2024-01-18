@@ -7,6 +7,7 @@ vim.g.coc_global_extensions = { 'coc-json', 'coc-marketplace', 'coc-snippets', '
 
 return {
     'neoclide/coc.nvim',
+    enabled = false,
     branch = 'release',
     dependencies = {
         "nvim-tree/nvim-web-devicons"

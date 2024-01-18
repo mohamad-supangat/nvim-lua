@@ -3,7 +3,10 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons"
     },
-    enabled = false,
+    enabled = true,
+    keys = {
+        {"<C-n>", ":NvimTreeToggle<CR>", noremap = true, silent = true,}
+    },
     config = function()
         local map = vim.api.nvim_set_keymap
         -- local tree_cb = require("nvim-tree.config").nvim_tree_callback
@@ -12,7 +15,6 @@ return {
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
 
-        map("n", "<C-n>", ":NvimTreeToggle<CR>", default_opts)
 
 
         local function my_on_attach(bufnr)
