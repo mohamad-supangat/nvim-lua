@@ -99,7 +99,7 @@ return {
                         -- }}}
                         --
                         formatting.phpcsfixer.with({
-                            extra_args = { "--rules=no_unused_imports" }
+                            extra_args = { "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" }
                         }),
                         -- formatting.phpcbf,
                         formatting.blade_formatter,
