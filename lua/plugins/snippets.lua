@@ -14,5 +14,4 @@ return {
     -- -- quasar snippets
     -- "Abdelaziz18003/vscode-quasar-snippets",
     "mohamad-supangat/snippets",
-    "hrsh7th/vim-vsnip"
 }

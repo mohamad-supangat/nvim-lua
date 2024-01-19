@@ -20,10 +20,17 @@ return {
             dependencies = {
                 "hrsh7th/cmp-buffer",
                 "hrsh7th/cmp-path",
-                -- "saadparwaiz1/cmp_luasnip",
+                {
+                    "L3MON4D3/LuaSnip",
+                    config = function()
+                        require("luasnip.loaders.from_vscode").lazy_load()
+                    end
+                },
+                "saadparwaiz1/cmp_luasnip",
                 "hrsh7th/cmp-nvim-lsp",
                 "hrsh7th/cmp-nvim-lua",
-                "hrsh7th/cmp-vsnip",
+                -- "hrsh7th/vim-vsnip"
+                -- "hrsh7th/cmp-vsnip",
                 -- "hrsh7th/cmp-cmdline",
                 -- "jcha0713/cmp-tw2css",
                 "hrsh7th/cmp-nvim-lsp-signature-help",
@@ -175,7 +182,8 @@ return {
             },
             snippet = {
                 expand = function(args)
-                    vim.fn["vsnip#anonymous"](args.body)
+                    -- vim.fn["vsnip#anonymous"](args.body)
+                    require 'luasnip'.lsp_expand(args.body)
                 end,
             },
             mapping = cmp.mapping.preset.insert({
@@ -197,7 +205,9 @@ return {
             sources = {
                 { name = "nvim_lsp" },
                 { name = "nvim_lua" },
-                { name = 'vsnip' },
+                -- { name = 'vsnip' },
+                { name = 'luasnip' },
+
                 {
                     name = "buffer",
                     option = {
