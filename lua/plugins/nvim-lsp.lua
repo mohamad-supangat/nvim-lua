@@ -98,7 +98,9 @@ return {
                         formatting.blue,
                         -- }}}
                         --
-                        formatting.phpcsfixer,
+                        formatting.phpcsfixer.with({
+                            extra_args = { "--rules=no_unused_imports" }
+                        }),
                         -- formatting.phpcbf,
                         formatting.blade_formatter,
                         formatting.fixjson,
