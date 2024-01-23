@@ -3,7 +3,7 @@ return {
     dependencies = {
         "niuiic/core.nvim"
     },
-    enabled = false,
+    -- enabled = false,
     opts = {
         output = {
             float = {
@@ -19,40 +19,6 @@ return {
         },
         translate = {
             {
-                -- use :TransToZH to start this job
-                cmd = "TransToZH",
-                -- shell command
-                -- translate-shell is used here
-                command = "trans",
-                -- shell command args
-                args = function(trans_source)
-                    -- trans_source is the text you want to translate
-                    return {
-                        "-b",
-                        "-e",
-                        "google",
-                        -- use proxy
-                        -- "-x",
-                        -- "http://127.0.0.1:10025",
-                        "-t",
-                        "zh-CN",
-                        -- you can filter translate source here
-                        trans_source,
-                    }
-                end,
-                -- how to get translate source
-                -- selection | input | clipboard
-                input = "selection",
-                -- how to output translate result
-                -- float_win | notify | clipboard | insert
-                output = { "float_win" },
-                -- format output
-                ---@type fun(output: string): string
-                format = function(output)
-                    return output
-                end,
-            },
-            {
                 cmd = "TransToEN",
                 command = "trans",
                 args = function(trans_source)
@@ -65,13 +31,12 @@ return {
                         trans_source,
                     }
                 end,
-                input = "input",
+                input = "selection",
                 output = { "notify", "clipboard" },
             },
         },
     },
     keys = {
-        { mode = "v", "<C-t>",    "<cmd>TransToZH<CR>", silent = true },
-        { mode = "n", "<space>T", "<cmd>TransToEN<CR>" }
+        { mode = "v", "<leader>tr", "<cmd>TransToEN<CR>", silent = true },
     }
 }
