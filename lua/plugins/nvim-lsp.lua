@@ -65,6 +65,13 @@ return {
             },
         },
         {
+            "hedyhli/outline.nvim",
+            keys = {
+                { "<f7>", "<cmd>Outline<CR>", desc = "Toggle Outline" }
+            },
+            opts = {},
+        },
+        {
             "nvimtools/none-ls.nvim",
             dependencies = {
             },
