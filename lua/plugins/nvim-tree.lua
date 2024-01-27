@@ -4,8 +4,9 @@ return {
         "nvim-tree/nvim-web-devicons"
     },
     enabled = true,
+    cmd = { "NvimTreeToggle" },
     keys = {
-        {"<C-n>", ":NvimTreeToggle<CR>", noremap = true, silent = true,}
+        { "<C-n>", ":NvimTreeToggle<CR>", noremap = true, silent = true, }
     },
     config = function()
         local map = vim.api.nvim_set_keymap

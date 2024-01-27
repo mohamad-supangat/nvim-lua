@@ -52,20 +52,8 @@ return {
             "echasnovski/mini.nvim",
         },
         {
-            'stevearc/aerial.nvim',
-            opts = {},
-            cmd = { 'AerialToggle' },
-            keys = { -- Example mapping to toggle outline
-                { "<f7>", "<cmd>AerialToggle<CR>", desc = "Toggle outline" },
-            },
-            -- Optional dependencies
-            dependencies = {
-                "nvim-treesitter/nvim-treesitter",
-                "nvim-tree/nvim-web-devicons"
-            },
-        },
-        {
             "hedyhli/outline.nvim",
+            cmd = { "Outline" },
             keys = {
                 { "<f7>", "<cmd>Outline<CR>", desc = "Toggle Outline" }
             },
