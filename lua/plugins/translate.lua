@@ -35,6 +35,22 @@ return {
                 output = { "notify", "float_win" },
             },
             {
+                cmd = "TransToENInsert",
+                command = "trans",
+                args = function(trans_source)
+                    return {
+                        "-b",
+                        "-e",
+                        "google",
+                        "-t",
+                        "en",
+                        trans_source,
+                    }
+                end,
+                input = "selection",
+                output = { "notify", "insert" },
+            },
+            {
                 cmd = "TransToENYank",
                 command = "trans",
                 args = function(trans_source)
@@ -54,7 +70,8 @@ return {
     },
     cmd = { "TransToEN", "TransToENFloat" },
     keys = {
-        { mode = "v", "tey", "<cmd>TransToENYank<CR>",  silent = true },
-        { mode = "v", "tef", "<cmd>TransToENFloat<CR>", silent = true },
+        { mode = "v", "tey", "<cmd>TransToENYank<CR>",   silent = true },
+        { mode = "v", "tef", "<cmd>TransToENFloat<CR>",  silent = true },
+        { mode = "v", "tei", "<cmd>TransToENInsert<CR>", silent = true },
     }
 }
