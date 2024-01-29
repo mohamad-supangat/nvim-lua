@@ -48,7 +48,7 @@ return {
                     }
                 end,
                 input = "selection",
-                output = { "notify", "insert" },
+                output = { "notify", "insert", "clipboard" },
             },
             {
                 cmd = "TransToENYank",
@@ -70,8 +70,8 @@ return {
     },
     cmd = { "TransToEN", "TransToENFloat" },
     keys = {
-        { mode = "v", "tey", "<cmd>TransToENYank<CR>",   silent = true },
-        { mode = "v", "tef", "<cmd>TransToENFloat<CR>",  silent = true },
-        { mode = "v", "tei", "<cmd>TransToENInsert<CR>", silent = true },
+        { mode = "v", "tey", "<cmd>TransToENYank<CR>",     silent = true },
+        { mode = "v", "tef", "<cmd>TransToENFloat<CR>",    silent = true },
+        { mode = "v", "tei", "<cmd>TransToENInsert<CR>dh", silent = true },
     }
 }
