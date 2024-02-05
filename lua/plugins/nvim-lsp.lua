@@ -142,6 +142,7 @@ return {
         require('mini.pairs').setup()
 
 
+        local lspconfig = require('lspconfig')
         -- This is where all the LSP shenanigans will live
         local lsp_zero = require('lsp-zero')
         lsp_zero.extend_lspconfig()
@@ -158,14 +159,36 @@ return {
             info = ""
         })
 
+        -- auto install lsp
         require('mason-lspconfig').setup({
-            ensure_installed = { 'lua_ls' },
+            ensure_installed = {
+                'lua_ls',
+                'emmet_language_server',
+                'intelephense'
+            },
             handlers = {
                 lsp_zero.default_setup,
                 lua_ls = function()
                     local lua_opts = lsp_zero.nvim_lua_ls()
-                    require('lspconfig').lua_ls.setup(lua_opts)
+                    lspconfig.lua_ls.setup(lua_opts)
                 end,
+                emmet_language_server = function()
+                    lspconfig.emmet_language_server.setup({
+                        filetypes = {
+                            "css",
+                            "eruby",
+                            "html",
+                            "javascript",
+                            "javascriptreact",
+                            "less",
+                            "sass",
+                            "scss",
+                            "pug",
+                            "typescriptreact",
+                            "blade"
+                        },
+                    })
+                end
             }
         })
 
