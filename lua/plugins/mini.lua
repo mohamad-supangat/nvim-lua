@@ -111,12 +111,12 @@ return {
         require("mini.tabline").setup()
         -- require('mini.pairs').setup()
         require("mini.surround").setup()
-        -- require('mini.indentscope').setup({
-        --     symbol = "▏",
-        --     draw = {
-        --         animation = require('mini.indentscope').gen_animation.none()
-        --     }
-        -- })
+        require('mini.indentscope').setup({
+            -- symbol = "▏",
+            draw = {
+                animation = require('mini.indentscope').gen_animation.none()
+            }
+        })
 
         local miniclue = require("mini.clue")
         miniclue.setup({
