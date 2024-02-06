@@ -21,7 +21,7 @@ return {
         end
 
         local bard = fterm:new({
-            cmd = "tgpt -i",
+            cmd = "bard-cli -i",
             -- blend = 20,
             border = 'double',
             dimensions = {
