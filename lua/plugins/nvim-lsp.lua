@@ -35,7 +35,11 @@ return {
                 -- "jcha0713/cmp-tw2css",
                 "hrsh7th/cmp-nvim-lsp-signature-help",
                 "lukas-reineke/cmp-under-comparator",
-                "onsails/lspkind.nvim"
+                "onsails/lspkind.nvim",
+                {
+                    "Exafunction/codeium.nvim",
+                    opts = {}
+                }
             },
         },
         {
@@ -219,15 +223,19 @@ return {
                 ["<CR>"] = cmp.mapping.confirm({ select = true }),
             }),
             formatting = {
-
-                format = lspkind.cmp_format()
+                format = lspkind.cmp_format({
+                    mode = "symbol",
+                    maxwidth = 50,
+                    ellipsis_char = '...',
+                    symbol_map = { Codeium = "", }
+                })
             },
             sources = {
                 { name = "nvim_lsp" },
                 { name = "nvim_lua" },
                 -- { name = 'vsnip' },
                 { name = 'luasnip' },
-
+                { name = "codeium" },
                 {
                     name = "buffer",
                     option = {
