@@ -36,10 +36,10 @@ return {
                 "hrsh7th/cmp-nvim-lsp-signature-help",
                 "lukas-reineke/cmp-under-comparator",
                 "onsails/lspkind.nvim",
-                {
-                    "Exafunction/codeium.nvim",
-                    opts = {}
-                }
+                -- {
+                --     "Exafunction/codeium.nvim",
+                --     opts = {}
+                -- }
             },
         },
         {
@@ -154,7 +154,7 @@ return {
             -- see :help lsp-zero-keybindings
             -- to learn the available actions
             lsp_zero.default_keymaps({ buffer = bufnr })
-            lsp_zero.buffer_autoformat()
+            lsp_zro.buffer_autoformat()
         end)
         lsp_zero.set_sign_icons({
             error = "",
@@ -235,7 +235,7 @@ return {
                 { name = "nvim_lua" },
                 -- { name = 'vsnip' },
                 { name = 'luasnip' },
-                { name = "codeium" },
+                -- { name = "codeium" },
                 {
                     name = "buffer",
                     option = {
