@@ -64,6 +64,12 @@ return {
             opts = {},
         },
         {
+            "olrtg/nvim-emmet",
+            config = function()
+                vim.keymap.set({ "n", "v" }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
+            end,
+        },
+        {
             "nvimtools/none-ls.nvim",
             dependencies = {
             },
@@ -172,11 +178,11 @@ return {
             },
             handlers = {
                 lsp_zero.default_setup,
-                lua_ls = function()
+                ["lua_ls"] = function()
                     local lua_opts = lsp_zero.nvim_lua_ls()
                     lspconfig.lua_ls.setup(lua_opts)
                 end,
-                emmet_language_server = function()
+                ["emmet_language_server"] = function()
                     lspconfig.emmet_language_server.setup({
                         filetypes = {
                             "css",
