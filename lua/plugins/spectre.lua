@@ -37,7 +37,7 @@ return {
                 is_close = false, -- close an exists instance of spectre and open new
             })
         end,
-        desc = "Toggle Spectre Curenf File Directory"
+        desc = "Toggle Spectre Curenf Folder"
     }
 
     },
