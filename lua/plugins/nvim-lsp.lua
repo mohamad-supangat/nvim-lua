@@ -70,10 +70,25 @@ return {
             end,
         },
         {
-            "nvimtools/none-ls.nvim",
+            "jay-babu/mason-null-ls.nvim",
+            event = { "BufReadPre", "BufNewFile" },
             dependencies = {
+                "williamboman/mason.nvim",
+                "nvimtools/none-ls.nvim",
             },
             config = function()
+                require("mason-null-ls").setup({
+                    ensure_installed = {
+                        "prettier",
+                        "autoflake",
+                        "autopep8",
+                        "blue",
+                        "phpcsfixer",
+                        "blade_formatter",
+                        "fixjson",
+                    }
+                })
+
                 null_ls = require("null-ls")
                 local formatting = null_ls.builtins.formatting
                 local diagnostics = null_ls.builtins.diagnostics
