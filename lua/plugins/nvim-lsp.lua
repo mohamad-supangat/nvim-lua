@@ -76,63 +76,7 @@ return {
                 "williamboman/mason.nvim",
                 "nvimtools/none-ls.nvim",
             },
-            config = function()
-                require("mason-null-ls").setup({
-                    ensure_installed = {
-                        "prettier",
-                        "autoflake",
-                        "autopep8",
-                        "blue",
-                        "phpcsfixer",
-                        "blade_formatter",
-                        "fixjson",
-                    }
-                })
-
-                null_ls = require("null-ls")
-                local formatting = null_ls.builtins.formatting
-                local diagnostics = null_ls.builtins.diagnostics
-                local completion = null_ls.builtins.completion
-                local hover = null_ls.builtins.hover
-
-                null_ls.setup({
-                    cache = false,
-                    debug = false,
-                    temp_dir = "/tmp",
-                    -- on_attach = require("lsp.handlers").on_attach,
-                    sources = {
-                        completion.tags,
-                        formatting.prettier,
-                        -- formatting.prettierd,
-                        -- formatting.prettier_d_slim,
-                        -- formatting.black.with({ extra_args = { "--fast" } }),
-
-                        -- formatting.stylua,
-                        -- formatting.google_java_format,
-
-                        -- python {{{
-                        -- diagnostics.flake8,
-                        -- formatting.reorder_python_imports,
-                        formatting.autoflake,
-                        formatting.autopep8,
-                        formatting.blue,
-                        -- }}}
-                        --
-                        formatting.phpcsfixer.with({
-                            extra_args = { "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" }
-                        }),
-                        -- formatting.phpcbf,
-                        formatting.blade_formatter,
-                        formatting.fixjson,
-                        hover.dictionary,
-
-                        diagnostics.fish
-                    },
-                })
-            end
         }
-
-
     },
     keys         = {
         { "<leader>li",        "<cmd>LspInfo<cr>" },
@@ -215,6 +159,43 @@ return {
                     })
                 end
             }
+        })
+
+        require("mason-null-ls").setup({
+            ensure_installed = {
+                "prettier",
+                "autoflake",
+                "autopep8",
+                "blue",
+                "phpcsfixer",
+                "blade-formatter",
+                "fixjson",
+            },
+            automatic_installation = false,
+            handlers = {
+
+            }
+        })
+
+        local null_ls = require("null-ls")
+        local formatting = null_ls.builtins.formatting
+        local diagnostics = null_ls.builtins.diagnostics
+        local completion = null_ls.builtins.completion
+        local hover = null_ls.builtins.hover
+
+        null_ls.setup({
+            cache = false,
+            debug = false,
+            temp_dir = "/tmp",
+            -- on_attach = require("lsp.handlers").on_attach,
+            sources = {
+                completion.tags,
+                formatting.phpcsfixer.with({
+                    extra_args = { "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" }
+                }),
+                diagnostics.fish,
+                hover.dictionary,
+            },
         })
 
 
