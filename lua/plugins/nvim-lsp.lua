@@ -133,7 +133,10 @@ return {
             ensure_installed = {
                 'lua_ls',
                 'emmet_language_server',
-                'intelephense'
+                'intelephense',
+                'tailwindcss',
+                "jsonls",
+                "ruff_lsp"
             },
             handlers = {
                 lsp_zero.default_setup,
@@ -164,12 +167,8 @@ return {
         require("mason-null-ls").setup({
             ensure_installed = {
                 "prettier",
-                "autoflake",
-                "autopep8",
-                "blue",
                 "phpcsfixer",
                 "blade-formatter",
-                "fixjson",
             },
             automatic_installation = false,
             handlers = {
