@@ -4,7 +4,7 @@ return {
     cmd = { 'LazyGitCurrentFile' },
     keys = {
         {
-            "<leader>gi",
+            "<leader>g",
             ":LazyGitCurrentFile<CR>",
             noremap = true,
             silent = true,
