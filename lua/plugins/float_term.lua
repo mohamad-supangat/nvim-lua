@@ -21,7 +21,7 @@ return {
         end
 
         local bard = fterm:new({
-            cmd = "bard-cli -i",
+            cmd = "askg -i",
             -- blend = 20,
             border = 'double',
             dimensions = {
