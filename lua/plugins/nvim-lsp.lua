@@ -135,7 +135,7 @@ return {
                 'emmet_language_server',
                 'intelephense',
                 'tailwindcss',
-                "jsonls",
+                -- "jsonls",
                 "ruff_lsp"
             },
             handlers = {
