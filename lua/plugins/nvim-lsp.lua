@@ -173,6 +173,7 @@ return {
                 php = { "php_cs_fixer" },
                 blade = { "blade-formatter" },
                 javascript = { "prettier" },
+                vue = { "prettier" },
             },
 
             formatters = {
