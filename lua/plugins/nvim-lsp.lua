@@ -1,11 +1,11 @@
 return {
-    'neovim/nvim-lspconfig',
-    cmd          = { 'LspInfo', 'LspInstall', 'LspStart' },
-    event        = { 'BufReadPre', 'BufNewFile' },
+    "neovim/nvim-lspconfig",
+    cmd = { "LspInfo", "LspInstall", "LspStart" },
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         {
-            'VonHeikemen/lsp-zero.nvim',
-            branch = 'v3.x',
+            "VonHeikemen/lsp-zero.nvim",
+            branch = "v3.x",
             lazy = true,
             config = false,
             init = function()
@@ -24,7 +24,7 @@ return {
                     "L3MON4D3/LuaSnip",
                     config = function()
                         require("luasnip.loaders.from_vscode").lazy_load()
-                    end
+                    end,
                 },
                 "saadparwaiz1/cmp_luasnip",
                 "hrsh7th/cmp-nvim-lsp",
@@ -43,14 +43,14 @@ return {
             },
         },
         {
-            'williamboman/mason-lspconfig.nvim',
+            "williamboman/mason-lspconfig.nvim",
             dependencies = {
                 {
-                    'williamboman/mason.nvim',
+                    "williamboman/mason.nvim",
                     lazy = false,
                     config = true,
                 },
-            }
+            },
         },
         {
             "echasnovski/mini.nvim",
@@ -59,39 +59,44 @@ return {
             "hedyhli/outline.nvim",
             cmd = { "Outline" },
             keys = {
-                { "<f7>", "<cmd>Outline<CR>", desc = "Toggle Outline" }
+                { "<f7>", "<cmd>Outline<CR>", desc = "Toggle Outline" },
             },
             opts = {},
         },
         {
             "olrtg/nvim-emmet",
             config = function()
-                vim.keymap.set({ "n", "v" }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
+                vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
             end,
         },
         {
-            "jay-babu/mason-null-ls.nvim",
-            event = { "BufReadPre", "BufNewFile" },
-            dependencies = {
-                "williamboman/mason.nvim",
-                "nvimtools/none-ls.nvim",
-            },
-        }
+            "stevearc/conform.nvim",
+            lazy = "VeryLazy",
+        },
+        {
+            "zapling/mason-conform.nvim",
+            lazy = "VeryLazy",
+            opts = {},
+        },
     },
-    keys         = {
-        { "<leader>li",        "<cmd>LspInfo<cr>" },
-        { "<leader>fm",        "<cmd>lua vim.lsp.buf.format({async = true})<cr>", noremap = true,         silent = true, desc = 'Format Buffer' },
-        { mode = { "n", "v" }, "<space>ca",                                       vim.lsp.buf.code_action },
+    keys = {
+        { "<leader>li", "<cmd>LspInfo<cr>" },
+        {
+            "<leader>fm",
+            "<cmd>lua require('conform').format()<cr>",
+            noremap = true,
+            silent = true,
+            desc = "Format Buffer",
+        },
+        { mode = { "n", "v" }, "<space>ca", vim.lsp.buf.code_action },
     },
 
-    init         = function()
+    init = function()
         local keys = {
-            ['cr']        = vim.api.nvim_replace_termcodes('<CR>', true, true, true),
-            ['ctrl-y']    = vim.api.nvim_replace_termcodes('<C-y>', true, true, true),
-            ['ctrl-y_cr'] = vim.api.nvim_replace_termcodes('<C-y><CR>', true, true, true),
+            ["cr"] = vim.api.nvim_replace_termcodes("<CR>", true, true, true),
+            ["ctrl-y"] = vim.api.nvim_replace_termcodes("<C-y>", true, true, true),
+            ["ctrl-y_cr"] = vim.api.nvim_replace_termcodes("<C-y><CR>", true, true, true),
         }
-
-
 
         vim.diagnostic.config({
             virtual_text = false,
@@ -99,45 +104,35 @@ return {
 
         _G.cr_action = function()
             if vim.fn.pumvisible() ~= 0 then
-                local item_selected = vim.fn.complete_info()['selected'] ~= -1
-                return item_selected and keys['ctrl-y'] or keys['ctrl-y_cr']
+                local item_selected = vim.fn.complete_info()["selected"] ~= -1
+                return item_selected and keys["ctrl-y"] or keys["ctrl-y_cr"]
             else
-                return require('mini.pairs').cr()
+                return require("mini.pairs").cr()
                 -- return keys['cr']
             end
         end
     end,
-    config       = function()
-        require('mini.pairs').setup()
+    config = function()
+        require("mini.pairs").setup()
 
-
-        local lspconfig = require('lspconfig')
+        local lspconfig = require("lspconfig")
         -- This is where all the LSP shenanigans will live
-        local lsp_zero = require('lsp-zero')
+        local lsp_zero = require("lsp-zero")
         lsp_zero.extend_lspconfig()
         lsp_zero.on_attach(function(client, bufnr)
             -- see :help lsp-zero-keybindings
             -- to learn the available actions
             lsp_zero.default_keymaps({ buffer = bufnr })
-            lsp_zero.buffer_autoformat()
         end)
         lsp_zero.set_sign_icons({
             error = "",
             warn = "",
             hint = "",
-            info = ""
+            info = "",
         })
 
         -- auto install lsp
-        require('mason-lspconfig').setup({
-            ensure_installed = {
-                'lua_ls',
-                'emmet_language_server',
-                'intelephense',
-                'tailwindcss',
-                -- "jsonls",
-                "ruff_lsp"
-            },
+        require("mason-lspconfig").setup({
             handlers = {
                 lsp_zero.default_setup,
                 ["lua_ls"] = function()
@@ -157,49 +152,43 @@ return {
                             "scss",
                             "pug",
                             "typescriptreact",
-                            "blade"
+                            "blade",
                         },
                     })
-                end
-            }
-        })
-
-        require("mason-null-ls").setup({
-            ensure_installed = {
-                "prettier",
-                "phpcsfixer",
-                "blade-formatter",
-            },
-            automatic_installation = false,
-            handlers = {
-
-            }
-        })
-
-        local null_ls = require("null-ls")
-        local formatting = null_ls.builtins.formatting
-        local diagnostics = null_ls.builtins.diagnostics
-        local completion = null_ls.builtins.completion
-        local hover = null_ls.builtins.hover
-
-        null_ls.setup({
-            cache = false,
-            debug = false,
-            temp_dir = "/tmp",
-            -- on_attach = require("lsp.handlers").on_attach,
-            sources = {
-                completion.tags,
-                formatting.phpcsfixer.with({
-                    extra_args = { "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" }
-                }),
-                diagnostics.fish,
-                hover.dictionary,
+                end,
             },
         })
 
+        -- start of formatter {{{
+        local util = require("conform.util")
+
+        require("conform").setup({
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_fallback = true,
+            },
+            formatters_by_ft = {
+                lua = { "stylua" },
+                python = { "ruff" },
+                php = { "php_cs_fixer" },
+                blade = { "blade-formatter" },
+                javascript = { "prettier" },
+            },
+
+            formatters = {
+                php_cs_fixer = {
+                    command = "php-cs-fixer",
+                    args = { "fix", "$FILENAME", "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" },
+                    stdin = false,
+                    cwd = util.root_file({ "composer.json" }),
+                },
+            },
+        })
+
+        -- }}} end for formmater config
 
         -- completion plugin setup
-        local cmp = require('cmp')
+        local cmp = require("cmp")
         local lspkind = require("lspkind")
         cmp.setup({
             view = {
@@ -208,7 +197,7 @@ return {
             snippet = {
                 expand = function(args)
                     -- vim.fn["vsnip#anonymous"](args.body)
-                    require 'luasnip'.lsp_expand(args.body)
+                    require("luasnip").lsp_expand(args.body)
                 end,
             },
             mapping = cmp.mapping.preset.insert({
@@ -227,15 +216,15 @@ return {
                 format = lspkind.cmp_format({
                     mode = "symbol",
                     maxwidth = 50,
-                    ellipsis_char = '...',
-                    symbol_map = { Codeium = "", }
-                })
+                    ellipsis_char = "...",
+                    symbol_map = { Codeium = "" },
+                }),
             },
             sources = {
                 { name = "nvim_lsp" },
                 { name = "nvim_lua" },
                 -- { name = 'vsnip' },
-                { name = 'luasnip' },
+                { name = "luasnip" },
                 -- { name = "codeium" },
                 {
                     name = "buffer",
@@ -259,7 +248,7 @@ return {
                     cmp.config.compare.offset,
                     cmp.config.compare.exact,
                     cmp.config.compare.score,
-                    require "cmp-under-comparator".under,
+                    require("cmp-under-comparator").under,
                     cmp.config.compare.kind,
                     cmp.config.compare.sort_text,
                     cmp.config.compare.length,
@@ -268,5 +257,5 @@ return {
             },
             -- experimental = { ghost_text = false },
         })
-    end
+    end,
 }
