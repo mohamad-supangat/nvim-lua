@@ -69,25 +69,9 @@ return {
                 vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
             end,
         },
-        {
-            "stevearc/conform.nvim",
-            lazy = "VeryLazy",
-        },
-        {
-            "zapling/mason-conform.nvim",
-            lazy = "VeryLazy",
-            opts = {},
-        },
     },
     keys = {
         { "<leader>li", "<cmd>LspInfo<cr>" },
-        {
-            "<leader>fm",
-            "<cmd>lua require('conform').format()<cr>",
-            noremap = true,
-            silent = true,
-            desc = "Format Buffer",
-        },
         { mode = { "n", "v" }, "<space>ca", vim.lsp.buf.code_action },
     },
 
@@ -158,35 +142,6 @@ return {
                 end,
             },
         })
-
-        -- start of formatter {{{
-        local util = require("conform.util")
-
-        require("conform").setup({
-            format_on_save = {
-                timeout_ms = 500,
-                lsp_fallback = true,
-            },
-            formatters_by_ft = {
-                lua = { "stylua" },
-                python = { "ruff" },
-                php = { "php_cs_fixer" },
-                blade = { "blade-formatter" },
-                javascript = { "prettier" },
-                vue = { "prettier" },
-            },
-
-            formatters = {
-                php_cs_fixer = {
-                    command = "php-cs-fixer",
-                    args = { "fix", "$FILENAME", "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" },
-                    stdin = false,
-                    cwd = util.root_file({ "composer.json" }),
-                },
-            },
-        })
-
-        -- }}} end for formmater config
 
         -- completion plugin setup
         local cmp = require("cmp")
