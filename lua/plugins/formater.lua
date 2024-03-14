@@ -1,6 +1,7 @@
 return {
     "stevearc/conform.nvim",
-    lazy = "VeryLazy",
+    -- lazy = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         {
             "zapling/mason-conform.nvim",
@@ -33,6 +34,7 @@ return {
                 lsp_fallback = true,
             },
             formatters_by_ft = {
+                ["*"] = { "trim_whitespace", "trim_newlines" },
                 lua = { "stylua" },
                 python = { "ruff" },
                 php = { "php_cs_fixer" },
