@@ -4,20 +4,18 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         {
-            "zapling/mason-conform.nvim",
-            lazy = "VeryLazy",
-            opts = {},
-        },
-        {
             "williamboman/mason.nvim",
             lazy = false,
-            config = true,
+        },
+        {
+            "zapling/mason-conform.nvim",
+            opts = {},
         },
     },
     keys = {
         {
             "<leader>fm",
-            "<cmd>lua require('conform').format()<cr>",
+            "<cmd>lua require('conform').format({lsp_fallback = 'always'})<cr>",
             noremap = true,
             silent = true,
             desc = "Format Buffer",
@@ -36,10 +34,11 @@ return {
             formatters_by_ft = {
                 ["*"] = { "trim_whitespace", "trim_newlines" },
                 lua = { "stylua" },
-                python = { "ruff" },
-                php = { "php_cs_fixer" },
+                python = { "blue", "ruff_fix", "ruff_format" },
+                php = { "phpcbf", "php_cs_fixer" },
                 blade = { "blade-formatter" },
                 javascript = { "prettier" },
+                typescript = { "prettier" },
                 vue = { "prettier" },
                 html = { "prettier" },
             },
