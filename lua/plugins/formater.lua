@@ -26,16 +26,19 @@ return {
         -- start of formatter {{{
         local util = require("conform.util")
 
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = "*",
+            callback = function(args)
+                require("conform").format({ bufnr = args.buf, lsp_fallback = "always" })
+            end,
+        })
+
         require("conform").setup({
-            format_on_save = {
-                timeout_ms = 500,
-                lsp_fallback = true,
-            },
             formatters_by_ft = {
                 ["*"] = { "trim_whitespace", "trim_newlines" },
                 lua = { "stylua" },
                 python = { "blue", "ruff_fix", "ruff_format" },
-                php = { "phpcbf", "php_cs_fixer" },
+                php = { "php_cs_fixer" },
                 blade = { "blade-formatter" },
                 javascript = { "prettier" },
                 typescript = { "prettier" },
