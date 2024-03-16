@@ -2,17 +2,18 @@ return {
     "numToStr/FTerm.nvim",
     config = function()
         local status_ok, fterm = pcall(require, "FTerm")
-        if not status_ok then return end
-
+        if not status_ok then
+            return
+        end
 
         local lazygit = fterm:new({
             cmd = "lazygit",
             -- blend = 20,
-            border = 'double',
+            border = "double",
             dimensions = {
                 height = 1,
-                width = 1
-            }
+                width = 1,
+            },
         })
 
         -- Use this to toggle gitui in a floating terminal
@@ -23,11 +24,11 @@ return {
         local bard = fterm:new({
             cmd = "askg -i",
             -- blend = 20,
-            border = 'double',
+            border = "double",
             dimensions = {
                 height = 1,
-                width = 0.7
-            }
+                width = 0.7,
+            },
         })
 
         function _G.bard()
@@ -35,25 +36,25 @@ return {
         end
 
         local fterm1 = fterm:new({
-            cmd = os.getenv('SHELL'),
-            border = 'double',
+            cmd = os.getenv("SHELL"),
+            border = "double",
             -- blend = 20,
             dimensions = {
                 height = 1,
                 width = 0.8,
                 x = 0,
-            }
+            },
         })
 
         local fterm2 = fterm:new({
-            cmd = os.getenv('SHELL'),
-            border = 'double',
+            cmd = os.getenv("SHELL"),
+            border = "double",
             -- blend = 20,
             dimensions = {
                 height = 1,
                 width = 0.8,
                 x = 1,
-            }
+            },
         })
 
         function _G.fterm1()
@@ -78,6 +79,6 @@ return {
         -- map("n", "<leader>git", ":lua lazygit()<CR>", default_opts)
         --
         map("n", "<A-b>", ":lua bard()<CR>", default_opts)
-        map("t", "<A-b>", '<C-\\><C-n><CMD>lua bard()<CR>', default_opts)
-    end
+        map("t", "<A-b>", "<C-\\><C-n><CMD>lua bard()<CR>", default_opts)
+    end,
 }

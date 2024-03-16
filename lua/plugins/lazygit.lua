@@ -1,14 +1,14 @@
 return {
     "kdheepak/lazygit.nvim",
     -- event = "VeryLazy",
-    cmd = { 'LazyGitCurrentFile' },
+    cmd = { "LazyGitCurrentFile" },
     keys = {
         {
-            "<leader>g",
+            "<leader>gi",
             ":LazyGitCurrentFile<CR>",
             noremap = true,
             silent = true,
-            desc = "Open lazygit"
-        }
-    }
+            desc = "Open lazygit",
+        },
+    },
 }
