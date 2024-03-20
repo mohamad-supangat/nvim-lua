@@ -1,5 +1,6 @@
 return {
     "stevearc/conform.nvim",
+    enabled = false,
     -- lazy = "VeryLazy",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {

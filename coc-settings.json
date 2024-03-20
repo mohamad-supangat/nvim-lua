@@ -110,4 +110,8 @@
     // "prettier.configPath": "/home/deve/.config/nvim/.prettierrc.json",
     // "prettier.resolveGlobalModules": true,
     // "outline.autoPreview": true
+
+
+    // php cs fixer
+    "php-cs-fixer.config": "/home/deve/.config/nvim/configs/php-cs-fixer.php"
 }
