@@ -51,7 +51,7 @@
     "git.changeRemovedSign.text": "▋",
 
     // pretier
-    "coc.preferences.formatOnSave": true,
+    "coc.preferences.formatOnSave": false,
 
     // snipshet
     "snippets.loadFromExtensions": true,

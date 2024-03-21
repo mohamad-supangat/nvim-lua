@@ -1,7 +1,7 @@
 return {
     "neovim/nvim-lspconfig",
     cmd = { "LspInfo", "LspInstall", "LspStart" },
-    enabled = false,
+    enabled = true,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         {
@@ -72,8 +72,8 @@ return {
         },
     },
     keys = {
-        { "<leader>li",        "<cmd>LspInfo<cr>" },
-        { mode = { "n", "v" }, "<space>ca",       vim.lsp.buf.code_action },
+        { "<leader>li", "<cmd>LspInfo<cr>" },
+        { mode = { "n", "v" }, "<space>ca", vim.lsp.buf.code_action },
     },
 
     init = function()
