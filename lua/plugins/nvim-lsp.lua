@@ -78,6 +78,11 @@ return {
                 "nvimtools/none-ls.nvim",
             },
         },
+        {
+            "luckasRanarison/tailwind-tools.nvim",
+            dependencies = { "nvim-treesitter/nvim-treesitter" },
+            opts = {}, -- your configuration
+        },
     },
     keys = {
         { "<leader>li", "<cmd>LspInfo<cr>" },
@@ -194,7 +199,6 @@ return {
 
         -- completion plugin setup
         local cmp = require("cmp")
-        local lspkind = require("lspkind")
         cmp.setup({
             view = {
                 entries = "custom",
@@ -218,11 +222,12 @@ return {
                 ["<CR>"] = cmp.mapping.confirm({ select = true }),
             }),
             formatting = {
-                format = lspkind.cmp_format({
-                    mode = "symbol",
-                    maxwidth = 50,
-                    ellipsis_char = "...",
-                    symbol_map = { Codeium = "" },
+                format = require("lspkind").cmp_format({
+                    before = require("tailwind-tools.cmp").lspkind_format,
+                    -- mode = "symbol",
+                    -- maxwidth = 50,
+                    -- ellipsis_char = "...",
+                    -- symbol_map = { Codeium = "" },
                 }),
             },
             sources = {
