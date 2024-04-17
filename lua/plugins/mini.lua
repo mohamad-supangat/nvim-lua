@@ -1,18 +1,15 @@
 return {
     "echasnovski/mini.nvim",
-    dependencies = {
-    },
+    dependencies = {},
     config = function()
-        require('mini.hues').setup({ background = '#000000', foreground = '#cdc4c6', accent = "blue" })
-        vim.api.nvim_set_hl(0, 'Comment', { italic = true, fg = "#857d7f" })
+        require("mini.hues").setup({ background = "#000000", foreground = "#cdc4c6", accent = "blue" })
+        vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#857d7f" })
         -- require('mini.colors').setup()
-
-
 
         local my_items = {
             -- { name = "Open FZF file finder",   action = "FzfLua files",                           section = "Builtin actions" },
             -- { name = "Open nvim tree",         action = "NvimTreeOpen",                           section = "Builtin actions" },
-            { name = "Config: init.lua",       action = "e ~/.config/nvim/init.lua",              section = "Nvim" },
+            { name = "Config: init.lua", action = "e ~/.config/nvim/init.lua", section = "Nvim" },
             { name = "Snippets: package.json", action = "e ~/.config/nvim/snippets/package.json", section = "Nvim" },
         }
 
@@ -36,7 +33,6 @@ return {
             },
         })
 
-
         -- remove gui window separator for using global statusline
         -- vim.cmd([[hi WinSeparator guibg=none]])
         MiniStatusline = require("mini.statusline")
@@ -54,7 +50,7 @@ return {
                     -- local current_gps = gps.get_location()
 
                     return MiniStatusline.combine_groups({
-                        { hl = mode_hl,                 strings = { mode } },
+                        { hl = mode_hl, strings = { mode } },
                         { hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
                         "%<", -- Mark general truncate point
                         {
@@ -62,17 +58,17 @@ return {
                             strings = {
                                 filename,
                                 vim.g.coc_status,
-                            }
+                            },
                         },
                         "%=", -- End left alignment
                         { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
-                        { hl = mode_hl,                  strings = { location } },
+                        { hl = mode_hl, strings = { location } },
                     })
                 end,
             },
         })
 
-        local hipatterns = require('mini.hipatterns')
+        local hipatterns = require("mini.hipatterns")
         hipatterns.setup({
             highlighters = {
                 -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
@@ -87,11 +83,11 @@ return {
             },
         })
 
-        require('mini.basics').setup({
+        require("mini.basics").setup({
             options = {
                 extra_ui = true,
-                win_borders = 'rounded'
-            }
+                win_borders = "rounded",
+            },
         })
 
         -- {{ File explorer
@@ -106,24 +102,27 @@ return {
         -- map("n", "<C-n>", minifiles_toggle, default_opts)
         -- }}
 
-
         require("mini.notify").setup()
         require("mini.splitjoin").setup()
         require("mini.tabline").setup()
         -- require('mini.pairs').setup()
         require("mini.surround").setup()
-        require('mini.indentscope').setup({
+        require("mini.indentscope").setup({
             symbol = "▏",
+            options = {
+                try_as_border = true,
+            },
             draw = {
-                animation = require('mini.indentscope').gen_animation.none()
-            }
+                delay = 0,
+                animation = require("mini.indentscope").gen_animation.none(),
+            },
         })
 
         local miniclue = require("mini.clue")
         miniclue.setup({
             triggers = {
-                { mode = 'n', keys = '<Leader>' },
-                { mode = 'x', keys = '<Leader>' },
+                { mode = "n", keys = "<Leader>" },
+                { mode = "x", keys = "<Leader>" },
             },
             clues = {
                 miniclue.gen_clues.builtin_completion(),
@@ -132,16 +131,16 @@ return {
                 miniclue.gen_clues.registers(),
                 miniclue.gen_clues.windows(),
                 miniclue.gen_clues.z(),
-            }
+            },
         })
         require("mini.bufremove").setup({ set_vim_settings = true })
-        require('mini.comment').setup {
+        require("mini.comment").setup({
             options = {
                 custom_commentstring = function()
-                    return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
+                    return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
                 end,
             },
-        }
+        })
         -- require("mini.cursorword").setup()
         -- require('mini.animate').setup({
         --     scroll = {
@@ -153,7 +152,7 @@ return {
         -- })
         -- require('mini.jump').setup()
         -- require('mini.jump2d').setup()
-        require('mini.bracketed').setup()
+        require("mini.bracketed").setup()
         -- require('mini.move').setup()
 
         --- {{{ picker
@@ -189,5 +188,5 @@ return {
         -- map("n", "<leader>xx", ":Pick diagnostics<CR>", default_opts) -- open diagnostic aka trouble.nvim
         -- map("n", "<leader>xx", ":Pick buffers<CR>", default_opts)
         -- --}}}
-    end
+    end,
 }

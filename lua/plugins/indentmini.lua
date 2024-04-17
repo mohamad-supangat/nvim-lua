@@ -13,12 +13,12 @@ local exclude = {
     "coc-explorer",
     "Starter",
     "starter",
-    "FTermm"
+    "FTermm",
 }
 vim.cmd.highlight("default link IndentLine IndentBlanklineChar")
 return {
-    'nvimdev/indentmini.nvim',
-    event = 'BufEnter',
+    "nvimdev/indentmini.nvim",
+    event = "BufEnter",
     enabled = false,
     opts = {
         char = "▏",
@@ -26,5 +26,5 @@ return {
         -- char_highlight_list = {
         --     "IndentBlanklineIndent1"
         -- }
-    }
+    },
 }
