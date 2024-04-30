@@ -28,16 +28,16 @@ return {
         exclude = {
             filetypes = exclude,
         },
-        scope = {
-            char = "▎",
-        },
+        -- scope = {
+        --     char = "▎",
+        -- },
         -- scope = {
         -- show_start = false,
         -- show_end = false,
         -- },
-        -- scope = {
-        --     enabled = true,
-        -- },
+        scope = {
+            enabled = false,
+        },
     },
 
     config = function(_, opts)

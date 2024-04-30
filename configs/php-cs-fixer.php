@@ -8,16 +8,17 @@ $finder = (new PhpCsFixer\Finder())
 return (new PhpCsFixer\Config())
     ->setRules(
         [
-            'no_unused_imports'                                 => true,
+            "@PSR12"     => true,
+            // 'no_unused_imports'                                 => true,
             // '@Symfony'                                          => true,
             // '@Symfony:risky'                                    => true,
             // 'declare_strict_types'                              => true,
             // Prevent Psalm inline annotations being stripped. https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues/4446
-            // 'phpdoc_to_comment'                                => false,
+            'phpdoc_to_comment'                                => false,
             // 'concat_space'                                     => ['spacing' => 'one'],
-            'fopen_flags'                                      => false,
+            // 'fopen_flags'                                      => false,
             'ordered_imports'                                  => true,
-            'protected_to_private'                             => false,
+            // 'protected_to_private'                             => false,
             'binary_operator_spaces'                           => [
                 'operators' => [
                     '=>' => 'align',
@@ -33,20 +34,20 @@ return (new PhpCsFixer\Config())
             'no_superfluous_phpdoc_tags'    => [
                 'allow_mixed' => true,
             ],
-            'echo_tag_syntax'               => false,
-            'global_namespace_import'       => [
-                'import_constants' => false,
-                'import_classes'   => false,
-            ],
+            // 'echo_tag_syntax'               => false,
+            // 'global_namespace_import'       => [
+            //     'import_constants' => false,
+            //     'import_classes'   => false,
+            // ],
             'void_return'                                      => true,
-            'single_line_throw'                                => false,
+            // 'single_line_throw'                                => false,
             'use_arrow_functions'                              => true,
-            'nullable_type_declaration_for_default_null_value' => true,
-            'trailing_comma_in_multiline'                      => [
-                'after_heredoc' => false,
-                'elements'      => ['arguments', 'arrays', 'match', 'parameters'],
-            ],
-            'ordered_interfaces' => true,
+            // 'nullable_type_declaration_for_default_null_value' => true,
+            // 'trailing_comma_in_multiline'                      => [
+            //     'after_heredoc' => false,
+            //     'elements'      => ['arguments', 'arrays', 'match', 'parameters'],
+            // ],
+            // 'ordered_interfaces' => true,
         ],
     )
     ->setFinder($finder)

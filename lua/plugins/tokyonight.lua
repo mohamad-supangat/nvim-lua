@@ -1,11 +1,11 @@
 return {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = false,
+    enabled = true,
     priority = 1000,
     config = function(config)
-        require('tokyonight').setup({
-            style = 'night',
+        require("tokyonight").setup({
+            style = "night",
             transparent = true,
             styles = {
                 comments = { italic = true },
@@ -20,11 +20,11 @@ return {
                 types = { italic = true },
                 strings = { italic = true },
                 variables = {},
-                sidebars = 'transparent',
-                floats = 'transparent'
+                sidebars = "transparent",
+                floats = "transparent",
             },
-            day_brightness = 0.3,
+            -- day_brightness = 0.3,
         })
-        vim.cmd [[colorscheme tokyonight]]
-    end
+        vim.cmd([[colorscheme tokyonight]])
+    end,
 }

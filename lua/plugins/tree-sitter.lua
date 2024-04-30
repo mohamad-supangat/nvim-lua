@@ -14,17 +14,17 @@ return {
 
             -- "andersevenrud/nvim_context_vt",
             -- "windwp/nvim-autopairs",
-            -- "nvim-treesitter/nvim-treesitter-context",
+            "nvim-treesitter/nvim-treesitter-context",
         },
         config = function()
-            local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
             parser_config.blade = {
                 install_info = {
                     url = "https://github.com/EmranMR/tree-sitter-blade",
                     files = { "src/parser.c" },
                     branch = "main",
                 },
-                filetype = "blade"
+                filetype = "blade",
             }
 
             local bladeGrp = vim.api.nvim_create_augroup("BladeFiltypeRelated", { clear = true })
@@ -36,7 +36,7 @@ return {
                 end,
             })
 
-            require('nvim-treesitter.configs').setup({
+            require("nvim-treesitter.configs").setup({
                 -- A list of parser names, or "all"
                 ensure_installed = variables.filetypes,
                 sync_install = false,
@@ -68,18 +68,18 @@ return {
                         "blade",
                     },
                 },
-                indent = { enable = true, disable = { 'pug', 'vue' } },
+                indent = { enable = true, disable = { "pug", "vue" } },
             })
-        end
+        end,
     },
     {
         "danymat/neogen",
         dependencies = "nvim-treesitter/nvim-treesitter",
         event = "VeryLazy",
         keys = {
-            { "<Leader>nf", ":lua require('neogen').generate()<CR>", noremap = true, silent = true }
+            { "<Leader>nf", ":lua require('neogen').generate()<CR>", noremap = true, silent = true },
         },
-        opts = {}
+        opts = {},
     },
     -- {
     --     "HiPhish/rainbow-delimiters.nvim",
