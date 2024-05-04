@@ -169,6 +169,8 @@ return {
         require("mason-null-ls").setup({
             ensure_installed = {
                 "prettier",
+                "prettierd",
+                "stylua",
                 "phpcsfixer",
                 "blade-formatter",
             },
