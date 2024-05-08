@@ -140,6 +140,14 @@ return {
 
         -- auto install lsp
         require("mason-lspconfig").setup({
+            ensure_installed = {
+                "lua_ls",
+                "emmet_language_server",
+                "intelephense",
+                "tailwindcss",
+                -- "jsonls",
+                -- "ruff_lsp"
+            },
             handlers = {
                 lsp_zero.default_setup,
                 ["lua_ls"] = function()
