@@ -13,10 +13,10 @@ return {
             mac_window_bar = false,
         },
     },
-    {
-        "nmac427/guess-indent.nvim",
-        opts = {},
-    },
+    -- {
+    --     "nmac427/guess-indent.nvim",
+    --     opts = {},
+    -- },
     {
         "vidocqh/auto-indent.nvim",
         opts = {},
