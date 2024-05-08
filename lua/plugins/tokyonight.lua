@@ -1,12 +1,12 @@
 return {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function(config)
         require("tokyonight").setup({
             style = "night",
-            transparent = true,
+            transparent = false,
             styles = {
                 comments = { italic = true },
                 properties = { italic = true },
