@@ -71,14 +71,6 @@ return {
             end,
         },
         {
-            "jay-babu/mason-null-ls.nvim",
-            event = { "BufReadPre", "BufNewFile" },
-            dependencies = {
-                "williamboman/mason.nvim",
-                "nvimtools/none-ls.nvim",
-            },
-        },
-        {
             "luckasRanarison/tailwind-tools.nvim",
             dependencies = { "nvim-treesitter/nvim-treesitter" },
             opts = {}, -- your configuration
@@ -86,14 +78,6 @@ return {
     },
     keys = {
         { "<leader>li", "<cmd>LspInfo<cr>" },
-        {
-            "<leader>fm",
-            "<cmd>lua vim.lsp.buf.format({async = true})<cr>",
-            noremap = true,
-            silent = true,
-            desc = "Format Buffer",
-        },
-
         { mode = { "n", "v" }, "<space>ca", vim.lsp.buf.code_action },
     },
 
@@ -129,7 +113,7 @@ return {
             -- see :help lsp-zero-keybindings
             -- to learn the available actions
             lsp_zero.default_keymaps({ buffer = bufnr })
-            lsp_zero.buffer_autoformat()
+            -- lsp_zero.buffer_autoformat()
         end)
         lsp_zero.set_sign_icons({
             error = "",
@@ -171,39 +155,6 @@ return {
                         },
                     })
                 end,
-            },
-        })
-
-        require("mason-null-ls").setup({
-            ensure_installed = {
-                "prettier",
-                "prettierd",
-                "stylua",
-                "phpcsfixer",
-                "blade-formatter",
-            },
-            automatic_installation = false,
-            handlers = {},
-        })
-
-        local null_ls = require("null-ls")
-        local formatting = null_ls.builtins.formatting
-        local diagnostics = null_ls.builtins.diagnostics
-        local completion = null_ls.builtins.completion
-        local hover = null_ls.builtins.hover
-
-        null_ls.setup({
-            cache = false,
-            debug = false,
-            temp_dir = "/tmp",
-            -- on_attach = require("lsp.handlers").on_attach,
-            sources = {
-                completion.tags,
-                formatting.phpcsfixer.with({
-                    extra_args = { "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" },
-                }),
-                diagnostics.fish,
-                hover.dictionary,
             },
         })
 

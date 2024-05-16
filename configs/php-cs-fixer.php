@@ -9,7 +9,8 @@ return (new PhpCsFixer\Config())
     ->setRules(
         [
             '@PSR12'                                            => true,
-            'no_unused_imports'                                 => true,
+            "single_space_after_construct"                      => true,
+            // 'no_unused_imports'                                 => true,
             // '@Symfony'                                          => true,
             // '@Symfony:risky'                                    => true,
             // 'declare_strict_types'                              => true,
@@ -30,7 +31,8 @@ return (new PhpCsFixer\Config())
             // Bad yoda style is
             // 'yoda_style'                    => false,
             // 'phpdoc_annotation_without_dot' => false,
-            'cast_spaces'                   => ['space' => 'one'],
+            'cast_spaces'                   => ['space' => 'single'],
+            'class_definition'              => ['space_before_parenthesis' => true],
             // 'no_superfluous_phpdoc_tags'    => [
             //     'allow_mixed' => true,
             // ],
@@ -39,7 +41,7 @@ return (new PhpCsFixer\Config())
             //     'import_constants' => false,
             //     'import_classes'   => false,
             // ],
-            'void_return'                                      => true,
+            // 'void_return'                                      => true,
             // 'single_line_throw'                                => false,
             // 'use_arrow_functions'                              => true,
             // 'nullable_type_declaration_for_default_null_value' => true,

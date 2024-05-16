@@ -14,7 +14,7 @@ return {
 
             -- "andersevenrud/nvim_context_vt",
             -- "windwp/nvim-autopairs",
-            "nvim-treesitter/nvim-treesitter-context",
+            -- "nvim-treesitter/nvim-treesitter-context",
         },
         config = function()
             local parser_config = require("nvim-treesitter.parsers").get_parser_configs()

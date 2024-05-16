@@ -13,5 +13,5 @@ return {
     "anburocky3/bootstrap5-snippets",
     -- -- quasar snippets
     -- "Abdelaziz18003/vscode-quasar-snippets",
-    "mohamad-supangat/snippets",
+    { "mohamad-supangat/snippets", dev = true },
 }

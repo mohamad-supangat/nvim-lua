@@ -102,7 +102,7 @@ return {
         -- map("n", "<C-n>", minifiles_toggle, default_opts)
         -- }}
 
-        require("mini.notify").setup()
+        -- require("mini.notify").setup()
         require("mini.splitjoin").setup()
         require("mini.tabline").setup()
         -- require('mini.pairs').setup()

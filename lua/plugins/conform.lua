@@ -1,7 +1,7 @@
 return {
     {
         "stevearc/conform.nvim",
-        enabled = false,
+        enabled = true,
         -- lazy = "VeryLazy",
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
@@ -23,7 +23,7 @@ return {
         keys = {
             {
                 "<leader>fm",
-                "<cmd>lua require('conform').format({lsp_fallback = 'always'})<cr>",
+                "<cmd>lua require('conform').format()<cr>",
                 noremap = true,
                 silent = true,
                 desc = "Format Buffer",
@@ -37,7 +37,7 @@ return {
             vim.api.nvim_create_autocmd("BufWritePre", {
                 pattern = "*",
                 callback = function(args)
-                    require("conform").format({ bufnr = args.buf, lsp_fallback = "always" })
+                    require("conform").format({ bufnr = args.buf })
                 end,
             })
 
