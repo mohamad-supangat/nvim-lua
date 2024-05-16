@@ -3,7 +3,7 @@ return {
         "stevearc/conform.nvim",
         enabled = true,
         -- lazy = "VeryLazy",
-        event = { "BufReadPre", "BufNewFile" },
+        event = { "BufWritePre" },
         dependencies = {
             {
                 "williamboman/mason.nvim",
@@ -23,7 +23,7 @@ return {
         keys = {
             {
                 "<leader>fm",
-                "<cmd>lua require('conform').format()<cr>",
+                "<cmd>lua require('conform').format({lsp_fallback = true})<cr>",
                 noremap = true,
                 silent = true,
                 desc = "Format Buffer",
@@ -34,14 +34,14 @@ return {
             -- start of formatter {{{
             local util = require("conform.util")
 
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                pattern = "*",
-                callback = function(args)
-                    require("conform").format({ bufnr = args.buf })
-                end,
-            })
-
             require("conform").setup({
+                format_after_save = function(bufnr)
+                    if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+                        return
+                    end
+                    -- ...additional logic...
+                    return { lsp_fallback = true }
+                end,
                 formatters_by_ft = {
                     ["*"] = { "trim_whitespace", "trim_newlines" },
                     lua = { "stylua" },
