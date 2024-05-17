@@ -22,7 +22,7 @@ return {
         end
 
         local bard = fterm:new({
-            cmd = "askg -i",
+            cmd = "gemini",
             -- blend = 20,
             border = "double",
             dimensions = {

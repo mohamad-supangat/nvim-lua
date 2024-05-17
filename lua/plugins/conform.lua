@@ -50,6 +50,7 @@ return {
                     blade = { "blade-formatter" },
                     javascript = { "prettier" },
                     typescript = { "prettier" },
+                    json = { "prettier" },
                     vue = { "prettier" },
                     html = { "prettier" },
                 },
