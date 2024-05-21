@@ -11,7 +11,7 @@ return (new PhpCsFixer\Config())
             '@PSR12'                                            => true,
             'single_space_after_construct'                      => true,
             'no_unused_imports'                                 => true,
-            '@Symfony'                                          => true,
+            // '@Symfony'                                          => true,
             // '@Symfony:risky'                                    => true,
             // 'declare_strict_types'                              => true,
             // Prevent Psalm inline annotations being stripped. https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues/4446
