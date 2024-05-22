@@ -30,7 +30,12 @@ return {
                 -- "saadparwaiz1/cmp_luasnip",
                 "hrsh7th/cmp-nvim-lsp",
                 "hrsh7th/cmp-nvim-lua",
-                "hrsh7th/vim-vsnip",
+                {
+                    "hrsh7th/vim-vsnip",
+                    init = function()
+                        vim.g.vsnip_snippet_dir = "/home/deve/projects/snippets/snippets"
+                    end,
+                },
                 "hrsh7th/cmp-vsnip",
                 -- "hrsh7th/cmp-cmdline",
                 -- "jcha0713/cmp-tw2css",

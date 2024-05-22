@@ -12,5 +12,12 @@ return {
     -- "anburocky3/bootstrap5-snippets",
     -- -- quasar snippets
     -- "Abdelaziz18003/vscode-quasar-snippets",
-    { "mohamad-supangat/snippets" },
+    -- { "mohamad-supangat/snippets" },
+
+    {
+        "chrisgrieser/nvim-scissors",
+        opts = {
+            snippetDir = "/home/deve/projects/snippets/snippets",
+        },
+    },
 }
