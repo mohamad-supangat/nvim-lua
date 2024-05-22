@@ -2,7 +2,7 @@ return {
     "echasnovski/mini.nvim",
     dependencies = {},
     config = function()
-        require("mini.hues").setup({ background = "#181818", foreground = "#cdc4c6", accent = "blue" })
+        require("mini.hues").setup({ background = "#000000", foreground = "#cdc4c6", accent = "blue" })
         vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#85717f" })
         -- require('mini.colors').setup()
 
@@ -90,7 +90,12 @@ return {
         -- require("mini.notify").setup()
         require("mini.splitjoin").setup()
         require("mini.tabline").setup()
-        require("mini.diff").setup()
+        require("mini.diff").setup({
+            view = {
+                style = "sign",
+                signs = { add = "+", change = "~", delete = "-" },
+            },
+        })
         require("mini.git").setup()
 
         -- require('mini.pairs').setup()
