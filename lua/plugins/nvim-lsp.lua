@@ -70,11 +70,11 @@ return {
                 vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
             end,
         },
-        {
-            "luckasRanarison/tailwind-tools.nvim",
-            dependencies = { "nvim-treesitter/nvim-treesitter" },
-            opts = {}, -- your configuration
-        },
+        -- {
+        --     "luckasRanarison/tailwind-tools.nvim",
+        --     dependencies = { "nvim-treesitter/nvim-treesitter" },
+        --     opts = {}, -- your configuration
+        -- },
     },
     keys = {
         { "<leader>li", "<cmd>LspInfo<cr>" },
@@ -184,11 +184,11 @@ return {
             }),
             formatting = {
                 format = require("lspkind").cmp_format({
-                    before = require("tailwind-tools.cmp").lspkind_format,
-                    -- mode = "symbol",
-                    -- maxwidth = 50,
-                    -- ellipsis_char = "...",
-                    -- symbol_map = { Codeium = "" },
+                    -- before = require("tailwind-tools.cmp").lspkind_format,
+                    mode = "symbol",
+                    maxwidth = 50,
+                    ellipsis_char = "...",
+                    symbol_map = { Codeium = "" },
                 }),
             },
             sources = {
@@ -210,10 +210,10 @@ return {
                 -- { name = "cmp-tw2css" },
             },
             confirm_opts = { behavior = cmp.ConfirmBehavior.Replace, select = false },
-            window = {
-                completion = cmp.config.window.bordered(),
-                documentation = cmp.config.window.bordered(),
-            },
+            -- window = {
+            --     completion = cmp.config.window.bordered(),
+            --     documentation = cmp.config.window.bordered(),
+            -- },
             sorting = {
                 comparators = {
                     cmp.config.compare.offset,
