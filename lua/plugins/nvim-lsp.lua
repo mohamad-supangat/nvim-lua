@@ -84,6 +84,7 @@ return {
     keys = {
         { "<leader>li", "<cmd>LspInfo<cr>" },
         { mode = { "n", "v" }, "<space>ca", vim.lsp.buf.code_action },
+        { "<leader>ff", "<cmd>LspZeroFormat<cr>" },
     },
 
     init = function()
