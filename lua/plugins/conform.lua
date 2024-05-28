@@ -53,6 +53,9 @@ return {
                     json = { "prettier" },
                     vue = { "prettier" },
                     html = { "prettier" },
+                    css = { "prettier" },
+                    scss = { "prettier" },
+                    sass = { "prettier" },
                 },
 
                 formatters = {
