@@ -35,13 +35,6 @@ return {
             local util = require("conform.util")
 
             require("conform").setup({
-                format_on_save = function(bufnr)
-                    -- Disable with a global or buffer-local variable
-                    if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-                        return
-                    end
-                    return { timeout_ms = 500, lsp_fallback = true }
-                end,
                 formatters_by_ft = {
                     ["*"] = { "trim_whitespace", "trim_newlines" },
                     lua = { "stylua" },
@@ -68,6 +61,16 @@ return {
                 },
             })
 
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                pattern = "*",
+                callback = function()
+                    if vim.g.disable_autoformat then
+                        return
+                    end
+                    vim.cmd.AllFormat()
+                end,
+            })
+
             vim.api.nvim_create_user_command("FormatDisable", function(args)
                 if args.bang then
                     -- FormatDisable! will disable formatting just for this buffer
@@ -87,7 +90,9 @@ return {
             })
 
             vim.api.nvim_create_user_command("AllFormat", function()
-                vim.cmd.LspZeroFormat()
+                if vim.fn.exists(":LspZeroFormat") > 0 then
+                    vim.cmd.LspZeroFormat()
+                end
                 require("conform").format({ lsp_fallback = true })
             end, {
                 desc = "Format using lsp zero then conform",

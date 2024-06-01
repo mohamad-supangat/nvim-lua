@@ -2,7 +2,7 @@ return {
     "echasnovski/mini.nvim",
     dependencies = {},
     config = function()
-        require("mini.hues").setup({ background = "#000000", foreground = "#aaaaaa", accent = "cyan", use_cterm = true })
+        -- require("mini.hues").setup({ background = "#000000", foreground = "#aaaaaa", accent = "cyan", use_cterm = true })
         --
 
         -- require("mini.base16").setup({

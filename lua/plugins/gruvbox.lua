@@ -6,7 +6,7 @@ return {
     config = function(config)
         require("gruvbox").setup({
             terminal_colors = true,
-            transparent_mode = true,
+            transparent_mode = false,
             bold = true,
             italic = {
                 strings = true,

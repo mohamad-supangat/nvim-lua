@@ -216,10 +216,10 @@ return {
                 -- { name = "cmp-tw2css" },
             },
             confirm_opts = { behavior = cmp.ConfirmBehavior.Replace, select = false },
-            -- window = {
-            --     completion = cmp.config.window.bordered(),
-            --     documentation = cmp.config.window.bordered(),
-            -- },
+            window = {
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
+            },
             sorting = {
                 comparators = {
                     cmp.config.compare.offset,
