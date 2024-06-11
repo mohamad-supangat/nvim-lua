@@ -1,26 +1,27 @@
 return {
     "ibhagwan/fzf-lua",
     config = function()
-        local fzf_lua = require('fzf-lua')
+        local fzf_lua = require("fzf-lua")
         local map = vim.api.nvim_set_keymap
         local default_opts = { noremap = true, silent = true }
 
         vim.keymap.set("", "<C-p>", ":lua require('fzf-lua').files()<CR>", default_opts) -- file search
+        vim.keymap.set("", "<C-m>", ":lua require('fzf-lua').buffers()<CR>", default_opts) -- file search
         -- vim.keymap.set("n", "<leader>fzf", ":FzfLua<CR>", default_opts)                  -- open fzf menu
         -- vim.keymap.set("n", "<leader>P", ":FzfLua commands<CR>", default_opts)           -- open fzf menu
 
         local actions = require("fzf-lua.actions")
         fzf_lua.setup({
+            buffers = {},
             files = {
-                previewer   = false,
-                prompt      = "Files  ❯ ",
+                previewer = false,
+                prompt = "Files  ❯ ",
                 -- cmd = 'ag --hidden -U -g "" --ignore-dir={vendor,node_modules,.git}',
-                cmd         =
-                "rg --files --ignore-case --hidden -uu -g '!/**/.git' -g '!/**/cache*/' -g '!/**/node_modules' -g '!/vendor' -g '!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm}'",
-                git_icons   = true, -- show git icons?
-                file_icons  = true, -- show file icons?
+                cmd = "rg --files --ignore-case --hidden -uu -g '!/**/.git' -g '!/**/cache*/' -g '!/**/node_modules' -g '!/vendor' -g '!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm}'",
+                git_icons = true, -- show git icons?
+                file_icons = true, -- show file icons?
                 color_icons = true, -- colorize file|git icons
-                actions     = {
+                actions = {
                     -- set bind to 'false' to disable
                     ["default"] = actions.file_edit,
                     ["ctrl-s"] = actions.file_split,
@@ -34,5 +35,5 @@ return {
                 },
             },
         })
-    end
+    end,
 }
