@@ -1,6 +1,7 @@
 return {
     "sainnhe/gruvbox-material",
     lazy = false,
+    enabled = false,
     config = function()
         -- vim.cmd([[let g:gruvbox_material_transparent_background = 1]])
         vim.cmd([[set background=dark]])

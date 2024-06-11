@@ -1,4 +1,6 @@
 local filetypes = {
+    "regex",
+    "markdown_inline",
     "vimdoc",
     "lua",
     "typescript",
@@ -20,7 +22,7 @@ local filetypes = {
     "scss",
     "http",
     "blade",
-    "xml"
+    "xml",
 }
 
 return {

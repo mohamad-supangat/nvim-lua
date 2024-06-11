@@ -28,7 +28,8 @@ g.backspace = "indent,eol,start" -- backspace indent
 
 -- Automatically re-read file if a change was detected outside of vim
 opt.autoread = true
-opt.lazyredraw = false -- improve scrolling performance when navigating through large results
+opt.lazyredraw = true -- improve scrolling performance when navigating through large results
+vim.go.lazyredraw = true
 
 -----------------------------------------------------------
 -- Neovim UI
