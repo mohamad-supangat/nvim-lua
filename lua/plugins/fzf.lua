@@ -12,15 +12,20 @@ return {
 
         local actions = require("fzf-lua.actions")
         fzf_lua.setup({
-            buffers = {},
+            buffers = {
+                previewer = false,
+                git_icons = true,
+                file_icons = false,
+                color_icons = false,
+            },
             files = {
                 previewer = false,
-                prompt = "Files  ❯ ",
+                prompt = "Cari File  ❯ ",
                 -- cmd = 'ag --hidden -U -g "" --ignore-dir={vendor,node_modules,.git}',
                 cmd = "rg --files --ignore-case --hidden -uu -g '!/**/.git' -g '!/**/cache*/' -g '!/**/node_modules' -g '!/vendor' -g '!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm}'",
-                git_icons = true, -- show git icons?
-                file_icons = true, -- show file icons?
-                color_icons = true, -- colorize file|git icons
+                git_icons = true,
+                file_icons = false,
+                color_icons = false,
                 actions = {
                     -- set bind to 'false' to disable
                     ["default"] = actions.file_edit,
