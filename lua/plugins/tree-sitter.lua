@@ -3,6 +3,7 @@ local variables = require("variables")
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
         dependencies = {
             "windwp/nvim-ts-autotag",
             {
@@ -35,6 +36,11 @@ return {
                     vim.opt.filetype = "blade"
                 end,
             })
+            vim.filetype.add({
+                pattern = {
+                    [".*%.blade%.php"] = "blade",
+                },
+            })
 
             require("nvim-treesitter.configs").setup({
                 -- A list of parser names, or "all"
@@ -43,7 +49,7 @@ return {
                 ignore_install = {},
                 highlight = {
                     enable = true,
-                    additional_vim_regex_highlighting = false,
+                    additional_vim_regex_highlighting = true,
                 },
                 -- autopairs = { enable = true },
                 autotag = {

@@ -87,14 +87,16 @@ return {
 
         -- {{ File explorer
         -- local MiniFiles = require("mini.files")
-        -- MiniFiles.setup({ border = 'rounded' })
+        -- MiniFiles.setup({ border = "rounded" })
         --
         -- -- toggle file explorer
         -- local minifiles_toggle = function(...)
-        --     if not MiniFiles.close() then MiniFiles.open(...) end
+        --     if not MiniFiles.close() then
+        --         MiniFiles.open(...)
+        --     end
         -- end
         --
-        -- map("n", "<C-n>", minifiles_toggle, default_opts)
+        -- vim.keymap.set("n", "<C-n>", minifiles_toggle)
         -- }}
 
         -- require("mini.notify").setup()

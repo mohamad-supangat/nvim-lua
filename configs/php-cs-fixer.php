@@ -45,11 +45,11 @@ return (new PhpCsFixer\Config())
             // 'single_line_throw'                                => false,
             // 'use_arrow_functions'                              => true,
             // 'nullable_type_declaration_for_default_null_value' => true,
-            // 'trailing_comma_in_multiline'                      => [
-            //     'after_heredoc' => false,
-            //     'elements'      => ['arguments', 'arrays', 'match', 'parameters'],
-            // ],
-            // 'ordered_interfaces' => true,
+            'trailing_comma_in_multiline'                      => [
+                'after_heredoc' => false,
+                'elements'      => ['arguments', 'arrays', 'match', 'parameters'],
+            ],
+            'ordered_interfaces' => true,
         ],
     )
     ->setFinder($finder)
