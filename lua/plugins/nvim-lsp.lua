@@ -37,7 +37,7 @@ return {
                     end,
                 },
                 "hrsh7th/cmp-vsnip",
-                -- "hrsh7th/cmp-cmdline",
+                "hrsh7th/cmp-cmdline",
                 -- "jcha0713/cmp-tw2css",
                 "hrsh7th/cmp-nvim-lsp-signature-help",
                 "lukas-reineke/cmp-under-comparator",
@@ -166,6 +166,26 @@ return {
 
         -- completion plugin setup
         local cmp = require("cmp")
+        cmp.setup.cmdline("/", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = "buffer" },
+            },
+        })
+        cmp.setup.cmdline(":", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = "path" },
+            }, {
+                {
+                    name = "cmdline",
+                    option = {
+                        ignore_cmds = { "Man", "!" },
+                    },
+                },
+            }),
+        })
+
         cmp.setup({
             view = {
                 entries = "custom",
