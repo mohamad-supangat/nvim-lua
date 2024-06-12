@@ -21,6 +21,15 @@ return {
         },
         keys = {
             {
+                "<leader>se",
+                function()
+                    require("scissors").editSnippet()
+                end,
+                mode = { "n" },
+                noremap = true,
+                silent = true,
+            },
+            {
                 "<leader>sa",
                 function()
                     require("scissors").addNewSnippet()
