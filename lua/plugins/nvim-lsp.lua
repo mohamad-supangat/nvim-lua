@@ -114,10 +114,8 @@ return {
         local lspconfig = require("lspconfig")
         -- This is where all the LSP shenanigans will live
         local lsp_zero = require("lsp-zero")
-        lsp_zero.extend_lspconfig()
+        -- lsp_zero.extend_lspconfig()
         lsp_zero.on_attach(function(client, bufnr)
-            -- see :help lsp-zero-keybindings
-            -- to learn the available actions
             lsp_zero.default_keymaps({ buffer = bufnr })
             -- lsp_zero.buffer_autoformat()
         end)
@@ -125,7 +123,7 @@ return {
             error = "",
             warn = "",
             hint = "",
-            info = "",
+            info = "",
         })
 
         -- auto install lsp
@@ -212,7 +210,7 @@ return {
                 format = require("lspkind").cmp_format({
                     -- before = require("tailwind-tools.cmp").lspkind_format,
                     mode = "symbol",
-                    maxwidth = 50,
+                    maxwidth = 100,
                     ellipsis_char = "...",
                     symbol_map = { Codeium = "" },
                 }),
