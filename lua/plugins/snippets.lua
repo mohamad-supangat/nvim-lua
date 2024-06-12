@@ -17,7 +17,18 @@ return {
     {
         "chrisgrieser/nvim-scissors",
         opts = {
-            snippetDir = "/home/deve/projects/snippets/snippets",
+            snippetDir = "/home/deve/projects/snippets",
+        },
+        keys = {
+            {
+                "<leader>sa",
+                function()
+                    require("scissors").addNewSnippet()
+                end,
+                mode = { "n", "x" },
+                noremap = true,
+                silent = true,
+            },
         },
     },
 }
