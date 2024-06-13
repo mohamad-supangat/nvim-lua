@@ -2,7 +2,12 @@ return {
     "echasnovski/mini.nvim",
     dependencies = {},
     config = function()
-        -- require("mini.hues").setup({ background = "#000000", foreground = "#aaaaaa", accent = "cyan", use_cterm = true })
+        require("mini.hues").setup({
+            background = "#1a1a1a",
+            foreground = "#aaaaaa",
+            accent = "cyan",
+            use_cterm = true,
+        })
         --
 
         -- require("mini.base16").setup({
@@ -146,15 +151,15 @@ return {
                 end,
             },
         })
-        -- require("mini.cursorword").setup()
-        -- require('mini.animate').setup({
-        --     scroll = {
-        --         enable = false,
-        --     },
-        --     cursor = {
-        --         timing = require('mini.animate').gen_timing.cubic({ duration = 50, unit = 'total' })
-        --     },
-        -- })
+        require("mini.cursorword").setup()
+        require("mini.animate").setup({
+            scroll = {
+                enable = false,
+            },
+            cursor = {
+                timing = require("mini.animate").gen_timing.cubic({ duration = 50, unit = "total" }),
+            },
+        })
         -- require('mini.jump').setup()
         -- require('mini.jump2d').setup()
         require("mini.bracketed").setup()
