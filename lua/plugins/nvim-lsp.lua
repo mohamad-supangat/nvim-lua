@@ -21,26 +21,28 @@ return {
             dependencies = {
                 "hrsh7th/cmp-buffer",
                 "hrsh7th/cmp-path",
-                -- {
-                --     "L3MON4D3/LuaSnip",
-                --     config = function()
-                --         require("luasnip.loaders.from_vscode").lazy_load()
-                --     end,
-                -- },
-                -- "saadparwaiz1/cmp_luasnip",
-                "hrsh7th/cmp-nvim-lsp",
-                "hrsh7th/cmp-nvim-lua",
                 {
-                    "hrsh7th/vim-vsnip",
-                    init = function()
-                        vim.g.vsnip_snippet_dir = "/home/deve/projects/snippets/snippets"
+                    "L3MON4D3/LuaSnip",
+                    dev = true,
+                    config = function()
+                        require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/projects/snippets" } })
+                        require("luasnip.loaders.from_vscode").lazy_load()
                     end,
                 },
-                "hrsh7th/cmp-vsnip",
-                "hrsh7th/cmp-cmdline",
+                "saadparwaiz1/cmp_luasnip",
+                "hrsh7th/cmp-nvim-lsp",
+                "hrsh7th/cmp-nvim-lua",
+                -- {
+                --     "hrsh7th/vim-vsnip",
+                --     init = function()
+                --         vim.g.vsnip_snippet_dir = "/home/deve/projects/snippets/snippets"
+                --     end,
+                -- },
+                -- "hrsh7th/cmp-vsnip",
+                -- "hrsh7th/cmp-cmdline",
                 -- "jcha0713/cmp-tw2css",
-                "hrsh7th/cmp-nvim-lsp-signature-help",
-                "lukas-reineke/cmp-under-comparator",
+                -- "hrsh7th/cmp-nvim-lsp-signature-help",
+                -- "lukas-reineke/cmp-under-comparator",
                 "onsails/lspkind.nvim",
                 -- {
                 --     "Exafunction/codeium.nvim",
@@ -164,25 +166,25 @@ return {
 
         -- completion plugin setup
         local cmp = require("cmp")
-        cmp.setup.cmdline("/", {
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = {
-                { name = "buffer" },
-            },
-        })
-        cmp.setup.cmdline(":", {
-            mapping = cmp.mapping.preset.cmdline(),
-            sources = cmp.config.sources({
-                { name = "path" },
-            }, {
-                {
-                    name = "cmdline",
-                    option = {
-                        ignore_cmds = { "Man", "!" },
-                    },
-                },
-            }),
-        })
+        -- cmp.setup.cmdline("/", {
+        --     mapping = cmp.mapping.preset.cmdline(),
+        --     sources = {
+        --         { name = "buffer" },
+        --     },
+        -- })
+        -- cmp.setup.cmdline(":", {
+        --     mapping = cmp.mapping.preset.cmdline(),
+        --     sources = cmp.config.sources({
+        --         { name = "path" },
+        --     }, {
+        --         {
+        --             name = "cmdline",
+        --             option = {
+        --                 ignore_cmds = { "Man", "!" },
+        --             },
+        --         },
+        --     }),
+        -- })
 
         cmp.setup({
             view = {
@@ -190,8 +192,8 @@ return {
             },
             snippet = {
                 expand = function(args)
-                    vim.fn["vsnip#anonymous"](args.body)
-                    -- require("luasnip").lsp_expand(args.body)
+                    -- vim.fn["vsnip#anonymous"](args.body)
+                    require("luasnip").lsp_expand(args.body)
                 end,
             },
             mapping = cmp.mapping.preset.insert({
@@ -217,9 +219,9 @@ return {
             },
             sources = {
                 { name = "nvim_lsp" },
-                { name = "nvim_lua" },
-                { name = "vsnip" },
-                -- { name = "luasnip" },
+                -- { name = "nvim_lua" },
+                -- { name = "vsnip" },
+                { name = "luasnip" },
                 -- { name = "codeium" },
                 {
                     name = "buffer",
@@ -243,7 +245,7 @@ return {
                     cmp.config.compare.offset,
                     cmp.config.compare.exact,
                     cmp.config.compare.score,
-                    require("cmp-under-comparator").under,
+                    -- require("cmp-under-comparator").under,
                     cmp.config.compare.kind,
                     cmp.config.compare.sort_text,
                     cmp.config.compare.length,
