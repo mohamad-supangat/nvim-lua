@@ -23,7 +23,7 @@ return {
                 "hrsh7th/cmp-path",
                 {
                     "L3MON4D3/LuaSnip",
-                    dev = true,
+                    dev = false,
                     config = function()
                         require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/projects/snippets" } })
                         require("luasnip.loaders.from_vscode").lazy_load()
@@ -119,6 +119,10 @@ return {
         -- lsp_zero.extend_lspconfig()
         lsp_zero.on_attach(function(client, bufnr)
             lsp_zero.default_keymaps({ buffer = bufnr })
+
+            if client.server_capabilities["documentSymbolProvider"] then
+                require("nvim-navic").attach(client, bufnr)
+            end
             -- lsp_zero.buffer_autoformat()
         end)
         lsp_zero.set_sign_icons({
