@@ -3,10 +3,6 @@ vim.g.polyglot_disabled = variables.filetypes
 
 return {
     "sheerun/vim-polyglot",
-    {
-        "stevearc/dressing.nvim",
-        opts = {},
-    },
     -- {
     --     "nmac427/guess-indent.nvim",
     --     opts = {},
