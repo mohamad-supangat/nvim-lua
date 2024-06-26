@@ -3,8 +3,8 @@ return {
     dependencies = {},
     config = function()
         -- require("mini.hues").setup({
-        --     background = "#1a1a1a",
-        --     foreground = "#dddddd",
+        --     background = "#111111",
+        --     foreground = "#f9f9f9",
         --     accent = "cyan",
         --     use_cterm = true,
         -- })
