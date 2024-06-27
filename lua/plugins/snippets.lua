@@ -18,6 +18,7 @@ return {
         "chrisgrieser/nvim-scissors",
         opts = {
             snippetDir = "/home/deve/projects/snippets",
+            jsonFormatter = "jq",
         },
         keys = {
             {

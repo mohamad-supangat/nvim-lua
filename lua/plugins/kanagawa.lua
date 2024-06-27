@@ -1,7 +1,7 @@
 return {
     "rebelot/kanagawa.nvim",
     lazy = false,
-    enabled = false,
+    enabled = true,
     config = function()
         vim.cmd([[set background=dark]])
         require("kanagawa").setup({
