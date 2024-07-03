@@ -143,6 +143,8 @@ return {
                 miniclue.gen_clues.z(),
             },
         })
+        require("mini.icons").setup({})
+        require("mini.icons").mock_nvim_web_devicons()
         require("mini.bufremove").setup({ set_vim_settings = true })
         require("mini.comment").setup({
             options = {

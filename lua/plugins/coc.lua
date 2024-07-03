@@ -16,9 +16,6 @@ return {
     "neoclide/coc.nvim",
     enabled = false,
     branch = "release",
-    dependencies = {
-        "nvim-tree/nvim-web-devicons",
-    },
     keys = {
         -- coc multiple cursor
         { mode = "n", "<leader>c", "<Plug>(coc-cursors-position)" },
