@@ -22,7 +22,7 @@ return {
         },
         keys = {
             {
-                "<leader>se",
+                "<leader>sne",
                 function()
                     require("scissors").editSnippet()
                 end,
@@ -31,7 +31,7 @@ return {
                 silent = true,
             },
             {
-                "<leader>sa",
+                "<leader>sna",
                 function()
                     require("scissors").addNewSnippet()
                 end,

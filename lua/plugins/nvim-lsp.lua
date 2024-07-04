@@ -162,6 +162,7 @@ return {
                             "pug",
                             "typescriptreact",
                             "blade",
+                            "vue",
                         },
                     })
                 end,
