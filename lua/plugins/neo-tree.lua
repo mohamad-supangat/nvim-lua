@@ -4,7 +4,6 @@ return {
     enabled = false,
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
         {
             "s1n7ax/nvim-window-picker",
@@ -12,7 +11,7 @@ return {
         },
     },
     config = function()
-        local neo_tree = require('neo-tree')
+        local neo_tree = require("neo-tree")
         local default_opts = { noremap = true, silent = true }
 
         -- vim.g.loaded_netrw = 1
@@ -87,5 +86,5 @@ return {
                 },
             },
         })
-    end
+    end,
 }

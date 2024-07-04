@@ -7,8 +7,8 @@ return {
     --     "nmac427/guess-indent.nvim",
     --     opts = {},
     -- },
-    {
-        "vidocqh/auto-indent.nvim",
-        opts = {},
-    },
+    -- {
+    --     "vidocqh/auto-indent.nvim",
+    --     opts = {},
+    -- },
 }
