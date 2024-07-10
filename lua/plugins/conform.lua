@@ -39,7 +39,7 @@ return {
                     ["*"] = { "trim_whitespace", "trim_newlines" },
                     lua = { "stylua" },
                     python = { "blue", "ruff_fix", "ruff_format" },
-                    php = { "php_cs_fixer", "prettier" },
+                    php = { "prettier", "php_cs_fixer" },
                     blade = { "blade-formatter" },
                     javascript = { "prettier" },
                     typescript = { "prettier" },
@@ -91,9 +91,9 @@ return {
             })
 
             vim.api.nvim_create_user_command("AllFormat", function()
-                -- if vim.fn.exists(":LspZeroFormat") > 0 then
-                --     vim.cmd.LspZeroFormat()
-                -- end
+                if vim.fn.exists(":LspZeroFormat") > 0 then
+                    vim.cmd.LspZeroFormat()
+                end
                 require("conform").format({ lsp_fallback = true })
             end, {
                 desc = "Format using lsp zero then conform",
