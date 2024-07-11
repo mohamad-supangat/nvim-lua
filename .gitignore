@@ -3,3 +3,4 @@ plugin/packer_compiled.lua
 lua/.bard-api.lua
 lua/bard-api.lua
 .php-cs-fixer.cache
+Session.vim

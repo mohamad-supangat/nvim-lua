@@ -28,7 +28,9 @@ return {
             { name = "Snippets: package.json", action = "e ~/.config/nvim/snippets/package.json", section = "Nvim" },
         }
 
-        require("mini.sessions").setup()
+        require("mini.sessions").setup({
+            directory = "/home/deve/.local/state/nvim/sessions/",
+        })
 
         local starter = require("mini.starter")
         starter.setup({
