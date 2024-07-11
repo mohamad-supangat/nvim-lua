@@ -39,7 +39,7 @@ return {
                     ["*"] = { "trim_whitespace", "trim_newlines" },
                     lua = { "stylua" },
                     python = { "blue", "ruff_fix", "ruff_format" },
-                    php = { "prettier", "php_cs_fixer" },
+                    php = { "php_cs_fixer" },
                     blade = { "blade-formatter" },
                     javascript = { "prettier" },
                     typescript = { "prettier" },
