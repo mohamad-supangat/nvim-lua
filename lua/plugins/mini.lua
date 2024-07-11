@@ -28,13 +28,15 @@ return {
             { name = "Snippets: package.json", action = "e ~/.config/nvim/snippets/package.json", section = "Nvim" },
         }
 
+        require("mini.sessions").setup()
+
         local starter = require("mini.starter")
         starter.setup({
             autoopen = true,
             evaluate_single = true,
             items = {
                 my_items,
-                -- starter.sections.sessions(5, true), -- starter.sections.telescope(),
+                starter.sections.sessions(5, true), -- starter.sections.telescope(),
                 starter.sections.builtin_actions(),
                 starter.sections.recent_files(10, false),
                 starter.sections.recent_files(10, true),
