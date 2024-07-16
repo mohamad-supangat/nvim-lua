@@ -1,7 +1,7 @@
 return {
     "niuiic/translate.nvim",
     dependencies = {
-        "niuiic/core.nvim"
+        "niuiic/core.nvim",
     },
     -- enabled = false,
     opts = {
@@ -18,6 +18,22 @@ return {
             },
         },
         translate = {
+            {
+                cmd = "TransToIDFloat",
+                command = "trans",
+                args = function(trans_source)
+                    return {
+                        "-b",
+                        "-e",
+                        "google",
+                        "-t",
+                        "id",
+                        trans_source,
+                    }
+                end,
+                input = "selection",
+                output = { "notify", "float_win" },
+            },
             {
                 cmd = "TransToENFloat",
                 command = "trans",
@@ -70,8 +86,9 @@ return {
     },
     cmd = { "TransToEN", "TransToENFloat" },
     keys = {
-        { mode = "v", "tey", "<cmd>TransToENYank<CR>",     silent = true },
-        { mode = "v", "tef", "<cmd>TransToENFloat<CR>",    silent = true },
+        { mode = "v", "tey", "<cmd>TransToENYank<CR>", silent = true },
+        { mode = "v", "tef", "<cmd>TransToENFloat<CR>", silent = true },
+        { mode = "v", "tif", "<cmd>TransToIDFloat<CR>", silent = true },
         { mode = "v", "tei", "<cmd>TransToENInsert<CR>dh", silent = true },
-    }
+    },
 }
