@@ -4,3 +4,4 @@ lua/.bard-api.lua
 lua/bard-api.lua
 .php-cs-fixer.cache
 Session.vim
+lazy-lock.json
