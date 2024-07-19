@@ -29,8 +29,8 @@ return (new PhpCsFixer\Config())
                 ],
             ],
             // Bad yoda style is
-            // 'yoda_style'                    => false,
-            // 'phpdoc_annotation_without_dot' => false,
+            'yoda_style'                    => false,
+            'phpdoc_annotation_without_dot' => false,
             'cast_spaces'                   => ['space' => 'single'],
             'class_definition'              => ['space_before_parenthesis' => true],
             // 'no_superfluous_phpdoc_tags'    => [

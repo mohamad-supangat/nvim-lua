@@ -2,23 +2,23 @@ return {
     "echasnovski/mini.nvim",
     dependencies = {},
     config = function()
-        -- require("mini.hues").setup({
-        --     background = "#111111",
-        --     foreground = "#f9f9f9",
-        --     accent = "cyan",
-        --     use_cterm = true,
-        -- })
-        --
+        require("mini.hues").setup({
+            background = "#181616",
+            foreground = "#C5C9C5",
+            accent = "cyan",
+            use_cterm = true,
+        })
 
+        --
         -- require("mini.base16").setup({
-        --     palette = require("mini.base16").mini_palette("#000000", "#aaaaaa", 50),
+        --     palette = require("mini.base16").mini_palette("#000000", "#ffffff", 70),
         --     use_cterm = true,
         --     -- plugins = {
         --     --     default = true,
         --     --     -- ["echasnovski/mini.nvim"] = true,
         --     -- },
         -- })
-        -- vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#5a5a5a" })
+        vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#5a5a5a" })
         -- require('mini.colors').setup()
 
         local my_items = {
