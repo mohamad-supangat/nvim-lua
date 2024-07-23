@@ -8,9 +8,27 @@ $finder = (new PhpCsFixer\Finder())
 return (new PhpCsFixer\Config())
     ->setRules(
         [
+            '@PER-CS2.0'                                        => true,
             '@PSR12'                                            => true,
             'single_space_after_construct'                      => true,
             'no_unused_imports'                                 => true,
+            'blank_line_before_statement'                       => [
+                'statements' => [
+                    'return',
+                ],
+            ],
+            'braces_position' => [
+                'allow_single_line_anonymous_functions'     => true,
+                'allow_single_line_empty_anonymous_classes' => true,
+            ],
+            'class_attributes_separation' => [
+                'elements' => [
+                    'method' => 'one',
+                ],
+            ],
+            'class_definition' => [
+                'single_line' => true,
+            ],
             // '@Symfony'                                          => true,
             // '@Symfony:risky'                                    => true,
             // 'declare_strict_types'                              => true,

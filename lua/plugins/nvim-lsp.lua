@@ -44,10 +44,10 @@ return {
                 -- "hrsh7th/cmp-nvim-lsp-signature-help",
                 "lukas-reineke/cmp-under-comparator",
                 "onsails/lspkind.nvim",
-                -- {
-                --     "Exafunction/codeium.nvim",
-                --     opts = {}
-                -- }
+                {
+                    "Exafunction/codeium.nvim",
+                    opts = {},
+                },
             },
         },
         {
@@ -254,7 +254,7 @@ return {
             formatting = {
                 format = require("lspkind").cmp_format({
                     -- before = require("tailwind-tools.cmp").lspkind_format,
-                    mode = "symbol",
+                    mode = "symbol_text",
                     maxwidth = 100,
                     ellipsis_char = "...",
                     symbol_map = { Codeium = "" },
@@ -265,7 +265,7 @@ return {
                 { name = "nvim_lsp" },
                 -- { name = "nvim_lua" },
                 -- { name = "vsnip" },
-                -- { name = "codeium" },
+                { name = "codeium" },
                 {
                     name = "buffer",
                     option = {
