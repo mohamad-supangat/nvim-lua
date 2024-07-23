@@ -261,11 +261,11 @@ return {
                 }),
             },
             sources = {
+                { name = "codeium" },
                 { name = "luasnip" },
                 { name = "nvim_lsp" },
                 -- { name = "nvim_lua" },
                 -- { name = "vsnip" },
-                { name = "codeium" },
                 {
                     name = "buffer",
                     option = {
@@ -285,9 +285,9 @@ return {
             },
             sorting = {
                 comparators = {
+                    cmp.config.compare.score,
                     cmp.config.compare.offset,
                     cmp.config.compare.exact,
-                    cmp.config.compare.score,
                     require("cmp-under-comparator").under,
                     cmp.config.compare.kind,
                     cmp.config.compare.sort_text,
