@@ -1,7 +1,7 @@
 return {
     "nvim-tree/nvim-tree.lua",
     dependencies = {},
-    enabled = true,
+    enabled = false,
     cmd = { "NvimTreeToggle" },
     keys = {
         { "<C-n>", ":NvimTreeToggle<CR>", noremap = true, silent = true },
@@ -31,7 +31,7 @@ return {
 
         require("nvim-tree").setup({
             on_attach = my_on_attach,
-
+            sync_root_with_cwd = false,
             sort_by = "case_sensitive",
             git = {
                 ignore = false,
