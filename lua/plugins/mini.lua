@@ -111,9 +111,9 @@ return {
         })
 
         -- toggle file explorer
-        local minifiles_toggle = function(...)
+        local minifiles_toggle = function()
             if not MiniFiles.close() then
-                MiniFiles.open(...)
+                MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
             end
         end
 
