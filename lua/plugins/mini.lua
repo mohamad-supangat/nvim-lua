@@ -96,7 +96,19 @@ return {
 
         -- {{ File explorer
         local MiniFiles = require("mini.files")
-        MiniFiles.setup({ border = "rounded" })
+        MiniFiles.setup({
+            content = {
+                filter = function(fs_entry)
+                    return true
+                end,
+            },
+            mappings = {
+                go_in = "L",
+                go_in_plus = "l",
+                go_out = "H",
+                go_out_plus = "h",
+            },
+        })
 
         -- toggle file explorer
         local minifiles_toggle = function(...)
@@ -104,6 +116,14 @@ return {
                 MiniFiles.open(...)
             end
         end
+
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "MiniFilesBufferCreate",
+            callback = function(args)
+                local buf_id = args.data.buf_id
+                -- Tweak keys to your liking
+            end,
+        })
 
         vim.keymap.set("n", "<C-n>", minifiles_toggle)
         -- }}
@@ -205,5 +225,7 @@ return {
         vim.keymap.set("n", "<leader>xx", ":Pick diagnostics<CR>") -- open diagnostic aka trouble.nvim
         vim.keymap.set("n", "<leader>m", ":Pick buffers<CR>")
         --}}}
+
+        -- {{ auto italic }}
     end,
 }
