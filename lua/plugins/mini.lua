@@ -95,17 +95,17 @@ return {
         })
 
         -- {{ File explorer
-        -- local MiniFiles = require("mini.files")
-        -- MiniFiles.setup({ border = "rounded" })
-        --
-        -- -- toggle file explorer
-        -- local minifiles_toggle = function(...)
-        --     if not MiniFiles.close() then
-        --         MiniFiles.open(...)
-        --     end
-        -- end
-        --
-        -- vim.keymap.set("n", "<C-n>", minifiles_toggle)
+        local MiniFiles = require("mini.files")
+        MiniFiles.setup({ border = "rounded" })
+
+        -- toggle file explorer
+        local minifiles_toggle = function(...)
+            if not MiniFiles.close() then
+                MiniFiles.open(...)
+            end
+        end
+
+        vim.keymap.set("n", "<C-n>", minifiles_toggle)
         -- }}
 
         -- require("mini.notify").setup()
@@ -172,37 +172,38 @@ return {
         -- require('mini.move').setup()
 
         --- {{{ picker
-        -- local MiniPick = require('mini.pick')
-        --
-        -- local win_config = function()
-        --     height = math.floor(0.618 * vim.o.lines)
-        --     width = math.floor(0.618 * vim.o.columns)
-        --     return {
-        --         border = 'rounded',
-        --         anchor = 'NW',
-        --         height = height,
-        --         width = width,
-        --         row = math.floor(0.5 * (vim.o.lines - height)),
-        --         col = math.floor(0.5 * (vim.o.columns - width)),
-        --     }
-        -- end
+        local MiniPick = require("mini.pick")
 
-        -- MiniPick.setup({
-        --     window = { config = {} },
-        --     mappings = {
-        --         move_down = '<C-j>',
-        --         move_up = '<C-k>'
-        --     }
-        -- })
-        --
-        -- require('mini.extra').setup()
-        -- map("", "<C-p>", function()
-        --     -- MiniPick.builtin.cli({ command = { "rg --files --ignore-case --hidden -uu -g '!/**/.git' -g '!/**/cache*/' -g '!/**/node_modules' -g '!/vendor' -g '!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm}'" } })
-        --     MiniPick.builtin.files({ tool = 'rg' })
-        -- end, default_opts)
-        -- map("n", "<leader>P", ":Pick commands<CR>", default_opts)     -- open fzf menu
-        -- map("n", "<leader>xx", ":Pick diagnostics<CR>", default_opts) -- open diagnostic aka trouble.nvim
-        -- map("n", "<leader>xx", ":Pick buffers<CR>", default_opts)
-        -- --}}}
+        MiniPick.setup({
+            window = {
+                config = function()
+                    height = math.floor(0.618 * vim.o.lines)
+                    width = math.floor(0.618 * vim.o.columns)
+                    return {
+                        border = "rounded",
+                        anchor = "NW",
+                        height = height,
+                        width = width,
+                        row = math.floor(0.5 * (vim.o.lines - height)),
+                        col = math.floor(0.5 * (vim.o.columns - width)),
+                    }
+                end,
+            },
+            mappings = {
+                delete_word = "<A-BS>",
+                move_down = "<C-j>",
+                move_up = "<C-k>",
+            },
+        })
+
+        require("mini.extra").setup()
+        vim.keymap.set("", "<C-p>", function()
+            -- MiniPick.builtin.cli({ command = { "rg --files --ignore-case --hidden -uu -g '!/**/.git' -g '!/**/cache*/' -g '!/**/node_modules' -g '!/vendor' -g '!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm}'" } })
+            MiniPick.builtin.files({ tool = "rg" })
+        end)
+        vim.keymap.set("n", "<leader>P", ":Pick commands<CR>") -- open fzf menu
+        vim.keymap.set("n", "<leader>xx", ":Pick diagnostics<CR>") -- open diagnostic aka trouble.nvim
+        vim.keymap.set("n", "<leader>m", ":Pick buffers<CR>")
+        --}}}
     end,
 }
