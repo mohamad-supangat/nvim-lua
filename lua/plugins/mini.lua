@@ -117,6 +117,8 @@ return {
         -- }}
 
         require("mini.notify").setup()
+        vim.notify = require("mini.notify").make_notify()
+
         require("mini.splitjoin").setup()
         require("mini.tabline").setup()
         require("mini.diff").setup({
