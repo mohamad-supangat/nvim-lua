@@ -9,18 +9,6 @@ return {
             use_cterm = true,
         })
 
-        --
-        -- require("mini.base16").setup({
-        --     palette = require("mini.base16").mini_palette("#000000", "#ffffff", 70),
-        --     use_cterm = true,
-        --     -- plugins = {
-        --     --     default = true,
-        --     --     -- ["echasnovski/mini.nvim"] = true,
-        --     -- },
-        -- })
-        vim.api.nvim_set_hl(0, "Comment", { italic = true, fg = "#5a5a5a" })
-        -- require('mini.colors').setup()
-
         local my_items = {
             -- { name = "Open FZF file finder",   action = "FzfLua files",                           section = "Builtin actions" },
             -- { name = "Open nvim tree",         action = "NvimTreeOpen",                           section = "Builtin actions" },
@@ -128,7 +116,7 @@ return {
         vim.keymap.set("n", "<C-n>", minifiles_toggle)
         -- }}
 
-        -- require("mini.notify").setup()
+        require("mini.notify").setup()
         require("mini.splitjoin").setup()
         require("mini.tabline").setup()
         require("mini.diff").setup({
