@@ -8,18 +8,16 @@ return {
 
         local currentFileRootPath = require("utils").currentFileRootPath
 
-        local lazygit = fterm:new({
-            cmd = "lazygit -p " .. currentFileRootPath(),
-            -- blend = 20,
-            border = "double",
-            dimensions = {
-                height = 1,
-                width = 0.7,
-            },
-        })
-
-        -- Use this to toggle gitui in a floating terminal
         function _G.lazygit()
+            local lazygit = fterm:new({
+                cmd = "lazygit -p " .. currentFileRootPath(),
+                -- blend = 20,
+                border = "double",
+                dimensions = {
+                    height = 1,
+                    width = 0.7,
+                },
+            })
             lazygit:toggle()
         end
 

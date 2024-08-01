@@ -77,12 +77,6 @@ opt.autoindent = true
 
 -- remove line lenght marker for selected filetypes
 -- cmd([[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]])
-
--- 2 spaces for selected filetypes
--- cmd([[
---   autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
--- ]])
-
 -----------------------------------------------------------
 -- Autocompletion
 -----------------------------------------------------------
