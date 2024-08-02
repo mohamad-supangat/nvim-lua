@@ -1,5 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
+
     cmd = { "LspInfo", "LspInstall", "LspStart" },
     enabled = true,
     event = { "BufReadPre", "BufNewFile" },
@@ -40,10 +41,6 @@ return {
                 -- },
                 -- "hrsh7th/cmp-vsnip",
                 -- "hrsh7th/cmp-cmdline",
-                -- "jcha0713/cmp-tw2css",
-                -- "hrsh7th/cmp-nvim-lsp-signature-help",
-                "lukas-reineke/cmp-under-comparator",
-                "onsails/lspkind.nvim",
                 {
                     "Exafunction/codeium.nvim",
                     opts = {},
@@ -77,11 +74,6 @@ return {
                 vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
             end,
         },
-        -- {
-        --     "luckasRanarison/tailwind-tools.nvim",
-        --     dependencies = { "nvim-treesitter/nvim-treesitter" },
-        --     opts = {}, -- your configuration
-        -- },
     },
     keys = {
         { "<leader>li", "<cmd>LspInfo<cr>" },
@@ -251,15 +243,15 @@ return {
                 }),
                 ["<CR>"] = cmp.mapping.confirm({ select = true }),
             }),
-            formatting = {
-                format = require("lspkind").cmp_format({
-                    -- before = require("tailwind-tools.cmp").lspkind_format,
-                    mode = "symbol_text",
-                    maxwidth = 100,
-                    ellipsis_char = "...",
-                    symbol_map = { Codeium = "" },
-                }),
-            },
+            -- formatting = {
+            --     format = require("lspkind").cmp_format({
+            --         -- before = require("tailwind-tools.cmp").lspkind_format,
+            --         mode = "symbol_text",
+            --         maxwidth = 100,
+            --         ellipsis_char = "...",
+            --         symbol_map = { Codeium = "" },
+            --     }),
+            -- },
             sources = {
                 { name = "codeium" },
                 { name = "luasnip" },
@@ -274,9 +266,7 @@ return {
                         end,
                     },
                 },
-                -- { name = "nvim_lsp_signature_help" },
                 { name = "path" },
-                -- { name = "cmp-tw2css" },
             },
             confirm_opts = { behavior = cmp.ConfirmBehavior.Replace, select = false },
             window = {
@@ -288,7 +278,6 @@ return {
                     cmp.config.compare.score,
                     cmp.config.compare.offset,
                     cmp.config.compare.exact,
-                    require("cmp-under-comparator").under,
                     cmp.config.compare.kind,
                     cmp.config.compare.sort_text,
                     cmp.config.compare.length,
