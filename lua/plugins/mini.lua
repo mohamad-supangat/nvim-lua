@@ -116,8 +116,8 @@ return {
         vim.keymap.set("n", "<C-n>", minifiles_toggle)
         -- }}
 
-        require("mini.notify").setup()
-        vim.notify = require("mini.notify").make_notify()
+        -- require("mini.notify").setup()
+        -- vim.notify = require("mini.notify").make_notify()
 
         require("mini.splitjoin").setup()
         require("mini.tabline").setup()
@@ -208,8 +208,26 @@ return {
 
         require("mini.extra").setup()
         vim.keymap.set("", "<C-p>", function()
-            -- MiniPick.builtin.cli({ command = { "rg --files --ignore-case --hidden -uu -g '!/**/.git' -g '!/**/cache*/' -g '!/**/node_modules' -g '!/vendor' -g '!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm}'" } })
-            MiniPick.builtin.files({ tool = "rg" })
+            MiniPick.builtin.cli({
+                command = {
+                    "rg",
+                    "--files",
+                    "--hidden",
+                    "-uu",
+                    "-g",
+                    "!/**/.git",
+                    "-g",
+                    "!/**/node_modules",
+                    "-g",
+                    "!/vendor",
+                    "-g",
+                    "!/public/build",
+                    "-g",
+                    "!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm,pdf,doc,docx,mp3,cache,gitkeep,gitignore}",
+                },
+            })
+
+            -- MiniPick.builtin.files({ tool = "rg" })
         end)
         vim.keymap.set("n", "<leader>P", ":Pick commands<CR>") -- open fzf menu
         vim.keymap.set("n", "<leader>xx", ":Pick diagnostics<CR>") -- open diagnostic aka trouble.nvim
