@@ -19,7 +19,7 @@ vim.cmd.highlight("default link IndentLine IndentBlanklineChar")
 return {
     "nvimdev/indentmini.nvim",
     event = "BufEnter",
-    enabled = true,
+    enabled = false,
     opts = {
         char = "▏",
         exclude = exclude, -- show_end_of_line = true,

@@ -13,7 +13,10 @@ local italics_groups = {
 }
 
 local function update_hl(group)
-    local old_hl = vim.api.nvim_get_hl_by_name(group, true)
+    local old_hl = vim.api.nvim_get_hl(0, {
+        name = group,
+    })
+
     local new_hl = vim.tbl_extend("force", old_hl, { italic = true })
     vim.api.nvim_set_hl(0, group, new_hl)
 end

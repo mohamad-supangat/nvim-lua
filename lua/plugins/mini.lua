@@ -213,7 +213,8 @@ return {
         end)
         vim.keymap.set("n", "<leader>P", ":Pick commands<CR>") -- open fzf menu
         vim.keymap.set("n", "<leader>xx", ":Pick diagnostics<CR>") -- open diagnostic aka trouble.nvim
-        vim.keymap.set("n", "<leader>m", ":Pick buffers<CR>")
+        -- vim.keymap.set("n", "<leader>m", ":Pick buffers<CR>")
+        vim.keymap.set("n", "<C-b>", ":Pick buffers<CR>")
         --}}}
 
         -- {{ auto italic }}
