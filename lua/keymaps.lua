@@ -21,9 +21,9 @@ vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true, desc = "Exit
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "Exit insert mode" })
 
 -- fast saving with <leader> and s
-vim.keymap.set("n", "<C-s>", ":update<CR>", { noremap = true, silent = true, desc = "Save buffer" })
-vim.keymap.set("i", "<C-s>", "<Esc>:update<CR>", { noremap = true, silent = true, desc = "Save buffer" })
-vim.keymap.set("v", "<C-s>", "<C-C>:update<CR>", { noremap = true, silent = true, desc = "Save buffer" })
+-- vim.keymap.set("n", "<C-s>", ":update<CR>", { noremap = true, silent = true, desc = "Save buffer" })
+-- vim.keymap.set("i", "<C-s>", "<Esc>:update<CR>", { noremap = true, silent = true, desc = "Save buffer" })
+-- vim.keymap.set("v", "<C-s>", "<C-C>:update<CR>", { noremap = true, silent = true, desc = "Save buffer" })
 
 -- close all windows and exit from neovim
 vim.keymap.set("n", "<leader>q", ":q<CR>", { noremap = true, silent = true, desc = "Exit Neovim" })
@@ -42,8 +42,12 @@ vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true, desc = "Indent 
 -- copy paste in neovim
 vim.keymap.set("n", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true, desc = "Select All Text in current file" })
 vim.keymap.set({ "i", "t" }, "<A-BS>", "<C-W>", { noremap = true, silent = true, desc = "delete word" })
-vim.keymap.set("v", "<BS>", '"_d',
-    { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
+vim.keymap.set(
+    "v",
+    "<BS>",
+    '"_d',
+    { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" }
+)
 
 -- undo redo
 --[[ vim.keymap.set('n', '<C-Z>', 'u', default_opts)
@@ -82,11 +86,13 @@ vim.keymap.set("n", "Y", "y$", default_opts) -- Change Y to copy to end of line 
 vim.keymap.set("n", "<leader>-", "<C-w>s", { noremap = true, silent = true, desc = "Split window horizontal" })
 vim.keymap.set("n", "<leader>|", "<C-w>v<C-w>l", { noremap = true, silent = true, desc = "Split window vertical" })
 
-
 -- search hightligh text
 vim.keymap.set("v", "/", '"fy/\\V<C-R>f<CR>', { noremap = true, silent = true, desc = "Search current tag" })
 
-
 -- change current cwd to current file dir
-vim.keymap.set("n", "<leader>cd", ":cd %:p:h<CR>",
-    { noremap = true, silent = true, desc = "Change dir to current opened file" })
+vim.keymap.set(
+    "n",
+    "<leader>cd",
+    ":cd %:p:h<CR>",
+    { noremap = true, silent = true, desc = "Change dir to current opened file" }
+)

@@ -79,6 +79,10 @@ return {
         { "<leader>li", "<cmd>LspInfo<cr>" },
         { mode = { "n", "v" }, "<space>ca", vim.lsp.buf.code_action },
         { "<leader>ff", "<cmd>LspZeroFormat<cr>" },
+        {
+            "<leader>rn",
+            "<cmd>lua vim.lsp.buf.rename()<cr>",
+        },
     },
 
     init = function()

@@ -147,6 +147,8 @@ return {
             triggers = {
                 { mode = "n", keys = "<Leader>" },
                 { mode = "x", keys = "<Leader>" },
+                { mode = "n", keys = "[" },
+                { mode = "n", keys = "]" },
             },
             clues = {
                 miniclue.gen_clues.builtin_completion(),
