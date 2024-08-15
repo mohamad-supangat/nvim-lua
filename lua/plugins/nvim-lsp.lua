@@ -2,7 +2,7 @@ return {
     "neovim/nvim-lspconfig",
 
     cmd = { "LspInfo", "LspInstall", "LspStart" },
-    enabled = true,
+    enabled = false,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         {

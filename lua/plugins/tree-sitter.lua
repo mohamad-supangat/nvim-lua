@@ -4,6 +4,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        enabled = false,
         dependencies = {
             "windwp/nvim-ts-autotag",
             {
