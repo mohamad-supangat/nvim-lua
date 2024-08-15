@@ -113,7 +113,7 @@ return {
             end,
         })
 
-        vim.keymap.set("n", "<C-n>", minifiles_toggle)
+        vim.keymap.set("n", "<C-n>", minifiles_toggle, { desc = "Toggle File Explorer" })
         -- }}
 
         -- require("mini.notify").setup()
@@ -228,15 +228,27 @@ return {
                     "!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm,pdf,doc,docx,mp3,cache,gitkeep,gitignore}",
                 },
             })
-
-            -- MiniPick.builtin.files({ tool = "rg" })
-        end)
-        vim.keymap.set("n", "<leader>P", ":Pick commands<CR>") -- open fzf menu
-        vim.keymap.set("n", "<leader>xx", ":Pick diagnostics<CR>") -- open diagnostic aka trouble.nvim
+        end, { desc = "Pick file with Rg" })
+        vim.keymap.set("n", "<leader>P", ":Pick commands<CR>", { desc = "Pick command" })
+        vim.keymap.set("n", "<leader>xx", ":Pick diagnostics<CR>", { desc = "Get List diagnostics" })
         -- vim.keymap.set("n", "<leader>m", ":Pick buffers<CR>")
-        vim.keymap.set("n", "<C-b>", ":Pick buffers<CR>")
+        vim.keymap.set("n", "<C-b>", ":Pick buffers<CR>", { desc = "Pick buffer" })
         --}}}
 
-        -- {{ auto italic }}
+        local MiniMap = require("mini.map")
+        MiniMap.setup({
+            integrations = {
+                MiniMap.gen_integration.builtin_search(),
+                MiniMap.gen_integration.diff(),
+                MiniMap.gen_integration.diagnostic(),
+            },
+            symbols = {
+                encode = MiniMap.gen_encode_symbols.dot("4x2"),
+            },
+        })
+
+        vim.keymap.set("n", "<Leader>mr", MiniMap.refresh, { desc = "Refresh MiniMap" })
+        vim.keymap.set("n", "<Leader>ms", MiniMap.toggle_side, { desc = "Toggle MiniMap Side" })
+        vim.keymap.set("n", "<Leader>mt", MiniMap.toggle, { desc = "Toggle MiniMap" })
     end,
 }

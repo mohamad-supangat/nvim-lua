@@ -2,19 +2,18 @@ local variables = require("variables")
 
 return {
     {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        lazy = false,
+        opts = {
+            enable_autocmd = false,
+        },
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        lazy = false,
         dependencies = {
-            "windwp/nvim-ts-autotag",
-            {
-                "JoosepAlviste/nvim-ts-context-commentstring",
-                opts = {
-                    enable_autocmd = false,
-                },
-            },
-
             -- "andersevenrud/nvim_context_vt",
-            -- "windwp/nvim-autopairs",
             -- "nvim-treesitter/nvim-treesitter-context",
         },
         config = function()
@@ -51,29 +50,6 @@ return {
                     enable = true,
                     additional_vim_regex_highlighting = true,
                 },
-                -- autopairs = { enable = true },
-                autotag = {
-                    enable = true,
-                    filetypes = {
-                        "html",
-                        "javascript",
-                        "typescript",
-                        "javascriptreact",
-                        "typescriptreact",
-                        "svelte",
-                        "vue",
-                        "tsx",
-                        "jsx",
-                        "rescript",
-                        "xml",
-                        "php",
-                        "markdown",
-                        "glimmer",
-                        "handlebars",
-                        "hbs",
-                        "blade",
-                    },
-                },
                 indent = { enable = true, disable = { "pug", "vue" } },
             })
         end,
@@ -87,6 +63,26 @@ return {
         },
         opts = {},
     },
+    {
+        "windwp/nvim-ts-autotag",
+        lazy = false,
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+            require("nvim-ts-autotag").setup({
+                opts = {
+                    enable_close = true,
+                    enable_rename = true,
+                    enable_close_on_slash = false,
+                },
+                aliases = {
+                    ["blade"] = "html",
+                },
+            })
+        end,
+    },
+
     -- {
     --     "HiPhish/rainbow-delimiters.nvim",
     --     dependencies = "nvim-treesitter/nvim-treesitter",

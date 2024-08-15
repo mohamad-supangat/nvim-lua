@@ -50,6 +50,8 @@ return {
                     css = { "prettier" },
                     scss = { "prettier" },
                     sass = { "prettier" },
+                    bash = { "shfmt" },
+                    sh = { "shfmt" },
                 },
 
                 formatters = {
