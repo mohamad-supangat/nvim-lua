@@ -247,6 +247,7 @@ return {
             },
         })
 
+        vim.keymap.set("n", "<Leader>mf", MiniMap.toggle_focus, { desc = "Toggle MiniMap Focus" })
         vim.keymap.set("n", "<Leader>mr", MiniMap.refresh, { desc = "Refresh MiniMap" })
         vim.keymap.set("n", "<Leader>ms", MiniMap.toggle_side, { desc = "Toggle MiniMap Side" })
         vim.keymap.set("n", "<Leader>mt", MiniMap.toggle, { desc = "Toggle MiniMap" })
