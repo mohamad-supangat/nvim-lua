@@ -230,7 +230,7 @@ return {
             })
         end, { desc = "Pick file with Rg" })
         vim.keymap.set("n", "<leader>P", ":Pick commands<CR>", { desc = "Pick command" })
-        vim.keymap.set("n", "<leader>xx", ":Pick diagnostics<CR>", { desc = "Get List diagnostics" })
+        vim.keymap.set("n", "<leader>xx", ":Pick diagnostic<CR>", { desc = "Get List diagnostics" })
         -- vim.keymap.set("n", "<leader>m", ":Pick buffers<CR>")
         vim.keymap.set("n", "<C-b>", ":Pick buffers<CR>", { desc = "Pick buffer" })
         --}}}
