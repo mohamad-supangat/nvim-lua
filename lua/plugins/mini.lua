@@ -1,6 +1,16 @@
 return {
     "echasnovski/mini.nvim",
-    dependencies = {},
+    dependencies = {
+        {
+            "s1n7ax/nvim-window-picker",
+            name = "window-picker",
+            event = "VeryLazy",
+            version = "2.*",
+            config = function()
+                require("window-picker").setup()
+            end,
+        },
+    },
     config = function()
         require("mini.hues").setup({
             background = "#181616",
@@ -41,7 +51,7 @@ return {
         })
 
         -- remove gui window separator for using global statusline
-        vim.cmd([[hi WinSeparator guibg=none]])
+        -- vim.cmd([[hi WinSeparator guibg=none]])
         MiniStatusline = require("mini.statusline")
         MiniStatusline.setup({
             set_vim_settings = true,
@@ -114,6 +124,33 @@ return {
         })
 
         vim.keymap.set("n", "<C-n>", minifiles_toggle, { desc = "Toggle File Explorer" })
+
+        local map_split = function(buf_id, lhs, direction)
+            local rhs = function()
+                -- Make new window and set it as target
+                local new_target_window
+                vim.api.nvim_win_call(MiniFiles.get_target_window(), function()
+                    vim.cmd(direction .. " split")
+                    new_target_window = vim.api.nvim_get_current_win()
+                end)
+
+                MiniFiles.set_target_window(new_target_window)
+            end
+
+            -- Adding `desc` will result into `show_help` entries
+            local desc = "Split " .. direction
+            vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
+        end
+
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "MiniFilesBufferCreate",
+            callback = function(args)
+                local buf_id = args.data.buf_id
+                -- Tweak keys to your liking
+                map_split(buf_id, "gs", "belowright horizontal")
+                map_split(buf_id, "gv", "belowright vertical")
+            end,
+        })
         -- }}
 
         -- require("mini.notify").setup()
@@ -232,7 +269,7 @@ return {
         vim.keymap.set("n", "<leader>P", ":Pick commands<CR>", { desc = "Pick command" })
         vim.keymap.set("n", "<leader>xx", ":Pick diagnostic<CR>", { desc = "Get List diagnostics" })
         -- vim.keymap.set("n", "<leader>m", ":Pick buffers<CR>")
-        vim.keymap.set("n", "<C-b>", ":Pick buffers<CR>", { desc = "Pick buffer" })
+        vim.keymap.set("n", "<leader>B", ":Pick buffers<CR>", { desc = "Pick buffer" })
         --}}}
 
         local MiniMap = require("mini.map")
