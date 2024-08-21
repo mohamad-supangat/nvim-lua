@@ -7,7 +7,18 @@ return {
             event = "VeryLazy",
             version = "2.*",
             config = function()
-                require("window-picker").setup()
+                require("window-picker").setup({
+                    autoselect_one = true,
+                    include_current = false,
+                    selection_chars = "ABCDEFGHIJLK",
+                    filter_rules = {
+                        bo = {
+                            filetype = { "neo-tree", "neo-tree-popup", "notify", "minifiles" },
+                            buftype = { "terminal", "quickfix", "minifiles" },
+                        },
+                    },
+                    other_win_hl_color = "#900000",
+                })
             end,
         },
     },
@@ -115,40 +126,20 @@ return {
             end
         end
 
-        vim.api.nvim_create_autocmd("User", {
-            pattern = "MiniFilesBufferCreate",
-            callback = function(args)
-                local buf_id = args.data.buf_id
-                -- Tweak keys to your liking
-            end,
-        })
-
         vim.keymap.set("n", "<C-n>", minifiles_toggle, { desc = "Toggle File Explorer" })
 
-        local map_split = function(buf_id, lhs, direction)
-            local rhs = function()
-                -- Make new window and set it as target
-                local new_target_window
-                vim.api.nvim_win_call(MiniFiles.get_target_window(), function()
-                    vim.cmd(direction .. " split")
-                    new_target_window = vim.api.nvim_get_current_win()
-                end)
-
-                MiniFiles.set_target_window(new_target_window)
-            end
-
-            -- Adding `desc` will result into `show_help` entries
-            local desc = "Split " .. direction
-            vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
-        end
-
         vim.api.nvim_create_autocmd("User", {
             pattern = "MiniFilesBufferCreate",
             callback = function(args)
                 local buf_id = args.data.buf_id
-                -- Tweak keys to your liking
-                map_split(buf_id, "gs", "belowright horizontal")
-                map_split(buf_id, "gv", "belowright vertical")
+                local open_in_window_picker = function()
+                    local picked_window_id = require("window-picker").pick_window()
+                    MiniFiles.set_target_window(picked_window_id)
+                    MiniFiles.go_in({
+                        close_on_file = true,
+                    })
+                end
+                vim.keymap.set("n", "gg", open_in_window_picker, { buffer = buf_id, desc = "Open in target window" })
             end,
         })
         -- }}
