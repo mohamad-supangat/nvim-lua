@@ -105,6 +105,7 @@ return {
 
         -- {{ File explorer
         local MiniFiles = require("mini.files")
+        require("functions.mini-files-git")
         MiniFiles.setup({
             content = {
                 filter = function(fs_entry)
@@ -123,6 +124,7 @@ return {
         local minifiles_toggle = function()
             if not MiniFiles.close() then
                 MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+                MiniFiles.reveal_cwd()
             end
         end
 
