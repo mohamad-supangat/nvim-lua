@@ -13,6 +13,7 @@ return {
 
         -- Search selected text in visual mode
         vim.keymap.set("x", "!", search.in_place) -- search selection without moving
+        vim.keymap.set("x", "/", search.in_place) -- search selection without moving
         vim.keymap.set("x", "*", search.forward) -- search selection forward
         vim.keymap.set("x", "#", search.backward) -- search selection backward
 

@@ -87,7 +87,7 @@ vim.keymap.set("n", "<leader>-", "<C-w>s", { noremap = true, silent = true, desc
 vim.keymap.set("n", "<leader>|", "<C-w>v<C-w>l", { noremap = true, silent = true, desc = "Split window vertical" })
 
 -- search hightligh text
-vim.keymap.set("v", "/", '"fy/\\V<C-R>f<CR>', { noremap = true, silent = true, desc = "Search current tag" })
+-- vim.keymap.set("v", "/", '"fy/\\V<C-R>f<CR>', { noremap = true, silent = true, desc = "Search current tag" })
 
 -- change current cwd to current file dir
 vim.keymap.set(
