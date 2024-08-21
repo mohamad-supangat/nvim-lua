@@ -58,7 +58,7 @@ return {
             },
         },
         {
-            "echasnovski/mini.nvim",
+            "echasnovski/mini.pairs",
         },
         {
             "hedyhli/outline.nvim",
