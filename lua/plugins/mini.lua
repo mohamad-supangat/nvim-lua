@@ -8,6 +8,7 @@ return {
             version = "2.*",
             config = function()
                 require("window-picker").setup({
+                    hint = "floating-big-letter",
                     autoselect_one = true,
                     include_current = false,
                     selection_chars = "ABCDEFGHIJLK",
@@ -108,7 +109,7 @@ return {
         require("functions.mini-files-git")
         MiniFiles.setup({
             windows = {
-                preview = true,
+                preview = false,
             },
             content = {
                 filter = function(fs_entry)
@@ -138,13 +139,16 @@ return {
             callback = function(args)
                 local buf_id = args.data.buf_id
                 local open_in_window_picker = function()
-                    local picked_window_id = require("window-picker").pick_window()
-                    MiniFiles.set_target_window(picked_window_id)
+                    local fs_entry = MiniFiles.get_fs_entry()
+                    if fs_entry ~= nil and fs_entry.fs_type == "file" then
+                        local picked_window_id = require("window-picker").pick_window()
+                        MiniFiles.set_target_window(picked_window_id)
+                    end
                     MiniFiles.go_in({
                         close_on_file = true,
                     })
                 end
-                vim.keymap.set("n", "gg", open_in_window_picker, { buffer = buf_id, desc = "Open in target window" })
+                vim.keymap.set("n", "l", open_in_window_picker, { buffer = buf_id, desc = "Open in target window" })
             end,
         })
 
@@ -154,7 +158,7 @@ return {
                 local win_id = args.data.win_id
 
                 -- Customize window-local settings
-                vim.wo[win_id].winblend = 50
+                -- vim.wo[win_id].winblend = 50
                 local config = vim.api.nvim_win_get_config(win_id)
                 config.border, config.title_pos = "rounded", "right"
                 vim.api.nvim_win_set_config(win_id, config)
