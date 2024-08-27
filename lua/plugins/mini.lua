@@ -160,10 +160,8 @@ return {
         config = function()
             local MiniFiles = require("mini.files")
             require("functions.mini-files-git")
+
             MiniFiles.setup({
-                windows = {
-                    preview = false,
-                },
                 content = {
                     filter = function(fs_entry)
                         return true
