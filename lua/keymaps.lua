@@ -81,7 +81,7 @@ vim.keymap.set("n", "<leader>bd", ":lua require('mini.bufremove').delete(0, fals
 vim.keymap.set("n", "<leader>bD", ":lua require('mini.bufremove').delete(0, true)<CR>", default_opts)
 
 -- copy current file path to clipboard
-vim.keymap.set("n", "<leader>cf", "call setreg('*', @%, 'ac')<CR>", { desc = "Copy File Path to clipboard" })
+vim.keymap.set("n", "<leader>cf", ":call setreg('*', @%, 'ac')<CR>", { desc = "Copy File Path to clipboard" })
 vim.keymap.set("n", "Y", "y$", default_opts) -- Change Y to copy to end of line and behave like C
 
 -- spliting window
