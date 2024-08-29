@@ -14,7 +14,6 @@ return {
         "echasnovski/mini.starter",
         dependencies = {
             "echasnovski/mini.sessions",
-            { "juansalvatore/git-dashboard-nvim", dependencies = { "nvim-lua/plenary.nvim" } },
         },
         config = function()
             local my_items = {
@@ -36,14 +35,6 @@ return {
                 directory = "/home/deve/.local/state/nvim/sessions/",
             })
 
-            local git_dashboard = require("git-dashboard-nvim").setup({
-                top_padding = 0,
-                days = { "m", "s", "s", "r", "k", "j", "s" },
-                centered = false,
-                empty_square = " ",
-                filled_squares = { "", "", "", "", "", "" },
-            })
-
             local header_ascii = {
                 "           ▄ ▄                   ",
                 "       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",
@@ -56,20 +47,10 @@ return {
                 "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
             }
 
-            local header = {}
-
-            for _, line in ipairs(git_dashboard) do
-                table.insert(header, line)
-            end
-
-            for _, line in ipairs(header_ascii) do
-                table.insert(header, line)
-            end
-
             local starter = require("mini.starter")
             starter.setup({
                 autoopen = true,
-                header = next(git_dashboard) and table.concat(git_dashboard, "\n") or table.concat(header_ascii, "\n"),
+                header = table.concat(header_ascii, "\n"),
                 -- evaluate_single = true,
                 items = {
                     my_items,
