@@ -51,7 +51,7 @@ return {
             starter.setup({
                 autoopen = true,
                 header = table.concat(header_ascii, "\n"),
-                -- evaluate_single = true,
+                evaluate_single = true,
                 items = {
                     my_items,
                     starter.sections.sessions(5, true),
@@ -60,7 +60,7 @@ return {
                     -- starter.sections.recent_files(10, true),
                 },
                 content_hooks = {
-                    starter.gen_hook.adding_bullet(),
+                    -- starter.gen_hook.adding_bullet(),
                     -- starter.gen_hook.aligning("center", "center"),
                     starter.gen_hook.indexing("all", { "Builtin actions" }),
                     starter.gen_hook.padding(10, 0),

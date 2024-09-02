@@ -120,7 +120,10 @@ return {
             lsp_zero.default_keymaps({ buffer = bufnr })
 
             if client.server_capabilities["documentSymbolProvider"] then
-                require("nvim-navic").attach(client, bufnr)
+                local statusNavic, Navic = pcall(require, "nvim-navic")
+                if statusNavic then
+                    Navic.attach(client, bufnr)
+                end
             end
             -- lsp_zero.buffer_autoformat()
         end)
@@ -136,7 +139,7 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "emmet_language_server",
-                "intelephense",
+                -- "intelephense",
                 "tailwindcss",
                 -- "jsonls",
                 -- "ruff_lsp"
