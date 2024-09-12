@@ -87,5 +87,5 @@ opt.completeopt = "menuone,noselect,menu" -- completion options
 opt.conceallevel = 0
 g.tex_conceal = ""
 
-opt.laststatus = 3
+-- opt.laststatus = 3
 -- opt.cmdheight = 0

@@ -1,14 +1,14 @@
 return {
-    {
-        "echasnovski/mini.hues",
-        lazy = false,
-        opts = {
-            background = "#181616",
-            foreground = "#C5C9C5",
-            accent = "cyan",
-            use_cterm = true,
-        },
-    },
+    -- {
+    --     "echasnovski/mini.hues",
+    --     lazy = false,
+    --     opts = {
+    --         background = "#181616",
+    --         foreground = "#C5C9C5",
+    --         accent = "cyan",
+    --         use_cterm = true,
+    --     },
+    -- },
 
     {
         "echasnovski/mini.starter",
@@ -51,6 +51,7 @@ return {
             starter.setup({
                 autoopen = true,
                 header = table.concat(header_ascii, "\n"),
+                footer = "Selamat menjalankan hari ini, jangan lupa untuk tetap semangat",
                 evaluate_single = true,
                 items = {
                     my_items,
@@ -316,7 +317,7 @@ return {
     {
         "echasnovski/mini.pick",
         event = "VeryLazy",
-        depends = { "echasnovski/mini.extra", opts = {} },
+        dependencies = { "echasnovski/mini.extra", opts = {} },
         config = function()
             local MiniPick = require("mini.pick")
             MiniPick.setup({
