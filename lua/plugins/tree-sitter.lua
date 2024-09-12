@@ -13,6 +13,7 @@ return {
     },
     {
         "nvim-treesitter/nvim-treesitter-context",
+        enabled = false,
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
@@ -26,18 +27,28 @@ return {
             mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
             -- Separator between context and content. Should be a single character string, like '-'.
             -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-            separator = '━',
+            separator = "━",
             zindex = 20, -- The Z-index of the context window
             on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
+        },
+    },
+    {
+        "andersevenrud/nvim_context_vt",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        opts = {
+            enabled = true,
+            prefix = "",
+            disable_ft = { "markdown" },
+            disable_virtual_lines = false,
         },
     },
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         lazy = false,
-        dependencies = {
-            -- "andersevenrud/nvim_context_vt",
-        },
+        dependencies = {},
         config = function()
             local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
             parser_config.blade = {

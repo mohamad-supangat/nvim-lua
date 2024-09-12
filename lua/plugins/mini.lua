@@ -1,14 +1,14 @@
 return {
-    -- {
-    --     "echasnovski/mini.hues",
-    --     lazy = false,
-    --     opts = {
-    --         background = "#181616",
-    --         foreground = "#C5C9C5",
-    --         accent = "cyan",
-    --         use_cterm = true,
-    --     },
-    -- },
+    {
+        "echasnovski/mini.hues",
+        lazy = false,
+        opts = {
+            background = "#181616",
+            foreground = "#C5C9C5",
+            accent = "blue",
+            use_cterm = true,
+        },
+    },
 
     {
         "echasnovski/mini.starter",
@@ -120,6 +120,7 @@ return {
 
     {
         "echasnovski/mini.notify",
+        enabled = false,
         config = function()
             require("mini.notify").setup()
             vim.notify = require("mini.notify").make_notify()

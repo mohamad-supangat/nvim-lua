@@ -35,7 +35,7 @@ return {
                 },
                 "saadparwaiz1/cmp_luasnip",
                 "hrsh7th/cmp-nvim-lsp",
-                "hrsh7th/cmp-nvim-lua",
+                -- "hrsh7th/cmp-nvim-lua",
                 -- {
                 --     "hrsh7th/vim-vsnip",
                 --     init = function()
@@ -67,6 +67,7 @@ return {
         },
         {
             "hedyhli/outline.nvim",
+            enabled = false,
             cmd = { "Outline" },
             keys = {
                 { "<f7>", "<cmd>Outline<CR>", desc = "Toggle Outline" },
@@ -75,6 +76,7 @@ return {
         },
         {
             "olrtg/nvim-emmet",
+            enabled = false,
             config = function()
                 vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
             end,
@@ -140,7 +142,7 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
-                "emmet_language_server",
+                -- "emmet_language_server",
                 -- "intelephense",
                 "tailwindcss",
                 -- "jsonls",
