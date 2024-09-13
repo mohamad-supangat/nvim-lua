@@ -1,6 +1,6 @@
 return {
     'CRAG666/code_runner.nvim',
-    eneabled = false,
+    enabled = false,
     config = function()
         local code_runner = require('code_runner')
         code_runner.setup({
