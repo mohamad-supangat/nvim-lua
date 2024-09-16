@@ -2,7 +2,7 @@ return {
     'CRAG666/code_runner.nvim',
     enabled = false,
     config = function()
-        local code_runner = require('code_runner')
+        local code_runner = require("code_runner")
         code_runner.setup({
             mode = "float",
             focus = false,
@@ -16,7 +16,7 @@ return {
                 python = "python3 -u",
                 typescript = "deno run -A",
                 php = "php",
-                javascript = "node",
+                javascript = "bun run",
                 rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
             },
         })
@@ -29,5 +29,5 @@ return {
         vim.keymap.set("n", "<leader>rc", ":RunClose<CR>", { noremap = true, silent = false })
         vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", { noremap = true, silent = false })
         vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent = false })
-    end
+    end,
 }
