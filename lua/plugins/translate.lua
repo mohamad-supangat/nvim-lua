@@ -1,6 +1,6 @@
 return {
     "niuiic/translate.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = {
         "niuiic/core.nvim",
     },

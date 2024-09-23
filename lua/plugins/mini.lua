@@ -2,6 +2,7 @@ return {
     {
         "echasnovski/mini.hues",
         lazy = false,
+        enabled = false,
         opts = {
             background = "#181616",
             foreground = "#C5C9C5",
@@ -89,7 +90,6 @@ return {
 
                         return MiniStatusline.combine_groups({
                             { hl = mode_hl, strings = { mode } },
-                            { hl = "MiniStatuslineDevinfo", strings = { git, diagnostics } },
                             "%<", -- Mark general truncate point
                             {
                                 hl = "MiniStatuslineFilename",
@@ -99,7 +99,7 @@ return {
                                 },
                             },
                             "%=", -- End left alignment
-                            { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+                            { hl = "MiniStatuslineFileinfo", strings = { diagnostics, fileinfo } },
                             { hl = mode_hl, strings = { location } },
                         })
                     end,
