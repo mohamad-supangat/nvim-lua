@@ -2,7 +2,7 @@ return {
     {
         "echasnovski/mini.hues",
         lazy = false,
-        enabled = false,
+        enabled = true,
         opts = {
             background = "#181616",
             foreground = "#C5C9C5",
