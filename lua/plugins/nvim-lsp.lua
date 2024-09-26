@@ -46,7 +46,7 @@ return {
                 -- "hrsh7th/cmp-cmdline",
                 {
                     "Exafunction/codeium.nvim",
-                    enabled=false,
+                    enabled = true,
                     opts = {
                         enable_chat = true,
                     },
