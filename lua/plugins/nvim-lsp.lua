@@ -45,7 +45,7 @@ return {
                 -- "hrsh7th/cmp-cmdline",
                 {
                     "Exafunction/codeium.nvim",
-                    enabled = false,
+                    enabled = true,
                     commit = "937667b2cadc7905e6b9ba18ecf84694cf227567",
                     opts = {
                         -- enable_chat = true,
@@ -58,7 +58,15 @@ return {
             dependencies = {
                 {
                     "williamboman/mason.nvim",
-                    lazy = false,
+                    lazy = true,
+                    cmd = {
+                        "Mason",
+                        "MasonInstall",
+                        "MasonLog",
+                        "MasonUninstall",
+                        "MasonUninstallAll",
+                        "MasonUpdate",
+                    },
                     config = true,
                 },
             },

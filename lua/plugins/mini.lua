@@ -2,7 +2,7 @@ return {
     {
         "echasnovski/mini.hues",
         lazy = false,
-        enabled = true,
+        enabled = false,
         opts = {
             background = "#181616",
             foreground = "#C5C9C5",
@@ -73,6 +73,7 @@ return {
 
     {
         "echasnovski/mini.statusline",
+        enabled = false,
         config = function()
             MiniStatusline = require("mini.statusline")
             MiniStatusline.setup({
