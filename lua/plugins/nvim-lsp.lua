@@ -1,6 +1,5 @@
 return {
     "neovim/nvim-lspconfig",
-
     cmd = { "LspInfo", "LspInstall", "LspStart" },
     enabled = true,
     event = { "BufReadPre", "BufNewFile" },
@@ -46,9 +45,10 @@ return {
                 -- "hrsh7th/cmp-cmdline",
                 {
                     "Exafunction/codeium.nvim",
-                    enabled = true,
+                    enabled = false,
+                    commit = "937667b2cadc7905e6b9ba18ecf84694cf227567",
                     opts = {
-                        enable_chat = true,
+                        -- enable_chat = true,
                     },
                 },
             },
