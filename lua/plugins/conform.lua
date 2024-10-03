@@ -65,15 +65,15 @@ return {
                 },
             })
 
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                pattern = "*",
-                callback = function()
-                    if vim.g.disable_autoformat then
-                        return
-                    end
-                    vim.cmd.AllFormat()
-                end,
-            })
+            -- vim.api.nvim_create_autocmd("BufWritePre", {
+            --     pattern = "*",
+            --     callback = function()
+            --         if vim.g.disable_autoformat then
+            --             return
+            --         end
+            --         vim.cmd.AllFormat()
+            --     end,
+            -- })
 
             vim.api.nvim_create_user_command("FormatDisable", function(args)
                 if args.bang then

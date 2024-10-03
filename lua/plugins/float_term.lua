@@ -15,7 +15,7 @@ return {
                 border = "double",
                 dimensions = {
                     height = 1,
-                    width = 0.7,
+                    width = 1,
                 },
             })
             lazygit:toggle()
