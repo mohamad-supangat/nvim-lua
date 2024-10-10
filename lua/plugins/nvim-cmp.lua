@@ -1,6 +1,6 @@
 return {
     "yioneko/nvim-cmp",
-    enabled = false,
+    enabled = true,
     branch = "perf",
     event = "InsertEnter",
     -- "hrsh7th/nvim-cmp",

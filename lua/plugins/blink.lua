@@ -1,5 +1,6 @@
 return {
     "saghen/blink.cmp",
+    enabled = false,
     event = { "LspAttach", "InsertCharPre" },
     version = "v0.*",
     opts = {
@@ -14,7 +15,7 @@ return {
         keymap = {
             show = "<C-space>",
             hide = { "<C-d>" },
-            accept = {"<CR>", "<Tab>"},
+            accept = { "<CR>", "<Tab>" },
             select_prev = { "<Up>", "<C-p>", "<C-k>" },
             select_next = { "<Down>", "<C-n>", "<C-j>" },
             show_documentation = {},
