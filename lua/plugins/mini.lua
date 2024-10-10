@@ -134,7 +134,10 @@ return {
         opts = {
             view = {
                 style = "number",
-                signs = { add = "+", change = "~", delete = "-" },
+                -- signs = { add = "+", change = "~", delete = "-" },
+                --
+                -- style = "sign",
+                signs = { add = " ", change = " ", delete = "" },
             },
         },
     },
@@ -143,7 +146,7 @@ return {
         opts = {
             format = function(buf_id, label)
                 local suffix = vim.bo[buf_id].modified and "+ " or ""
-                return require('mini.tabline').default_format(buf_id, label) .. suffix
+                return require("mini.tabline").default_format(buf_id, label) .. suffix
             end,
         },
     },
@@ -183,11 +186,15 @@ return {
             require("functions.mini-files-git")
 
             MiniFiles.setup({
+                use_as_default_explorer = true,
                 content = {
                     filter = function(fs_entry)
                         return true
                     end,
                 },
+                width_focus = 30,
+                width_nofocus = 20,
+                width_preview = 25,
                 mappings = {
                     go_in = "L",
                     go_in_plus = "l",
