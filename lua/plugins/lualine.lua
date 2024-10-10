@@ -38,7 +38,7 @@ return {
         vim.opt.laststatus = 0
     end,
     config = function()
-        vim.opt.laststatus = 3
+        vim.opt.laststatus = 2
         local lualine = require("lualine")
         setup_macro_refresh(lualine)
         lualine.setup({
