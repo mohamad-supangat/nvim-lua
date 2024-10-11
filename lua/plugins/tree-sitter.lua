@@ -83,7 +83,7 @@ return {
                     enable = true,
                     additional_vim_regex_highlighting = true,
                 },
-                indent = { enable = true, disable = { "pug", "vue" } },
+                indent = { enable = false, disable = { "pug", "vue" } },
             })
         end,
     },
