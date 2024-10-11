@@ -43,7 +43,7 @@ return {
         setup_macro_refresh(lualine)
         lualine.setup({
             options = {
-                theme = "rose-pine",
+                -- theme = "rose-pine",
                 component_separators = "",
                 section_separators = { left = "", right = "" },
                 disabled_filetypes = { "alpha" },

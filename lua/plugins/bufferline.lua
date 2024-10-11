@@ -1,7 +1,7 @@
 -- https://github.com/babywkiss/dotfiles/blob/main/nvim/lua/plugins/bufferline.lua
 return {
     "akinsho/bufferline.nvim",
-    enabled = false,
+    enabled = true,
     -- event = "VeryLazy",
     event = { "BufReadPost", "BufNewFile" },
     version = "*",
@@ -10,60 +10,60 @@ return {
     },
     config = function()
         local bufferline = require("bufferline")
-        local p = require("rose-pine.palette")
+        -- local p = require("rose-pine.palette")
         bufferline.setup({
             -- TODO: Fix background highlights for diagnostics
             highlights = {
                 -- plain
-                fill = {
-                    fg = p.muted,
-                    bg = p.base,
-                },
-                background = {
-                    fg = p.muted,
-                    bg = p.base,
-                },
-                close_button = {
-                    fg = p.muted,
-                    bg = p.base,
-                },
-                offset_separator = {
-                    bg = "#161420",
-                },
-                -- selected
-                buffer_selected = {
-                    fg = p.text,
-                    bg = p.surface,
-                    bold = true,
-                    italic = true,
-                },
-                close_button_selected = {
-                    fg = p.subtle,
-                    bg = p.surface,
-                },
-                indicator_selected = {
-                    fg = p.muted,
-                    bg = p.surface,
-                },
-                tab_selected = {
-                    fg = p.text,
-                    bg = p.overlay,
-                },
-                -- visible
-                buffer_visible = {
-                    fg = p.subtle,
-                    bg = p.base,
-                    bold = true,
-                    italic = true,
-                },
-                close_button_visible = {
-                    fg = p.muted,
-                    bg = p.base,
-                },
-                indicator_visible = {
-                    fg = p.subtle,
-                    bg = p.base,
-                },
+                -- fill = {
+                --     fg = p.muted,
+                --     bg = p.base,
+                -- },
+                -- background = {
+                --     fg = p.muted,
+                --     bg = p.base,
+                -- },
+                -- close_button = {
+                --     fg = p.muted,
+                --     bg = p.base,
+                -- },
+                -- offset_separator = {
+                --     bg = "#161420",
+                -- },
+                -- -- selected
+                -- buffer_selected = {
+                --     fg = p.text,
+                --     bg = p.surface,
+                --     bold = true,
+                --     italic = true,
+                -- },
+                -- close_button_selected = {
+                --     fg = p.subtle,
+                --     bg = p.surface,
+                -- },
+                -- indicator_selected = {
+                --     fg = p.muted,
+                --     bg = p.surface,
+                -- },
+                -- tab_selected = {
+                --     fg = p.text,
+                --     bg = p.overlay,
+                -- },
+                -- -- visible
+                -- buffer_visible = {
+                --     fg = p.subtle,
+                --     bg = p.base,
+                --     bold = true,
+                --     italic = true,
+                -- },
+                -- close_button_visible = {
+                --     fg = p.muted,
+                --     bg = p.base,
+                -- },
+                -- indicator_visible = {
+                --     fg = p.subtle,
+                --     bg = p.base,
+                -- },
             },
             options = {
                 separator_style = { "", "" },

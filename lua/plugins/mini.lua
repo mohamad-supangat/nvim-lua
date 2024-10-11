@@ -90,7 +90,7 @@ return {
                         -- local current_gps = gps.get_location()
 
                         return MiniStatusline.combine_groups({
-                            { hl = mode_hl, strings = { mode } },
+                            { hl = mode_hl,                  strings = { mode } },
                             "%<", -- Mark general truncate point
                             {
                                 hl = "MiniStatuslineFilename",
@@ -101,7 +101,7 @@ return {
                             },
                             "%=", -- End left alignment
                             { hl = "MiniStatuslineFileinfo", strings = { diagnostics, fileinfo } },
-                            { hl = mode_hl, strings = { location } },
+                            { hl = mode_hl,                  strings = { location } },
                         })
                     end,
                 },
@@ -143,6 +143,7 @@ return {
     },
     {
         "echasnovski/mini.tabline",
+        enabled = false,
         opts = {
             format = function(buf_id, label)
                 local suffix = vim.bo[buf_id].modified and "+ " or ""
