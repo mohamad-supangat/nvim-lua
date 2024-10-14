@@ -1,7 +1,7 @@
 return {
-    "yioneko/nvim-cmp",
+    "iguanacucumber/magazine.nvim",
+    name = "nvim-cmp", -- Otherwise highlighting gets messed up
     enabled = true,
-    branch = "perf",
     event = "InsertEnter",
     -- "hrsh7th/nvim-cmp",
     dependencies = {
