@@ -1,5 +1,6 @@
 return {
     "stevearc/quicker.nvim",
+    enabled = false,
     event = "VeryLazy",
     config = function()
         vim.keymap.set("n", "<leader>qf", function()
