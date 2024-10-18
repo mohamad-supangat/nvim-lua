@@ -12,6 +12,14 @@ return {
     },
 
     {
+        'echasnovski/mini.base16',
+        enabled = false,
+        opts = {
+            palette = require('colorschemes.rose-pine'),
+        }
+    },
+
+    {
         "echasnovski/mini.starter",
         dependencies = {
             "echasnovski/mini.sessions",
