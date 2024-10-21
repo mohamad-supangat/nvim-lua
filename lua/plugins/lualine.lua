@@ -34,6 +34,7 @@ end
 return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
+    enabled = false,
     init = function()
         vim.opt.laststatus = 0
     end,

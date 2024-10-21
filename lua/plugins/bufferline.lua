@@ -1,7 +1,7 @@
 -- https://github.com/babywkiss/dotfiles/blob/main/nvim/lua/plugins/bufferline.lua
 return {
     "akinsho/bufferline.nvim",
-    enabled = true,
+    enabled = false,
     -- event = "VeryLazy",
     event = { "BufReadPost", "BufNewFile" },
     version = "*",
