@@ -132,6 +132,7 @@ return {
                             "typescriptreact",
                             "blade",
                             "vue",
+                            "php"
                         },
                     })
                 end,
