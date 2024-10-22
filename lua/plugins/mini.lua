@@ -99,12 +99,22 @@ return {
                         local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
                         local location = MiniStatusline.section_location({ trunc_width = 75 })
 
+
+
+                        local function macro_recording_status()
+                            local register = vim.fn.reg_recording()
+                            return register == "" and "" or "RECORDING @" .. register
+                        end
+
                         local navic = require("nvim-navic")
 
                         -- local current_gps = gps.get_location()
 
                         return MiniStatusline.combine_groups({
-                            { hl = mode_hl, strings = { mode } },
+                            {
+                                hl = mode_hl,
+                                strings = { mode, macro_recording_status() }
+                            },
                             "%<", -- Mark general truncate point
                             {
                                 hl = "MiniStatuslineFilename",
@@ -114,7 +124,7 @@ return {
                                 },
                             },
                             "%=", -- End left alignment
-                            { hl = "MiniStatuslineFileinfo", strings = {navic.get_location()} },
+                            { hl = "MiniStatuslineFileinfo", strings = { navic.get_location() } },
 
                             -- { hl = "MiniStatuslineFileinfo", strings = { diagnostics, fileinfo } },
                             -- { hl = mode_hl,                  strings = { location } },

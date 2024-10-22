@@ -1,35 +1,4 @@
 -- fork from https://github.com/babywkiss/dotfiles/blob/main/nvim/lua/plugins/lualine.lua
-local function setup_macro_refresh(lualine)
-    vim.api.nvim_create_autocmd("RecordingEnter", {
-        callback = function()
-            lualine.refresh({
-                place = { "statusline" },
-            })
-        end,
-    })
-    vim.api.nvim_create_autocmd("RecordingLeave", {
-        callback = function()
-            local timer = vim.loop.new_timer()
-            timer:start(
-                50,
-                0,
-                vim.schedule_wrap(function()
-                    lualine.refresh({
-                        place = { "statusline" },
-                    })
-                end)
-            )
-        end,
-    })
-end
-
-local function macro_recording_status()
-    local function current_status()
-        local register = vim.fn.reg_recording()
-        return register == "" and "" or "RECORDING @" .. register
-    end
-    return { "macro-recording", fmt = current_status }
-end
 
 return {
     "nvim-lualine/lualine.nvim",
@@ -39,6 +8,38 @@ return {
         vim.opt.laststatus = 0
     end,
     config = function()
+        local function setup_macro_refresh(lualine)
+            vim.api.nvim_create_autocmd("RecordingEnter", {
+                callback = function()
+                    lualine.refresh({
+                        place = { "statusline" },
+                    })
+                end,
+            })
+            vim.api.nvim_create_autocmd("RecordingLeave", {
+                callback = function()
+                    local timer = vim.loop.new_timer()
+                    timer:start(
+                        50,
+                        0,
+                        vim.schedule_wrap(function()
+                            lualine.refresh({
+                                place = { "statusline" },
+                            })
+                        end)
+                    )
+                end,
+            })
+        end
+
+        local function macro_recording_status()
+            local function current_status()
+                local register = vim.fn.reg_recording()
+                return register == "" and "" or "RECORDING @" .. register
+            end
+            return { "macro-recording", fmt = current_status }
+        end
+
         vim.opt.laststatus = 2
         local lualine = require("lualine")
         setup_macro_refresh(lualine)
