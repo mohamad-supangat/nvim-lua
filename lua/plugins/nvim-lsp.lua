@@ -29,15 +29,6 @@ return {
             "echasnovski/mini.pairs",
         },
         {
-            "hedyhli/outline.nvim",
-            enabled = false,
-            cmd = { "Outline" },
-            keys = {
-                { "<f7>", "<cmd>Outline<CR>", desc = "Toggle Outline" },
-            },
-            opts = {},
-        },
-        {
             "olrtg/nvim-emmet",
             enabled = false,
             config = function()

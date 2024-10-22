@@ -110,6 +110,7 @@ return {
 
                         -- local current_gps = gps.get_location()
 
+                        -- print(mode_hl)
                         return MiniStatusline.combine_groups({
                             {
                                 hl = mode_hl,
