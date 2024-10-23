@@ -1,7 +1,7 @@
 -- form from https://github.com/babywkiss/dotfiles/blob/main/nvim/lua/plugins/rosepine.lua
 return {
     "rose-pine/neovim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     priority = 1000,
     name = "rose-pine",
