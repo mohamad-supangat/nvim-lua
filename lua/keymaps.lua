@@ -1,6 +1,5 @@
 --- lua/keymaps.lua ---------------------------------------
 -- Keymaps configuration file: keymaps of neovim
--- and plugins.
 -----------------------------------------------------------
 
 local default_opts = { noremap = true, silent = true }
@@ -42,12 +41,10 @@ vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true, desc = "Indent 
 -- copy paste in neovim
 vim.keymap.set("n", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true, desc = "Select All Text in current file" })
 vim.keymap.set({ "i", "t" }, "<A-BS>", "<C-W>", { noremap = true, silent = true, desc = "delete word" })
-vim.keymap.set(
-    "v",
-    "<BS>",
-    '"_d',
-    { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" }
-)
+vim.keymap.set("v", "<BS>", '"_d',
+    { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
+vim.keymap.set("n", "dd", '"_d', { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
+
 
 -- undo redo
 --[[ vim.keymap.set('n', '<C-Z>', 'u', default_opts)
