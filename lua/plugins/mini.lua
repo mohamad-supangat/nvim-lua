@@ -219,6 +219,9 @@ return {
                     filter = function(fs_entry)
                         return true
                     end,
+                    prefix = function()
+
+                    end
                 },
                 width_focus = 30,
                 width_nofocus = 20,
