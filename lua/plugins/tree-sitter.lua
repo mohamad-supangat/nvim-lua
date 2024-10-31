@@ -47,6 +47,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        enabled = true,
         lazy = false,
         dependencies = {},
         config = function()
@@ -81,7 +82,7 @@ return {
                 ignore_install = {},
                 highlight = {
                     enable = true,
-                    additional_vim_regex_highlighting = true,
+                    additional_vim_regex_highlighting = false,
                 },
                 indent = { enable = false, disable = { "pug", "vue" } },
             })
@@ -91,6 +92,7 @@ return {
         "danymat/neogen",
         dependencies = "nvim-treesitter/nvim-treesitter",
         event = "VeryLazy",
+        cmd = 'Neogen',
         keys = {
             { "<Leader>nf", ":lua require('neogen').generate()<CR>", noremap = true, silent = true },
         },
