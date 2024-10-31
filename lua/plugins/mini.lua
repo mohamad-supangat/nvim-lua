@@ -211,7 +211,7 @@ return {
         },
         config = function()
             local MiniFiles = require("mini.files")
-            -- require("functions.mini-files-git")
+            require("functions.mini-files-git")
 
             MiniFiles.setup({
                 use_as_default_explorer = true,
@@ -277,6 +277,25 @@ return {
                 end,
             })
         end,
+    },
+    {
+        'echasnovski/mini.hipatterns',
+        version = false,
+        config = function()
+            local hipatterns = require('mini.hipatterns')
+            hipatterns.setup({
+                highlighters = {
+                    -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+                    fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+                    hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+                    todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+                    note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+
+                    -- Highlight hex color strings (`#rrggbb`) using that color
+                    hex_color = hipatterns.gen_highlighter.hex_color(),
+                },
+            })
+        end
     },
     {
         "echasnovski/mini-git",
