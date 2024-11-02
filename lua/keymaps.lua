@@ -43,10 +43,10 @@ vim.keymap.set("n", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true, desc 
 vim.keymap.set({ "i", "t" }, "<A-BS>", "<C-W>", { noremap = true, silent = true, desc = "delete word" })
 vim.keymap.set("v", "<BS>", '"_d',
     { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
-vim.keymap.set("n", "dd", '"_d', { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
-vim.keymap.set("x", "dd", '"_d', { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
-vim.keymap.set("v", "dd", '"_d', { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
-
+-- vim.keymap.set("n", "dd", '"_d', { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
+-- vim.keymap.set("x", "dd", '"_d', { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
+-- vim.keymap.set("v", "dd", '"_d', { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
+--
 
 -- undo redo
 --[[ vim.keymap.set('n', '<C-Z>', 'u', default_opts)
