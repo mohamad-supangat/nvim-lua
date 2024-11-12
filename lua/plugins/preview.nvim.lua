@@ -1,6 +1,7 @@
 return {
     "https://gitlab.com/itaranto/preview.nvim",
     version = "*",
+    enabled = false,
     opts = {
         previewers_by_ft = {
             markdown = {
