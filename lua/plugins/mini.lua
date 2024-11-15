@@ -160,14 +160,27 @@ return {
 
 
         require('mini.tabline').setup({
-            format = function(buf_id, label)
-                local suffix = vim.bo[buf_id].modified and "+ " or ""
-                return require("mini.tabline").default_format(buf_id, label) .. suffix
-            end,
+            -- format = function(buf_id, label)
+            --     local suffix = vim.bo[buf_id].modified and "+ " or ""
+            --     return require("mini.tabline").default_format(buf_id, label) .. suffix
+            -- end,
         })
 
 
         require('mini.splitjoin').setup()
+        require('mini.surround').setup()
+        require('mini.git').setup()
+
+        require("mini.indentscope").setup({
+            symbol = "▏",
+            options = {
+                try_as_border = true,
+            },
+            draw = {
+                delay = 0,
+                animation = require("mini.indentscope").gen_animation.none(),
+            },
+        })
 
 
 
@@ -181,9 +194,9 @@ return {
                 filter = function(fs_entry)
                     return true
                 end,
-                prefix = function()
-
-                end
+                -- prefix = function()
+                --
+                -- end
             },
             width_focus = 30,
             width_nofocus = 20,
@@ -286,6 +299,7 @@ return {
                 end,
             },
         })
+        require('mini.bracketed').setup()
         require('mini.bracketed').setup()
 
 
