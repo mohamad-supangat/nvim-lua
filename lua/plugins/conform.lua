@@ -53,6 +53,7 @@ return {
                     sass = { "prettier" },
                     bash = { "shfmt" },
                     sh = { "shfmt" },
+                    nginx = { "nginxfmt" }
                 },
 
                 formatters = {

@@ -63,3 +63,9 @@ Some of the shortcuts I use frequently are listed here. In the following shortcu
     ├── settings.lua     (global setting)
     └── variables.lua    (global variable to use in some lua file)
 ```
+
+
+
+### Formatter
+- prettier
+- nginxfmt https://github.com/slomkowski/nginx-config-formatter
