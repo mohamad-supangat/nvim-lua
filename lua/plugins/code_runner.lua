@@ -14,9 +14,10 @@ return {
                 fish = "fish",
                 java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
                 python = "python3 -u",
-                typescript = "deno run -A",
+                -- typescript = "deno run -A",
+                typescript = "bun",
                 php = "php",
-                javascript = "bun run",
+                javascript = "bun",
                 rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
             },
         })
