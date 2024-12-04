@@ -1,5 +1,9 @@
 return {
-    "rafamadriz/friendly-snippets",
+    {
+        "rafamadriz/friendly-snippets",
+        lazy = false,
+        priority = 1000,
+    },
 
     -- odoo snippets
     -- "droggol/VscOdooSnippets",
