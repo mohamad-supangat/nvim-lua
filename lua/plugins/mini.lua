@@ -438,5 +438,46 @@ return {
         vim.keymap.set("n", "<Leader>ms", MiniMap.toggle_side, { desc = "Toggle MiniMap Side" })
         vim.keymap.set("n", "<Leader>mt", MiniMap.toggle, { desc = "Toggle MiniMap" })
         -- }}} minimap
+
+
+        -- {{{ mini.completion
+        require('mini.completion').setup({
+            window = {
+                info = { height = 30, width = 80, border = 'double' },
+                signature = { height = 30, width = 80, border = 'double' },
+            },
+        })
+
+        require('mini.icons').tweak_lsp_kind()
+
+        local keycode = vim.keycode or function(x)
+            return vim.api.nvim_replace_termcodes(x, true, true, true)
+        end
+        local keys = {
+            ['cr']        = keycode('<CR>'),
+            ['ctrl-y']    = keycode('<C-y>'),
+            ['ctrl-y_cr'] = keycode('<C-y><CR>'),
+        }
+
+        _G.cr_action = function()
+            if vim.fn.pumvisible() ~= 0 then
+                -- If popup is visible, confirm selected item or add new line otherwise
+                local item_selected = vim.fn.complete_info()['selected'] ~= -1
+                return item_selected and keys['ctrl-y'] or keys['ctrl-y_cr']
+            else
+                -- If popup is not visible, use plain `<CR>`. You might want to customize
+                -- according to other plugins. For example, to use 'mini.pairs', replace
+                -- next line with `return require('mini.pairs').cr()`
+                -- return keys['cr']
+                return require('mini.pairs').cr()
+            end
+        end
+
+        vim.keymap.set('i', '<CR>', 'v:lua._G.cr_action()', { expr = true })
+        vim.keymap.set('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
+        vim.keymap.set('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
+        vim.keymap.set('i', '<C-j>', [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
+        vim.keymap.set('i', '<C-k>', [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
+        -- }}} end mini.completion
     end
 }
