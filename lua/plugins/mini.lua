@@ -27,12 +27,19 @@ return {
         },
     },
     config = function()
-        require('mini.hues').setup({
-            background = "#191724",
-            foreground = "#e5e5e5",
-            -- accent = "blue",
-            use_cterm = true,
-        })
+        -- vim.opt.background="light"
+        --
+        -- require('mini.hues').setup({
+        --     background = "#191724",
+        --     foreground = "#e5e5e5",
+        --
+        --     -- foreground = "#191724",
+        --     -- background = "#e5e5e5",
+        --     --
+        --     --
+        --     accent = "blue",
+        --     -- use_cterm = true,
+        -- })
 
         -- mini starter {{{
         local my_items = {
