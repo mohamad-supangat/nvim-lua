@@ -56,19 +56,22 @@ return {
         -- },
     },
     config = function()
-        -- vim.opt.background="light"
-        --
-        -- require('mini.hues').setup({
-        --     background = "#191724",
-        --     foreground = "#e5e5e5",
-        --
-        --     -- foreground = "#191724",
-        --     -- background = "#e5e5e5",
-        --     --
-        --     --
-        --     accent = "blue",
-        --     -- use_cterm = true,
-        -- })
+        vim.o.background = "light"
+
+        local hues = require("mini.hues")
+        local base_colors = hues.gen_random_base_colors()
+        print(require("mini.hues").gen_random_base_colors())
+        hues.setup({
+            background = base_colors.background,
+            foreground = base_colors.foreground,
+            -- background = "#FAFAFA",
+            -- foreground = "#383A42",
+            n_hues = 8,
+            saturation = "low",
+            saturation = vim.o.background == "dark" and "medium" or "high",
+            accent = "bg",
+            use_cterm = true,
+        })
 
         -- mini starter {{{
         local my_items = {
