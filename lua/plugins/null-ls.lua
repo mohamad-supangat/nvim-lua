@@ -1,10 +1,11 @@
 return {
     "jay-babu/mason-null-ls.nvim",
-    enabled = false,
+    enabled = true,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "williamboman/mason.nvim",
         "nvimtools/none-ls.nvim",
+        "garymjr/nvim-snippets",
     },
 
     keys = {
@@ -42,25 +43,31 @@ return {
             -- on_attach = require("lsp.handlers").on_attach,
             sources = {
                 completion.tags,
+                completion.spell,
+                completion.nvim_snippets,
                 formatting.phpcsfixer.with({
                     extra_args = { "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" },
+                }),
+                formatting.prettier.with({
+                    extra_filetypes = { "toml" },
                 }),
                 diagnostics.fish,
                 hover.dictionary,
             },
 
-            on_attach = function(client, bufnr)
-                if client.supports_method("textDocument/formatting") then
-                    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-                    vim.api.nvim_create_autocmd("BufWritePre", {
-                        group = augroup,
-                        buffer = bufnr,
-                        callback = function()
-                            vim.lsp.buf.format({ bufnr = bufnr, async = true })
-                        end,
-                    })
-                end
-            end,
+            -- on_attach = function(client, bufnr)
+            -- Auto Format On Save
+            -- if client.supports_method("textDocument/formatting") then
+            --     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            --     vim.api.nvim_create_autocmd("BufWritePre", {
+            --         group = augroup,
+            --         buffer = bufnr,
+            --         callback = function()
+            --             vim.lsp.buf.format({ bufnr = bufnr, async = true })
+            --         end,
+            --     })
+            -- end
+            -- end,
         })
     end,
 }
