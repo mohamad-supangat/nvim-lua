@@ -5,7 +5,9 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "nvimtools/none-ls.nvim",
-        "garymjr/nvim-snippets",
+        -- {
+        --     "garymjr/nvim-snippets",
+        -- },
     },
 
     keys = {
@@ -36,6 +38,12 @@ return {
         local completion = null_ls.builtins.completion
         local hover = null_ls.builtins.hover
 
+        -- require("snippets").setup({
+        --     create_autocmd = true,
+        --     create_cmp_source = false,
+        --     friendly_snippets = true,
+        -- })
+
         null_ls.setup({
             cache = false,
             debug = false,
@@ -43,8 +51,8 @@ return {
             -- on_attach = require("lsp.handlers").on_attach,
             sources = {
                 completion.tags,
-                completion.spell,
-                completion.nvim_snippets,
+                -- completion.spell,
+                -- completion.nvim_snippets,
                 formatting.phpcsfixer.with({
                     extra_args = { "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" },
                 }),

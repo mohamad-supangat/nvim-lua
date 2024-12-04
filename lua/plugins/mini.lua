@@ -25,6 +25,35 @@ return {
                 })
             end,
         },
+        -- {
+        --     "benlubas/cmp2lsp",
+        --     dependencies = {
+        --         {
+        --             "L3MON4D3/LuaSnip",
+        --             dev = false,
+        --             config = function()
+        --                 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/projects/snippets" } })
+        --                 require("luasnip.loaders.from_vscode").lazy_load()
+        --             end,
+        --         },
+        --         "saadparwaiz1/cmp_luasnip",
+        --         "hrsh7th/cmp-path",
+        --         "hrsh7th/cmp-buffer",
+        --         -- {
+        --         --     "Exafunction/codeium.nvim",
+        --         --     enabled = true,
+        --         --     opts = {
+        --         --         enable_cmp_source = false,
+        --         --         -- enable_chat = true,
+        --         --     },
+        --         -- },
+        --     },
+        --     config = vim.schedule_wrap(function()
+        --         require("cmp2lsp").setup({
+        --             sources = { { "codeium", "luasnip", "path", "buffer" } },
+        --         })
+        --     end),
+        -- },
     },
     config = function()
         -- vim.opt.background="light"
@@ -110,8 +139,6 @@ return {
                     local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
                     local location = MiniStatusline.section_location({ trunc_width = 75 })
 
-
-
                     local function macro_recording_status()
                         local register = vim.fn.reg_recording()
                         return register == "" and "" or "RECORDING @" .. register
@@ -125,7 +152,7 @@ return {
                     return MiniStatusline.combine_groups({
                         {
                             hl = mode_hl,
-                            strings = { mode, macro_recording_status() }
+                            strings = { mode, macro_recording_status() },
                         },
                         "%<", -- Mark general truncate point
                         {
@@ -146,16 +173,14 @@ return {
         })
         -- }}} statusline
 
-
-        require('mini.basics').setup({
+        require("mini.basics").setup({
             options = {
                 extra_ui = true,
                 win_borders = "rounded",
             },
         })
 
-
-        require('mini.diff').setup({
+        require("mini.diff").setup({
             view = {
                 style = "number",
                 -- signs = { add = "+", change = "~", delete = "-" },
@@ -165,18 +190,16 @@ return {
             },
         })
 
-
-        require('mini.tabline').setup({
+        require("mini.tabline").setup({
             -- format = function(buf_id, label)
             --     local suffix = vim.bo[buf_id].modified and "+ " or ""
             --     return require("mini.tabline").default_format(buf_id, label) .. suffix
             -- end,
         })
 
-
-        require('mini.splitjoin').setup()
-        require('mini.surround').setup()
-        require('mini.git').setup()
+        require("mini.splitjoin").setup()
+        require("mini.surround").setup()
+        require("mini.git").setup()
 
         require("mini.indentscope").setup({
             symbol = "▏",
@@ -188,8 +211,6 @@ return {
                 animation = require("mini.indentscope").gen_animation.none(),
             },
         })
-
-
 
         -- files {{{
         local MiniFiles = require("mini.files")
@@ -260,14 +281,14 @@ return {
         })
         -- }}} files
         -- hl patttern {{{
-        local hipatterns = require('mini.hipatterns')
+        local hipatterns = require("mini.hipatterns")
         hipatterns.setup({
             highlighters = {
                 -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-                fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
-                hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
-                todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
-                note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+                fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
+                hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
+                todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+                note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 
                 -- Highlight hex color strings (`#rrggbb`) using that color
                 hex_color = hipatterns.gen_highlighter.hex_color(),
@@ -296,19 +317,18 @@ return {
 
         require("mini.icons").setup()
         require("mini.icons").mock_nvim_web_devicons()
-        require('mini.bufremove').setup({
+        require("mini.bufremove").setup({
             set_vim_settings = true,
         })
-        require('mini.comment').setup({
+        require("mini.comment").setup({
             options = {
                 custom_commentstring = function()
                     return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
                 end,
             },
         })
-        require('mini.bracketed').setup()
-        require('mini.bracketed').setup()
-
+        require("mini.bracketed").setup()
+        require("mini.bracketed").setup()
 
         -- pick {{{
         local MiniPick = require("mini.pick")
@@ -333,7 +353,6 @@ return {
                 move_up = "<C-k>",
             },
         })
-
 
         vim.ui.select = MiniPick.ui_select
 
@@ -361,7 +380,6 @@ return {
         end
         create_minipick_auto_command("MiniPickStart", "pre-hook for source.name", pre_hooks)
         create_minipick_auto_command("MiniPickStop", "post-hook for source.name", post_hooks)
-
 
         -- colorscheme picker
         -- best Customize from
@@ -439,45 +457,45 @@ return {
         vim.keymap.set("n", "<Leader>mt", MiniMap.toggle, { desc = "Toggle MiniMap" })
         -- }}} minimap
 
-
         -- {{{ mini.completion
-        require('mini.completion').setup({
-            window = {
-                info = { height = 30, width = 80, border = 'double' },
-                signature = { height = 30, width = 80, border = 'double' },
-            },
-        })
-
-        require('mini.icons').tweak_lsp_kind()
-
-        local keycode = vim.keycode or function(x)
-            return vim.api.nvim_replace_termcodes(x, true, true, true)
-        end
-        local keys = {
-            ['cr']        = keycode('<CR>'),
-            ['ctrl-y']    = keycode('<C-y>'),
-            ['ctrl-y_cr'] = keycode('<C-y><CR>'),
-        }
-
-        _G.cr_action = function()
-            if vim.fn.pumvisible() ~= 0 then
-                -- If popup is visible, confirm selected item or add new line otherwise
-                local item_selected = vim.fn.complete_info()['selected'] ~= -1
-                return item_selected and keys['ctrl-y'] or keys['ctrl-y_cr']
-            else
-                -- If popup is not visible, use plain `<CR>`. You might want to customize
-                -- according to other plugins. For example, to use 'mini.pairs', replace
-                -- next line with `return require('mini.pairs').cr()`
-                -- return keys['cr']
-                return require('mini.pairs').cr()
-            end
-        end
-
-        vim.keymap.set('i', '<CR>', 'v:lua._G.cr_action()', { expr = true })
-        vim.keymap.set('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
-        vim.keymap.set('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
-        vim.keymap.set('i', '<C-j>', [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
-        vim.keymap.set('i', '<C-k>', [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
+        -- require("mini.completion").setup({
+        --     window = {
+        --         info = { height = 30, width = 80, border = "double" },
+        --         signature = { height = 30, width = 80, border = "double" },
+        --     },
+        -- })
+        --
+        -- require("mini.icons").tweak_lsp_kind()
+        --
+        -- local keycode = vim.keycode
+        --     or function(x)
+        --         return vim.api.nvim_replace_termcodes(x, true, true, true)
+        --     end
+        -- local keys = {
+        --     ["cr"] = keycode("<CR>"),
+        --     ["ctrl-y"] = keycode("<C-y>"),
+        --     ["ctrl-y_cr"] = keycode("<C-y><CR>"),
+        -- }
+        --
+        -- _G.cr_action = function()
+        --     if vim.fn.pumvisible() ~= 0 then
+        --         -- If popup is visible, confirm selected item or add new line otherwise
+        --         local item_selected = vim.fn.complete_info()["selected"] ~= -1
+        --         return item_selected and keys["ctrl-y"] or keys["ctrl-y_cr"]
+        --     else
+        --         -- If popup is not visible, use plain `<CR>`. You might want to customize
+        --         -- according to other plugins. For example, to use 'mini.pairs', replace
+        --         -- next line with `return require('mini.pairs').cr()`
+        --         -- return keys['cr']
+        --         return require("mini.pairs").cr()
+        --     end
+        -- end
+        --
+        -- vim.keymap.set("i", "<CR>", "v:lua._G.cr_action()", { expr = true })
+        -- vim.keymap.set("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
+        -- vim.keymap.set("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
+        -- vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
+        -- vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
         -- }}} end mini.completion
-    end
+    end,
 }
