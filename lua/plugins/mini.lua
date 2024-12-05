@@ -56,7 +56,7 @@ return {
         -- },
     },
     config = function()
-        vim.o.background = "light"
+        vim.o.background = os.getenv("NVIM_BACKGROUND") or "light"
 
         local hues = require("mini.hues")
         local base_colors = hues.gen_random_base_colors()
