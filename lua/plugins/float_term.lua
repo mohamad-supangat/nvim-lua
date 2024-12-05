@@ -1,5 +1,8 @@
 return {
     "numToStr/FTerm.nvim",
+    dependencies = {
+        "nvim-lua/plenary.nvim"
+    },
     config = function()
         local status_ok, fterm = pcall(require, "FTerm")
         if not status_ok then
@@ -12,7 +15,7 @@ return {
             local lazygit = fterm:new({
                 cmd = "lazygit -p " .. currentFileRootPath(),
                 -- blend = 20,
-                border = "none",
+                border = "double",
                 dimensions = {
                     height = 1,
                     width = 1,
