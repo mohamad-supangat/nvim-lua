@@ -306,6 +306,31 @@ return {
                 { mode = "x", keys = "<Leader>" },
                 { mode = "n", keys = "[" },
                 { mode = "n", keys = "]" },
+                { mode = "x", keys = "s" },
+                { mode = "n", keys = "s" },
+
+                -- `g` key
+                { mode = "n", keys = "g" },
+                { mode = "x", keys = "g" },
+
+                -- Marks
+                { mode = "n", keys = "'" },
+                { mode = "n", keys = "`" },
+                { mode = "x", keys = "'" },
+                { mode = "x", keys = "`" },
+
+                -- Registers
+                { mode = "n", keys = '"' },
+                { mode = "x", keys = '"' },
+                { mode = "i", keys = "<C-r>" },
+                { mode = "c", keys = "<C-r>" },
+
+                -- Window commands
+                { mode = "n", keys = "<C-w>" },
+
+                -- `z` key
+                { mode = "n", keys = "z" },
+                { mode = "x", keys = "z" },
             },
             clues = {
                 miniclue.gen_clues.builtin_completion(),

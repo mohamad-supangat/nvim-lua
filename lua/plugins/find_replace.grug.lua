@@ -1,6 +1,7 @@
 return {
     "MagicDuck/grug-far.nvim",
     config = function()
+        vim.g.maplocalleader = ","
         require("grug-far").setup({
             -- options, see Configuration section below
             -- there are no required options atm
