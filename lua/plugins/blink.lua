@@ -1,17 +1,17 @@
-return
-{
+return {
     "saghen/blink.cmp",
-    enabled = false,
-    -- event = { "LspAttach", "InsertCharPre" },
+    enabled = true,
+    version = "v0.7.3",
+    event = { "LspAttach", "InsertCharPre" },
     dependencies = {
-        {
-            "Exafunction/codeium.nvim",
-            enabled = true,
-            opts = {
-                enable_cmp_source = true
-                -- enable_chat = true,
-            },
-        },
+        -- {
+        --     "Exafunction/codeium.nvim",
+        --     enabled = true,
+        --     opts = {
+        --         enable_cmp_source = true,
+        --         -- enable_chat = true,
+        --     },
+        -- },
         {
             "L3MON4D3/LuaSnip",
             dev = false,
@@ -20,56 +20,68 @@ return
                 require("luasnip.loaders.from_vscode").lazy_load()
             end,
         },
-        "saadparwaiz1/cmp_luasnip",
-        { 'saghen/blink.compat', opts = { impersonate_nvim_cmp = true } }
+        -- { "saghen/blink.compat", opts = { impersonate_nvim_cmp = true } },
     },
     opts = {
         highlight = {
-            use_nvim_cmp_as_default = true,
+            -- use_nvim_cmp_as_default = true,
+        },
+        fuzzy = {
+            sorts = { "label", "kind", "score" },
+            prebuilt_binaries = {
+                force_version = "v0.7.3",
+            },
         },
         nerd_font_variant = "normal",
-        accept = {
-            -- auto_brackets = { enabled = true },
-            expand_snippet = function(snippet) require('luasnip').lsp_expand(snippet) end,
+        snippets = {
+            expand = function(snippet)
+                require("luasnip").lsp_expand(snippet)
+            end,
+            active = function(filter)
+                if filter and filter.direction then
+                    return require("luasnip").jumpable(filter.direction)
+                end
+                return require("luasnip").in_snippet()
+            end,
+            jump = function(direction)
+                require("luasnip").jump(direction)
+            end,
         },
 
         sources = {
             completion = {
-                enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'codeium' },
+                enabled_providers = {
+                    "luasnip",
+                    "lsp",
+                    "path",
+                    "buffer",
+                    -- "codeium"
+                },
             },
 
             providers = {
-                luasnip = {
-                    name = 'luasnip',
-                    module = 'blink.compat.source',
-                    score_offset = -3,
-                    opts = {
-                        use_show_condition = false,
-                        show_autosnippets = true,
-                    },
-                },
-                codeium = {
-                    name = "codeium",
-                    module = 'blink.compat.source',
-                    score_offset = -3,
-                }
+                -- codeium = {
+                --     name = "codeium",
+                --     module = "blink.compat.source",
+                --     score_offset = -3,
+                -- },
             },
         },
 
-
         keymap = {
-            preset        = 'enter',
-            ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-            ['<C-e>']     = { 'hide', 'fallback' },
-            ['<S-Tab>']   = { 'snippet_backward', 'fallback' },
+            preset = "default",
+            ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+            ["<C-e>"] = { "hide", "fallback" },
+            ["<S-Tab>"] = { "snippet_backward", "fallback" },
 
-            ['<Up>']      = { 'select_prev', 'fallback' },
-            ['<Down>']    = { 'select_next', 'fallback' },
-            ['<C-k>']     = { 'select_prev', 'fallback' },
-            ['<C-j>']     = { 'select_next', 'fallback' },
+            ["<Up>"] = { "select_prev", "fallback" },
+            ["<Down>"] = { "select_next", "fallback" },
+            ["<C-k>"] = { "select_prev", "fallback" },
+            ["<C-j>"] = { "select_next", "fallback" },
+            ["<C-l>"] = { "accept", "fallback" },
 
-            ['<C-b>']     = { 'scroll_documentation_up', 'fallback' },
-            ['<C-f>']     = { 'scroll_documentation_down', 'fallback' },
+            ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+            ["<C-f>"] = { "scroll_documentation_down", "fallback" },
         },
 
         -- trigger = { signature_help = { enabled = true } },
@@ -86,14 +98,22 @@ return
         --     scroll_documentation_down = "<C-e>",
         -- },
 
-        windows = {
-            autocomplete = {
-                border = "rounded",
+        completion = {
+            accept = { auto_brackets = { enabled = true } },
+            menu = {
+                draw = {
+                    -- columns = { { "kind_icon" }, { "label", "label_description", gap = 1 } },
+                    columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+                },
+                -- border = "rounded",
             },
             documentation = {
-                border = "rounded",
+                auto_show = true,
+                -- window = {
+                --     border = "single",
+                -- },
             },
         },
     },
-    opts_extend = { "sources.completion.enabled_providers" }
+    opts_extend = { "sources.completion.enabled_providers" },
 }
