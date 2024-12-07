@@ -38,7 +38,7 @@ return {
             require("conform").setup({
                 formatters_by_ft = {
                     ["*"] = { "trim_whitespace", "trim_newlines" },
-                    lua = { "stylua" },
+                    -- lua = { "stylua" },
                     python = { "blue", "ruff_fix", "ruff_format" },
                     php = { "php_cs_fixer" },
                     blade = { "blade-formatter" },
