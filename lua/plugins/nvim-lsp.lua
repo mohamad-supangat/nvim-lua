@@ -26,9 +26,6 @@ return {
             },
         },
         {
-            "echasnovski/mini.pairs",
-        },
-        {
             "olrtg/nvim-emmet",
             enabled = false,
             config = function()
@@ -38,38 +35,20 @@ return {
     },
     keys = {
         { "<leader>li",        "<cmd>LspInfo<cr>" },
-        { mode = { "n", "v" }, "<space>ca",             vim.lsp.buf.code_action },
+        { mode = { "n", "v" }, "<space>ca",              vim.lsp.buf.code_action },
         { "<leader>ff",        "<cmd>LspZeroFormat<cr>" },
-        {
-            "<leader>rn",
-            "<cmd>lua vim.lsp.buf.rename()<cr>",
-        },
+        { "<leader>rn",        vim.lsp.buf.rename },
+        { 'gd',                vim.lsp.buf.definition },
+        { 'gl',                vim.diagnostic.open_float }
+
     },
 
     init = function()
-        local keys = {
-            ["cr"] = vim.api.nvim_replace_termcodes("<CR>", true, true, true),
-            ["ctrl-y"] = vim.api.nvim_replace_termcodes("<C-y>", true, true, true),
-            ["ctrl-y_cr"] = vim.api.nvim_replace_termcodes("<C-y><CR>", true, true, true),
-        }
-
         vim.diagnostic.config({
-            virtual_text = false,
+            virtual_text = true,
         })
-
-        _G.cr_action = function()
-            if vim.fn.pumvisible() ~= 0 then
-                local item_selected = vim.fn.complete_info()["selected"] ~= -1
-                return item_selected and keys["ctrl-y"] or keys["ctrl-y_cr"]
-            else
-                return require("mini.pairs").cr()
-                -- return keys['cr']
-            end
-        end
     end,
     config = function()
-        require("mini.pairs").setup()
-
         local lspconfig = require("lspconfig")
         -- This is where all the LSP shenanigans will live
         local lsp_zero = require("lsp-zero")
@@ -123,7 +102,7 @@ return {
                             "typescriptreact",
                             "blade",
                             "vue",
-                            "php"
+                            "php",
                         },
                     })
                 end,
