@@ -69,7 +69,7 @@ return {
         },
 
         keymap = {
-            preset = "default",
+            preset = "enter",
             ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
             ["<C-e>"] = { "hide", "fallback" },
             ["<S-Tab>"] = { "snippet_backward", "fallback" },
