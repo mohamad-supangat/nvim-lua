@@ -1,17 +1,13 @@
 return {
     "saghen/blink.cmp",
-    enabled = true,
+    enabled = false,
     version = "v0.7.3",
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
-        -- {
-        --     "Exafunction/codeium.nvim",
-        --     enabled = true,
-        --     opts = {
-        --         enable_cmp_source = true,
-        --         -- enable_chat = true,
-        --     },
-        -- },
+        {
+            "Exafunction/codeium.nvim",
+            enabled = true,
+        },
         {
             "L3MON4D3/LuaSnip",
             dev = false,
@@ -20,7 +16,7 @@ return {
                 require("luasnip.loaders.from_vscode").lazy_load()
             end,
         },
-        -- { "saghen/blink.compat", opts = { impersonate_nvim_cmp = true } },
+        { "saghen/blink.compat", opts = { impersonate_nvim_cmp = true } },
     },
     opts = {
         highlight = {

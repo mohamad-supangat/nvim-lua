@@ -1,7 +1,7 @@
 return {
     "iguanacucumber/magazine.nvim",
     name = "nvim-cmp", -- Otherwise highlighting gets messed up
-    enabled = false,
+    enabled = true,
     event = "InsertEnter",
     -- "hrsh7th/nvim-cmp",
     dependencies = {
@@ -198,8 +198,8 @@ return {
             },
 
             window = {
-                completion = cmp.config.window.bordered(),
-                documentation = cmp.config.window.bordered(),
+                -- completion = cmp.config.window.bordered(),
+                -- documentation = cmp.config.window.bordered(),
             },
         })
     end,
