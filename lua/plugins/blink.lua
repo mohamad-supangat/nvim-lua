@@ -1,7 +1,7 @@
 return {
     "saghen/blink.cmp",
     enabled = false,
-    version = "v0.7.3",
+    version = "v0.*",
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
         {
@@ -24,9 +24,9 @@ return {
         },
         fuzzy = {
             sorts = { "label", "kind", "score" },
-            prebuilt_binaries = {
-                force_version = "v0.7.3",
-            },
+            -- prebuilt_binaries = {
+            --     force_version = "v0.7.3",
+            -- },
         },
         nerd_font_variant = "normal",
         snippets = {
