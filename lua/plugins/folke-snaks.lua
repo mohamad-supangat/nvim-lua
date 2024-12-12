@@ -61,7 +61,7 @@ return {
         {
             "<leader>gi",
             function()
-                Snacks.lazygit(Snacks.lazygit({ cwd = Snacks.git.get_root() }))
+                Snacks.lazygit({ cwd = Snacks.git.get_root() })
             end,
             desc = "Open Lazygit",
         },
@@ -100,20 +100,20 @@ return {
             end,
             desc = "Rename File",
         },
-        {
-            "<c-/>",
-            function()
-                Snacks.terminal()
-            end,
-            desc = "Toggle Terminal",
-        },
-        {
-            "<c-_>",
-            function()
-                Snacks.terminal()
-            end,
-            desc = "which_key_ignore",
-        },
+        -- {
+        --     "<c-/>",
+        --     function()
+        --         Snacks.terminal()
+        --     end,
+        --     desc = "Toggle Terminal",
+        -- },
+        -- {
+        --     "<c-_>",
+        --     function()
+        --         Snacks.terminal()
+        --     end,
+        --     desc = "which_key_ignore",
+        -- },
         {
             "]]",
             function()
