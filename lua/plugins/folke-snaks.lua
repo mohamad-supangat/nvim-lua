@@ -1,17 +1,42 @@
 return {
     "folke/snacks.nvim",
-    enabled = false,
+    enabled = true,
     priority = 1000,
     lazy = false,
     opts = {
+        zen = {},
         bigfile = { enabled = true },
-        notifier = { enabled = false },
+        dashboard = { enabled = false },
+        dim = {
+            enabled = true,
+        },
+        indent = {
+            enabled = true,
+            scope = {
+                animate = {
+                    enabled = false
+                },
+            },
+            chunk = {
+                enabled = true,
+                animate = {
+                    enabled = false
+                },
+            }
+            -- char = "│",
+            -- blank = " ",
+        },
+        input = { enabled = true },
+        notifier = {
+            enabled = false,
+            timeout = 3000,
+        },
         quickfile = { enabled = true },
         statuscolumn = { enabled = true },
         words = { enabled = true },
         styles = {
             notification = {
-                wo = { wrap = true }, -- Wrap notifications
+                wo = { wrap = true },
             },
         },
     },
@@ -30,13 +55,13 @@ return {
             end,
             desc = "Delete Buffer",
         },
-        {
-            "<leader>gg",
-            function()
-                Snacks.lazygit()
-            end,
-            desc = "Lazygit",
-        },
+        -- {
+        --     "<leader>gg",
+        --     function()
+        --         Snacks.lazygit()
+        --     end,
+        --     desc = "Lazygit",
+        -- },
         {
             "<leader>gb",
             function()
@@ -130,6 +155,8 @@ return {
                     .option("background", { off = "light", on = "dark", name = "Dark Background" })
                     :map("<leader>ub")
                 Snacks.toggle.inlay_hints():map("<leader>uh")
+                Snacks.toggle.indent():map("<leader>ug")
+                Snacks.toggle.dim():map("<leader>uD")
             end,
         })
     end,
