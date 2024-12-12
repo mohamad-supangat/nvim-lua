@@ -9,21 +9,6 @@ return {
             return
         end
 
-        local currentFileRootPath = require("utils").currentFileRootPath
-
-        function _G.lazygit()
-            local lazygit = fterm:new({
-                cmd = "lazygit -p " .. currentFileRootPath(),
-                -- blend = 20,
-                border = "double",
-                dimensions = {
-                    height = 1,
-                    width = 1,
-                },
-            })
-            lazygit:toggle()
-        end
-
         local bard = fterm:new({
             cmd = "gemini",
             -- blend = 20,
@@ -79,7 +64,6 @@ return {
         map("t", "<F1>", "<C-\\><C-n><CMD>lua fterm1()<CR>", default_opts)
         map("n", "<F2>", ":lua fterm2()<CR>", default_opts)
         map("t", "<F2>", "<C-\\><C-n><CMD>lua fterm2()<CR>", default_opts)
-        map("n", "<leader>gi", ":lua lazygit()<CR>", default_opts)
         --
         map("n", "<A-b>", ":lua bard()<CR>", default_opts)
         map("t", "<A-b>", "<C-\\><C-n><CMD>lua bard()<CR>", default_opts)

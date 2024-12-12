@@ -39,6 +39,9 @@ return {
                 wo = { wrap = true },
             },
         },
+        lazygit = {
+            configure = true,
+        }
     },
     keys = {
         {
@@ -55,13 +58,13 @@ return {
             end,
             desc = "Delete Buffer",
         },
-        -- {
-        --     "<leader>gg",
-        --     function()
-        --         Snacks.lazygit()
-        --     end,
-        --     desc = "Lazygit",
-        -- },
+        {
+            "<leader>gi",
+            function()
+                Snacks.lazygit(Snacks.lazygit({ cwd = Snacks.git.get_root() }))
+            end,
+            desc = "Open Lazygit",
+        },
         {
             "<leader>gb",
             function()
