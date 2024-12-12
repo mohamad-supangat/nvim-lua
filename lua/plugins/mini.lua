@@ -56,6 +56,7 @@ return {
         -- },
     },
     config = function()
+        require('mini.extra').setup()
         vim.o.background = os.getenv("NVIM_BACKGROUND") or "light"
 
         local hues = require("mini.hues")
