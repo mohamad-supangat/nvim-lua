@@ -77,7 +77,7 @@ return {
                 "lua_ls",
                 -- "emmet_language_server",
                 -- "intelephense",
-                "tailwindcss",
+                -- "tailwindcss",
                 -- "jsonls",
                 -- "ruff_lsp"
             },
