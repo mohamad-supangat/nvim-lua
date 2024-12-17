@@ -62,6 +62,9 @@ return {
                 --     score_offset = -3,
                 -- },
             },
+            trigger = {
+                show_on_insert_on_trigger_character = false,
+            },
         },
 
         keymap = {
