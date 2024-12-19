@@ -61,7 +61,7 @@ return {
         {
             "<leader>gi",
             function()
-                Snacks.lazygit({ cwd = Snacks.git.get_root() })
+                Snacks.lazygit({ cwd = require("utils").currentFileRootPath() })
             end,
             desc = "Open Lazygit",
         },
