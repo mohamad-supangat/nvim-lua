@@ -7,6 +7,10 @@ return {
         {
             "Exafunction/codeium.nvim",
             enabled = true,
+            opts = {
+                enable_cmp_source = true
+                -- enable_chat = true,
+            },
         },
         {
             "L3MON4D3/LuaSnip",
@@ -16,7 +20,7 @@ return {
                 require("luasnip.loaders.from_vscode").lazy_load()
             end,
         },
-        { "saghen/blink.compat", opts = { impersonate_nvim_cmp = true } },
+        { "saghen/blink.compat", version = "*", opts = { impersonate_nvim_cmp = true } },
     },
     opts = {
         highlight = {
@@ -47,23 +51,24 @@ return {
         sources = {
             completion = {
                 enabled_providers = {
+                    "codeium",
                     "luasnip",
                     "lsp",
                     "path",
                     "buffer",
-                    -- "codeium"
                 },
             },
-
             providers = {
-                -- codeium = {
-                --     name = "codeium",
-                --     module = "blink.compat.source",
-                --     score_offset = -3,
-                -- },
+                codeium = {
+                    name = "codeium",
+                    kind = "Codeium",
+                    module = "blink.compat.source",
+                    -- score_offset = 100,
+                    -- async = true,
+                },
             },
             trigger = {
-                show_on_insert_on_trigger_character = false,
+                -- show_on_insert_on_trigger_character = false,
             },
         },
 

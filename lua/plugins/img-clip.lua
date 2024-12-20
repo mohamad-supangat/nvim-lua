@@ -3,6 +3,9 @@ return {
     event = "VeryLazy",
     opts = {
         default = {
+            url = {
+                enable = true,
+            },
             use_cursor_in_template = false,
             prompt_for_file_name = false,
             insert_mode_after_paste = false,
