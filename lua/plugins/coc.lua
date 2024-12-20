@@ -1,64 +1,122 @@
-
 -----------------------------------------------------------
 -- Neovim API aliases
 -----------------------------------------------------------
 --local map = map  -- set global keymap
-local cmd = vim.cmd -- execute Vim commands
-local exec = vim.api.nvim_exec -- execute Vimscript
-local fn = vim.fn -- call Vim functions
-local g = vim.g -- global variables
-local opt = vim.opt -- global/buffer/windows-scoped options
-local map = vim.api.nvim_set_keymap
-local default_opts = {noremap = true, silent = true}
+vim.g.coc_global_extensions = {
+    "coc-json",
+    "coc-marketplace",
+    "coc-snippets",
+    "coc-lua",
+    -- "coc-explorer",
+    "coc-pairs",
+    "coc-emmet",
+}
 
+return {
+    "neoclide/coc.nvim",
+    enabled = false,
+    branch = "release",
+    keys = {
+        -- coc multiple cursor
+        { mode = "n", "<leader>c", "<Plug>(coc-cursors-position)" },
+        { mode = "n", "<leader>d", "<Plug>(coc-cursors-word)" },
+        { mode = "x", "<leader>d", "<Plug>(coc-cursors-range)" },
+        { mode = "n", "<leader>x", "<Plug>(coc-cursors-operator)" },
 
--- coc multiple cursor
-map('n', "<C-c>", "<Plug>(coc-cursors-position)", default_opts)
-map('n', "<C-d>", "<Plug>(coc-cursors-word)", default_opts)
-map('x', "<C-d>", "<Plug>(coc-cursors-range)", default_opts)
-map('n', "<leader>x", "<Plug>(coc-cursors-operator)", default_opts)
+        -- coc-explorer
+        -- { mode = "n", "<C-n>",       ":CocCommand explorer<CR>" },
 
+        { mode = "n", "<leader>.", "<Plug>(coc-codeaction)" },
+        { mode = "n", "<leader>l", ":CocCommand eslint.executeAutofix<CR>" },
+        { mode = "n", "gd", "<Plug>(coc-definition)", silent = true },
+        { mode = "n", "K", ":call CocActionAsync('doHover')<CR>", silent = true, noremap = true },
+        { mode = "n", "<leader>rn", "<Plug>(coc-rename)" },
 
--- coc-explorer
-map("n", "<C-n>", ":CocCommand explorer<CR>", default_opts) -- open/close
+        -- snippets
+        -- { mode = "i", "<leader>s", "<Plug>(coc-snippets-expand)"},
+        { mode = "x", "<leader>x", "<Plug>(coc-convert-snippet)" },
+        -- { mode = "v", "<leader>ss", "<Plug>(coc-snippets-select)"},
 
+        -- formater command
+        -- { mode = "n", "<leader>f",   ":call CocActionAsync('format')<CR>" },
+        -- { mode = "x", "<leader>f",   " <Plug>(coc-format-selected)<CR>" },
+        -- { mode = "v", "<leader>f",   " <Plug>(coc-format-selected)<CR>" },
+        --
+        -- diagnostic
+        { mode = "n", "[g", "<Plug>(coc-diagnostic-prev)" },
+        { mode = "n", "]g", "<Plug>(coc-diagnostic-next)" },
+        { mode = "n", "<leader>xx", "<cmd>CocDiagnostic<cr>" },
+        { mode = "n", "gl", ":call CocActionAsync('diagnosticInfo')<CR>" },
 
-map("n", "<leader>.", "<Plug>(coc-codeaction)", {})
-map("n", "<leader>l", ":CocCommand eslint.executeAutofix<CR>", {})
-map("n", "gd", "<Plug>(coc-definition)", {silent = true})
-map("n", "K", ":call CocActionAsync('doHover')<CR>", {silent = true, noremap = true})
-map("n", "<leader>rn", "<Plug>(coc-rename)", {})
+        -- show list in fzf
+        { mode = "n", "<leader>coc", ":CocList<CR>" },
+        { mode = "n", "<leader>P", ":CocList commands<CR>" },
 
+        { mode = "i", "<C-space>", "coc#refresh()", silent = true, expr = true },
 
--- snippets
--- map("i", "<leader>s", "<Plug>(coc-snippets-expand)", default_opts)
-map("x", "<leader>x", "<Plug>(coc-convert-snippet)", default_opts)
+        {
+            mode = "i",
+            "<TAB>",
+            "coc#pum#visible() ? coc#pum#next(1) : '<TAB>'",
+            noremap = true,
+            silent = true,
+            expr = true,
+        },
 
--- map("v", "<leader>ss", "<Plug>(coc-snippets-select)", default_opts)
+        {
+            mode = "i",
+            "<S-TAB>",
+            "coc#pum#visible() ? coc#pum#prev(1) : '<C-h>'",
+            noremap = true,
+            silent = true,
+            expr = true,
+        },
 
--- formater command
-map("n", "<leader>f", ":call CocActionAsync('format')<CR>", {noremap = true})
-map("x", "<leader>f", " <Plug>(coc-format-selected)<CR>", {noremap = true})
-map("v", "<leader>f", " <Plug>(coc-format-selected)<CR>", {noremap = true})
+        {
+            mode = "i",
+            "<C-j>",
+            "coc#pum#visible() ? coc#pum#next(1) : '<C-j>'",
+            noremap = true,
+            silent = true,
+            expr = true,
+        },
 
+        {
+            mode = "i",
+            "<C-k>",
+            "coc#pum#visible() ? coc#pum#prev(1) : '<C-k>'",
+            noremap = true,
+            silent = true,
+            expr = true,
+        },
 
+        -- {
+        --     mode = "i",
+        --     "<down>",
+        --     "coc#pum#visible() ? coc#pum#next(1) : '<down>'",
+        --     noremap = true,
+        --     silent = true,
+        --     expr = true
+        -- },
+        --
+        -- {
+        --     mode = "i",
+        --     "<up>",
+        --     "coc#pum#visible() ? coc#pum#prev(1) : '<up>'",
+        --     noremap = true,
+        --     silent = true,
+        --     expr = true
+        -- },
 
--- show list in fzf
-map("n", "<leader>coc", ":CocFzfList<CR>", {noremap = true})
-map("n", "<leader>P", ":CocFzfList commands<CR>", {noremap = true})
+        {
+            mode = "i",
+            "<CR>",
+            "coc#pum#visible() ? coc#pum#confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'",
+            silent = true,
+            expr = true,
+            noremap = true,
+        },
 
-
-map("i", "<C-Space>", "coc#refresh()", { silent = true, expr = true })
-
-map("i", "<TAB>", "coc#pum#visible() ? coc#pum#next(1) : '<TAB>'", {noremap = true, silent = true, expr = true})
-map("i", "<S-TAB>", "coc#pum#visible() ? coc#pum#prev(1) : '<C-h>'", {noremap = true, silent=true, expr = true})
-
-map("i", "<down>", "coc#pum#visible() ? coc#pum#next(1) : '<down>'", {noremap = true, silent = true, expr = true})
-map("i", "<up>", "coc#pum#visible() ? coc#pum#prev(1) : '<up>'", {noremap = true, silent=true, expr = true})
-
-
-map("i", "<CR>", "coc#pum#visible() ? coc#_select_confirm() : '<C-G>u<CR><C-R>=coc#on_enter()<CR>'", {silent = true, expr = true, noremap = true})
-
---
-g.coc_global_extensions =  {'coc-json', 'coc-marketplace', 'coc-explorer', 'coc-snippets', 'coc-pairs'}
-
+        { mode = "n", "<f7>", "<cmd>CocOutline<cr>" },
+    },
+}

@@ -1,4 +1,7 @@
 local filetypes = {
+    "regex",
+    "markdown_inline",
+    "vimdoc",
     "lua",
     "typescript",
     "vue",
@@ -8,7 +11,6 @@ local filetypes = {
     "phpdoc",
     "prisma",
     "markdown",
-    "dart",
     "html",
     "vim",
     "json",
@@ -19,7 +21,8 @@ local filetypes = {
     "javascript",
     "scss",
     "http",
-    "xml"
+    "blade",
+    "xml",
 }
 
 return {

@@ -1,23 +1,87 @@
-local status_ok, bufferline = pcall(require, "bufferline")
-if not status_ok then
-	return
-end
-
--- local mocha = require("catppuccin.palettes").get_palette "mocha"
-bufferline.setup({
-	-- highlights = require("catppuccin.groups.integrations.bufferline").get(),
-	options = {
-		offsets = {
-			{ filetype = "neo-tree", text = "File Manager", padding = 1 },
-			{ filetype = "NvimTree", text = "File Manager", padding = 1 },
-		},
-		-- indicator = {
-		-- 	stule = "underline",
-		-- },
-
-		separator_style = "thin",
-		diagnostics = "nvim_lsp",
-		color_icons = true,
-		-- separator_style = 'slant'
-	},
-})
+-- https://github.com/babywkiss/dotfiles/blob/main/nvim/lua/plugins/bufferline.lua
+return {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+    -- event = "VeryLazy",
+    event = { "BufReadPost", "BufNewFile" },
+    version = "*",
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+        local bufferline = require("bufferline")
+        -- local p = require("rose-pine.palette")
+        bufferline.setup({
+            -- TODO: Fix background highlights for diagnostics
+            highlights = {
+                -- plain
+                -- fill = {
+                --     fg = p.muted,
+                --     bg = p.base,
+                -- },
+                -- background = {
+                --     fg = p.muted,
+                --     bg = p.base,
+                -- },
+                -- close_button = {
+                --     fg = p.muted,
+                --     bg = p.base,
+                -- },
+                -- offset_separator = {
+                --     bg = "#161420",
+                -- },
+                -- -- selected
+                -- buffer_selected = {
+                --     fg = p.text,
+                --     bg = p.surface,
+                --     bold = true,
+                --     italic = true,
+                -- },
+                -- close_button_selected = {
+                --     fg = p.subtle,
+                --     bg = p.surface,
+                -- },
+                -- indicator_selected = {
+                --     fg = p.muted,
+                --     bg = p.surface,
+                -- },
+                -- tab_selected = {
+                --     fg = p.text,
+                --     bg = p.overlay,
+                -- },
+                -- -- visible
+                -- buffer_visible = {
+                --     fg = p.subtle,
+                --     bg = p.base,
+                --     bold = true,
+                --     italic = true,
+                -- },
+                -- close_button_visible = {
+                --     fg = p.muted,
+                --     bg = p.base,
+                -- },
+                -- indicator_visible = {
+                --     fg = p.subtle,
+                --     bg = p.base,
+                -- },
+            },
+            options = {
+                separator_style = { "", "" },
+                indicator = {
+                    icon = " ",
+                    style = "icon",
+                },
+                diagnostics = "nvim_lsp",
+                offsets = {
+                    {
+                        separator = " ",
+                        highlight = "NvimTreeNormal",
+                        filetype = "NvimTree",
+                        text = "",
+                        text_align = "center",
+                    },
+                },
+            },
+        })
+    end,
+}

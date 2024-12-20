@@ -1,8 +1,3 @@
--- { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-local status_ok, indentline = pcall(require, "ibl")
-if not status_ok then
-    return
-end
 vim.opt.list = true
 -- vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("eol:↴")
@@ -18,23 +13,37 @@ local exclude = {
     "coc-explorer",
     "Starter",
     "starter",
+    "FTermm",
 }
 
--- vim.cmd([[highlight IndentBlanklineIndent1 guifg=#666666 gui=nocombine]])
---
--- indentline.setup()
-indentline.setup({
-    indent = {
-        char = "▏",
+return {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    enabled = false,
+    event = "VeryLazy",
+    opts = {
+        indent = {
+            char = "▏",
+        },
+        exclude = {
+            filetypes = exclude,
+        },
+        -- scope = {
+        --     char = "▎",
+        -- },
+        -- scope = {
+        -- show_start = false,
+        -- show_end = false,
+        -- },
+        scope = {
+            enabled = false,
+        },
     },
-    exclude = {
-        filetypes = exclude,
-    },
-    scope = {
-        enabled = false
-    }
-    -- show_end_of_line = true,
-    -- char_highlight_list = {
-    --     "IndentBlanklineIndent1"
-    -- }
-})
+
+    config = function(_, opts)
+        require("ibl").setup(opts)
+        local hooks = require("ibl.hooks")
+        hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+        hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+    end,
+}

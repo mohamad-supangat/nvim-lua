@@ -1,4 +1,8 @@
-require('nvim-highlight-colors').setup {
-    render = 'background', -- or 'foreground' or 'first_column'
-    enable_tailwind = false
+return {
+    "brenoprata10/nvim-highlight-colors",
+    enabled = false,
+    opts = {
+        render = "background",
+        enable_tailwind = true,
+    },
 }
