@@ -68,7 +68,6 @@ return {
             -- background = "#FAFAFA",
             -- foreground = "#383A42",
             n_hues = 8,
-            saturation = "low",
             saturation = vim.o.background == "dark" and "medium" or "high",
             accent = "bg",
             use_cterm = true,

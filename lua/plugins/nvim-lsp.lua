@@ -10,7 +10,6 @@ return {
             lazy = true,
             config = false,
             init = function()
-                -- Disable automatic setup, we are doing it manually
                 vim.g.lsp_zero_extend_cmp = 0
                 vim.g.lsp_zero_extend_lspconfig = 0
             end,
@@ -61,6 +60,11 @@ return {
                 if statusNavic then
                     Navic.attach(client, bufnr)
                 end
+            end
+
+            local statusCoq, Coq = pcall(require, "coq")
+            if statusCoq then
+                Coq.lsp_ensure_capabilities(client, bufnr)
             end
             -- lsp_zero.buffer_autoformat()
         end)

@@ -18,7 +18,7 @@ return {
                 },
             },
             chunk = {
-                enabled = true,
+                enabled = false,
                 animate = {
                     enabled = false
                 },

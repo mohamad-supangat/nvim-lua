@@ -10,14 +10,6 @@ return {
             name = "cmp-buffer"
         },
         { "https://codeberg.org/FelipeLema/cmp-async-path.git" },
-        {
-            "L3MON4D3/LuaSnip",
-            dev = false,
-            config = function()
-                require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/projects/snippets" } })
-                require("luasnip.loaders.from_vscode").lazy_load()
-            end,
-        },
         "saadparwaiz1/cmp_luasnip",
         { "iguanacucumber/mag-nvim-lsp",                       name = "cmp-nvim-lsp", opts = {} },
         { "iguanacucumber/mag-cmdline",                        name = "cmp-cmdline" },
@@ -188,7 +180,6 @@ return {
                     },
                 },
                 { name = 'async_path' }
-                -- { name = "path" },
             },
             confirmation = {
                 default_behavior = types.cmp.ConfirmBehavior.Insert,
@@ -201,6 +192,11 @@ return {
                 -- completion = cmp.config.window.bordered(),
                 -- documentation = cmp.config.window.bordered(),
             },
+        })
+
+
+        cmp.setup.filetype("vim", {
+            sources = vim.tbl_filter(function(source) return source.name ~= "codeium" end, cmp.config.sources),
         })
     end,
 }
