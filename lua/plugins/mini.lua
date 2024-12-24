@@ -61,12 +61,9 @@ return {
 
         local hues = require("mini.hues")
         local base_colors = hues.gen_random_base_colors()
-        print(require("mini.hues").gen_random_base_colors())
         hues.setup({
             background = base_colors.background,
             foreground = base_colors.foreground,
-            -- background = "#FAFAFA",
-            -- foreground = "#383A42",
             n_hues = 8,
             saturation = vim.o.background == "dark" and "medium" or "high",
             accent = "bg",
