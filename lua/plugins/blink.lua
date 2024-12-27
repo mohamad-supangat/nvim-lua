@@ -1,14 +1,15 @@
 return {
     "saghen/blink.cmp",
-    enabled = false,
+    enabled = true,
     version = "v0.*",
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
         {
-            "Exafunction/codeium.nvim",
+            "aliaksandr-trush/codeium.nvim",
             enabled = true,
+            branch = 'blink',
             opts = {
-                enable_cmp_source = true
+                enable_cmp_source = false
                 -- enable_chat = true,
             },
         },
@@ -20,19 +21,14 @@ return {
                 require("luasnip.loaders.from_vscode").lazy_load()
             end,
         },
-        { "saghen/blink.compat", version = "*", opts = { impersonate_nvim_cmp = true } },
     },
     opts = {
-        highlight = {
-            -- use_nvim_cmp_as_default = true,
-        },
         fuzzy = {
-            sorts = { "label", "kind", "score" },
+            sorts = { "score", "label" },
             -- prebuilt_binaries = {
             --     force_version = "v0.7.3",
             -- },
         },
-        nerd_font_variant = "normal",
         snippets = {
             expand = function(snippet)
                 require("luasnip").lsp_expand(snippet)
@@ -49,31 +45,26 @@ return {
         },
 
         sources = {
-            completion = {
-                enabled_providers = {
-                    "codeium",
-                    "luasnip",
-                    "lsp",
-                    "path",
-                    "buffer",
-                },
+            default = {
+                "codeium",
+                "luasnip",
+                "lsp",
+                "path",
+                "buffer",
             },
             providers = {
                 codeium = {
-                    name = "codeium",
-                    kind = "Codeium",
-                    module = "blink.compat.source",
-                    -- score_offset = 100,
-                    -- async = true,
+                    name = 'Codeium',
+                    module = 'codeium.blink',
+                    async = true,
+                    score_offset = 1000,
                 },
-            },
-            trigger = {
-                -- show_on_insert_on_trigger_character = false,
             },
         },
 
         keymap = {
-            preset = "enter",
+            preset = "none",
+            ['<CR>'] = { 'accept', 'fallback' },
             ["<C-space>"] = { "show", 'hide' },
             ["<C-S-k>"] = { "show_documentation", "hide_documentation", 'fallback' },
             ["<C-e>"] = { "hide", "fallback" },
@@ -104,21 +95,52 @@ return {
         -- },
 
         completion = {
-            accept = { auto_brackets = { enabled = true } },
+            keyword = { range = 'full' },
+            accept = { auto_brackets = { enabled = false } },
+            list = { selection = 'auto_insert' },
             menu = {
+                auto_show = function(ctx)
+                    return ctx.mode ~= 'cmdline' or
+                        not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
+                end,
                 draw = {
                     -- columns = { { "kind_icon" }, { "label", "label_description", gap = 1 } },
                     columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+                    components = {
+                        kind_icon = {
+                            ellipsis = false,
+                            text = function(ctx)
+                                local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
+                                return kind_icon
+                            end,
+                            highlight = function(ctx)
+                                local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                                return hl
+                            end,
+                        }
+                    }
                 },
                 -- border = "rounded",
             },
             documentation = {
                 auto_show = true,
-                -- window = {
-                --     border = "single",
-                -- },
+                -- window = { border = 'single' }
             },
+            trigger = {
+                show_on_trigger_character = false,
+                show_on_insert_on_trigger_character = false,
+                show_on_accept_on_trigger_character = false,
+            },
+            ghost_text = { enabled = false },
+        },
+        -- signature = { window = { border = 'single' } },
+        appearance = {
+            use_nvim_cmp_as_default = true,
+            -- nerd_font_variant = 'mono'
         },
     },
-    opts_extend = { "sources.completion.enabled_providers" },
+    opts_extend = {
+        "sources.default",
+        "sources.completion.enabled_providers"
+    },
 }
