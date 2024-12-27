@@ -42,5 +42,5 @@ local exclude = {
 
 return {
     filetypes = filetypes,
-    exlude = exclude,
+    exclude = exclude,
 }
