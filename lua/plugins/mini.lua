@@ -159,6 +159,7 @@ return {
                             hl = "MiniStatuslineFilename",
                             strings = {
                                 filename,
+                                fileinfo,
                                 vim.g.coc_status,
                             },
                         },
