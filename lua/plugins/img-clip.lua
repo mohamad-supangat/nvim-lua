@@ -4,7 +4,7 @@ return {
     opts = {
         default = {
             url = {
-                enable = true,
+                enable = false,
             },
             use_cursor_in_template = false,
             prompt_for_file_name = false,

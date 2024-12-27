@@ -108,7 +108,7 @@ return {
         completion = {
             keyword = { range = 'full' },
             accept = { auto_brackets = { enabled = false } },
-            list = { selection = 'auto_insert' },
+            list = { selection = 'preselect' },
             menu = {
                 auto_show = function(ctx)
                     return ctx.mode ~= 'cmdline' or
@@ -116,6 +116,7 @@ return {
                 end,
                 draw = {
                     -- columns = { { "kind_icon" }, { "label", "label_description", gap = 1 } },
+                    gap = 2,
                     columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
                     components = {
                         kind_icon = {
@@ -132,10 +133,17 @@ return {
                     }
                 },
                 -- border = "rounded",
+                -- winhighlight =
+                -- 'Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None',
             },
             documentation = {
                 auto_show = true,
-                -- window = { border = 'single' }
+                auto_show_delay_ms = 200,
+                window = {
+                    -- border = "rounded",
+                    -- winhighlight =
+                    -- 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
+                },
             },
             trigger = {
                 show_on_trigger_character = false,
