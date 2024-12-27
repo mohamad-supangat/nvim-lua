@@ -38,6 +38,8 @@ local exclude = {
     "Starter",
     "starter",
     "FTermm",
+    'minifiles',
+    'crunner'
 }
 
 return {
