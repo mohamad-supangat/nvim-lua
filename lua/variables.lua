@@ -25,6 +25,22 @@ local filetypes = {
     "xml",
 }
 
+
+local exclude = {
+    "terminal",
+    "startify",
+    "nvim-tree",
+    "CHADTree",
+    "chad-tree",
+    "no-profile",
+    "alpha",
+    "coc-explorer",
+    "Starter",
+    "starter",
+    "FTermm",
+}
+
 return {
     filetypes = filetypes,
+    exlude = exclude,
 }

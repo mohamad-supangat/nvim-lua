@@ -23,6 +23,11 @@ return {
         },
     },
     opts = {
+        enabled = function()
+            return not vim.tbl_contains(require('variables').exclude, vim.bo.filetype)
+                and vim.bo.buftype ~= "prompt"
+                and vim.b.completion ~= false
+        end,
         fuzzy = {
             sorts = { "score", "label" },
             -- prebuilt_binaries = {
