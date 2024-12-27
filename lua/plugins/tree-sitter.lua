@@ -37,8 +37,8 @@ return {
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
+        enabled = false,
         opts = {
-            enabled = false,
             prefix = "",
             disable_ft = { "markdown" },
             disable_virtual_lines = false,

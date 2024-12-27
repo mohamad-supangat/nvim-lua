@@ -11,7 +11,7 @@ return {
             enabled = true,
         },
         indent = {
-            enabled = true,
+            enabled = false,
             scope = {
                 animate = {
                     enabled = false
