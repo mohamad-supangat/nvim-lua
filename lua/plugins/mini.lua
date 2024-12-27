@@ -354,7 +354,6 @@ return {
             },
         })
         require("mini.bracketed").setup()
-        require("mini.bracketed").setup()
 
         -- pick {{{
         local MiniPick = require("mini.pick")

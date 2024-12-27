@@ -100,6 +100,7 @@ return {
             end,
             desc = "Rename File",
         },
+        { "<C-z>", function() Snacks.zen() end, desc = "Toggle Zen Mode" },
         -- {
         --     "<c-/>",
         --     function()
