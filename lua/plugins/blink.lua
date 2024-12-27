@@ -17,7 +17,7 @@ return {
             "L3MON4D3/LuaSnip",
             dev = false,
             config = function()
-                require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/projects/snippets" } })
+                require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/.config/nvim/snippets/" } })
                 require("luasnip.loaders.from_vscode").lazy_load()
             end,
         },
@@ -58,6 +58,15 @@ return {
                     module = 'codeium.blink',
                     async = true,
                     score_offset = 1000,
+                    transform_items = function(_, items)
+                        local CompletionItemKind = require('blink.cmp.types').CompletionItemKind
+                        local kind_idx = #CompletionItemKind + 1
+                        CompletionItemKind[kind_idx] = 'Codeium'
+                        for _, item in ipairs(items) do
+                            item.kind = kind_idx
+                        end
+                        return items
+                    end,
                 },
             },
         },
@@ -68,14 +77,16 @@ return {
             ["<C-space>"] = { "show", 'hide' },
             ["<C-S-k>"] = { "show_documentation", "hide_documentation", 'fallback' },
             ["<C-e>"] = { "hide", "fallback" },
-            ["<S-Tab>"] = { "snippet_backward", "fallback" },
 
 
             ["<Up>"] = { "select_prev", "fallback" },
             ["<Down>"] = { "select_next", "fallback" },
+            ["<S-Tab>"] = { "select_prev", "fallback" },
+            ["<Tab>"] = { "select_next", "fallback" },
             ["<C-k>"] = { "select_prev", "fallback" },
             ["<C-j>"] = { "select_next", "fallback" },
-            ["<C-l>"] = { "accept", "fallback" },
+
+            -- ["<C-l>"] = { "accept", "fallback" },
             ["<C-b>"] = { "scroll_documentation_up", "fallback" },
             ["<C-f>"] = { "scroll_documentation_down", "fallback" },
         },
