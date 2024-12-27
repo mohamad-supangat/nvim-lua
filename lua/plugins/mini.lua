@@ -356,112 +356,112 @@ return {
         require("mini.bracketed").setup()
 
         -- pick {{{
-        local MiniPick = require("mini.pick")
-        MiniPick.setup({
-            window = {
-                config = function()
-                    height = math.floor(0.618 * vim.o.lines)
-                    width = math.floor(0.618 * vim.o.columns)
-                    return {
-                        border = "rounded",
-                        anchor = "NW",
-                        height = height,
-                        width = width,
-                        row = math.floor(0.5 * (vim.o.lines - height)),
-                        col = math.floor(0.5 * (vim.o.columns - width)),
-                    }
-                end,
-            },
-            mappings = {
-                delete_word = "<A-BS>",
-                move_down = "<C-j>",
-                move_up = "<C-k>",
-            },
-        })
-
-        vim.ui.select = MiniPick.ui_select
+        -- local MiniPick = require("mini.pick")
+        -- MiniPick.setup({
+        --     window = {
+        --         config = function()
+        --             height = math.floor(0.618 * vim.o.lines)
+        --             width = math.floor(0.618 * vim.o.columns)
+        --             return {
+        --                 border = "rounded",
+        --                 anchor = "NW",
+        --                 height = height,
+        --                 width = width,
+        --                 row = math.floor(0.5 * (vim.o.lines - height)),
+        --                 col = math.floor(0.5 * (vim.o.columns - width)),
+        --             }
+        --         end,
+        --     },
+        --     mappings = {
+        --         delete_word = "<A-BS>",
+        --         move_down = "<C-j>",
+        --         move_up = "<C-k>",
+        --     },
+        -- })
+        --
+        -- vim.ui.select = MiniPick.ui_select
 
         -- Picker pre- and post-hooks ===============================================
 
         -- Keys should be a picker source.name. Value is a callback function that
         -- accepts same arguments as User autocommand callback.
-        local pre_hooks = {}
-        local post_hooks = {}
-
-        local group = vim.api.nvim_create_augroup("minipick-hooks", { clear = true })
-        local create_minipick_auto_command = function(pattern, desc, hooks)
-            vim.api.nvim_create_autocmd({ "User" }, {
-                pattern = pattern,
-                group = group,
-                desc = desc,
-                callback = function(...)
-                    local opts = MiniPick.get_picker_opts()
-                    if opts and opts.source then
-                        local hook = hooks[opts.source.name] or function(...) end
-                        hook(...)
-                    end
-                end,
-            })
-        end
-        create_minipick_auto_command("MiniPickStart", "pre-hook for source.name", pre_hooks)
-        create_minipick_auto_command("MiniPickStop", "post-hook for source.name", post_hooks)
+        -- local pre_hooks = {}
+        -- local post_hooks = {}
+        --
+        -- local group = vim.api.nvim_create_augroup("minipick-hooks", { clear = true })
+        -- local create_minipick_auto_command = function(pattern, desc, hooks)
+        --     vim.api.nvim_create_autocmd({ "User" }, {
+        --         pattern = pattern,
+        --         group = group,
+        --         desc = desc,
+        --         callback = function(...)
+        --             local opts = MiniPick.get_picker_opts()
+        --             if opts and opts.source then
+        --                 local hook = hooks[opts.source.name] or function(...) end
+        --                 hook(...)
+        --             end
+        --         end,
+        --     })
+        -- end
+        -- create_minipick_auto_command("MiniPickStart", "pre-hook for source.name", pre_hooks)
+        -- create_minipick_auto_command("MiniPickStop", "post-hook for source.name", post_hooks)
 
         -- colorscheme picker
         -- best Customize from
         -- https://github.com/pkazmier/nvim/blob/main/lua/plugins/mini/pick.lua
-        local selected_colorscheme -- Currently selected or original colorscheme
-
-        pre_hooks.Colorschemes = function()
-            selected_colorscheme = vim.g.colors_name
-        end
-
-        post_hooks.Colorschemes = function()
-            vim.schedule(function()
-                vim.cmd("colorscheme " .. selected_colorscheme)
-            end)
-        end
-
-        MiniPick.registry.colorschemes = function()
-            local colorschemes = vim.fn.getcompletion("", "color")
-            return MiniPick.start({
-                source = {
-                    name = "Colorschemes",
-                    items = colorschemes,
-                    choose = function(item)
-                        selected_colorscheme = item
-                    end,
-                    preview = function(buf_id, item)
-                        vim.cmd("colorscheme " .. item)
-                        vim.api.nvim_buf_set_lines(buf_id, 0, -1, false, { item })
-                    end,
-                },
-            })
-        end
-        vim.keymap.set("", "<C-p>", function()
-            MiniPick.builtin.cli({
-                command = {
-                    "rg",
-                    "--files",
-                    "--hidden",
-                    "-uu",
-                    "-g",
-                    "!/**/.git",
-                    "-g",
-                    "!/**/node_modules",
-                    "-g",
-                    "!/vendor",
-                    "-g",
-                    "!/public/build",
-                    "-g",
-                    "!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm,pdf,doc,docx,mp3,cache,gitkeep,gitignore}",
-                },
-            })
-        end, { desc = "Pick file with Rg" })
-        vim.keymap.set("n", "<leader>P", ":Pick commands<CR>", { desc = "Pick command" })
-        -- vim.keymap.set("n", "<leader>xx", ":Pick diagnostic<CR>", { desc = "Get List diagnostics" })
-        -- vim.keymap.set("n", "<leader>m", ":Pick buffers<CR>")
-        vim.keymap.set("n", "<leader>B", ":Pick buffers<CR>", { desc = "Pick buffer" })
-
+        -- local selected_colorscheme -- Currently selected or original colorscheme
+        --
+        -- pre_hooks.Colorschemes = function()
+        --     selected_colorscheme = vim.g.colors_name
+        -- end
+        --
+        -- post_hooks.Colorschemes = function()
+        --     vim.schedule(function()
+        --         vim.cmd("colorscheme " .. selected_colorscheme)
+        --     end)
+        -- end
+        --
+        -- MiniPick.registry.colorschemes = function()
+        --     local colorschemes = vim.fn.getcompletion("", "color")
+        --     return MiniPick.start({
+        --         source = {
+        --             name = "Colorschemes",
+        --             items = colorschemes,
+        --             choose = function(item)
+        --                 selected_colorscheme = item
+        --             end,
+        --             preview = function(buf_id, item)
+        --                 vim.cmd("colorscheme " .. item)
+        --                 vim.api.nvim_buf_set_lines(buf_id, 0, -1, false, { item })
+        --             end,
+        --         },
+        --     })
+        -- end
+        -- vim.keymap.set("", "<C-p>", function()
+        --     MiniPick.builtin.cli({
+        --         command = {
+        --             "rg",
+        --             "--files",
+        --             "--hidden",
+        --             "-uu",
+        --             "-g",
+        --             "!/**/.git",
+        --             "-g",
+        --             "!/**/node_modules",
+        --             "-g",
+        --             "!/vendor",
+        --             "-g",
+        --             "!/public/build",
+        --             "-g",
+        --             "!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm,pdf,doc,docx,mp3,cache,gitkeep,gitignore}",
+        --         },
+        --     })
+        -- end, { desc = "Pick file with Rg" })
+        -- vim.keymap.set("n", "<leader>P", ":Pick commands<CR>", { desc = "Pick command" })
+        -- -- vim.keymap.set("n", "<leader>xx", ":Pick diagnostic<CR>", { desc = "Get List diagnostics" })
+        -- -- vim.keymap.set("n", "<leader>m", ":Pick buffers<CR>")
+        -- vim.keymap.set("n", "<leader>B", ":Pick buffers<CR>", { desc = "Pick buffer" })
+        --
         -- }}} pick
         -- minimap {{{
         local MiniMap = require("mini.map")
