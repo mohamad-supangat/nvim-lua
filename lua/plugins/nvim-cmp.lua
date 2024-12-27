@@ -55,6 +55,8 @@ return {
             enabled = function()
                 local disabled = false
                 disabled = disabled or (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'prompt')
+                disabled = disabled or (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'vim')
+                disabled = disabled or (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'terminal')
                 disabled = disabled or (vim.fn.reg_recording() ~= '')
                 disabled = disabled or (vim.fn.reg_executing() ~= '')
                 return not disabled
@@ -189,14 +191,14 @@ return {
             },
 
             window = {
-                -- completion = cmp.config.window.bordered(),
-                -- documentation = cmp.config.window.bordered(),
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
             },
         })
 
 
         cmp.setup.filetype("vim", {
-            sources = vim.tbl_filter(function(source) return source.name ~= "codeium" end, cmp.config.sources),
+            sources = vim.tbl_filter(function(source) return source.name ~= "codeium" end, cmp.config.sources()),
         })
     end,
 }
