@@ -97,3 +97,13 @@ vim.keymap.set(
     ":cd %:p:h<CR>",
     { noremap = true, silent = true, desc = "Change dir to current opened file" }
 )
+
+
+vim.keymap.set(
+    "n",
+    "<leader>ft",
+    function()
+        vim.notify(vim.bo.filetype)
+    end,
+    { noremap = true, silent = true, desc = "Change dir to current opened file" }
+)

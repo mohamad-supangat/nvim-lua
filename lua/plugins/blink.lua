@@ -25,8 +25,8 @@ return {
     opts = {
         enabled = function()
             return not vim.tbl_contains(require('variables').exclude, vim.bo.filetype)
-                and vim.bo.buftype ~= "prompt"
-                and vim.b.completion ~= false
+                or vim.bo.buftype ~= "prompt"
+                or vim.b.completion ~= false
         end,
         fuzzy = {
             sorts = { "score", "label" },
@@ -116,8 +116,9 @@ return {
             list = { selection = 'preselect' },
             menu = {
                 auto_show = function(ctx)
-                    return ctx.mode ~= 'cmdline' or
-                        not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
+                    return ctx.mode ~= 'cmdline' and
+                        not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype()) and
+                        not vim.tbl_contains(require('variables').exclude, vim.bo.filetype)
                 end,
                 draw = {
                     -- columns = { { "kind_icon" }, { "label", "label_description", gap = 1 } },

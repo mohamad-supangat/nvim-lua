@@ -39,7 +39,10 @@ local exclude = {
     "starter",
     "FTermm",
     'minifiles',
-    'crunner'
+    'crunner',
+    'fzf',
+    'Terminal',
+    'sh'
 }
 
 return {
