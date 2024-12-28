@@ -1,6 +1,6 @@
 return {
     "ibhagwan/fzf-lua",
-    enabled = true,
+    enabled = false,
     config = function()
         local fzf_lua = require("fzf-lua")
         local map = vim.api.nvim_set_keymap
