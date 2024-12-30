@@ -130,6 +130,7 @@ return {
         MiniStatusline = require("mini.statusline")
         MiniStatusline.setup({
             set_vim_settings = true,
+            use_icons = true,
             content = {
                 active = function()
                     local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
