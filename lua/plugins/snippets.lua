@@ -18,39 +18,39 @@ return {
     -- "Abdelaziz18003/vscode-quasar-snippets",
     -- { "mohamad-supangat/snippets" },
 
-    {
-        "chrisgrieser/nvim-scissors",
-        opts = {
-            snippetDir = "/home/deve/projects/snippets",
-            jsonFormatter = "jq",
-        },
-        keys = {
-            {
-                "<leader>sne",
-                function()
-                    require("scissors").editSnippet()
-                end,
-                mode = { "n" },
-                noremap = true,
-                silent = true,
-            },
-            {
-                "<leader>sna",
-                function()
-                    require("scissors").addNewSnippet()
-                end,
-                mode = { "n", "x" },
-                noremap = true,
-                silent = true,
-            },
-        },
-    },
-    {
-        "L3MON4D3/LuaSnip",
-        dev = false,
-        config = function()
-            require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/projects/snippets" } })
-            require("luasnip.loaders.from_vscode").lazy_load()
-        end,
-    },
+    -- {
+    --     "chrisgrieser/nvim-scissors",
+    --     opts = {
+    --         snippetDir = "/home/deve/projects/snippets",
+    --         jsonFormatter = "jq",
+    --     },
+    --     keys = {
+    --         {
+    --             "<leader>sne",
+    --             function()
+    --                 require("scissors").editSnippet()
+    --             end,
+    --             mode = { "n" },
+    --             noremap = true,
+    --             silent = true,
+    --         },
+    --         {
+    --             "<leader>sna",
+    --             function()
+    --                 require("scissors").addNewSnippet()
+    --             end,
+    --             mode = { "n", "x" },
+    --             noremap = true,
+    --             silent = true,
+    --         },
+    --     },
+    -- },
+    -- {
+    --     "L3MON4D3/LuaSnip",
+    --     dev = false,
+    --     config = function()
+    --         require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/projects/snippets" } })
+    --         require("luasnip.loaders.from_vscode").lazy_load()
+    --     end,
+    -- },
 }

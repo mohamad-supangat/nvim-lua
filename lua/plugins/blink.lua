@@ -13,14 +13,14 @@ return {
                 -- enable_chat = true,
             },
         },
-        {
-            "L3MON4D3/LuaSnip",
-            dev = false,
-            config = function()
-                require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/.config/nvim/snippets/" } })
-                require("luasnip.loaders.from_vscode").lazy_load()
-            end,
-        },
+        -- {
+        --     "L3MON4D3/LuaSnip",
+        --     dev = false,
+        --     config = function()
+        --         require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/.config/nvim/snippets/" } })
+        --         require("luasnip.loaders.from_vscode").lazy_load()
+        --     end,
+        -- },
     },
     opts = {
         enabled = function()
@@ -34,25 +34,26 @@ return {
             --     force_version = "v0.7.3",
             -- },
         },
-        snippets = {
-            expand = function(snippet)
-                require("luasnip").lsp_expand(snippet)
-            end,
-            active = function(filter)
-                if filter and filter.direction then
-                    return require("luasnip").jumpable(filter.direction)
-                end
-                return require("luasnip").in_snippet()
-            end,
-            jump = function(direction)
-                require("luasnip").jump(direction)
-            end,
-        },
+        -- snippets = {
+        --     expand = function(snippet)
+        --         require("luasnip").lsp_expand(snippet)
+        --     end,
+        --     active = function(filter)
+        --         if filter and filter.direction then
+        --             return require("luasnip").jumpable(filter.direction)
+        --         end
+        --         return require("luasnip").in_snippet()
+        --     end,
+        --     jump = function(direction)
+        --         require("luasnip").jump(direction)
+        --     end,
+        -- },
 
         sources = {
             default = {
                 "codeium",
-                "luasnip",
+                -- "luasnip",
+                "snippets",
                 "lsp",
                 "path",
                 "buffer",
