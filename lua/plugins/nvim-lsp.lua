@@ -39,6 +39,13 @@ return {
           [vim.diagnostic.severity.INFO] = '»',
         },
       },
+      severity_sort = true,
+      float = {
+        style = 'minimal',
+        border = 'rounded',
+        header = '',
+        prefix = '',
+      },
       virtual_text = true,
     })
   end,
