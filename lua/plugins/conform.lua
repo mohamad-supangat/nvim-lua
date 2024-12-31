@@ -38,13 +38,14 @@ return {
             require("conform").setup({
                 formatters_by_ft = {
                     ["*"] = { "trim_whitespace", "trim_newlines" },
-                    lua = { "luaformatter" },
+                    -- lua = { "luaformatter" },
                     python = { "blue", "ruff_fix", "ruff_format" },
                     php = { "php_cs_fixer" },
                     blade = { "blade-formatter" },
                     javascript = { "prettier" },
                     typescript = { "prettier" },
                     json = { "prettier" },
+                    jsonc = { "prettier" },
                     vue = { "prettier" },
                     pug = { "prettier" },
                     -- html = { "prettier" },
