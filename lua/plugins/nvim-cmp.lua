@@ -1,7 +1,7 @@
 return {
     "iguanacucumber/magazine.nvim",
     name = "nvim-cmp", -- Otherwise highlighting gets messed up
-    enabled = false,
+    enabled = true,
     event = "InsertEnter",
     -- "hrsh7th/nvim-cmp",
     dependencies = {
@@ -10,6 +10,14 @@ return {
             name = "cmp-buffer"
         },
         { "https://codeberg.org/FelipeLema/cmp-async-path.git" },
+        {
+            "L3MON4D3/LuaSnip",
+            dev = false,
+            config = function()
+                require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/.config/nvim/snippets" } })
+                require("luasnip.loaders.from_vscode").lazy_load()
+            end,
+        },
         "saadparwaiz1/cmp_luasnip",
         { "iguanacucumber/mag-nvim-lsp",                       name = "cmp-nvim-lsp", opts = {} },
         { "iguanacucumber/mag-cmdline",                        name = "cmp-cmdline" },
@@ -191,8 +199,8 @@ return {
             },
 
             window = {
-                completion = cmp.config.window.bordered(),
-                documentation = cmp.config.window.bordered(),
+                -- completion = cmp.config.window.bordered(),
+                -- documentation = cmp.config.window.bordered(),
             },
         })
 
