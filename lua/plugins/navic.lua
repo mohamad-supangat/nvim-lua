@@ -64,9 +64,9 @@ return {
         highlight = false,
         -- separator = "  ",
         separator = " > ",
-        depth_limit = 6,
+        depth_limit = 3,
         depth_limit_indicator = "…",
-        safe_output = false,
+        safe_output = true,
         lazy_update_context = false,
         click = true,
         format_text = function(text)

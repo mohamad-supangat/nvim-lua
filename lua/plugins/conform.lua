@@ -38,7 +38,7 @@ return {
             require("conform").setup({
                 formatters_by_ft = {
                     ["*"] = { "trim_whitespace", "trim_newlines" },
-                    -- lua = { "stylua" },
+                    lua = { "luaformatter" },
                     python = { "blue", "ruff_fix", "ruff_format" },
                     php = { "php_cs_fixer" },
                     blade = { "blade-formatter" },
@@ -95,10 +95,8 @@ return {
             })
 
             vim.api.nvim_create_user_command("AllFormat", function()
-                if vim.fn.exists(":LspZeroFormat") > 0 then
-                    vim.cmd.LspZeroFormat()
-                end
-                require("conform").format({ lsp_fallback = true })
+                vim.lsp.buf.format({ async = true })
+                require("conform").format({ lsp_fallback = false })
             end, {
                 desc = "Format using lsp zero then conform",
             })
