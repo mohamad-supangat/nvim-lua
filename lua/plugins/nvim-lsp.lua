@@ -70,12 +70,13 @@ return {
       end,
     })
 
+
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
         "emmet_language_server",
         "intelephense",
-        "tailwindcss",
+        -- "tailwindcss",
         -- "jsonls",
         -- "ruff_lsp"
       },
@@ -85,6 +86,11 @@ return {
         end,
         ["rust_analyzer"] = function()
           require("rust-tools").setup {}
+        end,
+        ["unocss"] = function()
+          require 'lspconfig'.unocss.setup {
+            filetypes = { 'css', 'vue', 'pug', 'html', 'blade' },
+          }
         end,
         ["emmet_language_server"] = function()
           lspconfig.emmet_language_server.setup({

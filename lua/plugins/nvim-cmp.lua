@@ -180,7 +180,7 @@ return {
             sources = {
                 { name = "codeium" },
                 { name = "luasnip" },
-                { name = "nvim_lsp" },
+                { name = 'nvim_lsp', trigger_characters = { '-' } },
                 {
                     name = "buffer",
                     option = {
