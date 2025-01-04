@@ -40,7 +40,7 @@ return {
                     ["*"] = { "trim_whitespace", "trim_newlines" },
                     -- lua = { "luaformatter" },
                     python = { "blue", "ruff_fix", "ruff_format" },
-                    php = { "php_cs_fixer" },
+                    php = { "php_cs_fixer", "lsp" },
                     blade = { "blade-formatter" },
                     javascript = { "prettier" },
                     typescript = { "prettier" },
@@ -96,8 +96,8 @@ return {
             })
 
             vim.api.nvim_create_user_command("AllFormat", function()
-                vim.lsp.buf.format({ async = true })
-                require("conform").format({ lsp_fallback = false })
+                -- vim.lsp.buf.format({ async = true })
+                require("conform").format({ lsp_fallback = true })
             end, {
                 desc = "Format using lsp zero then conform",
             })
