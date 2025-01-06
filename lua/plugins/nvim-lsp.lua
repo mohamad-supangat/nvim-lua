@@ -71,6 +71,8 @@ return {
     })
 
 
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
@@ -82,18 +84,22 @@ return {
       },
       handlers = {
         function(server_name)
-          require("lspconfig")[server_name].setup {}
+          require("lspconfig")[server_name].setup {
+            capabilities = capabilities
+          }
         end,
-        ["rust_analyzer"] = function()
-          require("rust-tools").setup {}
-        end,
+        -- ["rust_analyzer"] = function()
+        --   require("rust-tools").setup {}
+        -- end,
         ["unocss"] = function()
           require 'lspconfig'.unocss.setup {
+            capabilities = capabilities,
             filetypes = { 'css', 'vue', 'pug', 'html', 'blade' },
           }
         end,
         ["emmet_language_server"] = function()
           lspconfig.emmet_language_server.setup({
+            capabilities = capabilities,
             filetypes = {
               "css",
               "eruby",
