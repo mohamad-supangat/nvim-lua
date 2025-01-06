@@ -26,7 +26,7 @@ local filetypes = {
 }
 
 
-local exclude = {
+local cmpExcludes = {
     "terminal",
     "startify",
     "nvim-tree",
@@ -47,5 +47,6 @@ local exclude = {
 
 return {
     filetypes = filetypes,
-    exclude = exclude,
+    exclude = cmpExcludes,
+    cmpExcludes = cmpExcludes,
 }

@@ -204,9 +204,11 @@ return {
             },
         })
 
-
-        cmp.setup.filetype("vim", {
-            sources = vim.tbl_filter(function(source) return source.name ~= "codeium" end, cmp.config.sources()),
-        })
+        local cmpExcludes = require('variables').cmpExcludes
+        for index, filetype in ipairs(cmpExcludes) do
+            cmp.setup.filetype(filetype, {
+                enabled = false,
+            })
+        end
     end,
 }
