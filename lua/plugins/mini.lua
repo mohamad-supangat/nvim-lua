@@ -348,13 +348,7 @@ return {
         require("mini.bufremove").setup({
             set_vim_settings = true,
         })
-        require("mini.comment").setup({
-            options = {
-                custom_commentstring = function()
-                    return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
-                end,
-            },
-        })
+        require("mini.comment").setup()
         require("mini.bracketed").setup()
 
         -- pick {{{

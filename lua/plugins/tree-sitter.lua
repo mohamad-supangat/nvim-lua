@@ -2,23 +2,19 @@ local variables = require("variables")
 
 return {
     {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        lazy = false,
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-        },
-        opts = {
-            enable_autocmd = false,
-        },
+        "folke/ts-comments.nvim",
+        opts = {},
+        event = "VeryLazy",
+        enabled = vim.fn.has("nvim-0.10.0") == 1,
     },
     {
         "nvim-treesitter/nvim-treesitter-context",
-        enabled = true,
+        enabled = vim.fn.has("nvim-0.10.0") == 1,
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
         opts = {
-            enable = false,            -- Enable this plugin (Can be enabled/disabled later via commands)
+            enable = false,           -- Enable this plugin (Can be enabled/disabled later via commands)
             max_lines = 0,            -- How many lines the window should span. Values <= 0 mean no limit.
             min_window_height = 0,    -- Minimum editor window height to enable context. Values <= 0 mean no limit.
             line_numbers = true,
@@ -47,7 +43,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        enabled = true,
+        enabled = vim.fn.has("nvim-0.10.0") == 1,
         lazy = false,
         dependencies = {},
         config = function()
@@ -92,6 +88,7 @@ return {
         "danymat/neogen",
         dependencies = "nvim-treesitter/nvim-treesitter",
         event = "VeryLazy",
+        enabled = vim.fn.has("nvim-0.10.0") == 1,
         cmd = "Neogen",
         keys = {
             { "<Leader>nf", ":lua require('neogen').generate()<CR>", noremap = true, silent = true },
@@ -100,6 +97,7 @@ return {
     },
     {
         "windwp/nvim-ts-autotag",
+        enabled = vim.fn.has("nvim-0.10.0") == 1,
         lazy = false,
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
@@ -116,39 +114,5 @@ return {
                 },
             })
         end,
-    },
-
-    -- {
-    --     "HiPhish/rainbow-delimiters.nvim",
-    --     dependencies = "nvim-treesitter/nvim-treesitter",
-    --     enabled = false,
-    --     event = "BufEnter",
-    --     config = function()
-    --         local rainbow_delimiters = require("rainbow-delimiters")
-    --
-    --         vim.g.rainbow_delimiters = {
-    --             strategy = {
-    --                 [""] = rainbow_delimiters.strategy["global"],
-    --                 vim = rainbow_delimiters.strategy["local"],
-    --             },
-    --             query = {
-    --                 [""] = "rainbow-delimiters",
-    --                 lua = "rainbow-blocks",
-    --             },
-    --             priority = {
-    --                 [""] = 110,
-    --                 lua = 210,
-    --             },
-    --             highlight = {
-    --                 "RainbowDelimiterRed",
-    --                 "RainbowDelimiterYellow",
-    --                 "RainbowDelimiterBlue",
-    --                 "RainbowDelimiterOrange",
-    --                 "RainbowDelimiterGreen",
-    --                 "RainbowDelimiterViolet",
-    --                 "RainbowDelimiterCyan",
-    --             },
-    --         }
-    --     end,
-    -- },
+    }
 }
