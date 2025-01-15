@@ -15,9 +15,9 @@ return {
                 java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
                 python = "python3 -u",
                 -- typescript = "deno run -A",
-                typescript = "tsx",
+                typescript = "node  --experimental-strip-types --experimental-transform-types",
                 php = "php",
-                javascript = "tsx",
+                javascript = "node",
                 rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
             },
         })
