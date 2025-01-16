@@ -42,16 +42,16 @@ return {
                     python = { "blue", "ruff_fix", "ruff_format" },
                     php = { "php_cs_fixer", "lsp" },
                     blade = { "blade-formatter" },
-                    javascript = { "prettierd" },
-                    typescript = { "prettierd" },
-                    json = { "prettierd" },
-                    jsonc = { "prettierd" },
-                    vue = { "prettierd" },
-                    pug = { "prettierd" },
-                    -- html = { "prettierd" },
-                    css = { "prettierd" },
-                    scss = { "prettierd" },
-                    sass = { "prettierd" },
+                    javascript = { "prettier" },
+                    typescript = { "prettier" },
+                    json = { "prettier" },
+                    jsonc = { "prettier" },
+                    vue = { "prettier" },
+                    pug = { "prettier" },
+                    -- html = { "prettier" },
+                    css = { "prettier" },
+                    scss = { "prettier" },
+                    sass = { "prettier" },
                     bash = { "shfmt" },
                     sh = { "shfmt" },
                     nginx = { "nginxfmt" }
@@ -96,7 +96,7 @@ return {
             })
 
             vim.api.nvim_create_user_command("AllFormat", function()
-                -- vim.lsp.buf.format({ async = true })
+                vim.lsp.buf.format({ async = true })
                 require("conform").format({ lsp_fallback = true })
             end, {
                 desc = "Format using lsp zero then conform",
