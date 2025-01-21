@@ -96,8 +96,8 @@ return {
             })
 
             vim.api.nvim_create_user_command("AllFormat", function()
-                vim.lsp.buf.format({ async = true })
-                require("conform").format({ lsp_fallback = true })
+                vim.lsp.buf.format({ async = false })
+                require("conform").format({ lsp_fallback = false })
             end, {
                 desc = "Format using lsp zero then conform",
             })

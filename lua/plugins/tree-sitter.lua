@@ -65,9 +65,21 @@ return {
                     vim.opt.filetype = "blade"
                 end,
             })
+
+
             vim.filetype.add({
                 pattern = {
                     [".*%.blade%.php"] = "blade",
+                    [".*%.http"] = "http",
+                    ["*%.http"] = "http",
+                    ["%.http"] = "http",
+                    ["*.http"] = "http",
+                },
+            })
+
+            vim.filetype.add({
+                extension = {
+                    ['http'] = 'http',
                 },
             })
 
