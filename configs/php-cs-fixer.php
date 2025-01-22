@@ -16,10 +16,10 @@ return (new PhpCsFixer\Config())
                     'return',
                 ],
             ],
-            'braces_position' => [
-                'allow_single_line_anonymous_functions'     => true,
-                'allow_single_line_empty_anonymous_classes' => true,
-            ],
+            // 'braces_position' => [
+            //     'allow_single_line_anonymous_functions'     => true,
+            //     'allow_single_line_empty_anonymous_classes' => true,
+            // ],
             'class_attributes_separation' => [
                 'elements' => [
                     'method' => 'one',
@@ -62,10 +62,10 @@ return (new PhpCsFixer\Config())
             // 'single_line_throw'                                => false,
             // 'use_arrow_functions'                              => true,
             // 'nullable_type_declaration_for_default_null_value' => true,
-            'trailing_comma_in_multiline'                      => [
-                'after_heredoc' => false,
-                'elements'      => ['arguments', 'arrays', 'match', 'parameters'],
-            ],
+            // 'trailing_comma_in_multiline'                      => [
+            //     'after_heredoc' => false,
+            //     'elements'      => ['arguments', 'arrays', 'match', 'parameters'],
+            // ],
             'ordered_interfaces' => true,
         ],
     )
