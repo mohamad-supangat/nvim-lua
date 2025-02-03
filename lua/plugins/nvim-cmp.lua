@@ -1,7 +1,7 @@
 return {
     "iguanacucumber/magazine.nvim",
     name = "nvim-cmp", -- Otherwise highlighting gets messed up
-    enabled = false,
+    enabled = true,
     event = "InsertEnter",
     -- "hrsh7th/nvim-cmp",
     dependencies = {
@@ -60,6 +60,9 @@ return {
         local compare = require('cmp.config.compare')
         local types = require('cmp.types')
         cmp.setup({
+            view = {
+                entries = "custom",
+            },
             enabled = function()
                 local disabled = false
                 disabled = disabled or (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'prompt')
@@ -73,7 +76,7 @@ return {
             performance = {
                 debounce = 60,
                 throttle = 30,
-                fetching_timeout = 500,
+                fetching_timeout = 2000,
                 filtering_context_budget = 3,
                 confirm_resolve_timeout = 80,
                 async_budget = 1,
@@ -87,6 +90,7 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
+                -- ["<A-y>"] = require('minuet').make_cmp_map(),
                 -- ["<C-k>"] = cmp.mapping.select_prev_item(),
                 -- ["<C-j>"] = cmp.mapping.select_next_item(),
                 ["<C-j>"] = cmp.mapping(function(fallback)
@@ -178,6 +182,7 @@ return {
                 },
             },
             sources = {
+                -- { name = 'minuet' },
                 { name = "codeium" },
                 { name = "luasnip" },
                 { name = 'nvim_lsp', trigger_characters = { '-' } },
@@ -199,8 +204,8 @@ return {
             },
 
             window = {
-                -- completion = cmp.config.window.bordered(),
-                -- documentation = cmp.config.window.bordered(),
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
             },
         })
 

@@ -101,6 +101,13 @@ return {
             desc = "Rename File",
         },
         { "<C-z>", function() Snacks.zen() end, desc = "Toggle Zen Mode" },
+        {
+            "<leader>do",
+            function()
+                Snacks.terminal('lazydocker')
+            end,
+            desc = "Toggle Lazydocker",
+        },
         -- {
         --     "<c-/>",
         --     function()

@@ -216,7 +216,7 @@ return {
 
         -- files {{{
         local MiniFiles = require("mini.files")
-        require("functions.mini-files-git")
+        -- require("functions.mini-files-git")
 
         MiniFiles.setup({
             use_as_default_explorer = true,

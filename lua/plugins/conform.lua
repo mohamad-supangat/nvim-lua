@@ -48,7 +48,7 @@ return {
                     jsonc = { "prettier" },
                     vue = { "prettier" },
                     pug = { "prettier" },
-                    -- html = { "prettier" },
+                    html = { "prettier" },
                     css = { "prettier" },
                     scss = { "prettier" },
                     sass = { "prettier" },
