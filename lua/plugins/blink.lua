@@ -4,7 +4,15 @@ return {
     version = "v0.*",
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
-
+        {
+            "aliaksandr-trush/codeium.nvim",
+            enabled = true,
+            branch = 'blink',
+            opts = {
+                enable_cmp_source = false
+                -- enable_chat = true,
+            },
+        },
     },
     opts = {
         enabled = function()
@@ -25,39 +33,24 @@ return {
                 "lsp",
                 "path",
                 "buffer",
-                'minuet'
+                "codeium"
             },
             providers = {
-                minuet = {
-                    name = 'minuet',
+                codeium = {
+                    name = 'Codeium',
+                    module = 'codeium.blink',
                     async = true,
-                    module = 'minuet.blink',
-                    score_offset = 100,
+                    score_offset = 1000,
                     transform_items = function(_, items)
                         local CompletionItemKind = require('blink.cmp.types').CompletionItemKind
                         local kind_idx = #CompletionItemKind + 1
-                        CompletionItemKind[kind_idx] = ' AI'
+                        CompletionItemKind[kind_idx] = 'Codeium'
                         for _, item in ipairs(items) do
                             item.kind = kind_idx
                         end
                         return items
                     end,
                 },
-                -- codeium = {
-                --     name = 'Codeium',
-                --     module = 'codeium.blink',
-                --     async = true,
-                --     score_offset = 1000,
-                --     transform_items = function(_, items)
-                --         local CompletionItemKind = require('blink.cmp.types').CompletionItemKind
-                --         local kind_idx = #CompletionItemKind + 1
-                --         CompletionItemKind[kind_idx] = 'Codeium'
-                --         for _, item in ipairs(items) do
-                --             item.kind = kind_idx
-                --         end
-                --         return items
-                --     end,
-                -- },
             },
         },
 
@@ -98,7 +91,7 @@ return {
         completion = {
             keyword = { range = 'full' },
             accept = { auto_brackets = { enabled = false } },
-            list = { selection = 'preselect' },
+            -- list = { selection = 'preselect' },
             menu = {
                 auto_show = function(ctx)
                     return ctx.mode ~= 'cmdline' and
