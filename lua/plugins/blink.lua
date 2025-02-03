@@ -1,26 +1,10 @@
 return {
     "saghen/blink.cmp",
-    enabled = false,
+    enabled = true,
     version = "v0.*",
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
-        {
-            "aliaksandr-trush/codeium.nvim",
-            enabled = true,
-            branch = 'blink',
-            opts = {
-                enable_cmp_source = false
-                -- enable_chat = true,
-            },
-        },
-        -- {
-        --     "L3MON4D3/LuaSnip",
-        --     dev = false,
-        --     config = function()
-        --         require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/.config/nvim/snippets/" } })
-        --         require("luasnip.loaders.from_vscode").lazy_load()
-        --     end,
-        -- },
+
     },
     opts = {
         enabled = function()
@@ -34,46 +18,46 @@ return {
             --     force_version = "v0.7.3",
             -- },
         },
-        -- snippets = {
-        --     expand = function(snippet)
-        --         require("luasnip").lsp_expand(snippet)
-        --     end,
-        --     active = function(filter)
-        --         if filter and filter.direction then
-        --             return require("luasnip").jumpable(filter.direction)
-        --         end
-        --         return require("luasnip").in_snippet()
-        --     end,
-        --     jump = function(direction)
-        --         require("luasnip").jump(direction)
-        --     end,
-        -- },
 
         sources = {
             default = {
-                "codeium",
-                -- "luasnip",
                 "snippets",
                 "lsp",
                 "path",
                 "buffer",
+                'minuet'
             },
             providers = {
-                codeium = {
-                    name = 'Codeium',
-                    module = 'codeium.blink',
+                minuet = {
+                    name = 'minuet',
                     async = true,
-                    score_offset = 1000,
+                    module = 'minuet.blink',
+                    score_offset = 100,
                     transform_items = function(_, items)
                         local CompletionItemKind = require('blink.cmp.types').CompletionItemKind
                         local kind_idx = #CompletionItemKind + 1
-                        CompletionItemKind[kind_idx] = 'Codeium'
+                        CompletionItemKind[kind_idx] = ' AI'
                         for _, item in ipairs(items) do
                             item.kind = kind_idx
                         end
                         return items
                     end,
                 },
+                -- codeium = {
+                --     name = 'Codeium',
+                --     module = 'codeium.blink',
+                --     async = true,
+                --     score_offset = 1000,
+                --     transform_items = function(_, items)
+                --         local CompletionItemKind = require('blink.cmp.types').CompletionItemKind
+                --         local kind_idx = #CompletionItemKind + 1
+                --         CompletionItemKind[kind_idx] = 'Codeium'
+                --         for _, item in ipairs(items) do
+                --             item.kind = kind_idx
+                --         end
+                --         return items
+                --     end,
+                -- },
             },
         },
 
@@ -122,7 +106,6 @@ return {
                         not vim.tbl_contains(require('variables').exclude, vim.bo.filetype)
                 end,
                 draw = {
-                    -- columns = { { "kind_icon" }, { "label", "label_description", gap = 1 } },
                     gap = 2,
                     columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
                     components = {
@@ -153,6 +136,7 @@ return {
                 },
             },
             trigger = {
+                prefetch_on_insert = false,
                 show_on_trigger_character = false,
                 show_on_insert_on_trigger_character = false,
                 show_on_accept_on_trigger_character = false,

@@ -71,7 +71,7 @@ return {
     })
 
 
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     require("mason-lspconfig").setup({
       ensure_installed = {
@@ -85,7 +85,7 @@ return {
       handlers = {
         function(server_name)
           require("lspconfig")[server_name].setup {
-            capabilities = capabilities
+            -- capabilities = capabilities
           }
         end,
         -- ["rust_analyzer"] = function()
