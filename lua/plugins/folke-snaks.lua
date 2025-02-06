@@ -11,8 +11,9 @@ return {
             enabled = true,
         },
         indent = {
-            enabled = false,
+            enabled = true,
             scope = {
+                enabled = false,
                 animate = {
                     enabled = false
                 },
@@ -22,9 +23,9 @@ return {
                 animate = {
                     enabled = false
                 },
-            }
-            -- char = "│",
-            -- blank = " ",
+            },
+            char = "│",
+            blank = " ",
         },
         input = { enabled = true },
         notifier = {
