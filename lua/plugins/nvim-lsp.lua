@@ -46,6 +46,8 @@ return {
       --   header = '',
       --   prefix = '',
       -- },
+      virtual_lines = false,
+      underline = true,
       virtual_text = true,
     })
   end,

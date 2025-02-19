@@ -5,14 +5,21 @@ return {
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
         {
-            "aliaksandr-trush/codeium.nvim",
-            enabled = true,
-            branch = 'blink',
+            "saghen/blink.compat",
             opts = {
-                enable_cmp_source = false
+                impersonate_nvim_cmp = true,
+                enable_events = true
+            }
+        },
+        {
+            "Exafunction/codeium.nvim",
+            enabled = true,
+            opts = {
+                enable_cmp_source = true
                 -- enable_chat = true,
             },
         },
+
     },
     opts = {
         enabled = function()
@@ -38,8 +45,8 @@ return {
             providers = {
                 codeium = {
                     name = 'Codeium',
-                    module = 'codeium.blink',
-                    async = true,
+                    module = 'blink.compat.source',
+                    -- async = true,
                     score_offset = 1000,
                     transform_items = function(_, items)
                         local CompletionItemKind = require('blink.cmp.types').CompletionItemKind
@@ -73,25 +80,10 @@ return {
             ["<C-b>"] = { "scroll_documentation_up", "fallback" },
             ["<C-f>"] = { "scroll_documentation_down", "fallback" },
         },
-
-        -- trigger = { signature_help = { enabled = true } },
-        --
-        -- keymap = {
-        --     show = "<C-space>",
-        --     hide = { "<C-d>" },
-        --     accept = { "<CR>", "<Tab>" },
-        --     select_prev = { "<Up>", "<C-p>", "<C-k>" },
-        --     select_next = { "<Down>", "<C-n>", "<C-j>" },
-        --     show_documentation = {},
-        --     hide_documentation = {},
-        --     scroll_documentation_up = "<C-y>",
-        --     scroll_documentation_down = "<C-e>",
-        -- },
-
         completion = {
             keyword = { range = 'full' },
             accept = { auto_brackets = { enabled = false } },
-            -- list = { selection = 'preselect' },
+            list = { selection = { preselect = true, auto_insert = false } },
             menu = {
                 auto_show = function(ctx)
                     return ctx.mode ~= 'cmdline' and

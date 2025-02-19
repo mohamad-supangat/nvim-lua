@@ -39,6 +39,9 @@ return {
             notification = {
                 wo = { wrap = true },
             },
+            zen = {
+                width = 0
+            }
         },
         lazygit = {
             configure = true,
