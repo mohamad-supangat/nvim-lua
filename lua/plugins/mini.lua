@@ -153,7 +153,13 @@ return {
                     return MiniStatusline.combine_groups({
                         {
                             hl = mode_hl,
-                            strings = { mode, macro_recording_status() },
+                            strings = {
+                                mode,
+                                -- macro_recording_status(),
+                                require("recorder").recordingStatus(),
+                                require("recorder").displaySlots()
+
+                            },
                         },
                         "%<", -- Mark general truncate point
                         {

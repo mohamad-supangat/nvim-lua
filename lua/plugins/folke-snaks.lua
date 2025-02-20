@@ -27,7 +27,7 @@ return {
             char = "│",
             blank = " ",
         },
-        input = { enabled = true },
+        input = { enabled = false },
         notifier = {
             enabled = false,
             timeout = 3000,
