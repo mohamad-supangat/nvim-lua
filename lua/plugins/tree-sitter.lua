@@ -123,7 +123,7 @@ return {
                 },
                 aliases = {
                     ["blade"] = "html",
-                    ["handlebars"] = "html",
+                    ["html.handlebars"] = "html",
                 },
             })
         end,

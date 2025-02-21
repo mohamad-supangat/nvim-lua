@@ -116,7 +116,7 @@ return {
               "blade",
               "vue",
               "php",
-              "handlebars",
+              "html.handlebars",
             },
           })
         end,
