@@ -60,9 +60,12 @@ return {
                 formatters = {
                     php_cs_fixer = {
                         command = "php-cs-fixer",
-                        args = { "fix", "$FILENAME", "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" },
-                        stdin = false,
-                        cwd = util.root_file({ "composer.json" }),
+                        env     = {
+                            PHP_CS_FIXER_IGNORE_ENV = "1"
+                        },
+                        args    = { "fix", "$FILENAME", "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" },
+                        stdin   = false,
+                        cwd     = util.root_file({ "composer.json" }),
                     },
                 },
             })
