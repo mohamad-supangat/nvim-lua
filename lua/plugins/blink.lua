@@ -2,8 +2,8 @@ return {
     {
         "saghen/blink.cmp",
         enabled = true,
-        version = '*',
-        -- version = false,
+        -- version = '*',
+        version = false,
         event = { "LspAttach", "InsertCharPre" },
         dependencies = {
             -- {
@@ -23,6 +23,7 @@ return {
             end,
             fuzzy = {
                 sorts = { "score", "label" },
+                implementation = "lua"
                 -- prebuilt_binaries = {
                 --     force_version = "v0.7.3",
                 -- },
@@ -87,7 +88,7 @@ return {
                     draw = {
                         gap = 2,
                         columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
-                        treesitter = { 'lsp' }
+                        -- treesitter = { 'lsp' }
                     },
                 },
                 documentation = {
