@@ -1,11 +1,10 @@
 return {
     {
         'milanglacier/minuet-ai.nvim',
-        enabled = false,
+        enabled = true,
         config = function()
             require('minuet').setup {
                 provider = 'gemini',
-                -- Your configuration options here
             }
         end,
     },
