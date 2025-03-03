@@ -1,7 +1,7 @@
 return {
     {
         "saghen/blink.cmp",
-        enabled = true,
+        enabled = false,
         -- version = '*',
         version = false,
         event = { "LspAttach", "InsertCharPre" },
