@@ -45,7 +45,7 @@ return {
                         name = 'minuet',
                         module = 'minuet.blink',
                         async = true,
-                        score_offset = 100,
+                        score_offset = 10000,
                     },
                 },
             },
@@ -114,9 +114,9 @@ return {
                 -- nerd_font_variant = 'mono'
             },
         },
-        opts_extend = {
-            "sources.default",
-            "sources.completion.enabled_providers"
-        },
+        -- opts_extend = {
+        -- "sources.default",
+        -- "sources.completion.enabled_providers"
+        -- },
     }
 }
