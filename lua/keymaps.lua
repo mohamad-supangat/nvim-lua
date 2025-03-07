@@ -41,8 +41,12 @@ vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true, desc = "Indent 
 -- copy paste in neovim
 vim.keymap.set("n", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true, desc = "Select All Text in current file" })
 vim.keymap.set({ "i", "t" }, "<A-BS>", "<C-W>", { noremap = true, silent = true, desc = "delete word" })
-vim.keymap.set("v", "<BS>", '"_d',
-    { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
+vim.keymap.set(
+  "v",
+  "<BS>",
+  '"_d',
+  { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" }
+)
 -- vim.keymap.set("n", "dd", '"_d', { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
 -- vim.keymap.set("x", "dd", '"_d', { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
 -- vim.keymap.set("v", "dd", '"_d', { noremap = true, silent = true, desc = "Delete without cut /copy to buffer clipboard" })
@@ -92,18 +96,12 @@ vim.keymap.set("n", "<leader>|", "<C-w>v<C-w>l", { noremap = true, silent = true
 
 -- change current cwd to current file dir
 vim.keymap.set(
-    "n",
-    "<leader>cd",
-    ":cd %:p:h<CR>",
-    { noremap = true, silent = true, desc = "Change dir to current opened file" }
+  "n",
+  "<leader>cd",
+  ":cd %:p:h<CR>",
+  { noremap = true, silent = true, desc = "Change dir to current opened file" }
 )
 
-
-vim.keymap.set(
-    "n",
-    "<leader>ft",
-    function()
-        vim.notify(vim.bo.filetype)
-    end,
-    { noremap = true, silent = true, desc = "Change dir to current opened file" }
-)
+vim.keymap.set("n", "<leader>ft", function()
+  vim.notify(vim.bo.filetype)
+end, { noremap = true, silent = true, desc = "Change dir to current opened file" })

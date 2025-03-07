@@ -1,10 +1,10 @@
 return {
-    'mistweaverco/kulala.nvim',
-    enabled = false,
-    keys = { "<leader>Rs", "<leader>Ra", "<leader>Ro" },
-    ft = { "http", "rest" },
-    opts = {
-        -- your configuration comes here
-        global_keymaps = true,
-    },
+  "mistweaverco/kulala.nvim",
+  enabled = false,
+  keys = { "<leader>Rs", "<leader>Ra", "<leader>Ro" },
+  ft = { "http", "rest" },
+  opts = {
+    -- your configuration comes here
+    global_keymaps = true,
+  },
 }

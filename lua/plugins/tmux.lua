@@ -1,4 +1,4 @@
 return {
-    "aserowy/tmux.nvim",
-    opts = {}
+  "aserowy/tmux.nvim",
+  opts = {},
 }

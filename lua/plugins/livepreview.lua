@@ -1,5 +1,4 @@
 return {
-    'brianhuster/live-preview.nvim',
-    dependencies = {
-    },
+  "brianhuster/live-preview.nvim",
+  dependencies = {},
 }
