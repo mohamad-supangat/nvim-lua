@@ -16,8 +16,8 @@ return {
     },
     opts = {
       enabled = function()
-        return vim.b.completion ~= false
-        -- return not vim.tbl_contains(require('variables').exclude, vim.bo.filetype)
+        -- return vim.b.completion ~= false
+        return not vim.tbl_contains(require("variables").exclude, vim.bo.filetype)
         --     and vim.bo.buftype ~= "prompt"
         --     and vim.b.completion ~= false
       end,
@@ -78,12 +78,12 @@ return {
         accept = { auto_brackets = { enabled = false } },
         list = { selection = { preselect = true, auto_insert = false } },
         menu = {
-          auto_show = true,
-          -- auto_show = function(ctx)
-          --     return ctx.mode ~= 'cmdline' and
-          --         not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype()) and
-          --         not vim.tbl_contains(require('variables').exclude, vim.bo.filetype)
-          -- end,
+          -- auto_show = true,
+          auto_show = function(ctx)
+            -- return ctx.mode ~= 'cmdline' and
+            -- not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype()) and
+            return not vim.tbl_contains(require("variables").exclude, vim.bo.filetype)
+          end,
           draw = {
             gap = 2,
             columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },

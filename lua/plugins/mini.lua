@@ -59,16 +59,16 @@ return {
     require("mini.extra").setup()
     vim.o.background = os.getenv("NVIM_BACKGROUND") or "light"
 
-    local hues = require("mini.hues")
-    local base_colors = hues.gen_random_base_colors()
-    hues.setup({
-      background = base_colors.background,
-      foreground = base_colors.foreground,
-      n_hues = 8,
-      saturation = vim.o.background == "dark" and "medium" or "high",
-      accent = "bg",
-      use_cterm = true,
-    })
+    -- local hues = require("mini.hues")
+    -- local base_colors = hues.gen_random_base_colors()
+    -- hues.setup({
+    --   background = base_colors.background,
+    --   foreground = base_colors.foreground,
+    --   n_hues = 8,
+    --   saturation = vim.o.background == "dark" and "medium" or "high",
+    --   accent = "bg",
+    --   use_cterm = true,
+    -- })
 
     -- mini starter {{{
     local my_items = {

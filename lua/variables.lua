@@ -42,6 +42,7 @@ local cmpExcludes = {
   "fzf",
   "Terminal",
   "sh",
+  "snacks_picker_input",
 }
 
 return {

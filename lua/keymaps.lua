@@ -40,7 +40,7 @@ vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true, desc = "Indent 
 
 -- copy paste in neovim
 vim.keymap.set("n", "<C-a>", "<Esc>ggVG", { noremap = true, silent = true, desc = "Select All Text in current file" })
-vim.keymap.set({ "i", "t" }, "<A-BS>", "<C-W>", { noremap = true, silent = true, desc = "delete word" })
+vim.keymap.set({ "i", "t", "v" }, "<A-BS>", "<C-W>", { noremap = true, silent = true, desc = "delete word" })
 vim.keymap.set(
   "v",
   "<BS>",

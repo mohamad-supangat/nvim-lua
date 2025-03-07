@@ -10,6 +10,7 @@ return {
     dim = {
       enabled = true,
     },
+    explorer = { enabled = false },
     indent = {
       enabled = true,
       scope = {
@@ -19,7 +20,7 @@ return {
         },
       },
       chunk = {
-        enabled = false,
+        enabled = true,
         animate = {
           enabled = false,
         },
@@ -27,7 +28,33 @@ return {
       char = "│",
       blank = " ",
     },
-    input = { enabled = false },
+    picker = {
+      win = {
+        keys = {
+          i_del_word = { "<A-BS>", "delete_word", mode = "i", expr = true },
+        },
+        actions = {
+          delete_word = function()
+            vim.cmd("normal! diw<cr>")
+          end,
+        },
+      },
+    },
+    input = {
+      enabled = false,
+      win = {
+        border = "single",
+        -- https://github.com/folke/snacks.nvim/discussions/376
+        keys = {
+          i_del_word = { "<A-BS>", "delete_word", mode = "i", expr = true },
+        },
+        actions = {
+          delete_word = function()
+            vim.cmd("normal! diw<cr>")
+          end,
+        },
+      },
+    },
     notifier = {
       enabled = false,
       timeout = 3000,
@@ -151,13 +178,13 @@ return {
 
     -- snack Picker
     -- Top Pickers & Explorer
-    {
-      "<leader><space>",
-      function()
-        Snacks.picker.smart()
-      end,
-      desc = "Smart Find Files",
-    },
+    -- {
+    --   "<leader><space>",
+    --   function()
+    --     Snacks.picker.smart()
+    --   end,
+    --   desc = "Smart Find Files",
+    -- },
     {
       "<leader>,",
       function()
@@ -186,13 +213,13 @@ return {
       end,
       desc = "Notification History",
     },
-    {
-      "<C-n>",
-      function()
-        Snacks.explorer()
-      end,
-      desc = "File Explorer",
-    },
+    -- {
+    --   "<C-n>",
+    --   function()
+    --     Snacks.explorer()
+    --   end,
+    --   desc = "File Explorer",
+    -- },
     -- find
     {
       "<leader>fb",
@@ -514,6 +541,12 @@ return {
         Snacks.picker.lsp_workspace_symbols()
       end,
       desc = "LSP Workspace Symbols",
+    },
+
+    -- Some keymaps
+    {
+      "<A-BS>",
+      "<C-W>",
     },
   },
   init = function()
