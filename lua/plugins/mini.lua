@@ -70,6 +70,10 @@ return {
     --   use_cterm = true,
     -- })
 
+    require("mini.base16").setup({
+      palette = require("colorschemes.rose-pine"),
+    })
+
     -- mini starter {{{
     local my_items = {
       -- { name = "Open FZF file finder",   action = "FzfLua files",                           section = "Builtin actions" },
@@ -220,39 +224,39 @@ return {
     -- })
 
     -- files {{{
-    -- local MiniFiles = require("mini.files")
-    -- -- require("functions.mini-files-git")
-    --
-    -- MiniFiles.setup({
-    --     use_as_default_explorer = true,
-    --     content = {
-    --         filter = function(fs_entry)
-    --             return true
-    --         end,
-    --         -- prefix = function()
-    --         --
-    --         -- end
-    --     },
-    --     width_focus = 30,
-    --     width_nofocus = 20,
-    --     width_preview = 25,
-    --     mappings = {
-    --         go_in = "L",
-    --         go_in_plus = "l",
-    --         go_out = "H",
-    --         go_out_plus = "h",
-    --     },
-    -- })
-    --
-    -- -- toggle file explorer
-    -- local minifiles_toggle = function()
-    --     if not MiniFiles.close() then
-    --         MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-    --         MiniFiles.reveal_cwd()
-    --     end
-    -- end
-    --
-    -- vim.keymap.set("n", "<C-n>", minifiles_toggle, { desc = "Toggle File Explorer" })
+    local MiniFiles = require("mini.files")
+    -- require("functions.mini-files-git")
+
+    MiniFiles.setup({
+      use_as_default_explorer = true,
+      content = {
+        filter = function(fs_entry)
+          return true
+        end,
+        -- prefix = function()
+        --
+        -- end
+      },
+      width_focus = 30,
+      width_nofocus = 20,
+      width_preview = 25,
+      mappings = {
+        go_in = "L",
+        go_in_plus = "l",
+        go_out = "H",
+        go_out_plus = "h",
+      },
+    })
+
+    -- toggle file explorer
+    local minifiles_toggle = function()
+      if not MiniFiles.close() then
+        MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+        MiniFiles.reveal_cwd()
+      end
+    end
+
+    vim.keymap.set("n", "<C-n>", minifiles_toggle, { desc = "Toggle File Explorer" })
 
     vim.api.nvim_create_autocmd("User", {
       pattern = "MiniFilesBufferCreate",

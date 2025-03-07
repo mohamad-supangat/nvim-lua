@@ -34,14 +34,13 @@ return {
           return {
             IblIndent = { fg = colors.mantle },
             IblScope = { fg = colors.surface1 },
-
             LineNr = { fg = colors.surface1 },
           }
         end,
       },
     })
 
-    vim.opt.background = "light"
+    -- vim.opt.background = "light"
     vim.api.nvim_command("colorscheme catppuccin")
   end,
 }

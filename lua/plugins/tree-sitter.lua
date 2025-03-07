@@ -61,30 +61,30 @@ return {
         filetype = "blade",
       }
 
-      -- local bladeGrp = vim.api.nvim_create_augroup("BladeFiltypeRelated", { clear = true })
-      -- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-      --     pattern = "*.blade.php",
-      --     group = bladeGrp,
-      --     callback = function()
-      --         vim.opt.filetype = "blade"
-      --     end,
-      -- })
+      local bladeGrp = vim.api.nvim_create_augroup("BladeFiltypeRelated", { clear = true })
+      vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+        pattern = "*.blade.php",
+        group = bladeGrp,
+        callback = function()
+          vim.opt.filetype = "blade"
+        end,
+      })
 
-      -- vim.filetype.add({
-      --     pattern = {
-      --         [".*%.blade%.php"] = "blade",
-      --         [".*%.http"] = "http",
-      --         ["*%.http"] = "http",
-      --         ["%.http"] = "http",
-      --         ["*.http"] = "http",
-      --     },
-      -- })
-      --
-      -- vim.filetype.add({
-      --     extension = {
-      --         ['http'] = 'http',
-      --     },
-      -- })
+      vim.filetype.add({
+        pattern = {
+          [".*%.blade%.php"] = "blade",
+          [".*%.http"] = "http",
+          ["*%.http"] = "http",
+          ["%.http"] = "http",
+          ["*.http"] = "http",
+        },
+      })
+
+      vim.filetype.add({
+        extension = {
+          ["http"] = "http",
+        },
+      })
 
       require("nvim-treesitter.configs").setup({
         -- A list of parser names, or "all"

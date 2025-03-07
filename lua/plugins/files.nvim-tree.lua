@@ -1,7 +1,7 @@
 return {
   "nvim-tree/nvim-tree.lua",
   dependencies = {},
-  enabled = true,
+  enabled = false,
   cmd = { "NvimTreeToggle" },
   keys = {
     { "<C-n>", ":NvimTreeToggle<CR>", noremap = true, silent = true },
@@ -76,6 +76,11 @@ return {
       },
       renderer = {
         group_empty = true,
+        full_name = false,
+        indent_markers = {
+          enable = true,
+        },
+        root_folder_label = ":t",
       },
       filters = {
         dotfiles = false,
