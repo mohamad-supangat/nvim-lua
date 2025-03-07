@@ -1,7 +1,7 @@
 return {
     "numToStr/FTerm.nvim",
     dependencies = {
-        "nvim-lua/plenary.nvim"
+        "nvim-lua/plenary.nvim",
     },
     config = function()
         local status_ok, fterm = pcall(require, "FTerm")

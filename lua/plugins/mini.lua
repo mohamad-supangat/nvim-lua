@@ -209,51 +209,51 @@ return {
         require("mini.surround").setup()
         require("mini.git").setup()
 
-        require("mini.indentscope").setup({
-            symbol = "▏",
-            options = {
-                try_as_border = true,
-            },
-            draw = {
-                delay = 0,
-                animation = require("mini.indentscope").gen_animation.none(),
-            },
-        })
+        -- require("mini.indentscope").setup({
+        --     symbol = "▏",
+        --     options = {
+        --         try_as_border = true,
+        --     },
+        --     draw = {
+        --         delay = 0,
+        --         animation = require("mini.indentscope").gen_animation.none(),
+        --     },
+        -- })
 
         -- files {{{
-        local MiniFiles = require("mini.files")
-        -- require("functions.mini-files-git")
-
-        MiniFiles.setup({
-            use_as_default_explorer = true,
-            content = {
-                filter = function(fs_entry)
-                    return true
-                end,
-                -- prefix = function()
-                --
-                -- end
-            },
-            width_focus = 30,
-            width_nofocus = 20,
-            width_preview = 25,
-            mappings = {
-                go_in = "L",
-                go_in_plus = "l",
-                go_out = "H",
-                go_out_plus = "h",
-            },
-        })
-
-        -- toggle file explorer
-        local minifiles_toggle = function()
-            if not MiniFiles.close() then
-                MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-                MiniFiles.reveal_cwd()
-            end
-        end
-
-        vim.keymap.set("n", "<C-n>", minifiles_toggle, { desc = "Toggle File Explorer" })
+        -- local MiniFiles = require("mini.files")
+        -- -- require("functions.mini-files-git")
+        --
+        -- MiniFiles.setup({
+        --     use_as_default_explorer = true,
+        --     content = {
+        --         filter = function(fs_entry)
+        --             return true
+        --         end,
+        --         -- prefix = function()
+        --         --
+        --         -- end
+        --     },
+        --     width_focus = 30,
+        --     width_nofocus = 20,
+        --     width_preview = 25,
+        --     mappings = {
+        --         go_in = "L",
+        --         go_in_plus = "l",
+        --         go_out = "H",
+        --         go_out_plus = "h",
+        --     },
+        -- })
+        --
+        -- -- toggle file explorer
+        -- local minifiles_toggle = function()
+        --     if not MiniFiles.close() then
+        --         MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+        --         MiniFiles.reveal_cwd()
+        --     end
+        -- end
+        --
+        -- vim.keymap.set("n", "<C-n>", minifiles_toggle, { desc = "Toggle File Explorer" })
 
         vim.api.nvim_create_autocmd("User", {
             pattern = "MiniFilesBufferCreate",
@@ -383,62 +383,6 @@ return {
 
         vim.ui.select = MiniPick.ui_select
 
-        -- Picker pre- and post-hooks ===============================================
-        --
-        -- Keys should be a picker source.name. Value is a callback function that
-        -- accepts same arguments as User autocommand callback.
-        local pre_hooks = {}
-        local post_hooks = {}
-
-        local group = vim.api.nvim_create_augroup("minipick-hooks", { clear = true })
-        local create_minipick_auto_command = function(pattern, desc, hooks)
-            vim.api.nvim_create_autocmd({ "User" }, {
-                pattern = pattern,
-                group = group,
-                desc = desc,
-                callback = function(...)
-                    local opts = MiniPick.get_picker_opts()
-                    if opts and opts.source then
-                        local hook = hooks[opts.source.name] or function(...) end
-                        hook(...)
-                    end
-                end,
-            })
-        end
-        create_minipick_auto_command("MiniPickStart", "pre-hook for source.name", pre_hooks)
-        create_minipick_auto_command("MiniPickStop", "post-hook for source.name", post_hooks)
-
-        -- colorscheme picker
-        -- best Customize from
-        -- https://github.com/pkazmier/nvim/blob/main/lua/plugins/mini/pick.lua
-        local selected_colorscheme -- Currently selected or original colorscheme
-
-        pre_hooks.Colorschemes = function()
-            selected_colorscheme = vim.g.colors_name
-        end
-
-        post_hooks.Colorschemes = function()
-            vim.schedule(function()
-                vim.cmd("colorscheme " .. selected_colorscheme)
-            end)
-        end
-
-        MiniPick.registry.colorschemes = function()
-            local colorschemes = vim.fn.getcompletion("", "color")
-            return MiniPick.start({
-                source = {
-                    name = "Colorschemes",
-                    items = colorschemes,
-                    choose = function(item)
-                        selected_colorscheme = item
-                    end,
-                    preview = function(buf_id, item)
-                        vim.cmd("colorscheme " .. item)
-                        vim.api.nvim_buf_set_lines(buf_id, 0, -1, false, { item })
-                    end,
-                },
-            })
-        end
         vim.keymap.set("", "<C-p>", function()
             MiniPick.builtin.cli({
                 command = {
