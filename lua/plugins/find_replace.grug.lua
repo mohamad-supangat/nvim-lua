@@ -1,7 +1,9 @@
 return {
   "MagicDuck/grug-far.nvim",
-  config = function()
+  init = function()
     vim.g.maplocalleader = ","
+  end,
+  config = function()
     require("grug-far").setup({
       prefills = {
         search = "",
