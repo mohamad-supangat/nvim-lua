@@ -1,3 +1,4 @@
+vim.g.maplocalleader = ","
 return {
   "MagicDuck/grug-far.nvim",
   init = function()
