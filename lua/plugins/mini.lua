@@ -59,20 +59,20 @@ return {
     require("mini.extra").setup()
     vim.o.background = os.getenv("NVIM_BACKGROUND") or "light"
 
-    -- local hues = require("mini.hues")
-    -- local base_colors = hues.gen_random_base_colors()
-    -- hues.setup({
-    --   background = base_colors.background,
-    --   foreground = base_colors.foreground,
-    --   n_hues = 8,
-    --   saturation = vim.o.background == "dark" and "medium" or "high",
-    --   accent = "bg",
-    --   use_cterm = true,
-    -- })
-
-    require("mini.base16").setup({
-      palette = require("colorschemes.rose-pine"),
+    local hues = require("mini.hues")
+    local base_colors = hues.gen_random_base_colors()
+    hues.setup({
+      background = base_colors.background,
+      foreground = base_colors.foreground,
+      n_hues = 8,
+      saturation = vim.o.background == "dark" and "medium" or "high",
+      accent = "bg",
+      use_cterm = true,
     })
+
+    -- require("mini.base16").setup({
+    --   palette = require("colorschemes.rose-pine"),
+    -- })
 
     -- mini starter {{{
     local my_items = {
@@ -211,17 +211,6 @@ return {
     require("mini.splitjoin").setup()
     require("mini.surround").setup()
     require("mini.git").setup()
-
-    -- require("mini.indentscope").setup({
-    --     symbol = "▏",
-    --     options = {
-    --         try_as_border = true,
-    --     },
-    --     draw = {
-    --         delay = 0,
-    --         animation = require("mini.indentscope").gen_animation.none(),
-    --     },
-    -- })
 
     -- files {{{
     local MiniFiles = require("mini.files")
