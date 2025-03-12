@@ -6,12 +6,26 @@ return {
     version = false,
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
+      {
+        "aliaksandr-trush/codeium.nvim",
+        branch = "blink",
+        opts = {
+          enable_cmp_source = false,
+        },
+      },
       -- {
-      --     "saghen/blink.compat",
-      --     opts = {
-      --         impersonate_nvim_cmp = true,
-      --         enable_events = true
-      --     }
+      --   "saghen/blink.compat",
+      --   opts = {
+      --     impersonate_nvim_cmp = true,
+      --     enable_events = true,
+      --   },
+      -- },
+      -- {
+      --   "Exafunction/codeium.nvim",
+      --   dependencies = {
+      --     "nvim-lua/plenary.nvim",
+      --   },
+      --   opts = {},
       -- },
     },
     opts = {
@@ -31,12 +45,13 @@ return {
 
       sources = {
         default = {
+          "codeium",
           "lazydev",
           "snippets",
           "lsp",
           "path",
           "buffer",
-          "minuet",
+          -- "minuet",
         },
         per_filetype = {
           codecompanion = { "codecompanion" },
@@ -48,6 +63,12 @@ return {
             async = true,
             score_offset = 10000,
           },
+          codeium = { name = "Codeium", module = "codeium.blink", async = true, score_offset = 10000 },
+          -- codeium = {
+          --   name = "codeium",
+          --   module = "blink.compat.source",
+          --   score_offset = 10000,
+          -- },
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
