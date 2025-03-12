@@ -6,20 +6,26 @@ return {
     version = false,
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
-      {
-        "aliaksandr-trush/codeium.nvim",
-        branch = "blink",
-        opts = {
-          enable_cmp_source = false,
-        },
-      },
       -- {
-      --   "saghen/blink.compat",
+      --   "aliaksandr-trush/codeium.nvim",
+      --   branch = "blink",
       --   opts = {
-      --     impersonate_nvim_cmp = true,
-      --     enable_events = true,
+      --     enable_cmp_source = false,
       --   },
       -- },
+      {
+        "saghen/blink.compat",
+        opts = {
+          impersonate_nvim_cmp = true,
+          enable_events = true,
+        },
+      },
+      {
+        "supermaven-inc/supermaven-nvim",
+        opts = {
+          disable_inline_completion = true,
+        },
+      },
       -- {
       --   "Exafunction/codeium.nvim",
       --   dependencies = {
@@ -45,7 +51,8 @@ return {
 
       sources = {
         default = {
-          "codeium",
+          "supermaven",
+          -- "codeium",
           "lazydev",
           "snippets",
           "lsp",
@@ -57,6 +64,20 @@ return {
           codecompanion = { "codecompanion" },
         },
         providers = {
+          supermaven = {
+            name = "supermaven",
+            module = "blink.compat.source",
+            score_offset = 10000,
+            transform_items = function(_, items)
+              local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+              local kind_idx = #CompletionItemKind + 1
+              CompletionItemKind[kind_idx] = "Supermaven"
+              for _, item in ipairs(items) do
+                item.kind = kind_idx
+              end
+              return items
+            end,
+          },
           minuet = {
             name = "minuet",
             module = "minuet.blink",
