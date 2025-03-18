@@ -60,9 +60,6 @@ return {
           "buffer",
           -- "minuet",
         },
-        per_filetype = {
-          codecompanion = { "codecompanion" },
-        },
         providers = {
           supermaven = {
             name = "supermaven",
