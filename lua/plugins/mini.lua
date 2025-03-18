@@ -5,55 +5,18 @@ return {
   dependencies = {
     "SmiteshP/nvim-navic",
     {
-      "s1n7ax/nvim-window-picker",
-      name = "window-picker",
-      event = "VeryLazy",
-      version = "2.*",
-      config = function()
-        require("window-picker").setup({
-          hint = "floating-big-letter",
-          autoselect_one = true,
-          include_current = false,
-          selection_chars = "ABCDEFGHIJLK",
-          filter_rules = {
-            bo = {
-              filetype = { "neo-tree", "neo-tree-popup", "notify", "minifiles" },
-              buftype = { "terminal", "quickfix", "minifiles" },
-            },
-          },
-          other_win_hl_color = "#900000",
-        })
-      end,
+      "gbrlsnchs/winpick.nvim",
+      opts = {
+        border = "double",
+        filter = function(winid, bufnr)
+          if vim.tbl_contains(require("variables").exclude, vim.api.nvim_buf_get_option(bufnr, "buftype")) then
+            return false
+          end
+          return true
+        end,
+        prompt = "Pick a window: ",
+      },
     },
-    -- {
-    --     "benlubas/cmp2lsp",
-    --     dependencies = {
-    --         {
-    --             "L3MON4D3/LuaSnip",
-    --             dev = false,
-    --             config = function()
-    --                 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/projects/snippets" } })
-    --                 require("luasnip.loaders.from_vscode").lazy_load()
-    --             end,
-    --         },
-    --         "saadparwaiz1/cmp_luasnip",
-    --         "hrsh7th/cmp-path",
-    --         "hrsh7th/cmp-buffer",
-    --         -- {
-    --         --     "Exafunction/codeium.nvim",
-    --         --     enabled = true,
-    --         --     opts = {
-    --         --         enable_cmp_source = false,
-    --         --         -- enable_chat = true,
-    --         --     },
-    --         -- },
-    --     },
-    --     config = vim.schedule_wrap(function()
-    --         require("cmp2lsp").setup({
-    --             sources = { { "codeium", "luasnip", "path", "buffer" } },
-    --         })
-    --     end),
-    -- },
   },
   config = function()
     require("mini.extra").setup()
@@ -254,7 +217,7 @@ return {
         local open_in_window_picker = function()
           local fs_entry = MiniFiles.get_fs_entry()
           if fs_entry ~= nil and fs_entry.fs_type == "file" then
-            local picked_window_id = require("window-picker").pick_window()
+            local picked_window_id = require("winpick").select()
             if picked_window_id ~= nil then
               MiniFiles.set_target_window(picked_window_id)
             end
