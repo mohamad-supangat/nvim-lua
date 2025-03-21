@@ -81,7 +81,7 @@ return {
             async = true,
             score_offset = 10000,
           },
-          codeium = { name = "Codeium", module = "codeium.blink", async = true, score_offset = 10000 },
+          -- codeium = { name = "Codeium", module = "codeium.blink", async = true, score_offset = 10000 },
           -- codeium = {
           --   name = "codeium",
           --   module = "blink.compat.source",

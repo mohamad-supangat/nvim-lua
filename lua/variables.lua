@@ -23,6 +23,7 @@ local filetypes = {
   "http",
   "blade",
   "xml",
+  "yaml",
 }
 
 local cmpExcludes = {
