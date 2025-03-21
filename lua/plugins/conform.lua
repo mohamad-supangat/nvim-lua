@@ -11,7 +11,7 @@ return {
       },
       {
         "zapling/mason-conform.nvim",
-        enabled = false,
+        enabled = true,
         opts = {},
         dependencies = {
           {

@@ -51,51 +51,16 @@ return {
     lazy = false,
     dependencies = {},
     config = function()
-      local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-      parser_config.blade = {
-        install_info = {
-          url = "https://github.com/EmranMR/tree-sitter-blade",
-          files = { "src/parser.c" },
-          branch = "main",
-        },
-        filetype = "blade",
-      }
-
-      local bladeGrp = vim.api.nvim_create_augroup("BladeFiltypeRelated", { clear = true })
-      vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-        pattern = "*.blade.php",
-        group = bladeGrp,
-        callback = function()
-          vim.opt.filetype = "blade"
-        end,
-      })
-
-      vim.filetype.add({
-        pattern = {
-          [".*%.blade%.php"] = "blade",
-          [".*%.http"] = "http",
-          ["*%.http"] = "http",
-          ["%.http"] = "http",
-          ["*.http"] = "http",
-        },
-      })
-
-      vim.filetype.add({
-        extension = {
-          ["http"] = "http",
-        },
-      })
-
       require("nvim-treesitter.configs").setup({
-        -- A list of parser names, or "all"
+        auto_install = true,
         ensure_installed = variables.filetypes,
         sync_install = false,
         ignore_install = {},
         highlight = {
           enable = true,
-          additional_vim_regex_highlighting = false,
+          additional_vim_regex_highlighting = true,
         },
-        indent = { enable = true, disable = { "pug", "vue" } },
+        indent = { enable = true, disablex = { "pug", "vue" } },
       })
     end,
   },
