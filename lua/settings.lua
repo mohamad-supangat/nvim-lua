@@ -43,7 +43,7 @@ opt.smartcase = true -- ignore lowercase for the whole pattern
 opt.signcolumn = "yes"
 opt.wrap = true
 opt.cursorline = true
-vim.o.winborder = "rounded"
+-- vim.o.winborder = "rounded"
 -----------------------------------------------------------
 -- Memory, CPU
 -----------------------------------------------------------
