@@ -29,6 +29,7 @@ return {
       blank = " ",
     },
     picker = {
+      enabled = false,
       win = {
         keys = {
           i_del_word = { "<A-BS>", "delete_word", mode = "i", expr = true },

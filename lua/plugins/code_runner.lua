@@ -1,6 +1,11 @@
 return {
   "CRAG666/code_runner.nvim",
   enabled = true,
+  commands = {
+    "RunCode",
+    "RunFile",
+    "RunProject",
+  },
   config = function()
     local code_runner = require("code_runner")
     code_runner.setup({

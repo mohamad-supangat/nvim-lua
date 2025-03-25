@@ -3,7 +3,7 @@ return {
   lazy = false,
   enabled = true,
   dependencies = {
-    "SmiteshP/nvim-navic",
+    { "SmiteshP/nvim-navic", enabled = false },
     {
       "gbrlsnchs/winpick.nvim",
       opts = {
@@ -112,7 +112,7 @@ return {
             return register == "" and "" or "RECORDING @" .. register
           end
 
-          local navic = require("nvim-navic")
+          -- local navic = require("nvim-navic")
 
           -- local current_gps = gps.get_location()
 
@@ -122,9 +122,9 @@ return {
               hl = mode_hl,
               strings = {
                 mode,
-                -- macro_recording_status(),
-                require("recorder").recordingStatus(),
-                require("recorder").displaySlots(),
+                macro_recording_status(),
+                -- require("recorder").recordingStatus(),
+                -- require("recorder").displaySlots(),
               },
             },
             "%<", -- Mark general truncate point
@@ -137,7 +137,7 @@ return {
               },
             },
             "%=", -- End left alignment
-            { hl = "MiniStatuslineFileinfo", strings = { navic.get_location() } },
+            -- { hl = "MiniStatuslineFileinfo", strings = { navic.get_location() } },
 
             -- { hl = "MiniStatuslineFileinfo", strings = { diagnostics, fileinfo } },
             -- { hl = mode_hl,                  strings = { location } },

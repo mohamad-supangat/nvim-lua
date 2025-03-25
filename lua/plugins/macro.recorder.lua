@@ -1,5 +1,6 @@
 return {
   "chrisgrieser/nvim-recorder",
+  enabled = false,
   opts = {
     -- Named registers where macros are saved (single lowercase letters only).
     -- The first register is the default register used as macro-slot after
