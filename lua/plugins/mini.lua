@@ -93,7 +93,7 @@ return {
     -- }}} end mini starter
 
     -- statusline {{{
-    vim.opt.laststatus = 3
+    vim.opt.laststatus = 2
     MiniStatusline = require("mini.statusline")
     MiniStatusline.setup({
       set_vim_settings = true,
@@ -165,11 +165,22 @@ return {
     })
 
     -- require("mini.tabline").setup({
-      -- format = function(buf_id, label)
-      --     local suffix = vim.bo[buf_id].modified and "+ " or ""
-      --     return require("mini.tabline").default_format(buf_id, label) .. suffix
-      -- end,
+    -- format = function(buf_id, label)
+    --     local suffix = vim.bo[buf_id].modified and "+ " or ""
+    --     return require("mini.tabline").default_format(buf_id, label) .. suffix
+    -- end,
     -- })
+
+    require("mini.indentscope").setup({
+      symbol = "▏",
+      options = {
+        try_as_border = true,
+      },
+      draw = {
+        delay = 0,
+        animation = require("mini.indentscope").gen_animation.none(),
+      },
+    })
 
     require("mini.splitjoin").setup()
     require("mini.surround").setup()
