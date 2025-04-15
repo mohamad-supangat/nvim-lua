@@ -164,12 +164,12 @@ return {
       },
     })
 
-    require("mini.tabline").setup({
+    -- require("mini.tabline").setup({
       -- format = function(buf_id, label)
       --     local suffix = vim.bo[buf_id].modified and "+ " or ""
       --     return require("mini.tabline").default_format(buf_id, label) .. suffix
       -- end,
-    })
+    -- })
 
     require("mini.splitjoin").setup()
     require("mini.surround").setup()
