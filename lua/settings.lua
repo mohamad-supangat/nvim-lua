@@ -85,4 +85,4 @@ opt.conceallevel = 0
 g.tex_conceal = ""
 
 -- opt.laststatus = 3
--- opt.cmdheight = 0
+opt.cmdheight = 0
