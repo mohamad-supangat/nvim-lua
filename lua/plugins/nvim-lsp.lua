@@ -95,13 +95,13 @@ return {
         -- end,
         ["unocss"] = function()
           require("lspconfig").unocss.setup({
-            capabilities = capabilities,
+            -- capabilities = capabilities,
             filetypes = { "css", "vue", "pug", "html", "blade" },
           })
         end,
         ["emmet_language_server"] = function()
           lspconfig.emmet_language_server.setup({
-            capabilities = capabilities,
+            -- capabilities = capabilities,
             filetypes = {
               "css",
               "eruby",
@@ -117,6 +117,22 @@ return {
               "vue",
               "php",
               "html.handlebars",
+            },
+          })
+        end,
+
+        ["ts_ls"] = function()
+          lspconfig.ts_ls.setup({
+            filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+            init_options = {
+              plugins = {
+                {
+                  name = "@vue/typescript-plugin",
+                  location = vim.fn.stdpath("data")
+                    .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+                  languages = { "vue" },
+                },
+              },
             },
           })
         end,
