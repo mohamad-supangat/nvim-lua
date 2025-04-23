@@ -60,6 +60,32 @@ return {
       lazygit:toggle()
     end
 
+    function _G.citrace()
+      local citrace = fterm:new({
+        cmd = "glab ci trace",
+        -- blend = 20,
+        border = "double",
+        dimensions = {
+          height = 1,
+          width = 1,
+        },
+      })
+      citrace:toggle()
+    end
+
+    function _G.lazydocker()
+      local lazydocker = fterm:new({
+        cmd = "lazydocker",
+        -- blend = 20,
+        border = "double",
+        dimensions = {
+          height = 1,
+          width = 1,
+        },
+      })
+      lazydocker:toggle()
+    end
+
     function _G.fterm1()
       fterm1:toggle()
     end
@@ -80,6 +106,8 @@ return {
     map("n", "<F2>", ":lua fterm2()<CR>", default_opts)
     map("t", "<F2>", "<C-\\><C-n><CMD>lua fterm2()<CR>", default_opts)
     map("n", "<leader>gi", ":lua lazygit()<CR>", default_opts)
+    map("n", "<leader>do", ":lua lazydocker()<CR>", default_opts)
+    map("n", "<leader>ci", ":lua citrace()<CR>", default_opts)
 
     -- map("n", "<A-b>", ":lua bard()<CR>", default_opts)
     map("t", "<A-b>", "<C-\\><C-n><CMD>lua bard()<CR>", default_opts)
