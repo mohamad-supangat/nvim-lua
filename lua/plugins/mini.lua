@@ -132,16 +132,17 @@ return {
               hl = "MiniStatuslineFilename",
               strings = {
                 filename,
-                fileinfo,
                 vim.g.coc_status,
               },
             },
             "%=", -- End left alignment
             -- { hl = "MiniStatuslineFileinfo", strings = { navic.get_location() } },
 
-            -- { hl = "MiniStatuslineFileinfo", strings = { diagnostics, fileinfo } },
-            -- { hl = mode_hl,                  strings = { location } },
+            { hl = "MiniStatuslineFileinfo", strings = { diagnostics, fileinfo } },
           })
+        end,
+        inactive = function()
+          return "%F %m" -- Show full path and modified status for inactive windows
         end,
       },
     })
