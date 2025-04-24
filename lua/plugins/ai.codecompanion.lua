@@ -12,6 +12,26 @@ return {
       opts = {
         language = "Indonesia",
       },
+      display = {
+        chat = {
+          window = {
+            layout = "float",
+            height = 0.8,
+            width = 0.65,
+            opts = {
+              breakindent = true,
+              cursorcolumn = false,
+              cursorline = false,
+              foldcolumn = "0",
+              linebreak = true,
+              list = true,
+              signcolumn = "no",
+              spell = false,
+              wrap = true,
+            },
+          },
+        },
+      },
       strategies = {
         chat = {
           adapter = "gemini",
