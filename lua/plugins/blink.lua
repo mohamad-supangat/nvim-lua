@@ -21,6 +21,9 @@ return {
         },
       },
       {
+        "Kaiser-Yang/blink-cmp-avante",
+      },
+      {
         "supermaven-inc/supermaven-nvim",
         opts = {
           disable_inline_completion = true,
@@ -54,6 +57,7 @@ return {
           "supermaven",
           -- "codeium",
           "lazydev",
+          "avante",
           "snippets",
           "lsp",
           "path",
@@ -61,6 +65,13 @@ return {
           -- "minuet",
         },
         providers = {
+          avante = {
+            module = "blink-cmp-avante",
+            name = "Avante",
+            opts = {
+              -- options for blink-cmp-avante
+            },
+          },
           supermaven = {
             name = "supermaven",
             module = "blink.compat.source",

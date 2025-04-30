@@ -93,7 +93,7 @@ return {
     -- }}} end mini starter
 
     -- statusline {{{
-    vim.opt.laststatus = 2
+    vim.opt.laststatus = 3
     MiniStatusline = require("mini.statusline")
     MiniStatusline.setup({
       set_vim_settings = true,
