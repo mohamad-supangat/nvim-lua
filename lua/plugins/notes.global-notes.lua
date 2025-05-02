@@ -1,6 +1,6 @@
 return {
   "backdround/global-note.nvim",
-  enabled = false,
+  enabled = true,
   opts = {
     filename = "global.md",
     directory = "~/Documents/notes/",
