@@ -1,6 +1,19 @@
 return {
   "backdround/global-note.nvim",
   enabled = true,
+
+  keys = {
+    {
+      "<leader>nr",
+      ":NoteRumah<CR>",
+      desc = "Note Rumah",
+    },
+    {
+      "<leader>nk",
+      ":NoteKerja<CR>",
+      desc = "Note Kerja",
+    },
+  },
   opts = {
     filename = "global.md",
     directory = "~/Documents/notes/",
