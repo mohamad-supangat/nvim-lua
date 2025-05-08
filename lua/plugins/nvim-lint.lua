@@ -2,7 +2,7 @@ return {
   "rshkarin/mason-nvim-lint",
   enabled = false,
   dependencies = {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     "mfussenegger/nvim-lint",
   },
   opts = {

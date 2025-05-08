@@ -5,10 +5,10 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     {
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason-lspconfig.nvim",
       dependencies = {
         {
-          "williamboman/mason.nvim",
+          "mason-org/mason.nvim",
           config = true,
         },
       },

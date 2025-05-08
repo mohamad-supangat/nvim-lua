@@ -3,7 +3,7 @@ return {
   enabled = false,
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     "nvimtools/none-ls.nvim",
     -- {
     --     "garymjr/nvim-snippets",

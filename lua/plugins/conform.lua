@@ -6,7 +6,7 @@ return {
     event = { "BufWritePre" },
     dependencies = {
       {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         lazy = false,
       },
       {
@@ -15,7 +15,7 @@ return {
         opts = {},
         dependencies = {
           {
-            "williamboman/mason.nvim",
+            "mason-org/mason.nvim",
             lazy = false,
           },
         },
