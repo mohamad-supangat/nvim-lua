@@ -13,38 +13,14 @@ local function create_window(width, direction)
   vim.wo.nu = false
 end
 
-function M.get_root(cwd)
-  local status, job = pcall(require, "plenary.job")
-  if not status then
-    return fn.system("git rev-parse --show-toplevel")
-  end
-
-  local gitroot_job = job:new({
-    "git",
-    "rev-parse",
-    "--show-toplevel",
-    cwd = cwd,
-  })
-
-  local path, code = gitroot_job:sync()
-  if code ~= 0 then
-    return nil
-  end
-
-  return table.concat(path, "")
-end
-
-function M.currentFileRootPath()
-  local current_dir = vim.fn.expand("%:p:h")
-  local git_root = M.get_root(current_dir)
-  return git_root
-end
-
-function M.zenmode()
+function M.zenmode(c)
   if M.buf == nil then
     M.buf = vim.api.nvim_create_buf(false, false)
 
     local width = 30
+    if #c.fargs == 1 then
+      width = tonumber(c.fargs[1])
+    end
 
     local cur_win = vim.fn.win_getid()
 

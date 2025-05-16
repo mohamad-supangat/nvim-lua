@@ -72,9 +72,15 @@ return {
       end,
     })
 
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
     -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+    -- require("lspconfig.configs.kulala_ls").setup({
+    --   capabilities = capabilities,
+    -- })
+
     require("mason-lspconfig").setup({
+      automatic_enable = true,
       automatic_installation = false,
       ensure_installed = {
         "lua_ls",
@@ -87,7 +93,7 @@ return {
       handlers = {
         function(server_name)
           require("lspconfig")[server_name].setup({
-            -- capabilities = capabilities
+            capabilities = capabilities,
           })
         end,
         -- ["rust_analyzer"] = function()
@@ -95,13 +101,13 @@ return {
         -- end,
         ["unocss"] = function()
           require("lspconfig").unocss.setup({
-            -- capabilities = capabilities,
+            capabilities = capabilities,
             filetypes = { "css", "vue", "pug", "html", "blade" },
           })
         end,
         ["emmet_language_server"] = function()
           lspconfig.emmet_language_server.setup({
-            -- capabilities = capabilities,
+            capabilities = capabilities,
             filetypes = {
               "css",
               "eruby",
@@ -124,6 +130,7 @@ return {
         ["ts_ls"] = function()
           lspconfig.ts_ls.setup({
             filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+            capabilities = capabilities,
             init_options = {
               plugins = {
                 {

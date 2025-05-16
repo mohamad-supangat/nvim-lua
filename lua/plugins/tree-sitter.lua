@@ -71,6 +71,15 @@ return {
           vim.opt.filetype = "blade"
         end,
       })
+
+      local httpGrp = vim.api.nvim_create_augroup("HTTPFiletypeRelated", { clear = true })
+      vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+        pattern = "*.http",
+        group = httpGrp,
+        callback = function()
+          vim.opt.filetype = "http"
+        end,
+      })
     end,
   },
   {
