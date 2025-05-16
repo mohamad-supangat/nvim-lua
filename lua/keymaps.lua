@@ -105,7 +105,3 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>ft", function()
   vim.notify(vim.bo.filetype)
 end, { noremap = true, silent = true, desc = "Change dir to current opened file" })
-
-vim.keymap.set("n", "<C-z>", function()
-  require("utils").zenmode()
-end, { noremap = true, silent = true, desc = "Toggle Zen Mode" })
