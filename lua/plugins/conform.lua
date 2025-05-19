@@ -43,6 +43,7 @@ return {
           php = { "php_cs_fixer", "lsp" },
           blade = { "blade-formatter" },
           javascript = { "prettier" },
+          markdown = { "prettier" },
           typescript = { "prettier" },
           json = { "prettier" },
           jsonc = { "prettier" },
