@@ -20,9 +20,9 @@ return {
           enable_events = true,
         },
       },
-      {
-        "Kaiser-Yang/blink-cmp-avante",
-      },
+      -- {
+      --   "Kaiser-Yang/blink-cmp-avante",
+      -- },
       {
         "supermaven-inc/supermaven-nvim",
         opts = {
@@ -44,6 +44,7 @@ return {
         --     and vim.bo.buftype ~= "prompt"
         --     and vim.b.completion ~= false
       end,
+      signature = { enabled = true },
       fuzzy = {
         sorts = { "score", "label" },
         implementation = "lua",
@@ -51,13 +52,13 @@ return {
         --     force_version = "v0.7.3",
         -- },
       },
-
+      snippets = { preset = "luasnip" },
       sources = {
         default = {
           "supermaven",
           -- "codeium",
           "lazydev",
-          "avante",
+          -- "avante",
           "snippets",
           "lsp",
           "path",

@@ -45,12 +45,12 @@ return {
   --         },
   --     },
   -- },
-  -- {
-  --     "L3MON4D3/LuaSnip",
-  --     dev = false,
-  --     config = function()
-  --         require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/home/deve/projects/snippets" } })
-  --         require("luasnip.loaders.from_vscode").lazy_load()
-  --     end,
-  -- },
+  {
+    "L3MON4D3/LuaSnip",
+    dev = false,
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end,
+  },
 }
