@@ -6,6 +6,7 @@ return {
   end,
   config = function()
     require("grug-far").setup({
+      transient = true,
       prefills = {
         search = "",
         flags = "--multiline",
@@ -17,7 +18,7 @@ return {
   keys = {
     {
       "<leader>S",
-      '<cmd>lua require("grug-far").open()<CR>',
+      '<cmd>lua require("grug-far").open({transient = true})<CR>',
       desc = "Toggle Spectre",
     },
     {

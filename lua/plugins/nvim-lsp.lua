@@ -72,12 +72,46 @@ return {
       end,
     })
 
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    vim.lsp.config.unocss.filetypes = {
+      "css",
+      "vue",
+      "pug",
+      "html",
+      "blade",
+    }
 
-    -- require("lspconfig.configs.kulala_ls").setup({
-    --   capabilities = capabilities,
-    -- })
+    vim.lsp.config.emmet_language_server.filetypes = {
+      "css",
+      "eruby",
+      "html",
+      "javascript",
+      "javascriptreact",
+      "less",
+      "sass",
+      "scss",
+      "pug",
+      "typescriptreact",
+      "blade",
+      "vue",
+      "php",
+      "html.handlebars",
+    }
+
+    vim.lsp.config.ts_ls = {
+      filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = vim.fn.stdpath("data")
+              .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+            languages = { "vue" },
+          },
+        },
+      },
+    }
+
+    vim.lsp.enable("kulala_ls")
 
     require("mason-lspconfig").setup({
       automatic_enable = true,
@@ -89,60 +123,6 @@ return {
         -- "tailwindcss",
         -- "jsonls",
         -- "ruff_lsp"
-      },
-      handlers = {
-        function(server_name)
-          require("lspconfig")[server_name].setup({
-            capabilities = capabilities,
-          })
-        end,
-        -- ["rust_analyzer"] = function()
-        --   require("rust-tools").setup {}
-        -- end,
-        ["unocss"] = function()
-          require("lspconfig").unocss.setup({
-            capabilities = capabilities,
-            filetypes = { "css", "vue", "pug", "html", "blade" },
-          })
-        end,
-        ["emmet_language_server"] = function()
-          lspconfig.emmet_language_server.setup({
-            capabilities = capabilities,
-            filetypes = {
-              "css",
-              "eruby",
-              "html",
-              "javascript",
-              "javascriptreact",
-              "less",
-              "sass",
-              "scss",
-              "pug",
-              "typescriptreact",
-              "blade",
-              "vue",
-              "php",
-              "html.handlebars",
-            },
-          })
-        end,
-
-        ["ts_ls"] = function()
-          lspconfig.ts_ls.setup({
-            filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-            capabilities = capabilities,
-            init_options = {
-              plugins = {
-                {
-                  name = "@vue/typescript-plugin",
-                  location = vim.fn.stdpath("data")
-                    .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
-                  languages = { "vue" },
-                },
-              },
-            },
-          })
-        end,
       },
     })
   end,
