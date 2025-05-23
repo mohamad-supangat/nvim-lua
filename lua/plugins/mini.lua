@@ -5,28 +5,43 @@ return {
   dependencies = {
     { "SmiteshP/nvim-navic", enabled = false },
     {
-      "gbrlsnchs/winpick.nvim",
-      opts = {
-        border = "double",
-        filter = function(winid, bufnr)
-          if vim.tbl_contains(require("variables").exclude, vim.api.nvim_buf_get_option(bufnr, "buftype")) then
-            return false
-          end
-          return true
-        end,
-        prompt = "Pick a window: ",
-      },
+      "s1n7ax/nvim-window-picker",
+      name = "window-picker",
+      event = "VeryLazy",
+      version = "2.*",
+      config = function()
+        require("window-picker").setup({
+          hint = "floating-big-letter",
+          autoselect_one = true,
+          include_current = false,
+          selection_chars = "ABCDEFGHIJLK",
+          filter_rules = {
+            bo = {
+              filetype = { "neo-tree", "neo-tree-popup", "notify", "minifiles" },
+              buftype = { "terminal", "quickfix", "minifiles" },
+            },
+          },
+          other_win_hl_color = "#900000",
+        })
+      end,
     },
   },
   config = function()
     require("mini.extra").setup()
-    vim.o.background = os.getenv("NVIM_BACKGROUND") or "light"
+    -- vim.o.background = os.getenv("NVIM_BACKGROUND") or "light"
+    vim.o.background = table.concat(vim.fn.readfile(os.getenv("HOME") .. "/.local/share/colorscheme"), " ") or "light"
 
     local hues = require("mini.hues")
-    local base_colors = hues.gen_random_base_colors()
+    local backgroundColor = "#fbf1c7"
+    local foregroundColor = "#3c3836"
+    if vim.o.background == "dark" then
+      backgroundColor = "#282828"
+      foregroundColor = "#ebdbb2"
+    end
+    -- local base_colors = hues.gen_random_base_colors()
     hues.setup({
-      background = base_colors.background,
-      foreground = base_colors.foreground,
+      background = backgroundColor,
+      foreground = foregroundColor,
       n_hues = 8,
       saturation = vim.o.background == "dark" and "medium" or "high",
       accent = "bg",
@@ -229,7 +244,7 @@ return {
         local open_in_window_picker = function()
           local fs_entry = MiniFiles.get_fs_entry()
           if fs_entry ~= nil and fs_entry.fs_type == "file" then
-            local picked_window_id = require("winpick").select()
+            local picked_window_id = require("window-picker").pick_window()
             if picked_window_id ~= nil then
               MiniFiles.set_target_window(picked_window_id)
             end

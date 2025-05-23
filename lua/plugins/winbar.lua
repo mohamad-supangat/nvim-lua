@@ -1,6 +1,6 @@
 return {
   "ColinKennedy/winbar.nvim",
-  enabled = false,
+  enabled = true,
   dependencies = {
     {
       "ColinKennedy/nvim-gps",
@@ -37,6 +37,7 @@ return {
       "sh",
       "fzf",
       "term",
+      "minifiles",
       "term:",
       "term: ",
       "term://",
@@ -53,6 +54,8 @@ return {
       "starter",
       "FTerm",
       "lazygit",
+      "ministarter",
+      "minipick",
     },
   },
 }

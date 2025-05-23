@@ -72,29 +72,33 @@ return {
       end,
     })
 
-    vim.lsp.config.unocss.filetypes = {
-      "css",
-      "vue",
-      "pug",
-      "html",
-      "blade",
+    vim.lsp.config.unocss = {
+      filetypes = {
+        "css",
+        "vue",
+        "pug",
+        "html",
+        "blade",
+      },
     }
 
-    vim.lsp.config.emmet_language_server.filetypes = {
-      "css",
-      "eruby",
-      "html",
-      "javascript",
-      "javascriptreact",
-      "less",
-      "sass",
-      "scss",
-      "pug",
-      "typescriptreact",
-      "blade",
-      "vue",
-      "php",
-      "html.handlebars",
+    vim.lsp.config.emmet_language_server = {
+      filetypes = {
+        "css",
+        "eruby",
+        "html",
+        "javascript",
+        "javascriptreact",
+        "less",
+        "sass",
+        "scss",
+        "pug",
+        "typescriptreact",
+        "blade",
+        "vue",
+        "php",
+        "html.handlebars",
+      },
     }
 
     vim.lsp.config.ts_ls = {

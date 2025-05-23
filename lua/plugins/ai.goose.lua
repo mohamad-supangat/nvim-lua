@@ -5,6 +5,7 @@ return {
   },
   keys = {
     {
+      mode = { "v", "n" },
       "<A-b>",
       "<cmd>Goose<CR>",
       desc = "Toggle Goose",

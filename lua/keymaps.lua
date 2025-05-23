@@ -82,6 +82,10 @@ vim.keymap.set("n", "<leader>bb", ":bprevious<CR>", default_opts)
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", default_opts)
 vim.keymap.set("n", "<leader>bd", ":lua require('mini.bufremove').delete(0, false)<CR>", default_opts)
 vim.keymap.set("n", "<leader>bD", ":lua require('mini.bufremove').delete(0, true)<CR>", default_opts)
+vim.keymap.set("n", "<leader>bX", function()
+  require("mini.bufremove").delete(0, false)
+  vim.cmd("q")
+end, default_opts)
 
 -- copy current file path to clipboard
 vim.keymap.set("n", "<leader>cf", ":call setreg('*', @%, 'ac')<CR>", { desc = "Copy File Path to clipboard" })
