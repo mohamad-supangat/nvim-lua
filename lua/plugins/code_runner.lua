@@ -17,7 +17,7 @@ return {
       -- put here the commands by filetype
       filetype = {
         fish = "fish",
-        http = "restcli",
+        -- http = "restcli",
         java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
         python = "python3 -u",
         -- typescript = "deno run -A",

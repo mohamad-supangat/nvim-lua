@@ -1,10 +1,20 @@
 return {
   "mistweaverco/kulala.nvim",
   enabled = true,
-  keys = { "<leader>Rs", "<leader>Ra", "<leader>Ro" },
+  lazy = false,
+  keys = {
+    { "<leader>rs", desc = "Send request" },
+    { "<leader>ra", desc = "Send all requests" },
+    { "<leader>rb", desc = "Open scratchpad" },
+  },
   ft = { "http", "rest" },
   opts = {
     -- your configuration comes here
     global_keymaps = true,
+    global_keymaps_prefix = "<leader>r",
+    ui = {
+      display_mode = "float",
+      show_icons = nil,
+    },
   },
 }

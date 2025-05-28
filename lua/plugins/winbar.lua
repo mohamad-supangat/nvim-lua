@@ -1,6 +1,6 @@
 return {
   "ColinKennedy/winbar.nvim",
-  enabled = true,
+  enabled = false,
   dependencies = {
     {
       "ColinKennedy/nvim-gps",
@@ -21,6 +21,7 @@ return {
     show_file_path = true,
     show_symbols = true,
     exclude_filetype = {
+      "crunner",
       "help",
       "startify",
       "dashboard",

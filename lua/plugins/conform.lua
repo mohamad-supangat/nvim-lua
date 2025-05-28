@@ -56,9 +56,15 @@ return {
           bash = { "shfmt" },
           sh = { "shfmt" },
           nginx = { "nginxfmt" },
+          http = { "kulala" },
         },
 
         formatters = {
+          kulala = {
+            command = "kulala-fmt",
+            args = { "format", "$FILENAME" },
+            stdin = false,
+          },
           php_cs_fixer = {
             command = "php-cs-fixer",
             env = {
