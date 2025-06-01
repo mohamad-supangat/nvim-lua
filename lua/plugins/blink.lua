@@ -44,7 +44,7 @@ return {
         --     and vim.bo.buftype ~= "prompt"
         --     and vim.b.completion ~= false
       end,
-      signature = { enabled = true },
+      -- signature = { enabled = true },
       fuzzy = {
         sorts = { "score", "label" },
         implementation = "lua",

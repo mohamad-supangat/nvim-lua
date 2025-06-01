@@ -13,8 +13,8 @@ return {
     global_keymaps = true,
     global_keymaps_prefix = "<leader>r",
     ui = {
-      display_mode = "float",
-      show_icons = nil,
+      -- display_mode = "float",
+      -- show_icons = nil,
     },
   },
 }
