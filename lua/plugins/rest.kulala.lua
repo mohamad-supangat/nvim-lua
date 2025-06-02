@@ -11,7 +11,7 @@ return {
   opts = {
     -- your configuration comes here
     global_keymaps = true,
-    global_keymaps_prefix = "<leader>r",
+    global_keymaps_prefix = "<leader>R",
     ui = {
       -- display_mode = "float",
       -- show_icons = nil,
