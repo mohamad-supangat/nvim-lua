@@ -36,3 +36,5 @@ require("lazy").setup("plugins", { ui = { border = "rounded" } })
 -- vim.opt.laststatus = 3
 require("keymaps") -- global keymaps
 require("italic_generator")
+require("autocmds")
+
