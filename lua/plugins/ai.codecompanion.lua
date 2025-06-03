@@ -111,13 +111,22 @@ I'm also sharing my `config.lua` file which I'm mapping to the `configuration` s
   end,
   keys = {
     {
-      mode = { "x", "n" },
+      mode = { "n" },
       "<A-b>",
       "<cmd>CodeCompanionChat Toggle<CR>",
       desc = "Toggle CodeCompanion Chat",
       silent = true,
       noremap = true,
     },
+    {
+      mode = { "x" },
+      "<A-b>",
+      "<cmd>CodeCompanion<CR>",
+      desc = "Trigger CodeCompanion Inline Prom",
+      silent = true,
+      noremap = true,
+    },
+
     {
       mode = { "x", "n" },
       "<leader>cc",
