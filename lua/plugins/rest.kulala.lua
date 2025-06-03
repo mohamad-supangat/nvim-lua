@@ -1,7 +1,7 @@
 return {
   "mistweaverco/kulala.nvim",
   enabled = true,
-  lazy = false,
+  -- lazy = false,
   keys = {
     { "<leader>rs", desc = "Send request" },
     { "<leader>ra", desc = "Send all requests" },
