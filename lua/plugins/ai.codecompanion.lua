@@ -1,10 +1,11 @@
 return {
   "olimorris/codecompanion.nvim",
   lazy = false,
-  enabled = false,
+  enabled = true,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
+    "ravitemer/codecompanion-history.nvim",
   },
 
   config = function()
@@ -14,6 +15,9 @@ return {
       },
       display = {
         chat = {
+          start_in_insert_mode = true,
+          show_references = true,
+          separator = "─",
           window = {
             layout = "float",
             height = 0.8,
@@ -25,7 +29,7 @@ return {
               foldcolumn = "0",
               linebreak = true,
               list = true,
-              signcolumn = "no",
+              signcolumn = "yes",
               spell = false,
               wrap = true,
             },
@@ -83,10 +87,31 @@ I'm also sharing my `config.lua` file which I'm mapping to the `configuration` s
           },
         },
       },
+      extensions = {
+        history = {
+          enabled = true,
+          opts = {
+            keymap = "gh",
+            save_chat_keymap = "sc",
+            auto_save = true,
+            expiration_days = 0,
+            picker = "default",
+            auto_generate_title = true,
+            continue_last_chat = true,
+            delete_on_clearing_chat = false,
+            dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
+            enable_logging = false,
+          },
+        },
+      },
     })
+
+    require("plugins.codecompanion.utils.chat-loading"):init()
+    require("plugins.codecompanion.utils.extmarks").setup()
   end,
   keys = {
     {
+      mode = { "x", "n" },
       "<A-b>",
       "<cmd>CodeCompanionChat Toggle<CR>",
       desc = "Toggle CodeCompanion Chat",
