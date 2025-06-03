@@ -37,13 +37,13 @@ return (new PhpCsFixer\Config())
             // 'fopen_flags'                                      => false,
             'ordered_imports'                                  => true,
             // 'protected_to_private'                             => false,
-            'binary_operator_spaces'                           => [
-                'operators' => [
-                    '=>' => 'align',
-                    '='  => 'align',
-                    // Prevent spaces being added in PHP8 union types
-                    '|'  => null,
-                ],
+            // 'binary_operator_spaces'                           => [
+            //     'operators' => [
+            //         '=>' => 'align',
+            //         '='  => 'align',
+            //         // Prevent spaces being added in PHP8 union types
+            //         '|'  => null,
+            //     ],
             ],
             // Bad yoda style is
             'yoda_style'                    => false,
