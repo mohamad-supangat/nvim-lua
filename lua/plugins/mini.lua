@@ -29,15 +29,20 @@ return {
   },
   config = function()
     require("mini.extra").setup()
-    -- vim.o.background = os.getenv("NVIM_BACKGROUND") or "light"
-    vim.o.background = table.concat(vim.fn.readfile(os.getenv("HOME") .. "/.local/share/colorscheme"), " ") or "light"
+    vim.o.background = os.getenv("NVIM_BACKGROUND") or "light"
+    -- vim.o.background = table.concat(vim.fn.readfile(os.getenv("HOME") .. "/.local/share/colorscheme"), " ") or "dark"
 
     local hues = require("mini.hues")
-    local backgroundColor = "#fbf1c7"
-    local foregroundColor = "#3c3836"
+    local backgroundColor
+    local foregroundColor
     if vim.o.background == "dark" then
-      backgroundColor = "#282828"
-      foregroundColor = "#ebdbb2"
+      -- Adwaita Dark
+      backgroundColor = "#2e3436"
+      foregroundColor = "#f6f6f6"
+    else
+      -- Adwaita Light
+      backgroundColor = "#fcfcfc"
+      foregroundColor = "#3c3c3c"
     end
     -- local base_colors = hues.gen_random_base_colors()
     hues.setup({
