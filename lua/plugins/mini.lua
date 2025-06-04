@@ -6,7 +6,7 @@ return {
     { "SmiteshP/nvim-navic", enabled = false },
     {
       "s1n7ax/nvim-window-picker",
-      enabled = false,
+      enabled = true,
       name = "window-picker",
       event = "VeryLazy",
       version = "2.*",
@@ -243,26 +243,26 @@ return {
     --
     vim.keymap.set("n", "<C-n>", minifiles_toggle, { desc = "Toggle File Explorer" })
     --
-    -- vim.api.nvim_create_autocmd("User", {
-    --   pattern = "MiniFilesBufferCreate",
-    --   callback = function(args)
-    --     local buf_id = args.data.buf_id
-    --     local open_in_window_picker = function()
-    --       local fs_entry = MiniFiles.get_fs_entry()
-    --       if fs_entry ~= nil and fs_entry.fs_type == "file" then
-    --         local picked_window_id = require("window-picker").pick_window()
-    --         if picked_window_id ~= nil then
-    --           MiniFiles.set_target_window(picked_window_id)
-    --         end
-    --       end
-    --       MiniFiles.go_in({
-    --         close_on_file = true,
-    --       })
-    --     end
-    --     vim.keymap.set("n", "l", open_in_window_picker, { buffer = buf_id, desc = "Open in target window" })
-    --   end,
-    -- })
-    --
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "MiniFilesBufferCreate",
+      callback = function(args)
+        local buf_id = args.data.buf_id
+        local open_in_window_picker = function()
+          local fs_entry = MiniFiles.get_fs_entry()
+          if fs_entry ~= nil and fs_entry.fs_type == "file" then
+            local picked_window_id = require("window-picker").pick_window()
+            if picked_window_id ~= nil then
+              MiniFiles.set_target_window(picked_window_id)
+            end
+          end
+          MiniFiles.go_in({
+            close_on_file = true,
+          })
+        end
+        vim.keymap.set("n", "l", open_in_window_picker, { buffer = buf_id, desc = "Open in target window" })
+      end,
+    })
+
     vim.api.nvim_create_autocmd("User", {
       pattern = "MiniFilesWindowOpen",
       callback = function(args)
