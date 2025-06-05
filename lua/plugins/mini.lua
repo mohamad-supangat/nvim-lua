@@ -123,13 +123,22 @@ return {
           local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
           local git = MiniStatusline.section_git({ trunc_width = 75 })
           local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
-          local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+          -- local filename = MiniStatusline.section_filename({ trunc_width = 120 })
           local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
           local location = MiniStatusline.section_location({ trunc_width = 75 })
+          local search = MiniStatusline.section_searchcount({ trunc_width = 75 })
 
           local function macro_recording_status()
             local register = vim.fn.reg_recording()
             return register == "" and "" or "RECORDING @" .. register
+          end
+
+          local function filename()
+            if vim.bo.buftype == "terminal" then
+              return "%t"
+            else
+              return "%f%m%r"
+            end
           end
 
           local navic = require("nvim-navic")
@@ -143,6 +152,7 @@ return {
               strings = {
                 mode,
                 macro_recording_status(),
+                search,
                 -- require("recorder").recordingStatus(),
                 -- require("recorder").displaySlots(),
               },
@@ -151,14 +161,14 @@ return {
             {
               hl = "MiniStatuslineFilename",
               strings = {
-                filename,
-                vim.g.coc_status,
+                -- filename(),
               },
             },
             "%=", -- End left alignment
+
             { strings = { navic.get_location() } },
             "%=", -- End left alignment
-            { strings = { diagnostics, fileinfo } },
+            { strings = { diagnostics } },
           })
         end,
         inactive = function()
