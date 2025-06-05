@@ -1,6 +1,6 @@
 return {
   "SmiteshP/nvim-navic",
-  enabled = false,
+  enabled = true,
   opts = {
     -- icons = {
     --     File          = "󰈙 "

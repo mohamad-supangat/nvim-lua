@@ -3,7 +3,6 @@ return {
   lazy = false,
   enabled = true,
   dependencies = {
-    { "SmiteshP/nvim-navic", enabled = false },
     {
       "s1n7ax/nvim-window-picker",
       enabled = true,
@@ -133,7 +132,7 @@ return {
             return register == "" and "" or "RECORDING @" .. register
           end
 
-          -- local navic = require("nvim-navic")
+          local navic = require("nvim-navic")
 
           -- local current_gps = gps.get_location()
 
@@ -157,9 +156,9 @@ return {
               },
             },
             "%=", -- End left alignment
-            -- { hl = "MiniStatuslineFileinfo", strings = { navic.get_location() } },
-
-            { hl = "MiniStatuslineFileinfo", strings = { diagnostics, fileinfo } },
+            { strings = { navic.get_location() } },
+            "%=", -- End left alignment
+            { strings = { diagnostics, fileinfo } },
           })
         end,
         inactive = function()
@@ -180,7 +179,6 @@ return {
       view = {
         style = "number",
         -- signs = { add = "+", change = "~", delete = "-" },
-        --
         -- style = "sign",
         signs = { add = " ", change = " ", delete = "" },
       },
