@@ -55,7 +55,7 @@ return {
         },
       },
       prompt_library = {
-        ["Docusaurus"] = {
+        ["Document Generator"] = {
           strategy = "chat",
           description = "Write documentation for me",
           opts = {
@@ -94,10 +94,10 @@ I'm also sharing my `config.lua` file which I'm mapping to the `configuration` s
             keymap = "gh",
             save_chat_keymap = "sc",
             auto_save = true,
-            expiration_days = 0,
+            expiration_days = 12,
             picker = "default",
             auto_generate_title = true,
-            continue_last_chat = true,
+            continue_last_chat = false,
             delete_on_clearing_chat = false,
             dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
             enable_logging = false,
