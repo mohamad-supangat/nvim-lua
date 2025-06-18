@@ -41,7 +41,7 @@ return {
           adapter = "gemini",
         },
         inline = {
-          adapter = "copilot",
+          adapter = "gemini",
           keymaps = {
             accept_change = {
               modes = { n = "ga" },
