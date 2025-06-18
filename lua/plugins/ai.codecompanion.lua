@@ -6,6 +6,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "ravitemer/codecompanion-history.nvim",
+    "github/copilot.vim",
   },
 
   config = function()
@@ -41,7 +42,7 @@ return {
           adapter = "gemini",
         },
         inline = {
-          adapter = "gemini",
+          adapter = "copilot",
           keymaps = {
             accept_change = {
               modes = { n = "ga" },
