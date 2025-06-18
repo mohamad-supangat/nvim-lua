@@ -3,9 +3,9 @@ return {
   lazy = false,
   enabled = true,
   dependencies = {
-    {
-      "vimpostor/vim-tpipeline",
-    },
+    -- {
+    --   "vimpostor/vim-tpipeline",
+    -- },
     {
       "s1n7ax/nvim-window-picker",
       enabled = true,
@@ -116,7 +116,7 @@ return {
     -- }}} end mini starter
 
     -- statusline {{{
-    vim.opt.laststatus = 0 -- using nvim tpline
+    -- vim.opt.laststatus = 0 -- using nvim tpline
     MiniStatusline = require("mini.statusline")
     MiniStatusline.setup({
       set_vim_settings = true,
