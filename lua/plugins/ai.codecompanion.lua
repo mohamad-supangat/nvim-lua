@@ -6,7 +6,6 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "ravitemer/codecompanion-history.nvim",
-    "github/copilot.vim",
   },
 
   config = function()

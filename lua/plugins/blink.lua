@@ -6,13 +6,6 @@ return {
     version = false,
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
-      -- {
-      --   "aliaksandr-trush/codeium.nvim",
-      --   branch = "blink",
-      --   opts = {
-      --     enable_cmp_source = false,
-      --   },
-      -- },
       {
         "saghen/blink.compat",
         opts = {
@@ -20,22 +13,13 @@ return {
           enable_events = true,
         },
       },
-      -- {
-      --   "Kaiser-Yang/blink-cmp-avante",
-      -- },
       {
         "supermaven-inc/supermaven-nvim",
         opts = {
           disable_inline_completion = true,
         },
       },
-      -- {
-      --   "Exafunction/codeium.nvim",
-      --   dependencies = {
-      --     "nvim-lua/plenary.nvim",
-      --   },
-      --   opts = {},
-      -- },
+      { "fang2hou/blink-copilot" },
     },
     opts = {
       enabled = function()
@@ -55,6 +39,7 @@ return {
       snippets = { preset = "luasnip" },
       sources = {
         default = {
+          "copilot",
           "supermaven",
           -- "codeium",
           "lazydev",
@@ -66,6 +51,12 @@ return {
           -- "minuet",
         },
         providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 100,
+            async = true,
+          },
           avante = {
             module = "blink-cmp-avante",
             name = "Avante",
