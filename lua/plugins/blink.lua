@@ -6,19 +6,19 @@ return {
     version = false,
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
-      {
-        "saghen/blink.compat",
-        opts = {
-          impersonate_nvim_cmp = true,
-          enable_events = true,
-        },
-      },
-      {
-        "supermaven-inc/supermaven-nvim",
-        opts = {
-          disable_inline_completion = true,
-        },
-      },
+      -- {
+      --   "saghen/blink.compat",
+      --   opts = {
+      --     impersonate_nvim_cmp = true,
+      --     enable_events = true,
+      --   },
+      -- },
+      -- {
+      --   "supermaven-inc/supermaven-nvim",
+      --   opts = {
+      --     disable_inline_completion = true,
+      --   },
+      -- },
       { "fang2hou/blink-copilot" },
     },
     opts = {
@@ -40,7 +40,7 @@ return {
       sources = {
         default = {
           "copilot",
-          "supermaven",
+          -- "supermaven",
           -- "codeium",
           "lazydev",
           -- "avante",
