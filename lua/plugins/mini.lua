@@ -28,7 +28,7 @@ return {
   },
   config = function()
     require("mini.extra").setup()
-    vim.o.background = os.getenv("NVIM_BACKGROUND") or "light"
+    vim.o.background = os.getenv("NVIM_BACKGROUND") or "dark"
     -- vim.o.background = table.concat(vim.fn.readfile(os.getenv("HOME") .. "/.local/share/colorscheme"), " ") or "dark"
 
     local hues = require("mini.hues")
@@ -186,6 +186,7 @@ return {
     })
 
     require("mini.diff").setup({
+      source = require("mini.diff").gen_source.none(),
       view = {
         style = "number",
         -- signs = { add = "+", change = "~", delete = "-" },
