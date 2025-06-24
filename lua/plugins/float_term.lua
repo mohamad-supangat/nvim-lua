@@ -26,11 +26,11 @@ return {
 
     local fterm1 = fterm:new({
       cmd = os.getenv("SHELL"),
-      border = "double",
+      border = "single",
       -- blend = 20,
       dimensions = {
-        height = 1,
-        width = 0.8,
+        height = 0.8,
+        width = 0.4,
         x = 0,
       },
     })
@@ -52,7 +52,7 @@ return {
       local lazygit = fterm:new({
         cmd = "lazygit -p " .. currentFileRootPath(),
         -- blend = 20,
-        border = "double",
+        border = "none",
         dimensions = {
           height = 1,
           width = 1,
@@ -65,7 +65,7 @@ return {
       local citrace = fterm:new({
         cmd = "glab ci trace",
         -- blend = 20,
-        border = "double",
+        border = "none",
         dimensions = {
           height = 1,
           width = 1,
@@ -78,7 +78,7 @@ return {
       local lazydocker = fterm:new({
         cmd = "lazydocker",
         -- blend = 20,
-        border = "double",
+        border = "none",
         dimensions = {
           height = 1,
           width = 1,
