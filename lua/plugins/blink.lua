@@ -29,7 +29,9 @@ return {
       end,
       -- signature = { enabled = true },
       fuzzy = {
-        sorts = { "score", "label" },
+        sorts = {
+          "score",
+        },
         implementation = "lua",
         -- prebuilt_binaries = {
         --     force_version = "v0.7.3",
@@ -65,7 +67,7 @@ return {
           supermaven = {
             name = "supermaven",
             module = "blink.compat.source",
-            score_offset = 10000,
+            score_offset = 99999,
             transform_items = function(_, items)
               local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
               local kind_idx = #CompletionItemKind + 1

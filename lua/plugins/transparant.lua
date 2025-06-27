@@ -1,5 +1,6 @@
 vim.g.transparent_enabled = true
 return {
+  enabled = false,
   "xiyaowong/transparent.nvim",
   opts = {
     -- table: default groups

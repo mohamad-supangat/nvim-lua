@@ -72,7 +72,9 @@ return {
       end,
     })
 
-    vim.lsp.config.unocss = {
+
+    -- start config of custom lsp
+    vim.lsp.config("unocss", {
       filetypes = {
         "css",
         "vue",
@@ -80,9 +82,9 @@ return {
         "html",
         "blade",
       },
-    }
+    })
 
-    vim.lsp.config.emmet_language_server = {
+    vim.lsp.config("emmet_language_server", {
       filetypes = {
         "css",
         "eruby",
@@ -99,9 +101,13 @@ return {
         "php",
         "html.handlebars",
       },
-    }
+    })
 
-    vim.lsp.config.ts_ls = {
+    vim.lsp.config("intelephense", {
+      root_markers = { ".rootdir", "composer.json", ".git" },
+    })
+
+    vim.lsp.config("ts_ls", {
       filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
       init_options = {
         plugins = {
@@ -113,7 +119,7 @@ return {
           },
         },
       },
-    }
+    })
 
     vim.lsp.enable("kulala_ls")
 
@@ -125,7 +131,7 @@ return {
         "vue_ls",
         "ts_ls",
         "emmet_language_server",
-        "intelephense",
+        -- "intelephense",
         -- "tailwindcss",
         -- "jsonls",
         -- "ruff_lsp"

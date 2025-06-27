@@ -189,12 +189,12 @@ return {
     })
 
     require("mini.diff").setup({
-      source = require("mini.diff").gen_source.none(),
+      -- source = require("mini.diff").gen_source.none(),
       view = {
         style = "number",
-        -- signs = { add = "+", change = "~", delete = "-" },
+        signs = { add = "+", change = "~", delete = "-" },
         -- style = "sign",
-        signs = { add = " ", change = " ", delete = "" },
+        -- signs = { add = " ", change = " ", delete = "" },
       },
     })
 
