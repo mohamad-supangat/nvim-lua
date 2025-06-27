@@ -65,15 +65,15 @@ return {
             args = { "format", "$FILENAME" },
             stdin = false,
           },
-          -- php_cs_fixer = {
-          --   command = "php-cs-fixer",
-          --   env = {
-          --     PHP_CS_FIXER_IGNORE_ENV = "1",
-          --   },
-          --   args = { "fix", "$FILENAME", "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" },
-          --   stdin = false,
-          --   cwd = util.root_file({ "composer.json" }),
-          -- },
+          php_cs_fixer = {
+            command = "php-cs-fixer",
+            env = {
+              PHP_CS_FIXER_IGNORE_ENV = "1",
+            },
+            args = { "fix", "$FILENAME" },
+            stdin = false,
+            cwd = util.root_file({ ".rootdir", "composer.json" }),
+          },
         },
       })
 
