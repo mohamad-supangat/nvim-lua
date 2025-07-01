@@ -158,9 +158,9 @@ return {
         -- nerd_font_variant = 'mono'
       },
     },
-    -- opts_extend = {
-    -- "sources.default",
-    -- "sources.completion.enabled_providers"
-    -- },
+    opts_extend = {
+      "sources.default",
+      "sources.completion.enabled_providers",
+    },
   },
 }

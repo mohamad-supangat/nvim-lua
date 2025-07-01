@@ -72,7 +72,6 @@ return {
       end,
     })
 
-
     -- start config of custom lsp
     vim.lsp.config("unocss", {
       filetypes = {
@@ -108,17 +107,8 @@ return {
     })
 
     vim.lsp.config("ts_ls", {
-      filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-      init_options = {
-        plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = vim.fn.stdpath("data")
-              .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
-            languages = { "vue" },
-          },
-        },
-      },
+      filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
+      init_options = {},
     })
 
     vim.lsp.enable("kulala_ls")
@@ -128,9 +118,9 @@ return {
       automatic_installation = false,
       ensure_installed = {
         "lua_ls",
-        "vue_ls",
-        "ts_ls",
-        "emmet_language_server",
+        -- "vue_ls",
+        -- "ts_ls",
+        -- "emmet_language_server",
         -- "intelephense",
         -- "tailwindcss",
         -- "jsonls",
