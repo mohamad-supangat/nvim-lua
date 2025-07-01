@@ -76,6 +76,9 @@ return {
       },
     }
 
+    -- notify
+    require("mini.notify").setup()
+
     -- mini sesssion
     require("mini.sessions").setup({
       directory = "/home/deve/.local/state/nvim/sessions/",
