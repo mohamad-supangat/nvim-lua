@@ -1,4 +1,5 @@
 return {
+
   {
     "saghen/blink.cmp",
     enabled = true,
@@ -135,7 +136,14 @@ return {
           end,
           draw = {
             gap = 2,
-            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+            padding = { 1, 1 }, -- padding only on right side
+            components = {},
+            -- kind_icon = {
+            --   text = function(ctx)
+            --     return " " .. ctx.kind_icon .. ctx.icon_gap .. " "
+            --   end,
+            -- },
+            columns = { {"label", "label_description", gap = 1 }, { "kind", gap = 1 } },
             -- treesitter = { 'lsp' }
           },
         },
