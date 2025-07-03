@@ -164,14 +164,11 @@ return {
             {
               hl = "MiniStatuslineFilename",
               strings = {
-                -- filename(),
+                filename(),
               },
             },
             "%=", -- End left alignment
-
-            { strings = { navic.get_location() } },
-            "%=", -- End left alignment
-            { strings = { diagnostics } },
+            { strings = { navic.get_location(), diagnostics } },
           })
         end,
         inactive = function()
