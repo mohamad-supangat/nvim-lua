@@ -125,7 +125,7 @@ return {
     MiniStatusline = require("mini.statusline")
     MiniStatusline.setup({
       set_vim_settings = true,
-      use_icons = true,
+      use_icons = false,
       content = {
         active = function()
           local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
@@ -232,9 +232,7 @@ return {
         filter = function(fs_entry)
           return true
         end,
-        -- prefix = function()
-        --
-        -- end
+        prefix = function() end, -- disable icon in mini.files,
       },
       width_focus = 30,
       width_nofocus = 20,
@@ -351,8 +349,8 @@ return {
     -- }}} clue
 
     require("mini.pairs").setup()
-    require("mini.icons").setup()
-    require("mini.icons").mock_nvim_web_devicons()
+    -- require("mini.icons").setup()
+    -- require("mini.icons").mock_nvim_web_devicons()
     require("mini.bufremove").setup({
       set_vim_settings = true,
     })
