@@ -19,9 +19,9 @@ return {
           show_references = true,
           separator = "─",
           window = {
-            layout = "float",
-            height = 0.8,
-            width = 0.65,
+            -- layout = "float",
+            -- height = 0.8,
+            -- width = 0.65,
             opts = {
               breakindent = true,
               cursorcolumn = false,
@@ -29,6 +29,7 @@ return {
               foldcolumn = "0",
               linebreak = true,
               list = true,
+              number = false,
               signcolumn = "yes",
               spell = false,
               wrap = true,
@@ -83,6 +84,22 @@ I'm sharing my vitepress config file so you have the context of how the document
 
 I'm also sharing my `config.lua` file which I'm mapping to the `configuration` section of the sidebar.
 ]],
+            },
+          },
+        },
+        ["Refactor"] = {
+          strategy = "inline",
+          description = "Refactor the selected code",
+          opts = {
+            index = 1,
+            is_slash_cmd = true,
+            auto_submit = true,
+            short_name = "refactor",
+          },
+          prompts = {
+            {
+              role = "user",
+              content = "You are a senior software engineer. Refactor the selected code for better readability, performance, or maintainability. Only provide the refactored code, no explanations.",
             },
           },
         },
