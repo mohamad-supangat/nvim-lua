@@ -19,9 +19,9 @@ return {
           show_references = true,
           separator = "─",
           window = {
-            -- layout = "float",
-            -- height = 0.8,
-            -- width = 0.65,
+            layout = "float",
+            height = 0.9,
+            width = 0.50,
             opts = {
               breakindent = true,
               cursorcolumn = false,
