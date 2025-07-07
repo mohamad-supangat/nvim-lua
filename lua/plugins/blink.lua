@@ -68,7 +68,7 @@ return {
           supermaven = {
             name = "supermaven",
             module = "blink.compat.source",
-            score_offset = 99999,
+            score_offset = 1000,
             transform_items = function(_, items)
               local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
               local kind_idx = #CompletionItemKind + 1
@@ -143,7 +143,7 @@ return {
             --     return " " .. ctx.kind_icon .. ctx.icon_gap .. " "
             --   end,
             -- },
-            columns = { {"label", "label_description", gap = 1 }, { "kind", gap = 1 } },
+            columns = { { "label", "label_description", gap = 1 }, { "kind", gap = 1 } },
             -- treesitter = { 'lsp' }
           },
         },

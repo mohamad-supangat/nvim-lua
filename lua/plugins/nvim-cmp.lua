@@ -1,5 +1,5 @@
 return {
-  "iguanacucumber/magazine.nvim",
+  "hrsh7th/nvim-cmp",
   name = "nvim-cmp", -- Otherwise highlighting gets messed up
   enabled = false,
   event = "InsertEnter",
@@ -19,17 +19,23 @@ return {
       end,
     },
     "saadparwaiz1/cmp_luasnip",
-    { "iguanacucumber/mag-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },
-    { "iguanacucumber/mag-cmdline", name = "cmp-cmdline" },
-    { "iguanacucumber/mag-nvim-lua", name = "cmp-nvim-lua" },
+    { "hrsh7th/cmp-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },
+    { "hrsh7th/cmp-cmdline", name = "cmp-cmdline" },
     {
-      "Exafunction/codeium.nvim",
-      enabled = true,
+      "supermaven-inc/supermaven-nvim",
       opts = {
-        enable_cmp_source = true,
-        -- enable_chat = true,
+        disable_inline_completion = true,
       },
     },
+
+    -- {
+    --   "Exafunction/codeium.nvim",
+    --   enabled = true,
+    --   opts = {
+    --     enable_cmp_source = true,
+    --     -- enable_chat = true,
+    --   },
+    -- },
   },
 
   config = function()
@@ -166,24 +172,25 @@ return {
         disallow_symbol_nonprefix_matching = true,
       },
 
-      sorting = {
-        priority_weight = 2,
-        comparators = {
-          compare.offset,
-          compare.exact,
-          -- compare.scopes,
-          compare.score,
-          compare.recently_used,
-          compare.locality,
-          compare.kind,
-          -- compare.sort_text,
-          compare.length,
-          compare.order,
-        },
-      },
+      -- sorting = {
+      --   priority_weight = 2,
+      --   comparators = {
+      --     compare.order,
+      --     compare.offset,
+      --     compare.exact,
+      --     -- compare.scopes,
+      --     compare.score,
+      --     compare.recently_used,
+      --     compare.locality,
+      --     compare.kind,
+      --     -- compare.sort_text,
+      --     compare.length,
+      --   },
+      -- },
       sources = {
+        { name = "supermaven", priority = 10000 },
         -- { name = 'minuet' },
-        { name = "codeium" },
+        -- { name = "codeium" },
         { name = "luasnip" },
         { name = "nvim_lsp", trigger_characters = { "-" } },
         {
@@ -204,8 +211,8 @@ return {
       },
 
       window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
       },
     })
 
