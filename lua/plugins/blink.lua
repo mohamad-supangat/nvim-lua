@@ -3,8 +3,8 @@ return {
   {
     "saghen/blink.cmp",
     enabled = true,
-    -- version = '*',
-    version = false,
+    version = "1.*",
+    -- version = false,
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
       {
@@ -33,7 +33,9 @@ return {
         sorts = {
           "score",
         },
-        implementation = "lua",
+        -- implementation = "lua",
+        implementation = "rust",
+
         -- prebuilt_binaries = {
         --     force_version = "v0.7.3",
         -- },

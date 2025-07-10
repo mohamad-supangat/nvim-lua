@@ -15,7 +15,7 @@ return {
       -- blend = 20,
       border = "double",
       dimensions = {
-        height = 1,
+        height = 0.9,
         width = 0.7,
       },
     })
@@ -29,9 +29,8 @@ return {
       border = "single",
       -- blend = 20,
       dimensions = {
-        height = 0.8,
-        width = 0.4,
-        x = 0,
+        height = 0.9,
+        width = 0.7,
       },
     })
 
