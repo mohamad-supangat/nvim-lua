@@ -32,35 +32,37 @@ return {
   config = function()
     require("mini.extra").setup()
     vim.o.background = os.getenv("NVIM_BACKGROUND") or "dark"
+    vim.cmd("colorscheme randomhue")
+
     -- vim.o.background = table.concat(vim.fn.readfile(os.getenv("HOME") .. "/.local/share/colorscheme"), " ") or "dark"
 
     -- local hues = require("mini.hues")
-    local backgroundColor
-    local foregroundColor
-    if vim.o.background == "dark" then
-      -- Adwaita Dark
-      backgroundColor = "#2e3436"
-      foregroundColor = "#f6f6f6"
-    else
-      -- Adwaita Light
-      backgroundColor = "#fcfcfc"
-      foregroundColor = "#3c3c3c"
-    end
-    -- -- local base_colors = hues.gen_random_base_colors()
+    -- -- local backgroundColor
+    -- -- local foregroundColor
+    -- if vim.o.background == "dark" then
+    --   -- Adwaita Dark
+    --   backgroundColor = "#2e3436"
+    --   foregroundColor = "#f6f6f6"
+    -- else
+    --   -- Adwaita Light
+    --   backgroundColor = "#fcfcfc"
+    --   foregroundColor = "#3c3c3c"
+    -- end
+    -- local base_colors = hues.gen_random_base_colors()
     -- hues.setup({
-    --   background = backgroundColor,
-    --   foreground = foregroundColor,
+    --   -- background = backgroundColor,
+    --   -- foreground = foregroundColor,
     --   n_hues = 8,
     --   saturation = vim.o.background == "dark" and "medium" or "high",
     --   accent = "bg",
     --   use_cterm = true,
     -- })
 
-    local palette = require("mini.base16").mini_palette(backgroundColor, foregroundColor, 75)
-    require("mini.base16").setup({
-      palette = palette,
-      -- palette = require("colorschemes.rose-pine"),
-    })
+    -- local palette = require("mini.base16").mini_palette(backgroundColor, foregroundColor, 75)
+    -- require("mini.base16").setup({
+    --   palette = palette,
+    --   -- palette = require("colorschemes.rose-pine"),
+    -- })
 
     -- mini starter {{{
     local my_items = {
