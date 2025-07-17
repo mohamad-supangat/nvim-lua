@@ -2,24 +2,28 @@ return {
 
   {
     "saghen/blink.cmp",
-    enabled = false,
+    enabled = true,
     -- version = "1.*",
     version = false,
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
       {
-        "saghen/blink.compat",
-        opts = {
-          impersonate_nvim_cmp = true,
-          enable_events = true,
-        },
+        "Exafunction/windsurf.nvim",
+        config = function()
+          require("codeium").setup({
+            enable_cmp_source = false,
+          })
+        end,
       },
-      {
-        "supermaven-inc/supermaven-nvim",
-        opts = {
-          disable_inline_completion = true,
-        },
-      },
+      -- {
+      --   "supermaven-inc/supermaven-nvim",
+      --   dependencies = { "huijiro/blink-cmp-supermaven" },
+      --
+      --   opts = {
+      --     disable_inline_completion = true,
+      --     disable_keymaps = true,
+      --   },
+      -- },
     },
     opts = {
       enabled = function()
@@ -43,8 +47,8 @@ return {
       snippets = { preset = "luasnip" },
       sources = {
         default = {
-          "supermaven",
-          -- "codeium",
+          -- "supermaven",
+          "codeium",
           "lazydev",
           -- "avante",
           "snippets",
@@ -69,17 +73,9 @@ return {
           },
           supermaven = {
             name = "supermaven",
-            module = "blink.compat.source",
+            module = "blink-cmp-supermaven",
+            async = true,
             score_offset = 1000,
-            transform_items = function(_, items)
-              local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-              local kind_idx = #CompletionItemKind + 1
-              CompletionItemKind[kind_idx] = "Supermaven"
-              for _, item in ipairs(items) do
-                item.kind = kind_idx
-              end
-              return items
-            end,
           },
           minuet = {
             name = "minuet",
@@ -87,12 +83,7 @@ return {
             async = true,
             score_offset = 10000,
           },
-          -- codeium = { name = "Codeium", module = "codeium.blink", async = true, score_offset = 10000 },
-          -- codeium = {
-          --   name = "codeium",
-          --   module = "blink.compat.source",
-          --   score_offset = 10000,
-          -- },
+          codeium = { name = "Codeium", module = "codeium.blink", async = true, score_offset = 10000 },
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",

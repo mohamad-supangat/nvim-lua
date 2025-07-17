@@ -1,7 +1,7 @@
 return {
   "hrsh7th/nvim-cmp",
   name = "nvim-cmp", -- Otherwise highlighting gets messed up
-  enabled = true,
+  enabled = false,
   event = "InsertEnter",
   -- "hrsh7th/nvim-cmp",
   dependencies = {

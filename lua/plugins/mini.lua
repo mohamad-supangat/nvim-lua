@@ -32,12 +32,12 @@ return {
   config = function()
     require("mini.extra").setup()
     -- vim.o.background = os.getenv("NVIM_BACKGROUND") or "dark"
-    vim.o.background = "dark"
+    vim.o.background = "light"
 
     if vim.o.background == "dark" then
       vim.cmd("colorscheme randomhue")
     else
-      vim.cmd("colorscheme minispring")
+      vim.cmd("colorscheme minisummer")
     end
 
     -- vim.o.background = table.concat(vim.fn.readfile(os.getenv("HOME") .. "/.local/share/colorscheme"), " ") or "dark"
