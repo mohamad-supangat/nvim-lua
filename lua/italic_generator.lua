@@ -1,10 +1,10 @@
 local italics_groups = {
   "Comment",
   "Conditional",
-  -- "Identifier",
+  "Identifier",
   "SpecialChar",
   "SpecialComment",
-  -- "String",
+  "String",
   "Todo",
   "CmpItemKind",
   "NvimTreeGitRenamed",

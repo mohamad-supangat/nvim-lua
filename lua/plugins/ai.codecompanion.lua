@@ -5,7 +5,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "ravitemer/codecompanion-history.nvim",
+    -- "ravitemer/codecompanion-history.nvim",
   },
 
   config = function()
@@ -106,7 +106,7 @@ I'm also sharing my `config.lua` file which I'm mapping to the `configuration` s
       },
       extensions = {
         history = {
-          enabled = true,
+          enabled = false,
           opts = {
             keymap = "gh",
             save_chat_keymap = "sc",
