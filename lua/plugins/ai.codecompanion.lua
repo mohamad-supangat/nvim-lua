@@ -15,13 +15,13 @@ return {
       },
       display = {
         chat = {
-          start_in_insert_mode = true,
+          start_in_insert_mode = false,
           show_references = true,
           separator = "─",
           window = {
-            layout = "float",
-            height = 0.9,
-            width = 0.50,
+            layout = "horizontal",
+            -- height = 0.9,
+            -- width = 0.50,
             opts = {
               breakindent = true,
               cursorcolumn = false,
@@ -30,7 +30,7 @@ return {
               linebreak = true,
               list = true,
               number = false,
-              signcolumn = "yes",
+              -- signcolumn = "yes",
               spell = false,
               wrap = true,
             },
