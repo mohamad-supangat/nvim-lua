@@ -126,6 +126,7 @@ return {
           sources = {
             "/home/deve/.config/nvim/snippets",
             "/home/deve/.local/share/nvim/lazy/friendly-snippets",
+            "/home/deve/.local/share/nvim/lazy/laravel-vscode-snippets",
           },
           matchStrategy = "fuzzy", -- or 'fuzzy'
         },
