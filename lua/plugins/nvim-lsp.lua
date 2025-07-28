@@ -111,6 +111,28 @@ return {
       init_options = {},
     })
 
+    vim.lsp.config("basics_ls", {
+      settings = {
+        buffer = {
+          enable = true,
+          minCompletionLength = 4,
+          matchStrategy = "fuzzy",
+        },
+        path = {
+          enable = true,
+        },
+        snippet = {
+          enable = true,
+          sources = {
+            "/home/deve/.config/nvim/snippets",
+            "/home/deve/.local/share/nvim/lazy/friendly-snippets",
+          },
+          matchStrategy = "fuzzy", -- or 'fuzzy'
+        },
+      },
+    })
+
+    vim.lsp.enable("basics_ls")
     vim.lsp.enable("kulala_ls")
 
     require("mason-lspconfig").setup({
