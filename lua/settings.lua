@@ -43,7 +43,7 @@ opt.smartcase = true -- ignore lowercase for the whole pattern
 opt.signcolumn = "yes"
 opt.wrap = true
 opt.cursorline = true
-vim.opt.guicursor = "n-v-i-c:block-Cursor"
+-- vim.opt.guicursor = "n-v-i-c:block-Cursor"
 -- vim.o.winborder = "rounded"
 -----------------------------------------------------------
 -- Memory, CPU
