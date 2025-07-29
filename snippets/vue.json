@@ -1,13 +1,4 @@
 {
-  "defineModel": {
-    "prefix": "defineModel",
-    "body": [
-      "const $0 = defineModel({",
-      "\t$0",
-      "});"
-    ],
-    "description": "Define Model"
-  },
   "Import Inertiajs vue3": {
     "body": [
       "import { router} from \"@inertiajs/vue3\";"
@@ -87,6 +78,15 @@
     "body": "Datatable(:url=\"\\$route('${1}')\" :columns=\"columns\" ref=\"datatable\" :filter=\"${2:filter}\" include=\"${3}\" :customTd=\"[${4}]\" append=\"${5}\")",
     "prefix": "datatable::pug"
   },
+  "defineModel": {
+    "body": [
+      "const $0 = defineModel({",
+      "\t$0",
+      "});"
+    ],
+    "description": "Define Model",
+    "prefix": "defineModel"
+  },
   "import:component in another modules": {
     "body": "import ${1} from '@${2}/views/components/${3}.vue';",
     "prefix": "import:component in another modules"
@@ -110,38 +110,45 @@
     "body": [
       "<template lang=\"pug\">",
       "q-form(@submit=\"submit\")",
-      "\tq-dialog(ref='dialogRef' @hide='onDialogHide')",
-      "\t\tq-card.q-dialog-plugin",
-      "\t\t\tq-card-section",
-      "\t\t\t\tdiv.text-h5 ${1}",
-      "            q-card-actions(align='right')",
+      "    q-dialog(ref=\"dialogRef\", @hide=\"onDialogHide\")",
+      "        q-card.q-dialog-plugin",
+      "            q-toolbar",
+      "                .text-h5 {{ __('') }}",
+      "            q-separator",
+      "            q-card-section",
+      "            q-separator",
+      "            q-card-actions(align=\"right\")",
       "                q-btn(:label=\"__('Batal')\", @click=\"onDialogCancel\", flat)",
-      "                q-btn(color='positive' icon=\"mdi-content-save\" :label=\"__('Simpan data')\" type=\"submit\" :loading=\"loading.submit\" push)",
-      "                ",
+      "                q-btn(",
+      "                    color=\"positive\",",
+      "                    icon=\"mdi-content-save\",",
+      "                    :label=\"__('Simpan data')\",",
+      "                    type=\"submit\",",
+      "                    :loading=\"loading.submit\",",
+      "                    push",
+      "                )",
       "</template>",
       "",
       "<script setup>",
-      "import { useDialogPluginComponent } from \"quasar\";",
-      "",
-      "const props = defineProps({});",
+      "import { useDialogPluginComponent } from 'quasar';",
+      "import { api, toast } from '@/scripts';",
+      "import { ref } from 'vue';",
+      "const props = defineProps({",
+      "    detail_mode: Boolean,",
+      "});",
       "",
       "defineEmits([...useDialogPluginComponent.emits]);",
       "",
-      "const { dialogRef, onDialogHide, onDialogOK, onDialogCancel } =",
-      "useDialogPluginComponent();",
+      "const { dialogRef, onDialogHide, onDialogOK, onDialogCancel } = useDialogPluginComponent();",
       "function onOKClick() {",
-      "onDialogOK();",
+      "    onDialogOK();",
       "}",
-      "",
       "",
       "const loading = ref({ submit: false });",
       "async function submit() {",
       "    loading.value.submit = true;",
       "    try {",
-      "        const response = await api.post(",
-      "            route(\"elearning.teacher.study.material.action\"),",
-      "            form.value,",
-      "        );",
+      "        const response = await api.post(route('elearning.teacher.study.material.action'), form.value);",
       "        toast.request(response.status, response.message);",
       "        if (response.status) {",
       "            onDialogOK();",

@@ -18,33 +18,33 @@ return {
   -- "Abdelaziz18003/vscode-quasar-snippets",
   -- { "mohamad-supangat/snippets" },
 
-  -- {
-  --     "chrisgrieser/nvim-scissors",
-  --     opts = {
-  --         snippetDir = "/home/deve/projects/snippets",
-  --         jsonFormatter = "jq",
-  --     },
-  --     keys = {
-  --         {
-  --             "<leader>sne",
-  --             function()
-  --                 require("scissors").editSnippet()
-  --             end,
-  --             mode = { "n" },
-  --             noremap = true,
-  --             silent = true,
-  --         },
-  --         {
-  --             "<leader>sna",
-  --             function()
-  --                 require("scissors").addNewSnippet()
-  --             end,
-  --             mode = { "n", "x" },
-  --             noremap = true,
-  --             silent = true,
-  --         },
-  --     },
-  -- },
+  {
+    "chrisgrieser/nvim-scissors",
+    opts = {
+      snippetDir = "/home/deve/.config/nvim/snippets/",
+      jsonFormatter = "jq",
+    },
+    keys = {
+      {
+        "<leader>sne",
+        function()
+          require("scissors").editSnippet()
+        end,
+        mode = { "n" },
+        noremap = true,
+        silent = true,
+      },
+      {
+        "<leader>sna",
+        function()
+          require("scissors").addNewSnippet()
+        end,
+        mode = { "n", "x" },
+        noremap = true,
+        silent = true,
+      },
+    },
+  },
   {
     "L3MON4D3/LuaSnip",
     dev = false,
