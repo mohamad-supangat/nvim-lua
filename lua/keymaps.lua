@@ -17,12 +17,8 @@ vim.keymap.set("n", "<Esc><Esc>", ":nohl<CR>", { noremap = true, silent = true, 
 -- map esc
 vim.keymap.set("i", "kk", "<Esc>", { noremap = true, silent = true, desc = "Exit insert mode" })
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true, desc = "Exit insert mode" })
-vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "Exit insert mode" })
 
--- fast saving with <leader> and s
--- vim.keymap.set("n", "<C-s>", ":update<CR>", { noremap = true, silent = true, desc = "Save buffer" })
--- vim.keymap.set("i", "<C-s>", "<Esc>:update<CR>", { noremap = true, silent = true, desc = "Save buffer" })
--- vim.keymap.set("v", "<C-s>", "<C-C>:update<CR>", { noremap = true, silent = true, desc = "Save buffer" })
+vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "Exit insert mode" })
 
 -- close all windows and exit from neovim
 vim.keymap.set("n", "<leader>q", ":q<CR>", { noremap = true, silent = true, desc = "Exit Neovim" })

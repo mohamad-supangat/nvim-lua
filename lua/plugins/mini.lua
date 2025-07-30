@@ -193,8 +193,13 @@ return {
 
     require("mini.basics").setup({
       options = {
+        basic = true,
         extra_ui = true,
-        win_borders = "rounded",
+        win_borders = "single",
+        move_with_alt = true,
+      },
+      autocommands = {
+        relnum_in_visual_mode = false,
       },
     })
 
@@ -291,7 +296,7 @@ return {
         -- Customize window-local settings
         vim.wo[win_id].winblend = 10
         local config = vim.api.nvim_win_get_config(win_id)
-        config.border, config.title_pos = "rounded", "right"
+        config.border, config.title_pos = "single", "right"
         vim.api.nvim_win_set_config(win_id, config)
       end,
     })
@@ -373,7 +378,7 @@ return {
           height = math.floor(0.618 * vim.o.lines)
           width = math.floor(0.618 * vim.o.columns)
           return {
-            border = "rounded",
+            border = "single",
             anchor = "NW",
             height = height,
             width = width,
