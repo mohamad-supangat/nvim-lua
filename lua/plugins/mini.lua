@@ -43,8 +43,8 @@ return {
     -- vim.o.background = table.concat(vim.fn.readfile(os.getenv("HOME") .. "/.local/share/colorscheme"), " ") or "dark"
 
     -- local hues = require("mini.hues")
-    -- -- local backgroundColor
-    -- -- local foregroundColor
+    local backgroundColor
+    local foregroundColor
     if vim.o.background == "dark" then
       -- Adwaita Dark
       backgroundColor = "#2e3436"

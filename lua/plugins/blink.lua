@@ -8,22 +8,27 @@ return {
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
       {
-        "Exafunction/windsurf.nvim",
-        config = function()
-          require("codeium").setup({
-            enable_cmp_source = false,
-          })
-        end,
+        "saghen/blink.compat",
+        opts = {
+          enable_events = true,
+        },
       },
       -- {
-      --   "supermaven-inc/supermaven-nvim",
-      --   dependencies = { "huijiro/blink-cmp-supermaven" },
-      --
-      --   opts = {
-      --     disable_inline_completion = true,
-      --     disable_keymaps = true,
-      --   },
+      --   "Exafunction/windsurf.nvim",
+      --   config = function()
+      --     require("codeium").setup({
+      --       enable_cmp_source = false,
+      --     })
+      --   end,
       -- },
+      {
+        "supermaven-inc/supermaven-nvim",
+        opts = {
+          disable_inline_completion = true,
+          disable_keymaps = true,
+        },
+      },
+      "huijiro/blink-cmp-supermaven",
     },
     opts = {
       enabled = function()
@@ -47,8 +52,8 @@ return {
       snippets = { preset = "luasnip" },
       sources = {
         default = {
-          -- "supermaven",
-          "codeium",
+          "supermaven",
+          -- "codeium",
           "lazydev",
           -- "avante",
           "snippets",
@@ -73,9 +78,18 @@ return {
           },
           supermaven = {
             name = "supermaven",
-            module = "blink-cmp-supermaven",
+            module = "blink.compat.source",
             async = true,
             score_offset = 1000,
+            transform_items = function(_, items)
+              local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+              local kind_idx = #CompletionItemKind + 1
+              CompletionItemKind[kind_idx] = "Supermaven"
+              for _, item in ipairs(items) do
+                item.kind = kind_idx
+              end
+              return items
+            end,
           },
           minuet = {
             name = "minuet",
