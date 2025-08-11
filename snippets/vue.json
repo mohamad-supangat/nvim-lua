@@ -98,6 +98,38 @@
     "description": "label` with translate",
     "prefix": "label-with-translate"
   },
+  "q-btn::delete": {
+    "body": [
+      "q-btn(",
+      "    round,",
+      "    flat,",
+      "    color=\"negative\",",
+      "    icon=\"mdi-trash-can-outline\",",
+      "    noWrap,",
+      "    @click=\"${1:}\",",
+      "    v-if=\"${2:}\"",
+      ")"
+    ],
+    "prefix": "q-btn::delete"
+  },
+  "q-btn:close-dialog": {
+    "body": "q-btn(icon=\"mdi-close\" flat round dense @click=\"onDialogCancel\")",
+    "prefix": "q-btn:close-dialog"
+  },
+  "q-btn:edit": {
+    "body": [
+      "q-btn(",
+      "    round,",
+      "    flat,",
+      "    color=\"secondary\",",
+      "    icon=\"mdi-book-edit-outline\",",
+      "    noWrap,",
+      "    @click=\"${1:}\",",
+      "    v-if=\"${2:}\"",
+      ")"
+    ],
+    "prefix": "q-btn:edit"
+  },
   "q-card-actions-with-buttons": {
     "body": [
       "q-card-actions(align='right')",
