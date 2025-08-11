@@ -32,8 +32,8 @@ return {
     },
     opts = {
       enabled = function()
-        -- return vim.b.completion ~= false
-        return not vim.tbl_contains(require("variables").exclude, vim.bo.filetype)
+        return vim.b.completion ~= false
+        -- return not vim.tbl_contains(require("variables").exclude, vim.bo.filetype)
         --     and vim.bo.buftype ~= "prompt"
         --     and vim.b.completion ~= false
       end,
@@ -137,9 +137,10 @@ return {
         menu = {
           -- auto_show = true,
           auto_show = function(ctx)
+            return true
             -- return ctx.mode ~= 'cmdline' and
             -- not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype()) and
-            return not vim.tbl_contains(require("variables").exclude, vim.bo.filetype)
+            -- return not vim.tbl_contains(require("variables").exclude, vim.bo.filetype)
           end,
           draw = {
             gap = 2,

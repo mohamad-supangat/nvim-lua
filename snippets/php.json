@@ -56,6 +56,17 @@
     "body": "__('${1}'${2})",
     "prefix": "echo::translate"
   },
+  "lv:table and fillable": {
+    "body": [
+      "/**",
+      " * The table associated with the model.",
+      " *",
+      " * @var string",
+      " */",
+      "protected \\$table = '${1}';"
+    ],
+    "prefix": "lv:table"
+  },
   "lv:table and guarded": {
     "body": [
       "/**",
@@ -74,6 +85,17 @@
     ],
     "prefix": "lv:table and guarded"
   },
+  "lvmodel:Attribute": {
+    "body": [
+      "protected function ${1}(): Attribute",
+      "{",
+      "    return Attribute::make(",
+      "        get: fn() => ${2};",
+      "    )",
+      "}"
+    ],
+    "prefix": "lvmodel:Attribute"
+  },
   "translatedFormat": {
     "body": "translatedFormat('j F Y')",
     "prefix": "translatedFormat"
@@ -91,16 +113,5 @@
       "}"
     ],
     "prefix": "trycatch:with-database-transaction"
-  },
-  "lvmodel:Attribute": {
-    "body": [
-      "protected function ${1}(): Attribute",
-      "{",
-      "    return Attribute::make(",
-      "        get: fn() => ${2};",
-      "    )",
-      "}"
-    ],
-    "prefix": "lvmodel:Attribute"
   }
 }
