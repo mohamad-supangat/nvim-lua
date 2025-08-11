@@ -23,6 +23,7 @@ return {
     },
     keys = {
       {
+        mode = { "n", "v" },
         "<leader>fm",
         "<cmd>AllFormat<cr>",
         noremap = true,
