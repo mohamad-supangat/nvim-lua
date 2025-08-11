@@ -66,6 +66,10 @@
     ],
     "prefix": "actions::datatable custom q-card-actions"
   },
+  "constform": {
+    "body": "const form = ref({});",
+    "prefix": "constform"
+  },
   "custom-datatable-status::pug": {
     "body": "template(v-slot:custom-${1}=\"{ props }\")",
     "prefix": "custom-datatable-status::pug"
