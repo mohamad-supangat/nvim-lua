@@ -91,6 +91,32 @@
     "description": "Define Model",
     "prefix": "defineModel"
   },
+  "function:deleteData(row)": {
+    "body": [
+      "function deleteData(row) {",
+      "    Dialog.create({",
+      "        title: __('Hapus Transaksi :type', { type: row.type_label }),",
+      "        message: __('Data yang di hapus tidak dapat di kembalikan'),",
+      "        ok: {",
+      "            label: __('Lanjutkan'),",
+      "            color: 'negative',",
+      "        },",
+      "        cancel: true,",
+      "        persistent: true,",
+      "    }).onOk(async () => {",
+      "        const response = await api.delete(",
+      "            route('${1:}', {",
+      "                ${2:}: row.id,",
+      "            }),",
+      "        );",
+      "",
+      "        toast.request(response.status, response.message);",
+      "        datatable.value.refresh();",
+      "    });",
+      "}"
+    ],
+    "prefix": "function:deleteData(row)"
+  },
   "import:component in another modules": {
     "body": "import ${1} from '@${2}/views/components/${3}.vue';",
     "prefix": "import:component in another modules"

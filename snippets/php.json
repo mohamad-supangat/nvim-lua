@@ -85,6 +85,27 @@
     ],
     "prefix": "lv:table and guarded"
   },
+  "lvcontroller:delete": {
+    "body": [
+      "/**",
+      " * Delete function.",
+      " *",
+      " * @return object spresponse",
+      " */",
+      "public function delete(${2:} ${1:})",
+      "{",
+      "    try {",
+      "        ${1:}->delete();",
+      "",
+      "        return SpHelper::response(true, __('Menghapus :title', ['title' => \\$this->model_title]));",
+      "    } catch (\\Exception \\$e) {",
+      "        /* throw \\$e; */",
+      "        return SpHelper::response(false, __('Gagal mengahpus :title kemungkinan terdapat data yang berkaitan dengan item tersebut', ['title' => \\$this->model_title]));",
+      "    }",
+      "}"
+    ],
+    "prefix": "lvcontroller:delete"
+  },
   "lvmodel:Attribute": {
     "body": [
       "protected function ${1}(): Attribute",
@@ -95,6 +116,23 @@
       "}"
     ],
     "prefix": "lvmodel:Attribute"
+  },
+  "lvroute:group": {
+    "body": [
+      "Route::group(",
+      "    [",
+      "        'prefix' => '${1:}',",
+      "        'as'     => '${1:}.',",
+      "    ],",
+      "    function () {",
+      "        Route::get('datatable', [${2:}::class, 'datatable'])->name('datatable');",
+      "        Route::get('show/{${1:}}', [${2:}::class, 'show'])->name('show');",
+      "        Route::post('action', [${2:}::class, 'action'])->name('action')->middleware();",
+      "        Route::delete('delete/{${1:}}', [${2:}::class, 'delete'])->name('delete')->middleware();",
+      "    }",
+      ");"
+    ],
+    "prefix": "lvroute:group"
   },
   "translatedFormat": {
     "body": "translatedFormat('j F Y')",
