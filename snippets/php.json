@@ -134,6 +134,35 @@
     ],
     "prefix": "lvroute:group"
   },
+  "sekolahku:controller-action-function": {
+    "body": [
+      "public function action(Request \\$request)",
+      "{",
+      "    \\$request->validate([",
+      "        'name' => 'required',",
+      "    ]);",
+      "",
+      "    return SpHelper::response(true, __('Sukses Menyimpan Transaksi'));",
+      "}"
+    ],
+    "prefix": "sekolahku:controller-action-function"
+  },
+  "sekolahku:controller-delete-function": {
+    "body": [
+      "public function delete(Transaction \\$transaction)",
+      "{",
+      "    try {",
+      "        \\$transaction->delete();",
+      "",
+      "        return SpHelper::response(true, __('Menghapus :title', ['title' => \\$this->model_title]));",
+      "    } catch (\\Exception \\$e) {",
+      "        /* throw \\$e; */",
+      "        return SpHelper::response(false, __('Gagal mengahpus :title kemungkinan terdapat data yang berkaitan dengan item tersebut', ['title' => \\$this->model_title]));",
+      "    }",
+      "}"
+    ],
+    "prefix": "sekolahku:controller-delete-function"
+  },
   "sekolahku:meta": {
     "body": [
       "['${1:}', [",
