@@ -115,14 +115,31 @@ return {
           end,
         },
         ["<CR>"] = { "accept", "fallback" },
+        -- ["<C-space>"] = {
+        --   function(cmp)
+        --     cmp.show({ providers = { "snippets" } })
+        --   end,
+        -- },
         ["<C-space>"] = { "show", "hide" },
         ["<C-S-k>"] = { "show_documentation", "hide_documentation", "fallback" },
         ["<C-e>"] = { "hide", "fallback" },
 
         ["<Up>"] = { "select_prev", "fallback" },
         ["<Down>"] = { "select_next", "fallback" },
-        ["<S-Tab>"] = { "select_prev", "fallback" },
-        ["<Tab>"] = { "select_next", "fallback" },
+        ["<S-Tab>"] = {
+          "select_prev",
+          function()
+            require("luasnip").jump(-1)
+          end,
+          "fallback",
+        },
+        ["<Tab>"] = {
+          "select_next",
+          function()
+            require("luasnip").jump(1)
+          end,
+          "fallback",
+        },
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-j>"] = { "select_next", "fallback" },
 
