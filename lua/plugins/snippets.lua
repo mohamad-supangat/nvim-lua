@@ -1,3 +1,5 @@
+local custom_snippets_dir = "~/projects/snippets/"
+
 return {
   {
     "rafamadriz/friendly-snippets",
@@ -21,7 +23,7 @@ return {
   {
     "chrisgrieser/nvim-scissors",
     opts = {
-      snippetDir = "/home/deve/.config/nvim/snippets/",
+      snippetDir = custom_snippets_dir,
       jsonFormatter = "jq",
     },
     keys = {
@@ -50,7 +52,7 @@ return {
     dev = false,
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
-      require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
+      require("luasnip.loaders.from_vscode").lazy_load({ paths = { custom_snippets_dir } })
 
       local ls = require("luasnip")
 
