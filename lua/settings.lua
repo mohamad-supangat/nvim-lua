@@ -82,8 +82,8 @@ opt.autoindent = true
 --opt.shortmess = 'c' 	-- don't show completion messages
 
 -- Don't automatically collapse markdown and Latex
-opt.conceallevel = 0
-g.tex_conceal = ""
+opt.conceallevel = 2
+-- g.tex_conceal = ""
 
 -- opt.laststatus = 3
 -- opt.cmdheight = 0

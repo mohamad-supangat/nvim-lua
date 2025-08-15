@@ -1,5 +1,5 @@
 return {
-  enabled = false,
+  enabled = true,
   "obsidian-nvim/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
@@ -7,6 +7,7 @@ return {
   cmd = { "Obsidian" },
   keys = {
     { "<leader>ob", ":Obsidian<CR>", noremap = true, silent = true },
+    { "<leader>no", ":Obsidian<CR>", noremap = true, silent = true },
   },
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   -- event = {
@@ -22,15 +23,31 @@ return {
     legacy_commands = false,
     workspaces = {
       {
-        name = "personal",
-        path = "~/vaults/personal",
+        name = "Personal",
+        path = "~/Documents/Obsidian/Personal/",
       },
       {
-        name = "work",
-        path = "~/vaults/work",
+        name = "Aura Komputer",
+        path = "~/Documents/Obsidian/AuraKomputer/",
+      },
+      {
+        name = "Reksa Karya",
+        path = "~/Documents/Obsidian/Reksa/",
       },
     },
-
-    -- see below for full list of options 👇
+    notes_subdir = "notes",
+    daily_notes = {
+      folder = "notes/dailies",
+      date_format = "%Y-%m-%d",
+      alias_format = "%B %-d, %Y",
+      default_tags = { "daily-notes" },
+      template = nil,
+    },
+    templates = {
+      folder = "templates",
+      date_format = "%Y-%m-%d",
+      time_format = "%H:%M",
+    },
+    -- open_app_foreground = true,
   },
 }
