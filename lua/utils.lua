@@ -58,4 +58,15 @@ function M.zenmode()
   end
 end
 
+function M.GitAutoCommit()
+  local current_datetime = os.date("%Y-%m-%d %H:%M:%S")
+  local commit_message = "auto commit from neovim: " .. current_datetime
+
+  vim.cmd("silent !git add .")
+  vim.cmd(string.format("silent !git commit -m %q", commit_message))
+  vim.cmd("silent !git push")
+
+  vim.notify("Git auto commit dan push selesai.", vim.log.levels.INFO, { title = "Git Auto Commit" })
+end
+
 return M
