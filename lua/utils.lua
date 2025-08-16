@@ -58,9 +58,19 @@ function M.zenmode()
   end
 end
 
-function M.GitAutoCommit()
-  local current_datetime = os.date("%Y-%m-%d %H:%M:%S")
-  local commit_message = "auto commit from neovim: " .. current_datetime
+function M.GitAutoCommit(message)
+  local commit_message
+  if message == nil or message == "" then
+    local user_input = vim.fn.input("Masukkan pesan commit (kosong untuk pesan default): ")
+    if user_input ~= "" then
+      commit_message = user_input
+    else
+      local current_datetime = os.date("%Y-%m-%d %H:%M:%S")
+      commit_message = "auto commit from neovim: " .. current_datetime
+    end
+  else
+    commit_message = message
+  end
 
   local original_cwd = vim.fn.getcwd()
   local root_path = M.currentFileRootPath()
