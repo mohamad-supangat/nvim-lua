@@ -52,7 +52,7 @@ return {
       snippets = { preset = "luasnip" },
       sources = {
         default = {
-          "emoji",
+          -- "emoji",
           "supermaven",
           -- "codeium",
           "lazydev",

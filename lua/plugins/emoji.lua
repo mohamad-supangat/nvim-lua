@@ -4,7 +4,7 @@ return {
     "nvim-lua/plenary.nvim",
   },
   opts = {
-    enable_cmp_integration = true,
+    enable_cmp_integration = false,
   },
   config = function(_, opts)
     require("emoji").setup(opts)
