@@ -62,11 +62,20 @@ function M.GitAutoCommit()
   local current_datetime = os.date("%Y-%m-%d %H:%M:%S")
   local commit_message = "auto commit from neovim: " .. current_datetime
 
-  vim.cmd("silent !git add .")
-  vim.cmd(string.format("silent !git commit -m %q", commit_message))
-  vim.cmd("silent !git push")
+  local original_cwd = vim.fn.getcwd()
+  local root_path = M.currentFileRootPath()
 
-  vim.notify("Git auto commit dan push selesai.", vim.log.levels.INFO, { title = "Git Auto Commit" })
+  if root_path then
+    vim.cmd("silent! cd " .. root_path)
+    vim.cmd("silent !git add .")
+    vim.cmd(string.format("silent !git commit -m %q", commit_message))
+    vim.cmd("silent !git push")
+    vim.cmd("silent! cd " .. original_cwd)
+
+    vim.notify("Git auto commit dan push selesai.", vim.log.levels.INFO, { title = "Git Auto Commit" })
+  else
+    vim.notify("Tidak dapat menemukan root direktori Git.", vim.log.levels.ERROR, { title = "Git Auto Commit Error" })
+  end
 end
 
 return M
