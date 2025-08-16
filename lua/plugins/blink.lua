@@ -52,6 +52,7 @@ return {
       snippets = { preset = "luasnip" },
       sources = {
         default = {
+          "emoji",
           "supermaven",
           -- "codeium",
           "lazydev",
@@ -87,6 +88,17 @@ return {
               CompletionItemKind[kind_idx] = "Supermaven"
               for _, item in ipairs(items) do
                 item.kind = kind_idx
+              end
+              return items
+            end,
+          },
+          emoji = {
+            name = "emoji",
+            module = "blink.compat.source",
+            transform_items = function(ctx, items)
+              local kind = require("blink.cmp.types").CompletionItemKind.Text
+              for i = 1, #items do
+                items[i].kind = kind
               end
               return items
             end,
