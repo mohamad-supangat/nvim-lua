@@ -69,3 +69,4 @@ Some of the shortcuts I use frequently are listed here. In the following shortcu
 ### Formatter
 - prettier
 - nginxfmt https://github.com/slomkowski/nginx-config-formatter
+- phpcsfixer https://github.com/PHP-CS-Fixer/PHP-CS-Fixer
