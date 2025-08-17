@@ -42,7 +42,7 @@ return {
       },
     },
     input = {
-      enabled = true,
+      enabled = false,
       win = {
         border = "single",
         -- https://github.com/folke/snacks.nvim/discussions/376

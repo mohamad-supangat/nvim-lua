@@ -59,32 +59,53 @@ function M.zenmode()
 end
 
 function M.GitAutoCommit(message)
-  local commit_message
-  if message == nil or message == "" then
-    local user_input = vim.fn.input("Masukkan pesan commit (kosong untuk pesan default): ")
-    if user_input ~= "" then
-      commit_message = user_input
+  -- Helper function to perform common git operations
+  local function perform_git_operations(commit_msg)
+    local original_cwd = vim.fn.getcwd()
+    -- Assuming M.currentFileRootPath exists and is synchronous
+    local root_path = M.currentFileRootPath()
+
+    if root_path then
+      -- Change directory to the root of the Git repository
+      vim.cmd("silent! cd " .. root_path)
+      -- Stage all changes
+      vim.cmd("silent !git add .")
+      -- Commit changes with the specified message
+      vim.cmd(string.format("silent !git commit -m %q", commit_msg))
+      -- Push changes to the remote repository
+      vim.cmd("silent !git push")
+      -- Change back to the original working directory
+      vim.cmd("silent! cd " .. original_cwd)
+
+      vim.notify("Git auto commit dan push selesai.", vim.log.levels.INFO, { title = "Git Auto Commit" })
     else
-      local current_datetime = os.date("%Y-%m-%d %H:%M:%S")
-      commit_message = "auto commit from neovim: " .. current_datetime
+      vim.notify("Tidak dapat menemukan root direktori Git.", vim.log.levels.ERROR, { title = "Git Auto Commit Error" })
     end
-  else
-    commit_message = message
   end
 
-  local original_cwd = vim.fn.getcwd()
-  local root_path = M.currentFileRootPath()
-
-  if root_path then
-    vim.cmd("silent! cd " .. root_path)
-    vim.cmd("silent !git add .")
-    vim.cmd(string.format("silent !git commit -m %q", commit_message))
-    vim.cmd("silent !git push")
-    vim.cmd("silent! cd " .. original_cwd)
-
-    vim.notify("Git auto commit dan push selesai.", vim.log.levels.INFO, { title = "Git Auto Commit" })
+  if message == nil or message == "" then
+    -- If no message is provided, prompt the user asynchronously using vim.ui.input
+    vim.ui.input({
+      prompt = "Masukkan pesan commit (kosong untuk pesan default): ",
+      -- Optional: 'completion' can be 'file', 'dir', or 'shell'
+      -- completion = "file",
+    }, function(user_input)
+      local commit_message_final
+      -- Check if user provided input (not nil for cancel, not empty string for blank input)
+      if user_input ~= nil and user_input ~= "" then
+        -- Use user's input if provided
+        commit_message_final = user_input
+      else
+        -- Generate default message if user input is empty or cancelled
+        local current_datetime = os.date("%Y-%m-%d %H:%M:%S")
+        commit_message_final = "auto commit from neovim: " .. current_datetime
+      end
+      -- Perform git operations with the determined message
+      perform_git_operations(commit_message_final)
+    end)
   else
-    vim.notify("Tidak dapat menemukan root direktori Git.", vim.log.levels.ERROR, { title = "Git Auto Commit Error" })
+    -- If a message is provided, proceed directly with git operations
+    perform_git_operations(message)
   end
 end
 
