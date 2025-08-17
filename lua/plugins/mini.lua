@@ -184,87 +184,91 @@ return {
       end,
     })
 
-    require("mini.indentscope").setup({
-      symbol = "▏",
-      options = {
-        try_as_border = true,
-      },
-      draw = {
-        delay = 0,
-        animation = require("mini.indentscope").gen_animation.none(),
-      },
-    })
+    if vim.g.snack_enable == false then
+      require("mini.indentscope").setup({
+        symbol = "▏",
+        options = {
+          try_as_border = true,
+        },
+        draw = {
+          delay = 0,
+          animation = require("mini.indentscope").gen_animation.none(),
+        },
+      })
+    end
 
     require("mini.splitjoin").setup()
     require("mini.surround").setup()
     require("mini.git").setup()
 
-    -- files {{{
-    local MiniFiles = require("mini.files")
-    -- require("functions.mini-files-git")
+    if vim.g.snack_enable == false then
+      -- files {{{
+      local MiniFiles = require("mini.files")
+      -- require("functions.mini-files-git")
 
-    MiniFiles.setup({
-      use_as_default_explorer = true,
-      content = {
-        filter = function(fs_entry)
-          return true
-        end,
-        prefix = function() end, -- disable icon in mini.files,
-      },
-      width_focus = 30,
-      width_nofocus = 20,
-      width_preview = 25,
-      mappings = {
-        go_in = "L",
-        go_in_plus = "l",
-        go_out = "H",
-        go_out_plus = "h",
-      },
-    })
+      MiniFiles.setup({
+        use_as_default_explorer = true,
+        content = {
+          filter = function(fs_entry)
+            return true
+          end,
+          prefix = function() end, -- disable icon in mini.files,
+        },
+        width_focus = 30,
+        width_nofocus = 20,
+        width_preview = 25,
+        mappings = {
+          go_in = "L",
+          go_in_plus = "l",
+          go_out = "H",
+          go_out_plus = "h",
+        },
+      })
 
-    -- toggle file explorer
-    local minifiles_toggle = function()
-      if not MiniFiles.close() then
-        MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-        MiniFiles.reveal_cwd()
-      end
-    end
-    --
-    vim.keymap.set("n", "<C-n>", minifiles_toggle, { desc = "Toggle File Explorer" })
-    --
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "MiniFilesBufferCreate",
-      callback = function(args)
-        local buf_id = args.data.buf_id
-        local open_in_window_picker = function()
-          local fs_entry = MiniFiles.get_fs_entry()
-          if fs_entry ~= nil and fs_entry.fs_type == "file" then
-            local picked_window_id = require("window-picker").pick_window()
-            if picked_window_id ~= nil then
-              MiniFiles.set_target_window(picked_window_id)
-            end
-          end
-          MiniFiles.go_in({
-            close_on_file = true,
-          })
+      -- toggle file explorer
+      local minifiles_toggle = function()
+        if not MiniFiles.close() then
+          MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+          MiniFiles.reveal_cwd()
         end
-        vim.keymap.set("n", "l", open_in_window_picker, { buffer = buf_id, desc = "Open in target window" })
-      end,
-    })
+      end
+      --
+      vim.keymap.set("n", "<C-n>", minifiles_toggle, { desc = "Toggle File Explorer" })
+      --
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesBufferCreate",
+        callback = function(args)
+          local buf_id = args.data.buf_id
+          local open_in_window_picker = function()
+            local fs_entry = MiniFiles.get_fs_entry()
+            if fs_entry ~= nil and fs_entry.fs_type == "file" then
+              local picked_window_id = require("window-picker").pick_window()
+              if picked_window_id ~= nil then
+                MiniFiles.set_target_window(picked_window_id)
+              end
+            end
+            MiniFiles.go_in({
+              close_on_file = true,
+            })
+          end
+          vim.keymap.set("n", "l", open_in_window_picker, { buffer = buf_id, desc = "Open in target window" })
+        end,
+      })
 
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "MiniFilesWindowOpen",
-      callback = function(args)
-        local win_id = args.data.win_id
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesWindowOpen",
+        callback = function(args)
+          local win_id = args.data.win_id
 
-        -- Customize window-local settings
-        vim.wo[win_id].winblend = 10
-        local config = vim.api.nvim_win_get_config(win_id)
-        config.border, config.title_pos = "single", "right"
-        vim.api.nvim_win_set_config(win_id, config)
-      end,
-    })
-    -- }}} files
+          -- Customize window-local settings
+          vim.wo[win_id].winblend = 10
+          local config = vim.api.nvim_win_get_config(win_id)
+          config.border, config.title_pos = "single", "right"
+          vim.api.nvim_win_set_config(win_id, config)
+        end,
+      })
+      -- }}} files
+    end
     -- hl patttern {{{
     local hipatterns = require("mini.hipatterns")
     hipatterns.setup({

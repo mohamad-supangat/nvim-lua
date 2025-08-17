@@ -1,4 +1,5 @@
 return {
+  enabled = vim.g.snack_enable == false,
   "folke/zen-mode.nvim",
   cmd = { "ZenMode" },
   keys = {

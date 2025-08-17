@@ -29,6 +29,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+vim.g.snack_enable = true
 
 require("settings")
 require("lazy").setup("plugins", { ui = { border = "rounded" } })

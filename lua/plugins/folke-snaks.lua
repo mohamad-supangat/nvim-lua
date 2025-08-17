@@ -1,6 +1,6 @@
 return {
   "folke/snacks.nvim",
-  enabled = false,
+  enabled = vim.g.snack_enable,
   priority = 1000,
   lazy = false,
   opts = {
@@ -10,7 +10,7 @@ return {
     dim = {
       enabled = true,
     },
-    explorer = { enabled = false },
+    explorer = { enabled = true },
     indent = {
       enabled = true,
       scope = {
@@ -29,7 +29,7 @@ return {
       blank = " ",
     },
     picker = {
-      enabled = false,
+      enabled = true,
       win = {
         keys = {
           i_del_word = { "<A-BS>", "delete_word", mode = "i", expr = true },
@@ -42,7 +42,7 @@ return {
       },
     },
     input = {
-      enabled = false,
+      enabled = true,
       win = {
         border = "single",
         -- https://github.com/folke/snacks.nvim/discussions/376
@@ -214,13 +214,13 @@ return {
       end,
       desc = "Notification History",
     },
-    -- {
-    --   "<C-n>",
-    --   function()
-    --     Snacks.explorer()
-    --   end,
-    --   desc = "File Explorer",
-    -- },
+    {
+      "<C-n>",
+      function()
+        Snacks.explorer()
+      end,
+      desc = "File Explorer",
+    },
     -- find
     {
       "<leader>fb",
