@@ -10,7 +10,9 @@ return {
     dim = {
       enabled = true,
     },
-    explorer = { enabled = true },
+    explorer = {
+      enabled = true,
+    },
     indent = {
       enabled = true,
       scope = {
@@ -38,6 +40,43 @@ return {
           delete_word = function()
             vim.cmd("normal! diw<cr>")
           end,
+        },
+      },
+      sources = {
+        explorer = {
+          hidden = true,
+          ignored = true,
+          auto_close = true,
+          win = {
+            list = {
+              keys = {
+                ["l"] = { { "pick_win", "confirm" }, mode = { "n", "i" } },
+              },
+            },
+          },
+          layout = {
+            layout = {
+              box = "vertical",
+              position = "left",
+              width = 0.2,
+              {
+                win = "input",
+                max_height = 1,
+                height = 1,
+                border = { "", "", "", "", "", "", "", " " },
+                wo = {
+                  winhighlight = "FloatBorder:Normal,NormalFloat:Normal,SnacksPickerPrompt:SnacksPickerPromptTransparent",
+                },
+              },
+              {
+                win = "list",
+                border = "none",
+                wo = {
+                  winhighlight = "FloatBorder:Normal,NormalFloat:Normal",
+                },
+              },
+            },
+          },
         },
       },
     },
@@ -208,7 +247,7 @@ return {
       desc = "Command History",
     },
     {
-      "<leader>n",
+      "<leader>nn",
       function()
         Snacks.picker.notifications()
       end,
@@ -217,7 +256,7 @@ return {
     {
       "<C-n>",
       function()
-        Snacks.explorer()
+        Snacks.picker.explorer()
       end,
       desc = "File Explorer",
     },
@@ -527,6 +566,10 @@ return {
         Snacks.toggle.inlay_hints():map("<leader>uh")
         Snacks.toggle.indent():map("<leader>ug")
         Snacks.toggle.dim():map("<leader>uD")
+
+        vim.api.nvim_set_hl(0, "SnacksPickerPathHidden", { link = "Fg" })
+        vim.api.nvim_set_hl(0, "SnacksPickerPathIgnored", { link = "Fg" })
+        vim.api.nvim_set_hl(0, "SnacksPickerDirectory", { link = "Fg" })
       end,
     })
   end,

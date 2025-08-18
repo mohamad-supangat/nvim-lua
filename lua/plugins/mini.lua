@@ -8,7 +8,7 @@ return {
     -- },
     {
       "s1n7ax/nvim-window-picker",
-      enabled = true,
+      enabled = vim.g.snack_enable == false,
       name = "window-picker",
       event = "VeryLazy",
       version = "2.*",
