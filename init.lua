@@ -30,6 +30,9 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 vim.g.snack_enable = true
+vim.g.explorer = "mini.files"
+-- vim.g.explorer = "snack"
+
 
 require("settings")
 require("lazy").setup("plugins", { ui = { border = "rounded" } })
@@ -38,4 +41,3 @@ require("lazy").setup("plugins", { ui = { border = "rounded" } })
 require("keymaps") -- global keymaps
 require("italic_generator")
 -- require("autocmds")
-

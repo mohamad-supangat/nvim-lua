@@ -11,7 +11,7 @@ return {
       enabled = true,
     },
     explorer = {
-      enabled = true,
+      enabled = vim.g.explorer == "snack",
     },
     indent = {
       enabled = true,
@@ -44,6 +44,7 @@ return {
       },
       sources = {
         explorer = {
+          enabled = vim.g.explorer == "snack",
           hidden = true,
           ignored = true,
           auto_close = true,
@@ -252,13 +253,6 @@ return {
         Snacks.picker.notifications()
       end,
       desc = "Notification History",
-    },
-    {
-      "<C-n>",
-      function()
-        Snacks.picker.explorer()
-      end,
-      desc = "File Explorer",
     },
     -- find
     {
@@ -566,6 +560,12 @@ return {
         Snacks.toggle.inlay_hints():map("<leader>uh")
         Snacks.toggle.indent():map("<leader>ug")
         Snacks.toggle.dim():map("<leader>uD")
+
+        if vim.g.explorer == "snack" then
+          vim.keymap.set("n", "<C-n>", function()
+            Snacks.picker.explorer()
+          end, { desc = "File Explorer" })
+        end
 
         vim.api.nvim_set_hl(0, "SnacksPickerPathHidden", { link = "Fg" })
         vim.api.nvim_set_hl(0, "SnacksPickerPathIgnored", { link = "Fg" })
