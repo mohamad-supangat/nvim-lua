@@ -1,6 +1,6 @@
 return {
   "Shatur/neovim-ayu",
-  enabled = false,
+  enabled = vim.g.colorschema == "ayu",
   config = function()
     require("ayu").setup({
       mirage = true, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.

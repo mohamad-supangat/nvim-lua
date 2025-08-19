@@ -1,6 +1,6 @@
 return {
   "EdenEast/nightfox.nvim",
-  enabled = false,
+  enabled = vim.g.colorschema == "nightfox",
   config = function()
     vim.cmd("colorscheme nightfox")
   end,

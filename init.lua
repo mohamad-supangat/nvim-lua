@@ -31,8 +31,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.g.snack_enable = true
 vim.g.explorer = "mini.files"
--- vim.g.explorer = "snack"
 
+-- mini, ayu, catppuccin, github, kanagawa, rosepine, sonokai, vscode
+vim.g.colorschema = "mini"
+-- vim.g.explorer = "snack"
 
 require("settings")
 require("lazy").setup("plugins", { ui = { border = "rounded" } })

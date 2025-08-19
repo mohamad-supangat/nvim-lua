@@ -1,6 +1,6 @@
 return {
   "Mofiqul/vscode.nvim",
-  enabled = false,
+  enabled = vim.g.colorschema == "vscode",
   config = function()
     require("vscode").setup({})
     vim.cmd.colorscheme("vscode")

@@ -8,6 +8,10 @@ return {
     -- },
   },
   config = function()
+    if vim.g.colorschema == "mini" then
+      vim.cmd("colorscheme minisummer")
+    end
+
     require("mini.extra").setup()
 
     -- mini starter {{{

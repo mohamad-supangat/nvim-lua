@@ -1,5 +1,6 @@
 return {
   "sainnhe/sonokai",
+  enabled = vim.g.colorschema == "sonokai",
   config = function()
     -- vim.g.sonokai_style = "atlantis"
     -- vim.g.sonokai_enable_italic = 1
