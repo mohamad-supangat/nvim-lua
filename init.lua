@@ -32,6 +32,9 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.snack_enable = true
 vim.g.explorer = "mini.files"
 
+-- goose, codecompanion, avante
+vim.g.ai = "goose"
+
 -- mini, ayu, catppuccin, github, kanagawa, rosepine, sonokai, vscode
 vim.g.colorschema = "mini"
 -- vim.g.explorer = "snack"

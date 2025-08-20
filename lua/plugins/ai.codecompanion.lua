@@ -1,7 +1,7 @@
 return {
   "olimorris/codecompanion.nvim",
   lazy = false,
-  enabled = true,
+  enabled = vim.g.ai == "codecompanion",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
