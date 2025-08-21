@@ -10,7 +10,7 @@ return {
       return
     end
 
-    local bard = fterm:new({
+    local gemini = fterm:new({
       cmd = "gemini",
       -- blend = 20,
       border = "double",
@@ -20,8 +20,8 @@ return {
       },
     })
 
-    function _G.bard()
-      bard:toggle()
+    function _G.gemini()
+      gemini:toggle()
     end
 
     local fterm1 = fterm:new({
@@ -105,11 +105,17 @@ return {
     map("t", "<F1>", "<C-\\><C-n><CMD>lua fterm1()<CR>", default_opts)
     map("n", "<F2>", ":lua fterm2()<CR>", default_opts)
     map("t", "<F2>", "<C-\\><C-n><CMD>lua fterm2()<CR>", default_opts)
-    map("n", "<leader>gi", ":lua lazygit()<CR>", default_opts)
+
     map("n", "<leader>do", ":lua lazydocker()<CR>", default_opts)
     map("n", "<leader>ci", ":lua citrace()<CR>", default_opts)
 
-    -- map("n", "<A-b>", ":lua bard()<CR>", default_opts)
-    -- map("t", "<A-b>", "<C-\\><C-n><CMD>lua bard()<CR>", default_opts)
+    if vim.g.snack_enable == false then
+      map("n", "<leader>gi", ":lua lazygit()<CR>", default_opts)
+    end
+
+    if vim.g.ai == "gemini" then
+      map("n", "<A-b>", ":lua gemini()<CR>", default_opts)
+      map("t", "<A-b>", "<C-\\><C-n><CMD>lua gemini()<CR>", default_opts)
+    end
   end,
 }
