@@ -106,14 +106,13 @@ return {
     map("n", "<F2>", ":lua fterm2()<CR>", default_opts)
     map("t", "<F2>", "<C-\\><C-n><CMD>lua fterm2()<CR>", default_opts)
 
-    map("n", "<leader>do", ":lua lazydocker()<CR>", default_opts)
-    map("n", "<leader>ci", ":lua citrace()<CR>", default_opts)
-
     if vim.g.snack_enable == false then
+      map("n", "<leader>do", ":lua lazydocker()<CR>", default_opts)
+      map("n", "<leader>ci", ":lua citrace()<CR>", default_opts)
       map("n", "<leader>gi", ":lua lazygit()<CR>", default_opts)
     end
 
-    if vim.g.ai == "gemini" then
+    if vim.g.ai == "gemini" and vim.g.snack_enable == false then
       map("n", "<A-b>", ":lua gemini()<CR>", default_opts)
       map("t", "<A-b>", "<C-\\><C-n><CMD>lua gemini()<CR>", default_opts)
     end

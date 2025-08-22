@@ -186,6 +186,15 @@ return {
       end,
       desc = "Toggle Lazydocker",
     },
+    {
+      mode = { "t", "n" },
+      "<A-b>",
+      function()
+        Snacks.terminal.toggle("gemini")
+      end,
+      desc = "Toggle Lazydocker",
+    },
+
     -- {
     --     "<c-/>",
     --     function()
