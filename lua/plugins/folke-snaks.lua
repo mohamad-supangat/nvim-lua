@@ -186,14 +186,14 @@ return {
       end,
       desc = "Toggle Lazydocker",
     },
-    {
-      mode = { "t", "n" },
-      "<A-b>",
-      function()
-        Snacks.terminal.toggle("gemini")
-      end,
-      desc = "Toggle Lazydocker",
-    },
+    -- {
+    --   mode = { "t", "n" },
+    --   "<A-b>",
+    --   function()
+    --     Snacks.terminal.toggle("gemini")
+    --   end,
+    --   desc = "Toggle Gemini",
+    -- },
 
     -- {
     --     "<c-/>",
@@ -435,20 +435,20 @@ return {
       end,
       desc = "Location List",
     },
-    {
-      "<leader>sm",
-      function()
-        Snacks.picker.marks()
-      end,
-      desc = "Marks",
-    },
-    {
-      "<leader>sM",
-      function()
-        Snacks.picker.man()
-      end,
-      desc = "Man Pages",
-    },
+    -- {
+    --   "<leader>sm",
+    --   function()
+    --     Snacks.picker.marks()
+    --   end,
+    --   desc = "Marks",
+    -- },
+    -- {
+    --   "<leader>sM",
+    --   function()
+    --     Snacks.picker.man()
+    --   end,
+    --   desc = "Man Pages",
+    -- },
     {
       "<leader>sp",
       function()

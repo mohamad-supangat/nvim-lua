@@ -112,3 +112,7 @@ vim.keymap.set("n", "<leader>ft", function()
 end, { noremap = true, silent = true, desc = "Change dir to current opened file" })
 
 vim.keymap.set("n", "<leader>gc", GitAutoCommit, { desc = "Git: Auto commit dan push" })
+
+vim.keymap.set("n", "<leader>sm", function()
+  vim.cmd("!sublime_merge " .. require("utils").currentFileRootPath() .. "&")
+end, { desc = "Buka Sublime Merge" })

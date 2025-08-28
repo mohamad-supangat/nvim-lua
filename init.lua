@@ -33,7 +33,7 @@ vim.g.snack_enable = true
 vim.g.explorer = "mini.files"
 
 -- goose, codecompanion, avante, gemini
-vim.g.ai = "gemini"
+vim.g.ai = "codecompanion"
 
 -- mini, ayu, catppuccin, github, kanagawa, rosepine, sonokai, vscode
 vim.g.colorschema = "mini"
