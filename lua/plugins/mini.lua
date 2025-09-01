@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.nvim",
+  "nvim-mini/mini.nvim",
   lazy = false,
   enabled = true,
   dependencies = {
@@ -25,7 +25,22 @@ return {
       },
       {
         name = "Snippets: package.json",
-        action = "e ~/.config/nvim/snippets/package.json",
+        action = "e ~/projects/snippets/package.json",
+        section = "Nvim",
+      },
+      {
+        name = "Obsidian: AuraKomputer",
+        action = "e ~/Documents/Obsidian/AuraKomputer/",
+        section = "Nvim",
+      },
+      {
+        name = "Obsidian: Personal",
+        action = "e ~/Documents/Obsidian/Personal/",
+        section = "Nvim",
+      },
+      {
+        name = "Obsidian: Reksa",
+        action = "e ~/Documents/Obsidian/Reksa",
         section = "Nvim",
       },
     }
