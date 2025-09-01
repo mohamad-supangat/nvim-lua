@@ -1,6 +1,6 @@
 return {
   "HakonHarnes/img-clip.nvim",
-  enabled = false,
+  enabled = true,
   event = "VeryLazy",
   opts = {
     default = {
@@ -17,6 +17,11 @@ return {
       },
       -- required for Windows users
       -- use_absolute_path = true,
+    },
+    filetypes = {
+      markdown = {
+        template = "![$LABEL]($FILE_PATH)",
+      },
     },
   },
   keys = {
