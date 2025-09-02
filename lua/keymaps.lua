@@ -116,3 +116,7 @@ vim.keymap.set("n", "<leader>gc", GitAutoCommit, { desc = "Git: Auto commit dan 
 vim.keymap.set("n", "<leader>sm", function()
   vim.cmd("!sublime_merge " .. require("utils").currentFileRootPath() .. "&")
 end, { desc = "Buka Sublime Merge" })
+
+vim.keymap.set("n", "<leader>na", function()
+  vim.cmd("!nautilus " .. require("utils").currentFileRootPath() .. "&")
+end, { desc = "Buka File Manager nautilus" })
