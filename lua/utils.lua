@@ -61,26 +61,14 @@ end
 function M.GitAutoCommit(message)
   -- Helper function to perform common git operations
   local function perform_git_operations(commit_msg)
+    vim.cmd("Git add .")
+    vim.cmd(string.format("Git commit -m %q", commit_msg))
+    vim.cmd("Git push")
+
     local original_cwd = vim.fn.getcwd()
     -- Assuming M.currentFileRootPath exists and is synchronous
     local root_path = M.currentFileRootPath()
-
-    if root_path then
-      -- Change directory to the root of the Git repository
-      vim.cmd("silent! cd " .. root_path)
-      -- Stage all changes
-      vim.cmd("silent !git add .")
-      -- Commit changes with the specified message
-      vim.cmd(string.format("silent !git commit -m %q", commit_msg))
-      -- Push changes to the remote repository
-      vim.cmd("silent !git push")
-      -- Change back to the original working directory
-      vim.cmd("silent! cd " .. original_cwd)
-
-      vim.notify("Git auto commit dan push selesai.", vim.log.levels.INFO, { title = "Git Auto Commit" })
-    else
-      vim.notify("Tidak dapat menemukan root direktori Git.", vim.log.levels.ERROR, { title = "Git Auto Commit Error" })
-    end
+    vim.notify("Git auto commit dan push selesai.", vim.log.levels.INFO, { title = "Git Auto Commit" })
   end
 
   if message == nil or message == "" then
