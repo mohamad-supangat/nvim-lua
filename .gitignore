@@ -6,3 +6,4 @@ lua/bard-api.lua
 Session.vim
 lazy-lock.json
 .luarc.json
+.aider*
