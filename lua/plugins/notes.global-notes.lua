@@ -1,6 +1,6 @@
 return {
   "backdround/global-note.nvim",
-  enabled = true,
+  enabled = false,
 
   keys = {
     {
