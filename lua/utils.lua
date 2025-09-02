@@ -62,12 +62,9 @@ function M.GitAutoCommit(message)
   -- Helper function to perform common git operations
   local function perform_git_operations(commit_msg)
     vim.cmd("Git add .")
-    vim.cmd(string.format("Git commit -m %q", commit_msg))
+    vim.cmd(string.format("Git commit -m %s", commit_msg:gsub(" ", "\\ ")))
     vim.cmd("Git push")
 
-    local original_cwd = vim.fn.getcwd()
-    -- Assuming M.currentFileRootPath exists and is synchronous
-    local root_path = M.currentFileRootPath()
     vim.notify("Git auto commit dan push selesai.", vim.log.levels.INFO, { title = "Git Auto Commit" })
   end
 
