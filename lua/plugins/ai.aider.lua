@@ -1,6 +1,7 @@
 return {
   "GeorgesAlkhouri/nvim-aider",
-  enabled = vim.g.ai == "aider",
+  -- enabled = vim.g.ai == "aider",
+  enabled = false,
   cmd = "Aider",
   -- Example key mappings for common actions:
   keys = {

@@ -24,6 +24,20 @@ return {
       gemini:toggle()
     end
 
+    local aider = fterm:new({
+      cmd = "aider --no-auto-commits --pretty --stream --model gemini/gemini-1.5-flash --chat-language markdown",
+      -- blend = 20,
+      border = "double",
+      dimensions = {
+        height = 0.9,
+        width = 0.7,
+      },
+    })
+
+    function _G.aider()
+      aider:toggle()
+    end
+
     local fterm1 = fterm:new({
       cmd = os.getenv("SHELL"),
       border = "single",
@@ -115,6 +129,11 @@ return {
     if vim.g.ai == "gemini" and vim.g.snack_enable == false then
       map("n", "<A-b>", ":lua gemini()<CR>", default_opts)
       map("t", "<A-b>", "<C-\\><C-n><CMD>lua gemini()<CR>", default_opts)
+    end
+
+    if vim.g.ai == "aider" then
+      map("n", "<A-b>", ":lua aider()<CR>", default_opts)
+      map("t", "<A-b>", "<C-\\><C-n><CMD>lua aider()<CR>", default_opts)
     end
   end,
 }

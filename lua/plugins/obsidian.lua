@@ -30,10 +30,10 @@ return {
         name = "Aura Komputer",
         path = "~/Documents/Obsidian/AuraKomputer/",
       },
-      -- {
-      --   name = "Reksa Karya",
-      --   path = "~/Documents/Obsidian/Reksa/",
-      -- },
+      {
+        name = "Reksa Karya",
+        path = "~/Documents/Obsidian/Reksa/",
+      },
     },
     notes_subdir = "notes",
     daily_notes = {

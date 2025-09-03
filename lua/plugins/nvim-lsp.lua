@@ -13,13 +13,13 @@ return {
         },
       },
     },
-    {
-      "olrtg/nvim-emmet",
-      enabled = false,
-      config = function()
-        vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
-      end,
-    },
+    -- {
+    --   "olrtg/nvim-emmet",
+    --   enabled = false,
+    --   config = function()
+    --     vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
+    --   end,
+    -- },
   },
   keys = {
     { "<leader>li", "<cmd>LspInfo<cr>" },

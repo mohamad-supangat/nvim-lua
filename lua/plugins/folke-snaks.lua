@@ -195,6 +195,17 @@ return {
     --   desc = "Toggle Gemini",
     -- },
 
+    {
+      mode = { "t", "n" },
+      "<A-b>",
+      function()
+        Snacks.terminal.toggle(
+          "aider --no-auto-commits --pretty --stream --model gemini/gemini-1.5-flash --chat-language id"
+        )
+      end,
+      desc = "Toggle Aider",
+    },
+    --
     -- {
     --     "<c-/>",
     --     function()
