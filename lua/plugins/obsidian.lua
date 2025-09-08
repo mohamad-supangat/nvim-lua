@@ -8,6 +8,8 @@ return {
   keys = {
     { "<leader>ob", ":Obsidian<CR>", noremap = true, silent = true },
     { "<leader>no", ":Obsidian<CR>", noremap = true, silent = true },
+    { "<leader>nw", ":Obsidian workspace<CR>", noremap = true, silent = true },
+    { "<leader>nk", ":Obsidian quick_switch<CR>", noremap = true, silent = true },
   },
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   -- event = {
