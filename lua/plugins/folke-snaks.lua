@@ -4,7 +4,15 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
-    zen = {},
+    zen = {
+      toggles = {
+        dim = false,
+        git_signs = false,
+        mini_diff_signs = false,
+        -- diagnostics = false,
+        -- inlay_hints = false,
+      },
+    },
     bigfile = { enabled = true },
     dashboard = { enabled = false },
     dim = {
