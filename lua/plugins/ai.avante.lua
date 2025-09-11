@@ -2,14 +2,13 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    enabled = false,
+    enabled = vim.g.ai == "avante",
     lazy = false,
     version = false,
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
-      "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
     },
@@ -22,20 +21,18 @@ return {
         noremap = true,
       },
     },
-    config = function()
-      require("avante").setup({
-        provider = "gemini",
-        selector = {
-          provider = "mini_pick",
-          provider_opts = {},
+    opts = {
+      provider = "gemini",
+      selector = {
+        provider = "mini_pick",
+        provider_opts = {},
+      },
+      windows = {
+        position = "smart",
+        ask = {
+          floating = false,
         },
-        windows = {
-          position = "smart",
-          ask = {
-            floating = false,
-          },
-        },
-      })
-    end,
+      },
+    },
   },
 }

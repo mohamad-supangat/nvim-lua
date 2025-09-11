@@ -46,9 +46,9 @@ return {
     }
 
     -- notify
-    require("mini.notify").setup()
-    local opts = { ERROR = { duration = 10000 } }
-    vim.notify = require("mini.notify").make_notify(opts)
+    -- require("mini.notify").setup()
+    -- local opts = { ERROR = { duration = 10000 } }
+    -- vim.notify = require("mini.notify").make_notify(opts)
 
     -- mini sesssion
     require("mini.sessions").setup({
