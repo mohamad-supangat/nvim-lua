@@ -1,11 +1,16 @@
+local enableHistory = true
 return {
   "olimorris/codecompanion.nvim",
   lazy = false,
   enabled = vim.g.ai == "codecompanion",
   dependencies = {
-    "nvim-lua/plenary.nvim",
+    { "nvim-lua/plenary.nvim", version = false },
+    "franco-ruggeri/codecompanion-spinner.nvim",
     "nvim-treesitter/nvim-treesitter",
-    -- "ravitemer/codecompanion-history.nvim",
+    {
+      "ravitemer/codecompanion-history.nvim",
+      enabled = enableHistory,
+    },
   },
 
   config = function()
@@ -105,8 +110,9 @@ I'm also sharing my `config.lua` file which I'm mapping to the `configuration` s
         },
       },
       extensions = {
+        spinner = {},
         history = {
-          enabled = false,
+          enabled = enableHistory,
           opts = {
             keymap = "gh",
             save_chat_keymap = "sc",
@@ -123,8 +129,8 @@ I'm also sharing my `config.lua` file which I'm mapping to the `configuration` s
       },
     })
 
-    require("plugins.codecompanion.utils.chat-loading"):init()
-    require("plugins.codecompanion.utils.extmarks").setup()
+    -- require("plugins.codecompanion.utils.chat-loading"):init()
+    -- require("plugins.codecompanion.utils.extmarks").setup()
   end,
   keys = {
     {
