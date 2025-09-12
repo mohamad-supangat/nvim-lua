@@ -23,7 +23,7 @@ vim.g.explorer = "mini.files"
 vim.g.ai = "codecompanion"
 
 -- mini, ayu, catppuccin, github, kanagawa, rosepine, sonokai, vscode, tokyonight
-vim.g.colorschema = "tokyonight"
+vim.g.colorschema = "mini"
 -- vim.g.explorer = "snack"
 --
 --

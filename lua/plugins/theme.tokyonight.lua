@@ -24,7 +24,7 @@ return {
         sidebars = "transparent",
         floats = "transparent",
       },
-      day_brightness = 0.3,
+      -- day_brightness = 0.3,
     })
     vim.cmd([[colorscheme tokyonight]])
   end,

@@ -9,7 +9,7 @@ return {
   },
   config = function()
     if vim.g.colorschema == "mini" then
-      vim.cmd("colorscheme minisummer")
+      vim.cmd("colorscheme randomhue")
     end
 
     require("mini.extra").setup()
