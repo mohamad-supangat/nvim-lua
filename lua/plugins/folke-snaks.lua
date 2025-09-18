@@ -92,7 +92,7 @@ return {
     input = {
       enabled = true,
       win = {
-        border = "single",
+        border = "rounded",
         -- https://github.com/folke/snacks.nvim/discussions/376
         keys = {
           i_del_word = { "<A-BS>", "delete_word", mode = "i", expr = true },
