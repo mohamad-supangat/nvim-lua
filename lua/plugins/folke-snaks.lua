@@ -42,7 +42,7 @@ return {
       enabled = true,
       win = {
         keys = {
-          i_del_word = { "<A-BS>", "delete_word", mode = "i", expr = true },
+          i_del_word = { "<A-BS>", "", mode = "i", expr = true },
         },
         actions = {
           delete_word = function()
@@ -90,7 +90,7 @@ return {
       },
     },
     input = {
-      enabled = false,
+      enabled = true,
       win = {
         border = "single",
         -- https://github.com/folke/snacks.nvim/discussions/376
@@ -99,14 +99,15 @@ return {
         },
         actions = {
           delete_word = function()
-            vim.cmd("normal! diw<cr>")
+            return "<cmd>normal! diw<cr><right>"
           end,
         },
       },
     },
     notifier = {
-      enabled = false,
+      enabled = true,
       timeout = 3000,
+      top_down = false,
     },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
