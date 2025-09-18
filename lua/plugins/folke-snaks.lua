@@ -46,7 +46,7 @@ return {
         },
         actions = {
           delete_word = function()
-            vim.cmd("normal! diw<cr>")
+            return "<cmd>normal! diw<cr><right>"
           end,
         },
       },
@@ -108,6 +108,7 @@ return {
       enabled = true,
       timeout = 3000,
       top_down = false,
+      style = "minimal",
     },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
