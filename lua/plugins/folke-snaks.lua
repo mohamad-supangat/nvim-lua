@@ -91,6 +91,9 @@ return {
     },
     input = {
       enabled = true,
+      b = {
+        completion = true,
+      },
       win = {
         border = "rounded",
         -- https://github.com/folke/snacks.nvim/discussions/376
@@ -105,6 +108,7 @@ return {
       },
     },
     notifier = {
+      backdrop = true,
       enabled = true,
       timeout = 3000,
       top_down = false,
