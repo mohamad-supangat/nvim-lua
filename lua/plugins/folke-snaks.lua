@@ -91,10 +91,11 @@ return {
     },
     input = {
       enabled = true,
-      b = {
-        completion = true,
-      },
       win = {
+        b = {
+          completion = true,
+        },
+        height = 3,
         border = "rounded",
         -- https://github.com/folke/snacks.nvim/discussions/376
         keys = {
