@@ -125,6 +125,10 @@ return {
           delete_word = function()
             return "<cmd>normal! diw<cr><right>"
           end,
+
+          new_line = function()
+            return "<cmd>normal! o"
+          end,
         },
       },
     },
