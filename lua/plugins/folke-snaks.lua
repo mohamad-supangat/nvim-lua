@@ -18,9 +18,24 @@ return {
     dim = {
       enabled = true,
     },
+    scroll = {
+      animate = {
+        duration = { step = 15, total = 250 },
+        easing = "linear",
+      },
+      animate_repeat = {
+        delay = 100, -- delay in ms before using the repeat animation
+        duration = { step = 5, total = 50 },
+        easing = "linear",
+      },
+      filter = function(buf)
+        return vim.g.snacks_scroll ~= false and vim.b[buf].snacks_scroll ~= false and vim.bo[buf].buftype ~= "terminal"
+      end,
+    },
     explorer = {
       enabled = vim.g.explorer == "snack",
     },
+    scope = {},
     indent = {
       enabled = true,
       scope = {
@@ -116,7 +131,19 @@ return {
       style = "minimal",
     },
     quickfile = { enabled = true },
-    statuscolumn = { enabled = true },
+    statuscolumn = {
+      left = { "mark", "sign" },
+      right = { "fold", "git" },
+      folds = {
+        open = false, -- show open fold icons
+        git_hl = false, -- use Git Signs hl for fold icons
+      },
+      git = {
+        -- patterns to match Git signs
+        patterns = { "GitSign", "MiniDiffSign" },
+      },
+      refresh = 50, -- refresh at most every 50ms
+    },
     words = { enabled = true },
     styles = {
       notification = {
@@ -605,6 +632,15 @@ return {
         vim.api.nvim_set_hl(0, "SnacksPickerPathHidden", { link = "Fg" })
         vim.api.nvim_set_hl(0, "SnacksPickerPathIgnored", { link = "Fg" })
         vim.api.nvim_set_hl(0, "SnacksPickerDirectory", { link = "Fg" })
+
+        if vim.g.explorer == "mini.files" then
+          vim.api.nvim_create_autocmd("User", {
+            pattern = "MiniFilesActionRename",
+            callback = function(event)
+              Snacks.rename.on_rename_file(event.data.from, event.data.to)
+            end,
+          })
+        end
       end,
     })
   end,
