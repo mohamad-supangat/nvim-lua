@@ -127,7 +127,7 @@ return {
           end,
 
           new_line = function()
-            return "<cmd>normal! o"
+            return "<cmd>normal! o<cr>"
           end,
         },
       },
