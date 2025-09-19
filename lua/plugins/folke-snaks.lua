@@ -119,6 +119,7 @@ return {
         -- https://github.com/folke/snacks.nvim/discussions/376
         keys = {
           i_del_word = { "<A-BS>", "delete_word", mode = "i", expr = true },
+          i_a_cr = { "<A-CR>", "new_line", mode = { "i", "n" }, expr = true },
         },
         actions = {
           delete_word = function()
