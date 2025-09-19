@@ -110,11 +110,9 @@ return {
         b = {
           completion = true,
         },
-        styles = {
-          bo = {
-            filetype = "snacks_input",
-            buftype = "buffer",
-          },
+        bo = {
+          filetype = "snacks_input",
+          buftype = "prompt",
         },
         height = 3,
         border = "rounded",
