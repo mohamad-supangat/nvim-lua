@@ -113,7 +113,7 @@ return {
         styles = {
           bo = {
             filetype = "snacks_input",
-            buftype = "prompt",
+            buftype = "buffer",
           },
         },
         height = 3,
