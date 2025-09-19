@@ -110,6 +110,12 @@ return {
         b = {
           completion = true,
         },
+        styles = {
+          bo = {
+            filetype = "snacks_input",
+            buftype = "prompt",
+          },
+        },
         height = 3,
         border = "rounded",
         -- https://github.com/folke/snacks.nvim/discussions/376
