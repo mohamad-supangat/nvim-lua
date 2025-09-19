@@ -62,7 +62,7 @@ function M.GitAutoCommit(message)
   -- Helper function to perform common git operations
   local function perform_git_operations(commit_msg)
     vim.cmd("Git add .")
-    vim.cmd(string.format("Git commit -m %s", commit_msg:gsub(" ", "\\ ")))
+    vim.cmd(string.format("Git commit -m '%s'", commit_msg:gsub(" ", "\\ ")))
     vim.cmd("Git push")
 
     vim.notify("Git auto commit dan push selesai.", vim.log.levels.INFO, { title = "Git Auto Commit" })
