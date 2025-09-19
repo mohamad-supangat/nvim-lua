@@ -42,11 +42,11 @@ return {
       enabled = true,
       win = {
         keys = {
-          i_del_word = { "<A-BS>", "delete_word", mode = "i", expr = true },
+          i_del_word = { "<A-BS>", "", mode = "i", expr = true },
         },
         actions = {
           delete_word = function()
-            vim.cmd("normal! diw<cr>")
+            return "<cmd>normal! diw<cr><right>"
           end,
         },
       },
@@ -90,23 +90,30 @@ return {
       },
     },
     input = {
-      enabled = false,
+      enabled = true,
       win = {
-        border = "single",
+        b = {
+          completion = true,
+        },
+        height = 3,
+        border = "rounded",
         -- https://github.com/folke/snacks.nvim/discussions/376
         keys = {
           i_del_word = { "<A-BS>", "delete_word", mode = "i", expr = true },
         },
         actions = {
           delete_word = function()
-            vim.cmd("normal! diw<cr>")
+            return "<cmd>normal! diw<cr><right>"
           end,
         },
       },
     },
     notifier = {
-      enabled = false,
+      backdrop = true,
+      enabled = true,
       timeout = 3000,
+      top_down = false,
+      style = "minimal",
     },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
