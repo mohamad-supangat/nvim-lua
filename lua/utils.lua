@@ -62,7 +62,7 @@ function M.GitAutoCommit(message)
   -- Helper function to perform common git operations
   local function perform_git_operations(commit_msg)
     vim.cmd("Git add .")
-    vim.cmd(string.format("Git commit -m '%s'", commit_msg:gsub(" ", "\\ ")))
+    vim.cmd(string.format("Git commit -m %s", commit_msg:gsub(" ", "\\ ")))
     vim.cmd("Git push")
 
     vim.notify("Git auto commit dan push selesai.", vim.log.levels.INFO, { title = "Git Auto Commit" })
@@ -78,15 +78,16 @@ function M.GitAutoCommit(message)
       local commit_message_final
       -- Check if user provided input (not nil for cancel, not empty string for blank input)
       if user_input ~= nil and user_input ~= "" then
+        vim.notify_once(user_input, vim.log.levels.INFO, { title = "Pesan Commit yang dikirimkan" })
         -- Use user's input if provided
         commit_message_final = user_input
+        perform_git_operations(commit_message_final)
       else
         -- Generate default message if user input is empty or cancelled
         local current_datetime = os.date("%Y-%m-%d %H:%M:%S")
         commit_message_final = "auto commit from neovim: " .. current_datetime
       end
       -- Perform git operations with the determined message
-      perform_git_operations(commit_message_final)
     end)
   else
     -- If a message is provided, proceed directly with git operations
