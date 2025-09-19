@@ -181,6 +181,15 @@ I'm also sharing my `config.lua` file which I'm mapping to the `configuration` s
     {
       mode = { "x" },
       "<A-b>",
+      "<cmd>CodeCompanionChat<CR>",
+      desc = "Trigger CodeCompanion Selected to Chat",
+      silent = true,
+      noremap = true,
+    },
+
+    {
+      mode = { "x" },
+      "<A-i>",
       "<cmd>CodeCompanion<CR>",
       desc = "Trigger CodeCompanion Inline Prom",
       silent = true,
