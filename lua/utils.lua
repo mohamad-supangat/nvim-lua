@@ -95,4 +95,27 @@ function M.GitAutoCommit(message)
   end
 end
 
+function M.is_huawei_host()
+  local hostname_file = "/etc/hostname"
+  local f = io.open(hostname_file, "r")
+
+  if not f then
+    -- Gagal membuka file, anggap bukan 'huawei'
+    -- Ini bisa terjadi jika file tidak ada atau ada masalah izin.
+    return false
+  end
+
+  local hostname = f:read("*l") -- Baca baris pertama
+  f:close()
+
+  if not hostname then
+    return false -- Gagal membaca konten
+  end
+
+  -- Hapus whitespace (terutama newline) dari akhir string
+  hostname = hostname:gsub("%s+", "")
+
+  return hostname == "huawei"
+end
+
 return M

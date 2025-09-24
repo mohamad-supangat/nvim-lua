@@ -1,3 +1,24 @@
+local utils = require("utils")
+local workspaces
+if utils.is_huawei_host() then
+  workspaces = {
+    {
+      name = "Reksa Karya",
+      path = "~/Documents/Obsidian/Reksa/",
+    },
+  }
+else
+  workspaces = {
+    {
+      name = "Aura Komputer",
+      path = "~/Documents/Obsidian/AuraKomputer/",
+    },
+    {
+      name = "Reksa Karya",
+      path = "~/Documents/Obsidian/Reksa/",
+    },
+  }
+end
 return {
   enabled = true,
   "obsidian-nvim/obsidian.nvim",
@@ -23,20 +44,7 @@ return {
   ---@type obsidian.config
   opts = {
     legacy_commands = false,
-    workspaces = {
-      {
-        name = "Personal",
-        path = "~/Documents/Obsidian/Personal/",
-      },
-      {
-        name = "Aura Komputer",
-        path = "~/Documents/Obsidian/AuraKomputer/",
-      },
-      {
-        name = "Reksa Karya",
-        path = "~/Documents/Obsidian/Reksa/",
-      },
-    },
+    workspaces = workspaces,
     notes_subdir = "notes",
     daily_notes = {
       folder = "notes/dailies",
