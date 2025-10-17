@@ -1,4 +1,4 @@
-local custom_snippets_dir = "~/projects/snippets/"
+local custom_snippets_dir = "~/.config/nvim/snippets"
 
 return {
   {
@@ -46,9 +46,53 @@ return {
     },
   },
   {
+    "hrsh7th/vim-vsnip-integ",
+    dependencies = {
+      "hrsh7th/vim-vsnip",
+
+      config = function()
+        -- Expand
+        vim.keymap.set("i", "<C-j>", function()
+          return vim.fn["vsnip#expandable"]() == 1 and "<Plug>(vsnip-expand)" or "<C-j>"
+        end, { expr = true, silent = true })
+
+        vim.keymap.set("s", "<C-j>", function()
+          return vim.fn["vsnip#expandable"]() == 1 and "<Plug>(vsnip-expand)" or "<C-j>"
+        end, { expr = true, silent = true })
+
+        -- Expand or jump
+        vim.keymap.set("i", "<C-l>", function()
+          return vim.fn["vsnip#available"](1) == 1 and "<Plug>(vsnip-expand-or-jump)" or "<C-l>"
+        end, { expr = true, silent = true })
+
+        vim.keymap.set("s", "<C-l>", function()
+          return vim.fn["vsnip#available"](1) == 1 and "<Plug>(vsnip-expand-or-jump)" or "<C-l>"
+        end, { expr = true, silent = true })
+
+        -- Jump forward or backward
+        vim.keymap.set("i", "<Tab>", function()
+          return vim.fn["vsnip#jumpable"](1) == 1 and "<Plug>(vsnip-jump-next)" or "<Tab>"
+        end, { expr = true, silent = true })
+
+        vim.keymap.set("s", "<Tab>", function()
+          return vim.fn["vsnip#jumpable"](1) == 1 and "<Plug>(vsnip-jump-next)" or "<Tab>"
+        end, { expr = true, silent = true })
+
+        vim.keymap.set("i", "<S-Tab>", function()
+          return vim.fn["vsnip#jumpable"](-1) == 1 and "<Plug>(vsnip-jump-prev)" or "<S-Tab>"
+        end, { expr = true, silent = true })
+
+        vim.keymap.set("s", "<S-Tab>", function()
+          return vim.fn["vsnip#jumpable"](-1) == 1 and "<Plug>(vsnip-jump-prev)" or "<S-Tab>"
+        end, { expr = true, silent = true })
+      end,
+    },
+  },
+  {
     "L3MON4D3/LuaSnip",
     dev = false,
     version = "v2.*",
+    enabled = vim.g.snippets == "luasnip",
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
       require("luasnip.loaders.from_vscode").lazy_load({ paths = { custom_snippets_dir } })

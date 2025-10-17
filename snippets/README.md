@@ -1,0 +1,3 @@
+lorem
+
+merupakan sudtu kebaikan

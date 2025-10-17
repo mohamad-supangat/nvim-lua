@@ -2,7 +2,7 @@ return {
 
   {
     "saghen/blink.cmp",
-    enabled = true,
+    enabled = vim.g.completion == "blink",
     version = "1.*",
     -- version = false,
     event = { "LspAttach", "InsertCharPre" },
