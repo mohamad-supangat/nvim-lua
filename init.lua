@@ -25,8 +25,8 @@ vim.g.ai = "codecompanion"
 -- mini, ayu, catppuccin, github, kanagawa, rosepine, sonokai, vscode, tokyonight
 vim.g.colorschema = "mini"
 -- vim.g.explorer = "snack"
-vim.g.completion = "mini"
-vim.g.snippets = "vim-snip"
+vim.g.completion = "blink"
+vim.g.snippets = "luasnip"
 
 --
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

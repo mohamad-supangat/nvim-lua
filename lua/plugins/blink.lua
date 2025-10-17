@@ -28,7 +28,7 @@ return {
           disable_keymaps = true,
         },
       },
-      "huijiro/blink-cmp-supermaven",
+      -- "huijiro/blink-cmp-supermaven",
     },
     opts = {
       enabled = function()

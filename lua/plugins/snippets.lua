@@ -47,6 +47,7 @@ return {
   },
   {
     "hrsh7th/vim-vsnip-integ",
+    enabled = vim.g.snippets == "vim-vsnip",
     dependencies = {
       "hrsh7th/vim-vsnip",
 
