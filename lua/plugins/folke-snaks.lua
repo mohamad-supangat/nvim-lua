@@ -38,7 +38,7 @@ return {
     },
     scope = {},
     indent = {
-      enabled = true,
+      enabled = false,
       scope = {
         enabled = true,
         animate = {

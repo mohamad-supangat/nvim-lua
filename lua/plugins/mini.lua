@@ -181,18 +181,18 @@ return {
       end,
     })
 
-    if vim.g.snack_enable == false then
-      require("mini.indentscope").setup({
-        symbol = "▏",
-        options = {
-          try_as_border = true,
-        },
-        draw = {
-          delay = 0,
-          animation = require("mini.indentscope").gen_animation.none(),
-        },
-      })
-    end
+    -- if vim.g.snack_enable == false then
+    require("mini.indentscope").setup({
+      symbol = "▏",
+      options = {
+        try_as_border = true,
+      },
+      draw = {
+        delay = 0,
+        animation = require("mini.indentscope").gen_animation.none(),
+      },
+    })
+    -- end
 
     require("mini.splitjoin").setup()
     require("mini.surround").setup()

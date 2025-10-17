@@ -140,7 +140,17 @@ return {
     }
 
     -- If you are on most recent `nvim-lspconfig`
-    local vue_ls_config = {}
+    local vue_ls_config = {
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/language-plugin-pug",
+            location = vue_language_server_path,
+            languages = { "vue" },
+          },
+        },
+      },
+    }
 
     -- nvim 0.11 or above
     vim.lsp.config("vtsls", vtsls_config)

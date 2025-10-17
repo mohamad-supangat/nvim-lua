@@ -11,7 +11,7 @@ return {
     end
 
     local gemini = fterm:new({
-      cmd = "gemini",
+      cmd = "gemini --model gemini-2.5-flash",
       -- blend = 20,
       border = "double",
       dimensions = {
@@ -126,9 +126,16 @@ return {
       map("n", "<leader>gi", ":lua lazygit()<CR>", default_opts)
     end
 
-    if vim.g.ai == "gemini" and vim.g.snack_enable == false then
+    if vim.g.ai == "gemini" then
       map("n", "<A-b>", ":lua gemini()<CR>", default_opts)
       map("t", "<A-b>", "<C-\\><C-n><CMD>lua gemini()<CR>", default_opts)
+    end
+
+
+    -- open gemini
+    if vim.g.ai == "codecompanion" then
+      map("n", "<leader>ge", ":lua gemini()<CR>", default_opts)
+      map("t", "<leader>ge", "<C-\\><C-n><CMD>lua gemini()<CR>", default_opts)
     end
 
     if vim.g.ai == "aider" then

@@ -6,6 +6,10 @@ if utils.is_huawei_host() then
       name = "Reksa Karya",
       path = "~/Documents/Obsidian/Reksa/",
     },
+    {
+      name = "Aura Komputer",
+      path = "~/Documents/Obsidian/AuraKomputer/",
+    },
   }
 else
   workspaces = {

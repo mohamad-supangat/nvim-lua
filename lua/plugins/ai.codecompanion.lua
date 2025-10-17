@@ -26,7 +26,7 @@ return {
           window = {
             layout = "float",
             height = 0.9,
-            width = 0.50,
+            width = 0.9,
             opts = {
               breakindent = true,
               cursorcolumn = false,
