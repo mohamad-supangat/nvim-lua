@@ -25,7 +25,9 @@ vim.g.ai = "codecompanion"
 -- mini, ayu, catppuccin, github, kanagawa, rosepine, sonokai, vscode, tokyonight
 vim.g.colorschema = "mini"
 -- vim.g.explorer = "snack"
---
+vim.g.completion = "mini"
+vim.g.snippets = "vim-snip"
+
 --
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
