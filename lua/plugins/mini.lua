@@ -6,10 +6,35 @@ return {
     -- {
     --   "vimpostor/vim-tpipeline",
     -- },
+    {
+      "s1n7ax/nvim-window-picker",
+      name = "window-picker",
+      event = "VeryLazy",
+      version = "2.*",
+      config = function()
+        require("window-picker").setup({
+          hint = "floating-big-letter",
+          autoselect_one = true,
+          include_current = false,
+          selection_chars = "ABCDEFGHIJLK",
+          filter_rules = {
+            bo = {
+              filetype = { "neo-tree", "neo-tree-popup", "notify", "minifiles" },
+              buftype = { "terminal", "quickfix", "minifiles" },
+            },
+          },
+          other_win_hl_color = "#900000",
+        })
+      end,
+    },
   },
   config = function()
     if vim.g.colorschema == "mini" then
       vim.cmd("colorscheme randomhue")
+      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
     end
 
     require("mini.extra").setup()
@@ -46,9 +71,14 @@ return {
     }
 
     -- notify
-    -- require("mini.notify").setup()
+    -- local win_config = function()
+    --   local has_statusline = vim.o.laststatus > 0
+    --   local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
+    --   return { anchor = 'SE', col = vim.o.columns, row = vim.o.lines - pad }
+    -- end
+    -- require('mini.notify').setup({ window = { config = win_config } })
     -- local opts = { ERROR = { duration = 10000 } }
-    -- vim.notify = require("mini.notify").make_notify(opts)
+    -- vim.notify = require("mini.notify").make_notify({})
 
     -- mini sesssion
     require("mini.sessions").setup({
@@ -239,7 +269,14 @@ return {
           local open_in_window_picker = function()
             local fs_entry = MiniFiles.get_fs_entry()
             if fs_entry ~= nil and fs_entry.fs_type == "file" then
-              local picked_window_id = require("snacks.picker.util").pick_win()
+              local picked_window_id
+
+              if vim.g.snack_enable then
+                picked_window_id = require("snacks.picker.util").pick_win()
+              else
+                picked_window_id = require("window-picker").pick_window()
+              end
+
               if picked_window_id ~= nil then
                 MiniFiles.set_target_window(picked_window_id)
               end
@@ -418,9 +455,9 @@ return {
       require("mini.icons").tweak_lsp_kind()
 
       local keycode = vim.keycode
-        or function(x)
-          return vim.api.nvim_replace_termcodes(x, true, true, true)
-        end
+          or function(x)
+            return vim.api.nvim_replace_termcodes(x, true, true, true)
+          end
       local keys = {
         ["cr"] = keycode("<CR>"),
         ["ctrl-y"] = keycode("<C-y>"),

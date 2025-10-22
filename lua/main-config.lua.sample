@@ -1,0 +1,9 @@
+vim.g.snack_enable = false
+vim.g.explorer = "mini.files"
+-- goose, codecompanion, avante, gemini
+vim.g.ai = "codecompanion"
+-- mini, ayu, catppuccin, github, kanagawa, rosepine, sonokai, vscode, tokyonight
+vim.g.colorschema = "mini"
+-- vim.g.explorer = "snack"
+vim.g.completion = "blink"
+vim.g.snippets = "luasnip"

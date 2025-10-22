@@ -16,17 +16,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 --]]
-vim.g.snack_enable = true
-vim.g.explorer = "mini.files"
 
--- goose, codecompanion, avante, gemini
-vim.g.ai = "codecompanion"
-
--- mini, ayu, catppuccin, github, kanagawa, rosepine, sonokai, vscode, tokyonight
-vim.g.colorschema = "mini"
--- vim.g.explorer = "snack"
-vim.g.completion = "blink"
-vim.g.snippets = "luasnip"
 
 --
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -43,6 +33,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+require('main-config')
 require("settings")
 require("lazy").setup("plugins", { ui = { border = "rounded" } })
 

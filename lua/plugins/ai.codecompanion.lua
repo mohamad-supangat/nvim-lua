@@ -83,7 +83,8 @@ return {
           prompts = {
             {
               role = "user",
-              content = [[I'm rewriting the documentation for my plugin CodeCompanion.nvim, as I'm moving to a vitepress website. Can you help me rewrite it?
+              content =
+              [[I'm rewriting the documentation for my plugin CodeCompanion.nvim, as I'm moving to a vitepress website. Can you help me rewrite it?
 
 I'm sharing my vitepress config file so you have the context of how the documentation website is structured in the `sidebar` section of that file.
 
@@ -104,7 +105,8 @@ I'm also sharing my `config.lua` file which I'm mapping to the `configuration` s
           prompts = {
             {
               role = "user",
-              content = "You are a senior software engineer. Refactor the selected code for better readability, performance, or maintainability. Only provide the refactored code, no explanations.",
+              content =
+              "You are a senior software engineer. Refactor the selected code for better readability, performance, or maintainability. Only provide the refactored code, no explanations.",
             },
           },
         },
@@ -129,45 +131,8 @@ I'm also sharing my `config.lua` file which I'm mapping to the `configuration` s
       },
     })
 
-    -- require("plugins.codecompanion.utils.chat-loading"):init()
-    -- require("plugins.codecompanion.utils.extmarks").setup()
-    local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-    local group = vim.api.nvim_create_augroup("CodeCompanionFidgetHooks", { clear = true })
-    vim.api.nvim_create_autocmd({ "User" }, {
-      pattern = "CodeCompanion*",
-      group = group,
-      callback = function(request)
-        if request.match == "CodeCompanionChatSubmitted" then
-          return
-        end
-
-        local msg
-
-        msg = "[CodeCompanion] " .. request.match:gsub("CodeCompanion", "")
-
-        vim.notify(msg, "info", {
-          timeout = 1000,
-          keep = function()
-            return not vim
-              .iter({ "Finished", "Opened", "Hidden", "Closed", "Cleared", "Created" })
-              :fold(false, function(acc, cond)
-                return acc or vim.endswith(request.match, cond)
-              end)
-          end,
-          id = "code_companion_status",
-          title = "Code Companion Status",
-          opts = function(notif)
-            notif.icon = ""
-            if vim.endswith(request.match, "Started") then
-              ---@diagnostic disable-next-line: undefined-field
-              notif.icon = spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-            elseif vim.endswith(request.match, "Finished") then
-              notif.icon = " "
-            end
-          end,
-        })
-      end,
-    })
+    require("plugins.codecompanion.utils.chat-loading"):init()
+    require("plugins.codecompanion.utils.extmarks").setup()
   end,
   keys = {
     {
