@@ -31,10 +31,10 @@ return {
   config = function()
     if vim.g.colorschema == "mini" then
       vim.cmd("colorscheme randomhue")
-      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
     end
 
     require("mini.extra").setup()
@@ -98,10 +98,26 @@ return {
     }
 
     local starter = require("mini.starter")
+    local footer_n_seconds = (function()
+      local timer = vim.loop.new_timer()
+      local n_seconds = 0
+      timer:start(0, 1000, vim.schedule_wrap(function()
+        if vim.bo.filetype ~= 'ministarter' then
+          timer:stop()
+          return
+        end
+        n_seconds = n_seconds + 1
+        MiniStarter.refresh()
+      end))
+
+      return function()
+        return 'Selamat menjalankan hari ini, jangan lupa untuk tetap semangat : ' .. n_seconds
+      end
+    end)()
     starter.setup({
       autoopen = true,
       header = table.concat(header_ascii, "\n"),
-      footer = "Selamat menjalankan hari ini, jangan lupa untuk tetap semangat",
+      footer = footer_n_seconds,
       evaluate_single = true,
       items = {
         my_items,
@@ -111,8 +127,8 @@ return {
         -- starter.sections.recent_files(10, true),
       },
       content_hooks = {
-        -- starter.gen_hook.adding_bullet(),
-        -- starter.gen_hook.aligning("center", "center"),
+        starter.gen_hook.adding_bullet(),
+        starter.gen_hook.aligning("center", "center"),
         starter.gen_hook.indexing("all", { "Builtin actions" }),
         starter.gen_hook.padding(10, 0),
       },
