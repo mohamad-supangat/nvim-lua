@@ -164,9 +164,9 @@ return {
             end
           end
 
-          local navic = require("nvim-navic")
+          -- local navic = require("nvim-navic")
 
-          -- local current_gps = gps.get_location()
+
 
           -- print(mode_hl)
           return MiniStatusline.combine_groups({
@@ -188,7 +188,12 @@ return {
               },
             },
             "%=", -- End left alignment
-            { strings = { navic.get_location(), diagnostics } },
+            {
+              strings = {
+                -- navic.get_location(),
+                diagnostics
+              }
+            },
           })
         end,
         inactive = function()
