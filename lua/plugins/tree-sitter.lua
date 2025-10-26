@@ -82,7 +82,8 @@ return {
     "danymat/neogen",
     dependencies = "nvim-treesitter/nvim-treesitter",
     event = "VeryLazy",
-    enabled = vim.fn.has("nvim-0.10.0") == 1,
+    -- enabled = vim.fn.has("nvim-0.10.0") == 1,
+    enabled = false,
     cmd = "Neogen",
     keys = {
       { "<Leader>nf", ":lua require('neogen').generate()<CR>", noremap = true, silent = true },
