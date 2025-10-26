@@ -1,6 +1,6 @@
 return {
   "jay-babu/mason-null-ls.nvim",
-  enabled = false,
+  enabled = true,
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "mason-org/mason.nvim",
@@ -53,9 +53,7 @@ return {
         completion.tags,
         -- completion.spell,
         -- completion.nvim_snippets,
-        formatting.phpcsfixer.with({
-          extra_args = { "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" },
-        }),
+        formatting.phpcsfixer,
         formatting.prettier.with({
           extra_filetypes = { "toml" },
         }),

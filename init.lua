@@ -17,7 +17,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 --]]
 
-
 --
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -33,7 +32,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require('main-config')
+require("main-config")
 require("settings")
 require("lazy").setup("plugins", { ui = { border = "rounded" } })
 

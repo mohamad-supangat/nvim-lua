@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    enabled = true,
+    enabled = false,
     -- lazy = "VeryLazy",
     event = { "BufWritePre" },
     dependencies = {
@@ -46,6 +46,8 @@ return {
           javascript = { "prettier" },
           markdown = { "prettier" },
           typescript = { "prettier" },
+          javascriptreact = { "prettier" },
+          typescriptreact = { "prettier" },
           json = { "prettier" },
           jsonc = { "prettier" },
           vue = { "prettier" },
