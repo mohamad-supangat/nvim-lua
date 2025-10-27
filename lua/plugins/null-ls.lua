@@ -22,12 +22,7 @@ return {
 
   config = function()
     require("mason-null-ls").setup({
-      ensure_installed = {
-        "prettier",
-        "stylua",
-        "phpcsfixer",
-        "blade-formatter",
-      },
+      ensure_installed = {},
       automatic_installation = false,
       handlers = {},
     })
@@ -54,9 +49,7 @@ return {
         -- completion.spell,
         -- completion.nvim_snippets,
         formatting.phpcsfixer,
-        formatting.prettier.with({
-          extra_filetypes = { "toml" },
-        }),
+        formatting.prettier,
         diagnostics.fish,
         hover.dictionary,
       },
