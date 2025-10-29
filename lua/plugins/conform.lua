@@ -1,24 +1,13 @@
 return {
   {
     "stevearc/conform.nvim",
-    enabled = false,
+    enabled = true,
     -- lazy = "VeryLazy",
     event = { "BufWritePre" },
     dependencies = {
       {
         "mason-org/mason.nvim",
         lazy = false,
-      },
-      {
-        "zapling/mason-conform.nvim",
-        enabled = true,
-        opts = {},
-        dependencies = {
-          {
-            "mason-org/mason.nvim",
-            lazy = false,
-          },
-        },
       },
     },
     keys = {
