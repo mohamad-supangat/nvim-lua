@@ -38,6 +38,7 @@ return {
       -- on_attach = require("lsp.handlers").on_attach,
       sources = {
         completion.tags,
+        formatting.blade_formatter,
         -- completion.spell,
         -- completion.nvim_snippets,
         formatting.phpcsfixer,
@@ -48,6 +49,7 @@ return {
           end,
         }),
         diagnostics.fish,
+        -- diagnostics.editorconfig_checker,
         hover.dictionary,
       },
 
