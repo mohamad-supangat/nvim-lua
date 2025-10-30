@@ -1,12 +1,18 @@
 return {
-  "rshkarin/mason-nvim-lint",
-  enabled = false,
+  "mfussenegger/nvim-lint",
+  enabled = true,
   dependencies = {
     "mason-org/mason.nvim",
-    "mfussenegger/nvim-lint",
   },
-  opts = {
-    ensure_installed = {},
-    automatic_installation = false,
-  },
+  config = function()
+    require("lint").linters_by_ft = {
+      php = { "phpcs" },
+    }
+
+    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+      callback = function()
+        require("lint").try_lint()
+      end,
+    })
+  end,
 }
