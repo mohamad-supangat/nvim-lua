@@ -102,17 +102,21 @@ return {
     local footer_n_seconds = (function()
       local timer = vim.loop.new_timer()
       local n_seconds = 0
-      timer:start(0, 1000, vim.schedule_wrap(function()
-        if vim.bo.filetype ~= 'ministarter' then
-          timer:stop()
-          return
-        end
-        n_seconds = n_seconds + 1
-        MiniStarter.refresh()
-      end))
+      timer:start(
+        0,
+        1000,
+        vim.schedule_wrap(function()
+          if vim.bo.filetype ~= "ministarter" then
+            timer:stop()
+            return
+          end
+          n_seconds = n_seconds + 1
+          MiniStarter.refresh()
+        end)
+      )
 
       return function()
-        return 'Selamat menjalankan hari ini, jangan lupa untuk tetap semangat : ' .. n_seconds
+        return "Selamat menjalankan hari ini, jangan lupa untuk tetap semangat : " .. n_seconds
       end
     end)()
     starter.setup({
@@ -167,8 +171,6 @@ return {
 
           -- local navic = require("nvim-navic")
 
-
-
           -- print(mode_hl)
           return MiniStatusline.combine_groups({
             {
@@ -192,8 +194,8 @@ return {
             {
               strings = {
                 -- navic.get_location(),
-                diagnostics
-              }
+                diagnostics,
+              },
             },
           })
         end,
@@ -473,7 +475,7 @@ return {
           signature = { height = 30, width = 80, border = "double" },
         },
         lsp_completion = {
-          auto_setup = true
+          auto_setup = true,
         },
         -- snippet_insert = function()
         --   if vim.g.snippets == "luasnip" then
@@ -485,19 +487,25 @@ return {
       require("mini.icons").tweak_lsp_kind()
 
       local keycode = vim.keycode
-          or function(x)
-            return vim.api.nvim_replace_termcodes(x, true, true, true)
-          end
+        or function(x)
+          return vim.api.nvim_replace_termcodes(x, true, true, true)
+        end
       local keys = {
         ["cr"] = keycode("<CR>"),
         ["ctrl-y"] = keycode("<C-y>"),
         ["ctrl-y_cr"] = keycode("<C-y><CR>"),
+        ["ctrl-n"] = keycode("<C-n>"),
       }
 
       _G.cr_action = function()
         if vim.fn.pumvisible() ~= 0 then
           local item_selected = vim.fn.complete_info()["selected"] ~= -1
-          return item_selected and keys["ctrl-y"] or keys["ctrl-y_cr"]
+          if item_selected then
+            return keys["ctrl-y"] or keys["ctrl-y_cr"]
+          else
+            -- jika tidak ada item yang di pilih namun menampilkan pop up maka pilih item pertama
+            return keys["ctrl-n"]
+          end
         else
           return require("mini.pairs").cr()
         end
@@ -506,47 +514,50 @@ return {
       vim.keymap.set("i", "<CR>", "v:lua._G.cr_action()", { expr = true })
       vim.keymap.set("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
       vim.keymap.set("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
-      -- vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
-      -- vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
+      vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
+      vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
     end
     -- }}} end mini.completion
 
-
     -- {{{ mini snippets
-    if vim.g.snippets == 'mini' then
-      local gen_loader = require('mini.snippets').gen_loader
+    if vim.g.snippets == "mini" then
+      local gen_loader = require("mini.snippets").gen_loader
 
-      require('mini.snippets').setup({
+      require("mini.snippets").setup({
         snippets = {
           gen_loader.from_lang(),
           -- gen_loader.from_runtime
         },
         mappings = {
-          expand = '<C-A-Space>',
-          jump_next = '<C-l>',
-          jump_prev = '<C-h>',
-          stop = '<C-c>',
+          expand = "<C-A-Space>",
+          jump_next = "<C-l>",
+          jump_prev = "<C-h>",
+          stop = "<C-c>",
         },
 
         expand = {
-          insert = function(snippet, _) vim.snippet.expand(snippet.body) end
-        }
-
+          insert = function(snippet, _)
+            vim.snippet.expand(snippet.body)
+          end,
+        },
       })
 
       local jump_next = function()
-        if vim.snippet.active({ direction = 1 }) then return vim.snippet.jump(1) end
+        if vim.snippet.active({ direction = 1 }) then
+          return vim.snippet.jump(1)
+        end
       end
       local jump_prev = function()
-        if vim.snippet.active({ direction = -1 }) then vim.snippet.jump(-1) end
+        if vim.snippet.active({ direction = -1 }) then
+          vim.snippet.jump(-1)
+        end
       end
-      vim.keymap.set({ 'i', 's' }, '<C-l>', jump_next)
-      vim.keymap.set({ 'i', 's' }, '<C-h>', jump_prev)
-
+      vim.keymap.set({ "i", "s" }, "<C-l>", jump_next)
+      vim.keymap.set({ "i", "s" }, "<C-h>", jump_prev)
 
       vim.api.nvim_create_autocmd({ "LspAttach" }, {
         callback = function()
-          require('mini.snippets').start_lsp_server()
+          require("mini.snippets").start_lsp_server()
         end,
         desc = "Start snippets as LSP Server",
       })
