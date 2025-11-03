@@ -67,6 +67,134 @@
           "typescriptreact"
         ],
         "path": "./typescriptreact.json"
+      },
+      {
+        "language": "blade",
+        "path": "./onecentlin/laravel-blade-snippets-vscode/snippets.json"
+      },
+      {
+        "language": "blade",
+        "path": "./onecentlin/laravel-blade-snippets-vscode/helpers.json"
+      },
+      {
+        "language": "blade",
+        "path": "./onecentlin/laravel-blade-snippets-vscode/livewire.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel-blade-snippets-vscode/blade.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/arr.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/auth.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/cache.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/config.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/console.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/cookie.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/crypt.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/db.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/eloquent.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/event.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/hash.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/helper.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/log.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/mail.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/model.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/redirect.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/relation.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/request.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/response.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/route.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/schema.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/session.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/storage.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/view.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/passport.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/str.json"
+      },
+      {
+        "language": "php",
+        "path": "./onecentlin/laravel5-snippets-vscode/broadcast.json"
+      },
+      {
+        "language": "blade",
+        "path": "./onecentlin/laravel5-snippets-vscode/collective_form_html.json"
       }
     ]
   },

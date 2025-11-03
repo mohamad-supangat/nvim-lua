@@ -7,17 +7,6 @@ return {
     priority = 1000,
   },
 
-  -- odoo snippets
-  -- "droggol/VscOdooSnippets",
-
-  -- laravel snippets
-  "onecentlin/laravel5-snippets-vscode",
-  "onecentlin/laravel-blade-snippets-vscode",
-  -- "anburocky3/bootstrap5-snippets",
-  -- -- quasar snippets
-  -- "Abdelaziz18003/vscode-quasar-snippets",
-  -- { "mohamad-supangat/snippets" },
-
   {
     "chrisgrieser/nvim-scissors",
     opts = {
@@ -100,8 +89,8 @@ return {
 
       local ls = require("luasnip")
 
-      vim.keymap.set({ "i" }, "<C-K>", function()
-        ls.expand()
+      vim.keymap.set({ "i" }, "<C-A-Space>", function()
+        ls.expand_auto()
       end, { silent = true })
       vim.keymap.set({ "i", "s" }, "<C-L>", function()
         ls.jump(1)
