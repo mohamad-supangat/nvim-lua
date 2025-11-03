@@ -471,6 +471,14 @@ return {
           info = { height = 30, width = 80, border = "double" },
           signature = { height = 30, width = 80, border = "double" },
         },
+        lsp_completion = {
+          auto_setup = true
+        },
+        snippet_insert = function()
+          if vim.g.snippets == "luasnip" then
+            require('luasnip').expand({})
+          end
+        end
       })
 
       require("mini.icons").tweak_lsp_kind()
