@@ -474,11 +474,11 @@ return {
         lsp_completion = {
           auto_setup = true
         },
-        snippet_insert = function()
-          if vim.g.snippets == "luasnip" then
-            require('luasnip').expand({})
-          end
-        end
+        -- snippet_insert = function()
+        --   if vim.g.snippets == "luasnip" then
+        --     require('luasnip').expand_or_jumpable()
+        --   end
+        -- end
       })
 
       require("mini.icons").tweak_lsp_kind()
@@ -495,14 +495,9 @@ return {
 
       _G.cr_action = function()
         if vim.fn.pumvisible() ~= 0 then
-          -- If popup is visible, confirm selected item or add new line otherwise
           local item_selected = vim.fn.complete_info()["selected"] ~= -1
           return item_selected and keys["ctrl-y"] or keys["ctrl-y_cr"]
         else
-          -- If popup is not visible, use plain `<CR>`. You might want to customize
-          -- according to other plugins. For example, to use 'mini.pairs', replace
-          -- next line with `return require('mini.pairs').cr()`
-          -- return keys['cr']
           return require("mini.pairs").cr()
         end
       end
@@ -510,9 +505,24 @@ return {
       vim.keymap.set("i", "<CR>", "v:lua._G.cr_action()", { expr = true })
       vim.keymap.set("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
       vim.keymap.set("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
-      vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
-      vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
+      -- vim.keymap.set("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], { expr = true })
+      -- vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
     end
     -- }}} end mini.completion
+
+
+    -- {{{ mini snippets
+    if vim.g.snippets == 'mini' then
+      local gen_loader = require('mini.snippets').gen_loader
+
+      require('mini.snippets').setup({
+        snippets = {
+          gen_loader.from_lang(),
+          -- gen_loader.from_runtime
+        }
+      })
+    end
+
+    -- }}}
   end,
 }
