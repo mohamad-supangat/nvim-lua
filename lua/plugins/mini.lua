@@ -479,9 +479,18 @@ return {
         },
         -- snippet_insert = function()
         --   if vim.g.snippets == "luasnip" then
-        --     require('luasnip').expand_or_jumpable()
+        --     require("luasnip").expand_or_jumpable()
         --   end
-        -- end
+        --
+        --   if vim.g.snippets == "mini" then
+        --     require("mini.snippets").expand()
+        --   end
+        --
+        --   local suggestion = require("supermaven-nvim.completion_preview")
+        --   if suggestion.has_suggestion() then
+        --     suggestion.on_accept_suggestion()
+        --   end
+        -- end,
       })
 
       require("mini.icons").tweak_lsp_kind()
