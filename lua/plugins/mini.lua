@@ -521,6 +521,13 @@ return {
           -- gen_loader.from_runtime
         }
       })
+
+      vim.api.nvim_create_autocmd({ "LspAttach" }, {
+        callback = function()
+          require('mini.snippets').start_lsp_server()
+        end,
+        desc = "Start snippets as LSP Server",
+      })
     end
 
     -- }}}
