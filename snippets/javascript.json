@@ -156,6 +156,10 @@
     ],
     "prefix": "oapi:openapi doc generator"
   },
+  "sekolahku::attachment-uploader": {
+    "body": "import AttachmentsUploader from '@/views/components/attachments-uploader.vue';",
+    "prefix": "sekolahku::attachment-uploader"
+  },
   "toast.response": {
     "body": "toast.response(response)",
     "prefix": "toast.response"

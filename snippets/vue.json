@@ -221,6 +221,16 @@
     ],
     "prefix": "q-card-actions-with-buttons"
   },
+  "sekolahku:component-attachment-uploader": {
+    "body": [
+      "AttachmentsUploader(",
+      "    stackLabel,",
+      "    v-model=\"${1:}\",",
+      "    :hint=\"__('${2:}')\"",
+      ")"
+    ],
+    "prefix": "sekolahku:component-attachment-uploader"
+  },
   "sekolahku:datatable-page": {
     "body": [
       "<template lang=\"pug\">",
