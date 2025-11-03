@@ -1,5 +1,6 @@
 return {
   "nvim-mini/mini.nvim",
+
   lazy = false,
   enabled = true,
   dependencies = {
@@ -519,8 +520,29 @@ return {
         snippets = {
           gen_loader.from_lang(),
           -- gen_loader.from_runtime
+        },
+        mappings = {
+          expand = '<C-A-Space>',
+          jump_next = '<C-l>',
+          jump_prev = '<C-h>',
+          stop = '<C-c>',
+        },
+
+        expand = {
+          insert = function(snippet, _) vim.snippet.expand(snippet.body) end
         }
+
       })
+
+      local jump_next = function()
+        if vim.snippet.active({ direction = 1 }) then return vim.snippet.jump(1) end
+      end
+      local jump_prev = function()
+        if vim.snippet.active({ direction = -1 }) then vim.snippet.jump(-1) end
+      end
+      vim.keymap.set({ 'i', 's' }, '<C-l>', jump_next)
+      vim.keymap.set({ 'i', 's' }, '<C-h>', jump_prev)
+
 
       vim.api.nvim_create_autocmd({ "LspAttach" }, {
         callback = function()
