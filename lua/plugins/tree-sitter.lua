@@ -47,7 +47,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    branch = "main",
+    -- branch = "main",
     enabled = vim.fn.has("nvim-0.10.0") == 1,
     lazy = false,
     dependencies = {},

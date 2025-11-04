@@ -496,9 +496,9 @@ return {
       require("mini.icons").tweak_lsp_kind()
 
       local keycode = vim.keycode
-        or function(x)
-          return vim.api.nvim_replace_termcodes(x, true, true, true)
-        end
+          or function(x)
+            return vim.api.nvim_replace_termcodes(x, true, true, true)
+          end
       local keys = {
         ["cr"] = keycode("<CR>"),
         ["ctrl-y"] = keycode("<C-y>"),
