@@ -63,7 +63,7 @@ return {
       time_format = "%H:%M",
     },
     completion = {
-      blink = true,
+      blink = vim.g.completion == "blink",
     },
     note_id_func = function(title)
       -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.

@@ -47,20 +47,27 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    branch = "main",
     enabled = vim.fn.has("nvim-0.10.0") == 1,
     lazy = false,
     dependencies = {},
     config = function()
       require("nvim-treesitter.configs").setup({
+        modules = {},
         auto_install = true,
         ensure_installed = variables.filetypes,
         sync_install = false,
         ignore_install = {},
         highlight = {
           enable = true,
-          additional_vim_regex_highlighting = true,
+          additional_vim_regex_highlighting = false,
         },
-        indent = { enable = true, disable = { "pug", "vue" } },
+        incremental_selection = { enable = true },
+        textobjects = { enable = true },
+        indent = {
+          enable = true,
+          -- disable = { "pug", "vue" }
+        },
       })
 
       vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
