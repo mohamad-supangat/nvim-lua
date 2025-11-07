@@ -1,6 +1,6 @@
 return {
   "CRAG666/code_runner.nvim",
-  enabled = false,
+  enabled = true,
   commands = {
     "RunCode",
     "RunFile",

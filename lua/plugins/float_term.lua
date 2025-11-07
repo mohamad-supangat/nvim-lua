@@ -25,9 +25,11 @@ return {
     end
 
     local aider = fterm:new({
-      cmd = "aider --no-auto-commits --pretty --stream --model gemini/gemini-1.5-flash --chat-language markdown",
-      -- blend = 20,
-      border = "double",
+      auto_close = true,
+      cmd =
+      "aider --no-auto-commits --pretty --stream --model gemini/gemini-2.5-flash --chat-language id --notifications",
+      blend = 20,
+      border = "rounded",
       dimensions = {
         height = 0.9,
         width = 0.7,
@@ -133,7 +135,7 @@ return {
 
 
     -- open gemini
-    if vim.g.ai == "codecompanion" then
+    if vim.g.ai == "gemini" then
       map("n", "<leader>ge", ":lua gemini()<CR>", default_opts)
       map("t", "<leader>ge", "<C-\\><C-n><CMD>lua gemini()<CR>", default_opts)
     end

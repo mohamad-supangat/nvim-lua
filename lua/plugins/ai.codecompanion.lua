@@ -20,6 +20,17 @@ return {
       },
       display = {
         chat = {
+          slash_commands = {
+            ["file"] = {
+              -- Location to the slash command in CodeCompanion
+              callback = "strategies.chat.slash_commands.file",
+              description = "Select a file using Telescope",
+              opts = {
+                provider = "telescope", -- Can be "default", "telescope", "fzf_lua", "mini_pick" or "snacks"
+                contains_code = true,
+              },
+            },
+          },
           start_in_insert_mode = false,
           show_references = true,
           separator = "─",
