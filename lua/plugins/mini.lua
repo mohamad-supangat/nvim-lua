@@ -195,6 +195,8 @@ return {
               strings = {
                 -- navic.get_location(),
                 diagnostics,
+                fileinfo,
+                location
               },
             },
           })

@@ -27,7 +27,7 @@ return {
     local aider = fterm:new({
       auto_close = true,
       cmd =
-      "aider --no-auto-commits --pretty --stream --model gemini/gemini-2.5-flash --chat-language id --notifications",
+      "aider --no-auto-commits --pretty --stream --model gemini/gemini-2.5-flash --chat-language id --notifications --no-auto-accept-architect",
       blend = 20,
       border = "rounded",
       dimensions = {
