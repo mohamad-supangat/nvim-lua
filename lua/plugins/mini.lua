@@ -547,24 +547,21 @@ return {
         },
 
         expand = {
-          -- insert = function(snippet, _)
-          --   vim.snippet.expand(snippet.body)
-          -- end,
+          insert = function(snippet, _)
+            return MiniSnippets.default_insert(snippet, {
+              empty_tabstop = "$",
+              empty_tabstop_final = "",
+              -- empty_tabstop = "•",
+              -- empty_tabstop_final = "∎",
+
+              normalize = false,
+              -- lookup = {
+              --   TM_SELECTED_TEXT = table.concat(vim.fn.getreg("a", true, true), "\n"),
+              -- },
+            })
+          end,
         },
       })
-      --
-      -- local jump_next = function()
-      --   if vim.snippet.active({ direction = 1 }) then
-      --     return vim.snippet.jump(1)
-      --   end
-      -- end
-      -- local jump_prev = function()
-      --   if vim.snippet.active({ direction = -1 }) then
-      --     vim.snippet.jump(-1)
-      --   end
-      -- end
-      -- vim.keymap.set({ "i", "s" }, "<C-l>", jump_next)
-      -- vim.keymap.set({ "i", "s" }, "<C-h>", jump_prev)
 
       vim.api.nvim_create_autocmd({ "LspAttach" }, {
         callback = function()
