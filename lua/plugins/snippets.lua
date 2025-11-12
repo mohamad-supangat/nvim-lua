@@ -90,7 +90,7 @@ return {
       local ls = require("luasnip")
 
       vim.keymap.set({ "i" }, "<C-A-Space>", function()
-        ls.expand_auto()
+        ls.expand_or_jumpable()
       end, { silent = true })
       vim.keymap.set({ "i", "s" }, "<C-L>", function()
         ls.jump(1)
