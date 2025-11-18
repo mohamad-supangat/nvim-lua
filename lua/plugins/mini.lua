@@ -482,13 +482,13 @@ return {
           --   if vim.g.snippets == "luasnip" then
           --     require("luasnip").expand({})
           --   elseif vim.g.snippets == "mini" then
-          --     require("mini.snippets").expand({ match = false })
+          --     require("mini.snippets").insert({ match = false })
           --   end
-
-          -- local suggestion = require("supermaven-nvim.completion_preview")
-          -- if suggestion.has_suggestion() then
-          --   suggestion.on_accept_suggestion()
-          -- end
+          --
+          --   local suggestion = require("supermaven-nvim.completion_preview")
+          --   if suggestion.has_suggestion() then
+          --     suggestion.on_accept_suggestion()
+          --   end
           -- end,
         },
       })
@@ -554,7 +554,7 @@ return {
           match = function(snippets)
             return MiniSnippets.default_match(snippets, { pattern_fuzzy = '%w*' })
           end,
-          select = function(snippets, insert) return insert(snippets[1]) end,
+          -- select = function(snippets, insert) return insert(snippets[1]) end,
           insert = function(snippet, _)
             return MiniSnippets.default_insert(snippet, {
               empty_tabstop = "",

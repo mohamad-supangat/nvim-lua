@@ -23,10 +23,6 @@ return {
       -- },
       {
         "supermaven-inc/supermaven-nvim",
-        opts = {
-          disable_inline_completion = true,
-          disable_keymaps = true,
-        },
       },
       -- "huijiro/blink-cmp-supermaven",
     },
@@ -61,15 +57,8 @@ return {
           "lsp",
           "path",
           "buffer",
-          -- "minuet",
         },
         providers = {
-          copilot = {
-            name = "copilot",
-            module = "blink-copilot",
-            score_offset = 100,
-            async = true,
-          },
           avante = {
             module = "blink-cmp-avante",
             name = "Avante",
@@ -102,12 +91,6 @@ return {
               end
               return items
             end,
-          },
-          minuet = {
-            name = "minuet",
-            module = "minuet.blink",
-            async = true,
-            score_offset = 10000,
           },
           codeium = { name = "Codeium", module = "codeium.blink", async = true, score_offset = 10000 },
           lazydev = {
