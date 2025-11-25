@@ -121,7 +121,7 @@ return {
     end)()
     starter.setup({
       autoopen = true,
-      header = table.concat(header_ascii, "\n"),
+      -- header = table.concat(header_ascii, "\n"),
       footer = footer_n_seconds,
       evaluate_single = true,
       items = {
