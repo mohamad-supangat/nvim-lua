@@ -549,7 +549,7 @@ return {
         expand = {
           insert = function(snippet, _)
             return MiniSnippets.default_insert(snippet, {
-              empty_tabstop = "$",
+              empty_tabstop = "",
               empty_tabstop_final = "",
               -- empty_tabstop = "•",
               -- empty_tabstop_final = "∎",

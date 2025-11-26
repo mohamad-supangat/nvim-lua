@@ -160,6 +160,10 @@
     "body": "import AttachmentsUploader from '@/views/components/attachments-uploader.vue';",
     "prefix": "sekolahku::attachment-uploader"
   },
+  "sekolahku:import-simple-editor": {
+    "body": "import SimpleEditor from '@/views/components/simple-editor.vue';",
+    "prefix": "sekolahku:import-simple-editor"
+  },
   "toast.response": {
     "body": "toast.response(response)",
     "prefix": "toast.response"
