@@ -7,28 +7,6 @@ return {
     -- version = false,
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
-      {
-        "saghen/blink.compat",
-        opts = {
-          enable_events = true,
-        },
-      },
-      -- {
-      --   "Exafunction/windsurf.nvim",
-      --   config = function()
-      --     require("codeium").setup({
-      --       enable_cmp_source = false,
-      --     })
-      --   end,
-      -- },
-      {
-        "supermaven-inc/supermaven-nvim",
-        opts = {
-          disable_inline_completion = true,
-          disable_keymaps = true,
-        },
-      },
-      -- "huijiro/blink-cmp-supermaven",
     },
     opts = {
       enabled = function()
@@ -53,7 +31,6 @@ return {
       sources = {
         default = {
           -- "emoji",
-          "supermaven",
           -- "codeium",
           "lazydev",
           -- "avante",
@@ -61,36 +38,14 @@ return {
           "lsp",
           "path",
           "buffer",
-          -- "minuet",
         },
         providers = {
-          copilot = {
-            name = "copilot",
-            module = "blink-copilot",
-            score_offset = 100,
-            async = true,
-          },
           avante = {
             module = "blink-cmp-avante",
             name = "Avante",
             opts = {
               -- options for blink-cmp-avante
             },
-          },
-          supermaven = {
-            name = "supermaven",
-            module = "blink.compat.source",
-            async = true,
-            score_offset = 1000,
-            transform_items = function(_, items)
-              local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-              local kind_idx = #CompletionItemKind + 1
-              CompletionItemKind[kind_idx] = "Supermaven"
-              for _, item in ipairs(items) do
-                item.kind = kind_idx
-              end
-              return items
-            end,
           },
           emoji = {
             name = "emoji",
@@ -102,12 +57,6 @@ return {
               end
               return items
             end,
-          },
-          minuet = {
-            name = "minuet",
-            module = "minuet.blink",
-            async = true,
-            score_offset = 10000,
           },
           codeium = { name = "Codeium", module = "codeium.blink", async = true, score_offset = 10000 },
           lazydev = {
@@ -121,11 +70,11 @@ return {
 
       keymap = {
         preset = "none",
-        ["<A-y>"] = {
-          function(cmp)
-            cmp.show({ providers = { "minuet" } })
-          end,
-        },
+        -- ["<A-y>"] = {
+        --   function(cmp)
+        --     cmp.show({ providers = { "minuet" } })
+        --   end,
+        -- },
         ["<CR>"] = { "accept", "fallback" },
         -- ["<C-space>"] = {
         --   function(cmp)

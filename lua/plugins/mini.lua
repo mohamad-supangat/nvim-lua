@@ -121,7 +121,7 @@ return {
     end)()
     starter.setup({
       autoopen = true,
-      header = table.concat(header_ascii, "\n"),
+      -- header = table.concat(header_ascii, "\n"),
       footer = footer_n_seconds,
       evaluate_single = true,
       items = {
@@ -478,21 +478,19 @@ return {
         },
         lsp_completion = {
           auto_setup = true,
+          -- snippet_insert = function()
+          --   if vim.g.snippets == "luasnip" then
+          --     require("luasnip").expand({})
+          --   elseif vim.g.snippets == "mini" then
+          --     require("mini.snippets").insert({ match = false })
+          --   end
+          --
+          --   local suggestion = require("supermaven-nvim.completion_preview")
+          --   if suggestion.has_suggestion() then
+          --     suggestion.on_accept_suggestion()
+          --   end
+          -- end,
         },
-        -- snippet_insert = function()
-        --   if vim.g.snippets == "luasnip" then
-        --     require("luasnip").expand_or_jumpable()
-        --   end
-        --
-        --   if vim.g.snippets == "mini" then
-        --     require("mini.snippets").expand()
-        --   end
-        --
-        --   local suggestion = require("supermaven-nvim.completion_preview")
-        --   if suggestion.has_suggestion() then
-        --     suggestion.on_accept_suggestion()
-        --   end
-        -- end,
       })
 
       require("mini.icons").tweak_lsp_kind()
@@ -536,8 +534,9 @@ return {
 
       require("mini.snippets").setup({
         snippets = {
+          { prefix = 'cdate', body = '$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE' },
+          { prefix = 'today', body = '$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE' },
           gen_loader.from_lang(),
-          -- gen_loader.from_runtime
         },
         mappings = {
           expand = "<C-A-Space>",
@@ -547,6 +546,15 @@ return {
         },
 
         expand = {
+          prepare = function(raw_snippets)
+            local _, cont = MiniSnippets.default_prepare({})
+            cont.cursor = vim.api.nvim_win_get_cursor(0)
+            return MiniSnippets.default_prepare(raw_snippets, { context = cont })
+          end,
+          match = function(snippets)
+            return MiniSnippets.default_match(snippets, { pattern_fuzzy = '%w*' })
+          end,
+          -- select = function(snippets, insert) return insert(snippets[1]) end,
           insert = function(snippet, _)
             return MiniSnippets.default_insert(snippet, {
               empty_tabstop = "",
@@ -565,7 +573,9 @@ return {
 
       vim.api.nvim_create_autocmd({ "LspAttach" }, {
         callback = function()
-          require("mini.snippets").start_lsp_server()
+          require("mini.snippets").start_lsp_server({
+            match = false,
+          })
         end,
         desc = "Start snippets as LSP Server",
       })

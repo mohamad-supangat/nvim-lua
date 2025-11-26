@@ -79,6 +79,58 @@ return {
     },
   },
   {
+    "garymjr/nvim-snippets",
+    enabled = vim.g.snippets == "native",
+    opts = {
+      create_autocmd = true,
+      create_cmp_source = false,
+      friendly_snippets = true
+    },
+    keys = {
+      {
+        "<Tab>",
+        function()
+          if vim.snippet.active({ direction = 1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(1)
+            end)
+            return
+          end
+          return "<Tab>"
+        end,
+        expr = true,
+        silent = true,
+        mode = "i",
+      },
+      {
+        "<Tab>",
+        function()
+          vim.schedule(function()
+            vim.snippet.jump(1)
+          end)
+        end,
+        expr = true,
+        silent = true,
+        mode = "s",
+      },
+      {
+        "<S-Tab>",
+        function()
+          if vim.snippet.active({ direction = -1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(-1)
+            end)
+            return
+          end
+          return "<S-Tab>"
+        end,
+        expr = true,
+        silent = true,
+        mode = { "i", "s" },
+      },
+    },
+  },
+  {
     "L3MON4D3/LuaSnip",
     dev = false,
     version = "v2.*",
@@ -89,8 +141,10 @@ return {
 
       local ls = require("luasnip")
 
+      ls.config.setup({ enable_autosnippets = vim.g.completion == 'mini' })
+
       vim.keymap.set({ "i" }, "<C-A-Space>", function()
-        ls.expand_auto()
+        ls.expand_or_jumpable()
       end, { silent = true })
       vim.keymap.set({ "i", "s" }, "<C-L>", function()
         ls.jump(1)
