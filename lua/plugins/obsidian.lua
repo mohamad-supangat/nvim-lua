@@ -32,6 +32,7 @@ return {
   cmd = { "Obsidian" },
   keys = {
     { "<leader>ob", ":Obsidian<CR>",              noremap = true, silent = true },
+    { "<leader>p",  ":Obsidian paste_img<CR>",    noremap = true, silent = true },
     { "<leader>no", ":Obsidian<CR>",              noremap = true, silent = true },
     { "<leader>nw", ":Obsidian workspace<CR>",    noremap = true, silent = true },
     { "<leader>nk", ":Obsidian quick_switch<CR>", noremap = true, silent = true },

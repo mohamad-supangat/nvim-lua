@@ -221,6 +221,16 @@
     ],
     "prefix": "q-card-actions-with-buttons"
   },
+  "quasar:banner": {
+    "body": [
+      "q-banner.${1:}.rounded.text-white.shadow-2.q-my-md()",
+      "    template(v-slot:avatar)",
+      "        q-icon(name=\"mdi-information-outline\")",
+      "    ${2:}",
+      "    "
+    ],
+    "prefix": "quasar:banner"
+  },
   "sekolahku:component-attachment-uploader": {
     "body": [
       "AttachmentsUploader(",

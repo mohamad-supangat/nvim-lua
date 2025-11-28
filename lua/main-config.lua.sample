@@ -7,3 +7,4 @@ vim.g.colorschema = "mini"
 -- vim.g.explorer = "snack"
 vim.g.completion = "blink"
 vim.g.snippets = "luasnip"
+vim.g.enable_treesitter = 1
