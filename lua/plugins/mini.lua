@@ -395,7 +395,10 @@ return {
     require("mini.bufremove").setup({
       set_vim_settings = true,
     })
-    require("mini.comment").setup()
+
+    if vim.g.enable_treesitter == 1 then
+      require("mini.comment").setup()
+    end
     require("mini.bracketed").setup()
 
     -- pick {{{
