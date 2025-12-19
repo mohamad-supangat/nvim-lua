@@ -327,6 +327,9 @@ return {
           vim.api.nvim_win_set_config(win_id, config)
         end,
       })
+
+
+      require('functions.mini-files-scroll')
       -- }}} files
     end
     -- hl patttern {{{

@@ -1,6 +1,7 @@
-local enableHistory = true
+local enableHistory = false
 return {
   "olimorris/codecompanion.nvim",
+  version = "17.33.0",
   lazy = false,
   enabled = vim.g.ai == "codecompanion",
   dependencies = {
@@ -56,9 +57,11 @@ return {
       strategies = {
         chat = {
           adapter = "gemini",
+            model = "gemini-2.5-flash",
         },
         inline = {
           adapter = "gemini",
+          model = "gemini-2.5-flash",
           keymaps = {
             accept_change = {
               modes = { n = "ga" },
@@ -142,8 +145,8 @@ I'm also sharing my `config.lua` file which I'm mapping to the `configuration` s
       },
     })
 
-    require("plugins.codecompanion.utils.chat-loading"):init()
-    require("plugins.codecompanion.utils.extmarks").setup()
+    -- require("plugins.codecompanion.utils.chat-loading"):init()
+    -- require("plugins.codecompanion.utils.extmarks").setup()
   end,
   keys = {
     {
