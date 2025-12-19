@@ -329,7 +329,7 @@ return {
       })
 
 
-      require('functions.mini-files-scroll')
+      -- require('functions.mini-files-scroll')
       -- }}} files
     end
     -- hl patttern {{{
