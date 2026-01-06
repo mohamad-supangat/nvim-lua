@@ -38,6 +38,7 @@ return {
           "lsp",
           "path",
           "buffer",
+          "codecompanion"
         },
         providers = {
           avante = {
