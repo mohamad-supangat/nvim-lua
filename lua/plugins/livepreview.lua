@@ -1,5 +1,6 @@
 return {
   "brianhuster/live-preview.nvim",
-  enabled = false,
+  enabled = vim.g.markdown_render == 'live',
   ft = { "markdown", "html" },
+  cmd = "LivePreview",
 }
