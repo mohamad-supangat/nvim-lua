@@ -1,5 +1,19 @@
 local variables = require("variables")
 
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+        pattern = "*.blade.php",
+        callback = function()
+          vim.opt.filetype = "blade"
+        end,
+      })
+
+      vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+        pattern = "*.http",
+        callback = function()
+          vim.opt.filetype = "http"
+        end,
+      })
+
 return {
   {
     "folke/ts-comments.nvim",
@@ -48,12 +62,14 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    -- branch = "main",
+    branch = 'main',
+  },
+  {
+    "MeanderingProgrammer/treesitter-modules.nvim",
     enabled = vim.fn.has("nvim-0.10.0") == 1 and vim.g.enable_treesitter == 1,
     lazy = false,
     dependencies = {},
-    config = function()
-      require("nvim-treesitter.configs").setup({
+    opts = {
         modules = {},
         auto_install = true,
         ensure_installed = variables.filetypes,
@@ -69,22 +85,7 @@ return {
           enable = true,
           -- disable = { "pug", "vue" }
         },
-      })
-
-      vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-        pattern = "*.blade.php",
-        callback = function()
-          vim.opt.filetype = "blade"
-        end,
-      })
-
-      vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-        pattern = "*.http",
-        callback = function()
-          vim.opt.filetype = "http"
-        end,
-      })
-    end,
+    }
   },
   {
     "danymat/neogen",
