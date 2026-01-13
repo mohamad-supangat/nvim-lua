@@ -43,6 +43,7 @@ return {
           typescriptreact = { "prettier" },
           json = { "prettier" },
           jsonc = { "prettier" },
+          json5 = { "prettier" },
           vue = { "prettier" },
           pug = { "prettier" },
           html = { "prettier" },
