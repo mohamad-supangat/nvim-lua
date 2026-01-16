@@ -1,6 +1,7 @@
 return {
-  "askfiy/nvim-picgo",
-  dev = true,
+  "mohamad-supangat/nvim-picgo",
+  branch = "fix/error",
+  -- dev = true,
   keys = {
     -- { "<leader>p",  ":Obsidian paste_img<CR>", noremap = true, silent = true },
     { "<leader>pi", "<cmd>lua require'nvim-picgo'.upload_clipboard()<cr>", desc = "PicGo upload_clipboard" },
