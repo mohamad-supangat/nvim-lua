@@ -16,29 +16,28 @@ return {
 
   config = function()
     require("codecompanion").setup({
-
-      opts = {
-        language = "Indonesia",
-        interactions = {
-          chat = {
-            adapter = "gemini",
-            model = "gemini-2.5-flash",
-          },
-          inline = {
-            adapter = "gemini",
-            model = "gemini-2.5-flash",
-            keymaps = {
-              accept_change = {
-                modes = { n = "ga" },
-                description = "Accept the suggested change",
-              },
-              reject_change = {
-                modes = { n = "gr" },
-                description = "Reject the suggested change",
-              },
+      interactions = {
+        chat = {
+          adapter = "gemini",
+          model = "gemini-2.5-flash",
+        },
+        inline = {
+          adapter = "gemini",
+          model = "gemini-2.5-flash",
+          keymaps = {
+            accept_change = {
+              modes = { n = "ga" },
+              description = "Accept the suggested change",
+            },
+            reject_change = {
+              modes = { n = "gr" },
+              description = "Reject the suggested change",
             },
           },
         },
+      },
+      opts = {
+        language = "Indonesia",
       },
       display = {
         chat = {
@@ -64,7 +63,6 @@ return {
           },
         },
       },
-
     })
 
     -- require("plugins.codecompanion.utils.chat-loading"):init()
