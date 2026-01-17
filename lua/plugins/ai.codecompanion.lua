@@ -14,60 +14,64 @@ return {
     },
   },
 
-  config = function()
-    require("codecompanion").setup({
-      interactions = {
-        chat = {
-          adapter = "gemini",
-          model = "gemini-2.5-flash",
+  opts = {
+    interactions = {
+      chat = {
+        adapter = "gemini",
+        model = "gemini-2.5-flash",
+        opts = {
+          completion_provider = "default",
         },
-        inline = {
-          adapter = "gemini",
-          model = "gemini-2.5-flash",
-          keymaps = {
-            accept_change = {
-              modes = { n = "ga" },
-              description = "Accept the suggested change",
-            },
-            reject_change = {
-              modes = { n = "gr" },
-              description = "Reject the suggested change",
-            },
+        keymaps = {
+          -- comletion_menu = {
+          --   modes = { i = "<C-space>" },
+          --   description = "Toggle CodeCompanion Actions",
+          -- },
+        },
+      },
+      inline = {
+        adapter = "gemini",
+        model = "gemini-2.5-flash",
+        keymaps = {
+          accept_change = {
+            modes = { n = "ga" },
+            description = "Accept the suggested change",
+          },
+          reject_change = {
+            modes = { n = "gr" },
+            description = "Reject the suggested change",
           },
         },
       },
-      opts = {
-        language = "Indonesia",
-      },
-      display = {
-        chat = {
-          start_in_insert_mode = false,
-          show_references = true,
-          separator = "─",
-          window = {
-            layout = "float",
-            height = 0.9,
-            width = 0.9,
-            opts = {
-              breakindent = true,
-              cursorcolumn = false,
-              cursorline = false,
-              foldcolumn = "0",
-              linebreak = true,
-              list = true,
-              number = false,
-              -- signcolumn = "yes",
-              spell = false,
-              wrap = true,
-            },
+    },
+    opts = {
+      language = "Indonesia",
+    },
+    display = {
+      chat = {
+        start_in_insert_mode = false,
+        show_references = true,
+        separator = "─",
+        window = {
+          layout = "float",
+          height = 0.9,
+          width = 0.9,
+          opts = {
+            breakindent = true,
+            cursorcolumn = false,
+            cursorline = false,
+            foldcolumn = "0",
+            linebreak = true,
+            list = true,
+            number = false,
+            -- signcolumn = "yes",
+            spell = false,
+            wrap = true,
           },
         },
       },
-    })
-
-    -- require("plugins.codecompanion.utils.chat-loading"):init()
-    -- require("plugins.codecompanion.utils.extmarks").setup()
-  end,
+    },
+  },
   keys = {
     {
       mode = { "n" },
