@@ -197,7 +197,7 @@ return {
                 -- navic.get_location(),
                 diagnostics,
                 fileinfo,
-                location
+                location,
               },
             },
           })
@@ -328,7 +328,6 @@ return {
           vim.api.nvim_win_set_config(win_id, config)
         end,
       })
-
 
       -- require('functions.mini-files-scroll')
       -- }}} files
@@ -506,9 +505,9 @@ return {
       require("mini.icons").tweak_lsp_kind()
 
       local keycode = vim.keycode
-          or function(x)
-            return vim.api.nvim_replace_termcodes(x, true, true, true)
-          end
+        or function(x)
+          return vim.api.nvim_replace_termcodes(x, true, true, true)
+        end
       local keys = {
         ["cr"] = keycode("<CR>"),
         ["ctrl-y"] = keycode("<C-y>"),
@@ -544,8 +543,8 @@ return {
 
       require("mini.snippets").setup({
         snippets = {
-          { prefix = 'cdate', body = '$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE' },
-          { prefix = 'today', body = '$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE' },
+          { prefix = "cdate", body = "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE" },
+          { prefix = "today", body = "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE" },
           gen_loader.from_lang(),
         },
         mappings = {
@@ -562,7 +561,7 @@ return {
             return MiniSnippets.default_prepare(raw_snippets, { context = cont })
           end,
           match = function(snippets)
-            return MiniSnippets.default_match(snippets, { pattern_fuzzy = '%w*' })
+            return MiniSnippets.default_match(snippets, { pattern_fuzzy = "%w*" })
           end,
           -- select = function(snippets, insert) return insert(snippets[1]) end,
           insert = function(snippet, _)
@@ -589,6 +588,22 @@ return {
         end,
         desc = "Start snippets as LSP Server",
       })
+
+      -- disbale underline in current cursor
+      -- i not exited with this
+      -- Daftar highlight group yang ingin dihapus
+      local groups = {
+        "MiniSnippetsCurrent",
+        "MiniSnippetsVisited",
+        "MiniSnippetsUnvisited",
+        "MiniSnippetsCurrentReplace",
+        "MiniSnippetsFinal",
+      }
+
+      -- Loop untuk clear semuanya
+      for _, group in ipairs(groups) do
+        vim.api.nvim_set_hl(0, group, {})
+      end
     end
 
     -- }}}
