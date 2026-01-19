@@ -23,10 +23,6 @@ return {
           completion_provider = "default",
         },
         keymaps = {
-          -- comletion_menu = {
-          --   modes = { i = "<C-space>" },
-          --   description = "Toggle CodeCompanion Actions",
-          -- },
         },
       },
       inline = {
