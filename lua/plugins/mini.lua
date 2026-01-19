@@ -502,12 +502,29 @@ return {
         },
       })
 
+      local function check_last_char()
+        local line = vim.api.nvim_get_current_line()
+        local cursor_col = vim.api.nvim_win_get_cursor(0)[2]
+        local last_char = string.sub(line, cursor_col, cursor_col)
+        if last_char == "{" then
+          vim.b.minicompletion_disable = true
+        else
+          vim.b.minicompletion_disable = false
+        end
+      end
+      vim.api.nvim_create_augroup("InsertBraceGroup", { clear = true })
+      vim.api.nvim_create_autocmd("TextChangedI", {
+        group = "InsertBraceGroup",
+        callback = check_last_char,
+      })
+
+
       require("mini.icons").tweak_lsp_kind()
 
       local keycode = vim.keycode
-        or function(x)
-          return vim.api.nvim_replace_termcodes(x, true, true, true)
-        end
+          or function(x)
+            return vim.api.nvim_replace_termcodes(x, true, true, true)
+          end
       local keys = {
         ["cr"] = keycode("<CR>"),
         ["ctrl-y"] = keycode("<C-y>"),
