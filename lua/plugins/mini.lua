@@ -480,6 +480,10 @@ return {
 
     -- {{{ mini.completion
     if vim.g.completion == "mini" then
+
+      -- setup cmdline juga
+      require('mini.cmdline').setup()
+
       require("mini.completion").setup({
         window = {
           info = { height = 30, width = 80, border = "double" },

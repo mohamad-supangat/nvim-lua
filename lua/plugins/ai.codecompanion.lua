@@ -18,7 +18,7 @@ return {
     interactions = {
       chat = {
         adapter = "gemini",
-        model = "gemini-2.5-flash",
+        model = "gemini-3-flash-preview",
         opts = {
           completion_provider = "default",
         },
@@ -27,7 +27,7 @@ return {
       },
       inline = {
         adapter = "gemini",
-        model = "gemini-2.5-flash",
+        model = "gemini-3-flash-preview",
         keymaps = {
           accept_change = {
             modes = { n = "ga" },
@@ -72,7 +72,7 @@ return {
     {
       mode = { "n" },
       "<A-b>",
-      "<cmd>CodeCompanionChat Toggle<CR>",
+      "<cmd>CodeCompanionChat adapter=gemini model=gemini-3-flash-preview Toggle<CR>",
       desc = "Toggle CodeCompanion Chat",
       silent = true,
       noremap = true,
@@ -80,7 +80,7 @@ return {
     {
       mode = { "x" },
       "<A-b>",
-      "<cmd>CodeCompanionChat<CR>",
+      "<cmd>CodeCompanionChat adapter=gemini model=gemini-3-flash-preview<CR>",
       desc = "Trigger CodeCompanion Selected to Chat",
       silent = true,
       noremap = true,
