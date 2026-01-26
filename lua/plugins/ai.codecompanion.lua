@@ -1,4 +1,8 @@
 local enableHistory = false
+
+require("plugins.codecompanion.utils.chat-loading"):init()
+require("plugins.codecompanion.utils.extmarks").setup()
+--
 return {
   "olimorris/codecompanion.nvim",
   -- version = "17.33.0",
