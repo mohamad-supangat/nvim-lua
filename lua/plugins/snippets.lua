@@ -84,7 +84,7 @@ return {
     opts = {
       create_autocmd = true,
       create_cmp_source = false,
-      friendly_snippets = true
+      friendly_snippets = true,
     },
     keys = {
       {
@@ -135,14 +135,18 @@ return {
     dev = false,
     version = "v2.*",
     enabled = vim.g.snippets == "luasnip",
+    build = "make install_jsregexp",
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
       require("luasnip.loaders.from_vscode").lazy_load({ paths = { custom_snippets_dir } })
 
       local ls = require("luasnip")
 
-      ls.config.setup({ enable_autosnippets = vim.g.completion == 'mini' })
+      ls.config.setup({ enable_autosnippets = vim.g.completion == "mini" })
 
+      vim.keymap.set({ "i" }, "<C-K>", function()
+        ls.expand()
+      end, { silent = true })
       vim.keymap.set({ "i" }, "<C-A-Space>", function()
         ls.expand_or_jumpable()
       end, { silent = true })
