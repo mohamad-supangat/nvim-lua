@@ -480,7 +480,6 @@ return {
 
     -- {{{ mini.completion
     if vim.g.completion == "mini" then
-
       -- setup cmdline juga
       require('mini.cmdline').setup()
 
@@ -582,7 +581,8 @@ return {
             return MiniSnippets.default_prepare(raw_snippets, { context = cont })
           end,
           match = function(snippets)
-            return MiniSnippets.default_match(snippets, { pattern_fuzzy = "%w*" })
+            return snippets
+            -- return MiniSnippets.default_match(snippets, { pattern_fuzzy = "%w*" })
           end,
           -- select = function(snippets, insert) return insert(snippets[1]) end,
           insert = function(snippet, _)

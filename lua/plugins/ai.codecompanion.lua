@@ -24,7 +24,7 @@ return {
         adapter = "gemini",
         model = "gemini-3-flash-preview",
         opts = {
-          completion_provider = "default",
+          completion_provider = (vim.g.completion == "blink") and "blink" or "default",
         },
         keymaps = {
         },
