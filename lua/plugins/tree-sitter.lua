@@ -15,6 +15,7 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     enabled = vim.fn.has("nvim-0.10.0") == 1 and vim.g.enable_treesitter == 1,
 
+    event = "VeryLazy",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },

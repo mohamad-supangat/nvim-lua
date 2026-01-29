@@ -40,3 +40,6 @@ require("lazy").setup("plugins", { ui = { border = "rounded" } })
 require("keymaps") -- global keymaps
 require("italic_generator")
 -- require("autocmds")
+--
+--
+

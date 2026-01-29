@@ -1,6 +1,6 @@
 return {
   "nvimtools/none-ls.nvim",
-  enabled = false,
+  enabled = vim.g.null_ls == 1,
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     -- {
@@ -41,6 +41,7 @@ return {
         formatting.blade_formatter,
         -- completion.spell,
         -- completion.nvim_snippets,
+        -- completion.luasnip,
         formatting.phpcsfixer,
         formatting.prettier.with({
           extra_filetypes = { "toml" },

@@ -491,6 +491,7 @@ return {
         lsp_completion = {
           auto_setup = true,
           -- snippet_insert = function()
+          --   vim.notify("Snippet Insert")
           --   if vim.g.snippets == "luasnip" then
           --     require("luasnip").expand({})
           --   elseif vim.g.snippets == "mini" then

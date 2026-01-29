@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    enabled = true,
+    enabled = vim.g.null_ls ~= 1,
     -- lazy = "VeryLazy",
     event = { "BufWritePre" },
     dependencies = {
