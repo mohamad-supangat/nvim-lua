@@ -71,7 +71,7 @@ return {
         textobjects = { enable = true },
         indent = {
           enable = true,
-          -- disable = { "pug", "vue" }
+          disable = { "pug", "vue" }
         },
       })
 
