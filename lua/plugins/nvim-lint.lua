@@ -1,6 +1,6 @@
 return {
   "mfussenegger/nvim-lint",
-  enabled = true,
+  enabled = vim.g.null_ls ~= 1,
   dependencies = {
     "mason-org/mason.nvim",
   },

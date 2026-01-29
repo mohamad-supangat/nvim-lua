@@ -443,6 +443,15 @@
     ],
     "prefix": "hexa:access-resource"
   },
+  "hexa:canAccess-page": {
+    "body": [
+      "public static function canAccess(array \\$parameters = []): bool",
+      "{",
+      "    return hexa()->can('${1:}');",
+      "}"
+    ],
+    "prefix": "hexa:canAccess-page"
+  },
   "hexa:visible": {
     "body": "->visible(fn () => hexa()->can('${1:}'))",
     "prefix": "hexa:visible"
