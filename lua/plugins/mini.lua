@@ -254,6 +254,7 @@ return {
     require("mini.splitjoin").setup()
     require("mini.surround").setup()
     require("mini.git").setup()
+    vim.keymap.set({ 'n', 'x' }, '<Leader>gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>', { desc = 'Show at cursor' })
 
     if vim.g.snack_enable == false or vim.g.explorer == "mini.files" then
       -- files {{{
