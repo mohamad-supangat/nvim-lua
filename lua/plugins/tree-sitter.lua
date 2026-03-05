@@ -77,6 +77,16 @@ return {
       },
     },
     config = function(_, opts)
+      function start_treesitter(buffer, parser)
+        -- syntax highlighting, provided by Neovim
+        vim.treesitter.start(buffer, parser)
+        -- folds, provided by Neovim
+        -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        -- vim.wo.foldmethod = 'expr'
+        -- indentation, provided by nvim-treesitter
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end
+
       -- based on https://github.com/xaaha/dev-env/blob/main/nvim/.config/nvim/lua/xaaha/plugins/lsp-nvim-treesitter.lua
       --
       -- install parsers from custom opts.ensure_installed
@@ -90,7 +100,7 @@ return {
           vim.api.nvim_create_autocmd({ "FileType" }, {
             pattern = filetypes,
             callback = function(event)
-              vim.treesitter.start(event.buf, parser)
+              start_treesitter(event.buf, parser)
             end,
           })
         end
@@ -138,7 +148,7 @@ return {
 
           if parser_installed then
             -- Start treesitter for this buffer
-            vim.treesitter.start(bufnr, parser_name)
+            start_treesitter(bufnr, parser_name)
           end
         end,
       })

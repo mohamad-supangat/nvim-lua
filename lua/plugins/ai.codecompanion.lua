@@ -1,4 +1,4 @@
-local enableHistory = false
+local enableHistory = true
 
 require("plugins.codecompanion.utils.chat-loading"):init()
 require("plugins.codecompanion.utils.extmarks").setup()
@@ -19,6 +19,14 @@ return {
   },
 
   opts = {
+    extensions = {
+      history = {
+        enabled = true, -- defaults to true
+        opts = {
+          dir_to_save = vim.fn.stdpath("data") .. "/codecompanion_chats.json",
+        }
+      }
+    },
     interactions = {
       chat = {
         adapter = "gemini",
@@ -76,7 +84,9 @@ return {
     {
       mode = { "n" },
       "<A-b>",
-      "<cmd>CodeCompanionChat adapter=gemini model=gemini-3-flash-preview Toggle<CR>",
+      "<cmd>CodeCompanionChat Toggle<CR>",
+      -- "<cmd>CodeCompanionChat adapter=gemini model=gemini-3-flash-preview Toggle<CR>",
+
       desc = "Toggle CodeCompanion Chat",
       silent = true,
       noremap = true,
@@ -84,7 +94,8 @@ return {
     {
       mode = { "x" },
       "<A-b>",
-      "<cmd>CodeCompanionChat adapter=gemini model=gemini-3-flash-preview<CR>",
+      "<cmd>CodeCompanionChat<CR>",
+      -- "<cmd>CodeCompanionChat adapter=gemini model=gemini-3-flash-preview<CR>",
       desc = "Trigger CodeCompanion Selected to Chat",
       silent = true,
       noremap = true,

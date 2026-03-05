@@ -22,11 +22,11 @@ return {
     },
   },
   keys = {
-    { "<leader>li", "<cmd>LspInfo<cr>", desc = "LSP Info" },
-    { "<space>ca", vim.lsp.buf.code_action, mode = { "n", "v" }, desc = "LSP Code Action" },
-    { "<leader>rn", vim.lsp.buf.rename, desc = "LSP Rename" },
-    { "gd", vim.lsp.buf.definition, desc = "LSP Go to Definition" },
-    { "gl", vim.diagnostic.open_float, desc = "Open floating diagnostic" }
+    { "<leader>li", "<cmd>LspInfo<cr>",        desc = "LSP Info" },
+    { "<space>ca",  vim.lsp.buf.code_action,   mode = { "n", "v" },              desc = "LSP Code Action" },
+    { "<leader>rn", vim.lsp.buf.rename,        desc = "LSP Rename" },
+    { "gd",         vim.lsp.buf.definition,    desc = "LSP Go to Definition" },
+    { "gl",         vim.diagnostic.open_float, desc = "Open floating diagnostic" }
   },
 
   init = function()
@@ -59,16 +59,18 @@ return {
       callback = function(event)
         local opts = { buffer = event.buf }
 
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = event.buf, desc = "LSP: Hover Documentation" })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = event.buf, desc = "LSP: Go to Definition" })
-vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = event.buf, desc = "LSP: Go to Declaration" })
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = event.buf, desc = "LSP: Go to Implementation" })
-vim.keymap.set("n", "go", vim.lsp.buf.type_definition, { buffer = event.buf, desc = "LSP: Go to Type Definition" })
-vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = event.buf, desc = "LSP: Find References" })
-vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { buffer = event.buf, desc = "LSP: Signature Help" })
-vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { buffer = event.buf, desc = "LSP: Rename Symbol" })
-vim.keymap.set({ "n", "x" }, "<F3>", function() vim.lsp.buf.format({async = true}) end, { buffer = event.buf, desc = "LSP: Format Buffer" })
-vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, { buffer = event.buf, desc = "LSP: Code Action" })
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = event.buf, desc = "LSP: Hover Documentation" })
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = event.buf, desc = "LSP: Go to Definition" })
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = event.buf, desc = "LSP: Go to Declaration" })
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = event.buf, desc = "LSP: Go to Implementation" })
+        vim.keymap.set("n", "go", vim.lsp.buf.type_definition,
+          { buffer = event.buf, desc = "LSP: Go to Type Definition" })
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = event.buf, desc = "LSP: Find References" })
+        vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { buffer = event.buf, desc = "LSP: Signature Help" })
+        vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { buffer = event.buf, desc = "LSP: Rename Symbol" })
+        vim.keymap.set({ "n", "x" }, "<F3>", function() vim.lsp.buf.format({ async = true }) end,
+          { buffer = event.buf, desc = "LSP: Format Buffer" })
+        vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, { buffer = event.buf, desc = "LSP: Code Action" })
       end,
     })
 
@@ -108,8 +110,8 @@ vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, { buffer = event.buf, desc 
 
     -- vue lang server
     local vue_language_server_path = vim.fn.expand("$MASON/packages")
-      .. "/vue-language-server"
-      .. "/node_modules/@vue/language-server"
+        .. "/vue-language-server"
+        .. "/node_modules/@vue/language-server"
     local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
     local vue_plugin = {
       name = "@vue/typescript-plugin",
