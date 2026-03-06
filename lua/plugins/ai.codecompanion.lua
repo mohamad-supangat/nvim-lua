@@ -29,8 +29,8 @@ return {
     },
     interactions = {
       chat = {
-        adapter = "gemini",
-        model = "gemini-3-flash-preview",
+        -- adapter = "gemini",
+        -- model = "gemini-3-flash-preview",
         opts = {
           completion_provider = (vim.g.completion == "blink") and "blink" or "default",
         },
@@ -38,8 +38,8 @@ return {
         },
       },
       inline = {
-        adapter = "gemini",
-        model = "gemini-3-flash-preview",
+        -- adapter = "gemini",
+        -- model = "gemini-3-flash-preview",
         keymaps = {
           accept_change = {
             modes = { n = "ga" },
