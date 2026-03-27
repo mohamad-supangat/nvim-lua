@@ -1,5 +1,4 @@
 return {
-
   {
     "saghen/blink.cmp",
     enabled = vim.g.completion == "blink",
@@ -7,6 +6,12 @@ return {
     -- version = false,
     event = { "LspAttach", "InsertCharPre" },
     dependencies = {
+      {
+        "saghen/blink.compat",
+        opts = {
+          enable_events = true,
+        },
+      }
     },
     opts = {
       enabled = function()
@@ -31,14 +36,14 @@ return {
       sources = {
         default = {
           -- "emoji",
-          -- "codeium",
           "lazydev",
           -- "avante",
+          "supermaven",
           "snippets",
           "lsp",
           "path",
           "buffer",
-          "codecompanion"
+          "codecompanion",
         },
         providers = {
           avante = {
@@ -59,12 +64,26 @@ return {
               return items
             end,
           },
-          codeium = { name = "Codeium", module = "codeium.blink", async = true, score_offset = 10000 },
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
             -- make lazydev completions top priority (see `:h blink.cmp`)
             score_offset = 100,
+          },
+          supermaven = {
+            name = "supermaven",
+            module = "blink.compat.source",
+            async = true,
+            score_offset = 1000,
+            transform_items = function(_, items)
+              local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+              local kind_idx = #CompletionItemKind + 1
+              CompletionItemKind[kind_idx] = "Supermaven"
+              for _, item in ipairs(items) do
+                item.kind = kind_idx
+              end
+              return items
+            end,
           },
         },
       },

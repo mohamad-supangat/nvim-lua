@@ -1,10 +1,9 @@
 return {
   "supermaven-inc/supermaven-nvim",
-  -- enabled = vim.g.completion == 'mini',
   config = function()
     require("supermaven-nvim").setup({
       keymaps = {
-        accept_suggestion = "<A-y>",
+        accept_suggestion = "<C-y>",
         clear_suggestion = "<C-]>",
         accept_word = "<C-j>",
       },
@@ -14,8 +13,8 @@ return {
       --   cterm = 244,
       -- },
       log_level = "info",
-      -- disable_inline_completion = vim.g.completion == "blink",
-      disable_keymaps = false,
+      disable_inline_completion = vim.g.completion == "blink",
+      disable_keymaps = vim.g.completion == "blink",
       condition = function()
         return false
       end,

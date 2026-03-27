@@ -1,5 +1,3 @@
-local variables = require("variables")
-
 return {
   {
     "folke/ts-comments.nvim",

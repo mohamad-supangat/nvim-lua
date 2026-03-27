@@ -106,7 +106,17 @@ return {
 
     vim.lsp.config("intelephense", {
       root_markers = { ".rootdir", "composer.json", ".git" },
+      filetypes = { "php", "blade" },
     })
+
+
+    vim.lsp.config['phpantom'] = {
+      cmd = { 'phpantom_lsp' },
+      filetypes = { 'php', 'blade' },
+      root_markers = { '.rootdir', 'composer.json', '.git' },
+    }
+
+    vim.lsp.enable('phpantom')
 
     -- vue lang server
     local vue_language_server_path = vim.fn.expand("$MASON/packages")

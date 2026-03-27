@@ -17,6 +17,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 --]]
 
+vim.filetype.add {
+  pattern = {
+    ['.*%.blade%.php'] = 'blade',
+  },
+}
+
 --
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
