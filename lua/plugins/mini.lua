@@ -1,15 +1,42 @@
+local enable_icon = true
 return {
   "nvim-mini/mini.nvim",
+
   lazy = false,
   enabled = true,
   dependencies = {
     -- {
     --   "vimpostor/vim-tpipeline",
     -- },
+    {
+      "s1n7ax/nvim-window-picker",
+      name = "window-picker",
+      event = "VeryLazy",
+      version = "2.*",
+      config = function()
+        require("window-picker").setup({
+          hint = "floating-big-letter",
+          autoselect_one = true,
+          include_current = false,
+          selection_chars = "ABCDEFGHIJLK",
+          filter_rules = {
+            bo = {
+              filetype = { "neo-tree", "neo-tree-popup", "notify", "minifiles" },
+              buftype = { "terminal", "quickfix", "minifiles" },
+            },
+          },
+          other_win_hl_color = "#900000",
+        })
+      end,
+    },
   },
   config = function()
     if vim.g.colorschema == "mini" then
       vim.cmd("colorscheme randomhue")
+      -- vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'none' })
     end
 
     require("mini.extra").setup()
@@ -46,9 +73,14 @@ return {
     }
 
     -- notify
-    -- require("mini.notify").setup()
-    -- local opts = { ERROR = { duration = 10000 } }
-    -- vim.notify = require("mini.notify").make_notify(opts)
+    local win_config = function()
+      local has_statusline = vim.o.laststatus > 0
+      local pad = vim.o.cmdheight + (has_statusline and 1 or 0)
+      return { anchor = "SE", col = vim.o.columns, row = vim.o.lines - pad }
+    end
+    require("mini.notify").setup({ window = { config = win_config } })
+    local opts = { ERROR = { duration = 10000 } }
+    vim.notify = require("mini.notify").make_notify({})
 
     -- mini sesssion
     require("mini.sessions").setup({
@@ -68,10 +100,30 @@ return {
     }
 
     local starter = require("mini.starter")
+    local footer_n_seconds = (function()
+      local timer = vim.loop.new_timer()
+      local n_seconds = 0
+      timer:start(
+        0,
+        1000,
+        vim.schedule_wrap(function()
+          if vim.bo.filetype ~= "ministarter" then
+            timer:stop()
+            return
+          end
+          n_seconds = n_seconds + 1
+          MiniStarter.refresh()
+        end)
+      )
+
+      return function()
+        return "Selamat menjalankan hari ini, jangan lupa untuk tetap semangat : " .. n_seconds
+      end
+    end)()
     starter.setup({
       autoopen = true,
-      header = table.concat(header_ascii, "\n"),
-      footer = "Selamat menjalankan hari ini, jangan lupa untuk tetap semangat",
+      -- header = table.concat(header_ascii, "\n"),
+      footer = footer_n_seconds,
       evaluate_single = true,
       items = {
         my_items,
@@ -81,8 +133,8 @@ return {
         -- starter.sections.recent_files(10, true),
       },
       content_hooks = {
-        -- starter.gen_hook.adding_bullet(),
-        -- starter.gen_hook.aligning("center", "center"),
+        starter.gen_hook.adding_bullet(),
+        starter.gen_hook.aligning("center", "center"),
         starter.gen_hook.indexing("all", { "Builtin actions" }),
         starter.gen_hook.padding(10, 0),
       },
@@ -94,7 +146,7 @@ return {
     MiniStatusline = require("mini.statusline")
     MiniStatusline.setup({
       set_vim_settings = true,
-      use_icons = false,
+      use_icons = enable_icon,
       content = {
         active = function()
           local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
@@ -118,9 +170,7 @@ return {
             end
           end
 
-          local navic = require("nvim-navic")
-
-          -- local current_gps = gps.get_location()
+          -- local navic = require("nvim-navic")
 
           -- print(mode_hl)
           return MiniStatusline.combine_groups({
@@ -142,7 +192,14 @@ return {
               },
             },
             "%=", -- End left alignment
-            { strings = { navic.get_location(), diagnostics } },
+            {
+              strings = {
+                -- navic.get_location(),
+                diagnostics,
+                fileinfo,
+                location,
+              },
+            },
           })
         end,
         inactive = function()
@@ -197,6 +254,7 @@ return {
     require("mini.splitjoin").setup()
     require("mini.surround").setup()
     require("mini.git").setup()
+    vim.keymap.set({ 'n', 'x' }, '<Leader>gs', '<Cmd>lua MiniGit.show_at_cursor()<CR>', { desc = 'Show at cursor' })
 
     if vim.g.snack_enable == false or vim.g.explorer == "mini.files" then
       -- files {{{
@@ -209,7 +267,7 @@ return {
           filter = function(fs_entry)
             return true
           end,
-          prefix = function() end, -- disable icon in mini.files,
+          -- prefix = function() end, -- disable icon in mini.files,
         },
         width_focus = 30,
         width_nofocus = 20,
@@ -239,7 +297,14 @@ return {
           local open_in_window_picker = function()
             local fs_entry = MiniFiles.get_fs_entry()
             if fs_entry ~= nil and fs_entry.fs_type == "file" then
-              local picked_window_id = require("snacks.picker.util").pick_win()
+              local picked_window_id
+
+              if vim.g.snack_enable then
+                picked_window_id = require("snacks.picker.util").pick_win()
+              else
+                picked_window_id = require("window-picker").pick_window()
+              end
+
               if picked_window_id ~= nil then
                 MiniFiles.set_target_window(picked_window_id)
               end
@@ -264,6 +329,8 @@ return {
           vim.api.nvim_win_set_config(win_id, config)
         end,
       })
+
+      -- require('functions.mini-files-scroll')
       -- }}} files
     end
     -- hl patttern {{{
@@ -327,12 +394,18 @@ return {
     -- }}} clue
 
     require("mini.pairs").setup()
-    -- require("mini.icons").setup()
-    -- require("mini.icons").mock_nvim_web_devicons()
+
+    if enable_icon then
+      require("mini.icons").setup()
+      require("mini.icons").mock_nvim_web_devicons()
+    end
     require("mini.bufremove").setup({
       set_vim_settings = true,
     })
-    require("mini.comment").setup()
+
+    if vim.g.enable_treesitter == 1 then
+      require("mini.comment").setup()
+    end
     require("mini.bracketed").setup()
 
     -- pick {{{
@@ -408,35 +481,72 @@ return {
 
     -- {{{ mini.completion
     if vim.g.completion == "mini" then
+      -- setup cmdline juga
+      require('mini.cmdline').setup()
+
       require("mini.completion").setup({
         window = {
           info = { height = 30, width = 80, border = "double" },
           signature = { height = 30, width = 80, border = "double" },
         },
+        lsp_completion = {
+          auto_setup = true,
+          -- snippet_insert = function()
+          --   vim.notify("Snippet Insert")
+          --   if vim.g.snippets == "luasnip" then
+          --     require("luasnip").expand({})
+          --   elseif vim.g.snippets == "mini" then
+          --     require("mini.snippets").insert({ match = false })
+          --   end
+          --
+          --   local suggestion = require("supermaven-nvim.completion_preview")
+          --   if suggestion.has_suggestion() then
+          --     suggestion.on_accept_suggestion()
+          --   end
+          -- end,
+        },
       })
+
+      local function check_last_char()
+        local line = vim.api.nvim_get_current_line()
+        local cursor_col = vim.api.nvim_win_get_cursor(0)[2]
+        local last_char = string.sub(line, cursor_col, cursor_col)
+        if last_char == "{" then
+          vim.b.minicompletion_disable = true
+        else
+          vim.b.minicompletion_disable = false
+        end
+      end
+      vim.api.nvim_create_augroup("InsertBraceGroup", { clear = true })
+      vim.api.nvim_create_autocmd("TextChangedI", {
+        group = "InsertBraceGroup",
+        callback = check_last_char,
+      })
+
 
       require("mini.icons").tweak_lsp_kind()
 
       local keycode = vim.keycode
-        or function(x)
-          return vim.api.nvim_replace_termcodes(x, true, true, true)
-        end
+          or function(x)
+            return vim.api.nvim_replace_termcodes(x, true, true, true)
+          end
       local keys = {
         ["cr"] = keycode("<CR>"),
         ["ctrl-y"] = keycode("<C-y>"),
         ["ctrl-y_cr"] = keycode("<C-y><CR>"),
+        ["ctrl-n"] = keycode("<C-n>"),
       }
 
       _G.cr_action = function()
         if vim.fn.pumvisible() ~= 0 then
-          -- If popup is visible, confirm selected item or add new line otherwise
           local item_selected = vim.fn.complete_info()["selected"] ~= -1
-          return item_selected and keys["ctrl-y"] or keys["ctrl-y_cr"]
+          if item_selected then
+            return keys["ctrl-y"] or keys["ctrl-y_cr"]
+          else
+            -- jika tidak ada item yang di pilih namun menampilkan pop up maka pilih item pertama
+            return keys["ctrl-n"]
+          end
         else
-          -- If popup is not visible, use plain `<CR>`. You might want to customize
-          -- according to other plugins. For example, to use 'mini.pairs', replace
-          -- next line with `return require('mini.pairs').cr()`
-          -- return keys['cr']
           return require("mini.pairs").cr()
         end
       end
@@ -448,5 +558,77 @@ return {
       vim.keymap.set("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], { expr = true })
     end
     -- }}} end mini.completion
+
+    -- {{{ mini snippets
+    if vim.g.snippets == "mini" then
+      local gen_loader = require("mini.snippets").gen_loader
+
+      require("mini.snippets").setup({
+        snippets = {
+          { prefix = "cdate", body = "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE" },
+          { prefix = "today", body = "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE" },
+          gen_loader.from_lang(),
+        },
+        mappings = {
+          expand = "<C-A-Space>",
+          jump_next = "<C-l>",
+          jump_prev = "<C-h>",
+          stop = "<C-c>",
+        },
+
+        expand = {
+          prepare = function(raw_snippets)
+            local _, cont = MiniSnippets.default_prepare({})
+            cont.cursor = vim.api.nvim_win_get_cursor(0)
+            return MiniSnippets.default_prepare(raw_snippets, { context = cont })
+          end,
+          match = function(snippets)
+            return snippets
+            -- return MiniSnippets.default_match(snippets, { pattern_fuzzy = "%w*" })
+          end,
+          -- select = function(snippets, insert) return insert(snippets[1]) end,
+          insert = function(snippet, _)
+            return MiniSnippets.default_insert(snippet, {
+              empty_tabstop = "",
+              empty_tabstop_final = "",
+              -- empty_tabstop = "•",
+              -- empty_tabstop_final = "∎",
+
+              normalize = false,
+              -- lookup = {
+              --   TM_SELECTED_TEXT = table.concat(vim.fn.getreg("a", true, true), "\n"),
+              -- },
+            })
+          end,
+        },
+      })
+
+      vim.api.nvim_create_autocmd({ "LspAttach" }, {
+        callback = function()
+          require("mini.snippets").start_lsp_server({
+            match = false,
+          })
+        end,
+        desc = "Start snippets as LSP Server",
+      })
+
+      -- disbale underline in current cursor
+      -- i not exited with this
+      -- Daftar highlight group yang ingin dihapus
+      local groups = {
+        "MiniSnippetsCurrent",
+        "MiniSnippetsVisited",
+        "MiniSnippetsUnvisited",
+        "MiniSnippetsCurrentReplace",
+        "MiniSnippetsFinal",
+      }
+
+      -- Loop untuk clear semuanya
+      for _, group in ipairs(groups) do
+        vim.api.nvim_set_hl(0, group, {})
+      end
+    end
+
+    -- }}}
   end,
 }

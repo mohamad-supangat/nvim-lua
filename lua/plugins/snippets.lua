@@ -7,17 +7,6 @@ return {
     priority = 1000,
   },
 
-  -- odoo snippets
-  -- "droggol/VscOdooSnippets",
-
-  -- laravel snippets
-  "onecentlin/laravel5-snippets-vscode",
-  "onecentlin/laravel-blade-snippets-vscode",
-  -- "anburocky3/bootstrap5-snippets",
-  -- -- quasar snippets
-  -- "Abdelaziz18003/vscode-quasar-snippets",
-  -- { "mohamad-supangat/snippets" },
-
   {
     "chrisgrieser/nvim-scissors",
     opts = {
@@ -46,18 +35,120 @@ return {
     },
   },
   {
+    "hrsh7th/vim-vsnip-integ",
+    enabled = vim.g.snippets == "vim-vsnip",
+    dependencies = {
+      "hrsh7th/vim-vsnip",
+
+      config = function()
+        -- Expand
+        vim.keymap.set("i", "<C-j>", function()
+          return vim.fn["vsnip#expandable"]() == 1 and "<Plug>(vsnip-expand)" or "<C-j>"
+        end, { expr = true, silent = true })
+
+        vim.keymap.set("s", "<C-j>", function()
+          return vim.fn["vsnip#expandable"]() == 1 and "<Plug>(vsnip-expand)" or "<C-j>"
+        end, { expr = true, silent = true })
+
+        -- Expand or jump
+        vim.keymap.set("i", "<C-l>", function()
+          return vim.fn["vsnip#available"](1) == 1 and "<Plug>(vsnip-expand-or-jump)" or "<C-l>"
+        end, { expr = true, silent = true })
+
+        vim.keymap.set("s", "<C-l>", function()
+          return vim.fn["vsnip#available"](1) == 1 and "<Plug>(vsnip-expand-or-jump)" or "<C-l>"
+        end, { expr = true, silent = true })
+
+        -- Jump forward or backward
+        vim.keymap.set("i", "<Tab>", function()
+          return vim.fn["vsnip#jumpable"](1) == 1 and "<Plug>(vsnip-jump-next)" or "<Tab>"
+        end, { expr = true, silent = true })
+
+        vim.keymap.set("s", "<Tab>", function()
+          return vim.fn["vsnip#jumpable"](1) == 1 and "<Plug>(vsnip-jump-next)" or "<Tab>"
+        end, { expr = true, silent = true })
+
+        vim.keymap.set("i", "<S-Tab>", function()
+          return vim.fn["vsnip#jumpable"](-1) == 1 and "<Plug>(vsnip-jump-prev)" or "<S-Tab>"
+        end, { expr = true, silent = true })
+
+        vim.keymap.set("s", "<S-Tab>", function()
+          return vim.fn["vsnip#jumpable"](-1) == 1 and "<Plug>(vsnip-jump-prev)" or "<S-Tab>"
+        end, { expr = true, silent = true })
+      end,
+    },
+  },
+  {
+    "garymjr/nvim-snippets",
+    enabled = vim.g.snippets == "native",
+    opts = {
+      create_autocmd = true,
+      create_cmp_source = false,
+      friendly_snippets = true,
+    },
+    keys = {
+      {
+        "<Tab>",
+        function()
+          if vim.snippet.active({ direction = 1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(1)
+            end)
+            return
+          end
+          return "<Tab>"
+        end,
+        expr = true,
+        silent = true,
+        mode = "i",
+      },
+      {
+        "<Tab>",
+        function()
+          vim.schedule(function()
+            vim.snippet.jump(1)
+          end)
+        end,
+        expr = true,
+        silent = true,
+        mode = "s",
+      },
+      {
+        "<S-Tab>",
+        function()
+          if vim.snippet.active({ direction = -1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(-1)
+            end)
+            return
+          end
+          return "<S-Tab>"
+        end,
+        expr = true,
+        silent = true,
+        mode = { "i", "s" },
+      },
+    },
+  },
+  {
     "L3MON4D3/LuaSnip",
     dev = false,
     version = "v2.*",
-    enabled = vim.g.snippets == "mini",
+    enabled = vim.g.snippets == "luasnip",
+    build = "make install_jsregexp",
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
       require("luasnip.loaders.from_vscode").lazy_load({ paths = { custom_snippets_dir } })
 
       local ls = require("luasnip")
 
+      ls.config.setup({ enable_autosnippets = vim.g.completion == "mini" })
+
       vim.keymap.set({ "i" }, "<C-K>", function()
         ls.expand()
+      end, { silent = true })
+      vim.keymap.set({ "i" }, "<C-A-Space>", function()
+        ls.expand_or_jumpable()
       end, { silent = true })
       vim.keymap.set({ "i", "s" }, "<C-L>", function()
         ls.jump(1)

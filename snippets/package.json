@@ -61,6 +61,12 @@
           "dosini"
         ],
         "path": "./dosini.json"
+      },
+      {
+        "language": [
+          "typescriptreact"
+        ],
+        "path": "./typescriptreact.json"
       }
     ]
   },

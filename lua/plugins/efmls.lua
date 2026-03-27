@@ -22,22 +22,22 @@ return {
     languages = vim.tbl_extend("force", languages, {
       -- Custom languages, or override existing ones
       --
-      -- php = {
-      -- require('efmls-configs.formatters.php_cs_fixer'),
-      -- require('efmls-configs.formatters.pint')
-      -- },
-      --
-      --
       php = {
-        {
-          formatCommand = string.format(
-            "%s %s",
-            fs.executable("php-cs-fixer", fs.Scope.COMPOSER),
-            "fix --no-ansi --using-cache=no --quiet '${INPUT}'"
-          ),
-          formatStdin = false,
-        },
+        -- require('efmls-configs.formatters.php_cs_fixer'),
+        require("efmls-configs.formatters.pint"),
       },
+      --
+      --
+      -- php = {
+      --   {
+      --     formatCommand = string.format(
+      --       "%s %s",
+      --       fs.executable("php-cs-fixer", fs.Scope.COMPOSER),
+      --       "fix --no-ansi --using-cache=no --quiet '${INPUT}'"
+      --     ),
+      --     formatStdin = false,
+      --   },
+      -- },
 
       blade = { require("efmls-configs.formatters.blade_formatter") },
       html = { prettier },
@@ -61,12 +61,17 @@ return {
       },
     }
 
-    require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {
-      -- Pass your custom lsp config below like on_attach and capabilities
-      --
-      -- on_attach = require("lsp.handlers").on_attach,
-      -- capabilities = require("lsp.handlers").capabilities,
-    }))
+    vim.lsp.config(
+      "efm",
+      vim.tbl_extend("force", efmls_config, {
+        cmd = { "efm-langserver" },
+
+        -- Pass your custom lsp config below like on_attach and capabilities
+        --
+        -- on_attach = on_attach,
+        -- capabilities = capabilities,
+      })
+    )
 
     --
     -- local lsp_fmt_group = vim.api.nvim_create_augroup('LspFormattingGroup', {})

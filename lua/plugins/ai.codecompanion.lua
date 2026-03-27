@@ -1,6 +1,11 @@
 local enableHistory = true
+
+require("plugins.codecompanion.utils.chat-loading"):init()
+require("plugins.codecompanion.utils.extmarks").setup()
+--
 return {
   "olimorris/codecompanion.nvim",
+  -- version = "17.33.0",
   lazy = false,
   enabled = vim.g.ai == "codecompanion",
   dependencies = {
@@ -13,167 +18,75 @@ return {
     },
   },
 
-  config = function()
-    require("codecompanion").setup({
-      opts = {
-        language = "Indonesia",
+  opts = {
+    extensions = {
+      history = {
+        enabled = true, -- defaults to true
+        opts = {
+          dir_to_save = vim.fn.stdpath("data") .. "/codecompanion_chats.json",
+        }
+      }
+    },
+    interactions = {
+      chat = {
+        -- adapter = "gemini",
+        -- model = "gemini-3-flash-preview",
+        opts = {
+          completion_provider = (vim.g.completion == "blink") and "blink" or "default",
+        },
+        keymaps = {
+        },
       },
-      display = {
-        chat = {
-          start_in_insert_mode = false,
-          show_references = true,
-          separator = "─",
-          window = {
-            layout = "float",
-            height = 0.9,
-            width = 0.9,
-            opts = {
-              breakindent = true,
-              cursorcolumn = false,
-              cursorline = false,
-              foldcolumn = "0",
-              linebreak = true,
-              list = true,
-              number = false,
-              -- signcolumn = "yes",
-              spell = false,
-              wrap = true,
-            },
+      inline = {
+        -- adapter = "gemini",
+        -- model = "gemini-3-flash-preview",
+        keymaps = {
+          accept_change = {
+            modes = { n = "ga" },
+            description = "Accept the suggested change",
+          },
+          reject_change = {
+            modes = { n = "gr" },
+            description = "Reject the suggested change",
           },
         },
       },
-      strategies = {
-        chat = {
-          adapter = "gemini",
-        },
-        inline = {
-          adapter = "gemini",
-          keymaps = {
-            accept_change = {
-              modes = { n = "ga" },
-              description = "Accept the suggested change",
-            },
-            reject_change = {
-              modes = { n = "gr" },
-              description = "Reject the suggested change",
-            },
-          },
-        },
-      },
-      prompt_library = {
-        ["Document Generator"] = {
-          strategy = "chat",
-          description = "Write documentation for me",
+    },
+    opts = {
+      language = "Indonesia",
+    },
+    display = {
+      chat = {
+        start_in_insert_mode = false,
+        show_references = true,
+        separator = "─",
+        window = {
+          layout = "float",
+          height = 0.9,
+          width = 0.9,
           opts = {
-            index = 11,
-            is_slash_cmd = false,
-            auto_submit = false,
-            short_name = "docs",
-          },
-          references = {
-            {
-              type = "file",
-              path = {
-                "doc/.vitepress/config.mjs",
-                "lua/codecompanion/config.lua",
-                "README.md",
-              },
-            },
-          },
-          prompts = {
-            {
-              role = "user",
-              content = [[I'm rewriting the documentation for my plugin CodeCompanion.nvim, as I'm moving to a vitepress website. Can you help me rewrite it?
-
-I'm sharing my vitepress config file so you have the context of how the documentation website is structured in the `sidebar` section of that file.
-
-I'm also sharing my `config.lua` file which I'm mapping to the `configuration` section of the sidebar.
-]],
-            },
-          },
-        },
-        ["Refactor"] = {
-          strategy = "inline",
-          description = "Refactor the selected code",
-          opts = {
-            index = 1,
-            is_slash_cmd = true,
-            auto_submit = true,
-            short_name = "refactor",
-          },
-          prompts = {
-            {
-              role = "user",
-              content = "You are a senior software engineer. Refactor the selected code for better readability, performance, or maintainability. Only provide the refactored code, no explanations.",
-            },
+            breakindent = true,
+            cursorcolumn = false,
+            cursorline = false,
+            foldcolumn = "0",
+            linebreak = true,
+            list = true,
+            number = false,
+            -- signcolumn = "yes",
+            spell = false,
+            wrap = true,
           },
         },
       },
-      extensions = {
-        -- spinner = {},
-        history = {
-          enabled = enableHistory,
-          opts = {
-            keymap = "gh",
-            save_chat_keymap = "sc",
-            auto_save = true,
-            expiration_days = 12,
-            picker = "default",
-            auto_generate_title = true,
-            continue_last_chat = false,
-            delete_on_clearing_chat = false,
-            dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
-            enable_logging = false,
-          },
-        },
-      },
-    })
-
-    -- require("plugins.codecompanion.utils.chat-loading"):init()
-    -- require("plugins.codecompanion.utils.extmarks").setup()
-    local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-    local group = vim.api.nvim_create_augroup("CodeCompanionFidgetHooks", { clear = true })
-    vim.api.nvim_create_autocmd({ "User" }, {
-      pattern = "CodeCompanion*",
-      group = group,
-      callback = function(request)
-        if request.match == "CodeCompanionChatSubmitted" then
-          return
-        end
-
-        local msg
-
-        msg = "[CodeCompanion] " .. request.match:gsub("CodeCompanion", "")
-
-        vim.notify(msg, "info", {
-          timeout = 1000,
-          keep = function()
-            return not vim
-              .iter({ "Finished", "Opened", "Hidden", "Closed", "Cleared", "Created" })
-              :fold(false, function(acc, cond)
-                return acc or vim.endswith(request.match, cond)
-              end)
-          end,
-          id = "code_companion_status",
-          title = "Code Companion Status",
-          opts = function(notif)
-            notif.icon = ""
-            if vim.endswith(request.match, "Started") then
-              ---@diagnostic disable-next-line: undefined-field
-              notif.icon = spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-            elseif vim.endswith(request.match, "Finished") then
-              notif.icon = " "
-            end
-          end,
-        })
-      end,
-    })
-  end,
+    },
+  },
   keys = {
     {
       mode = { "n" },
       "<A-b>",
       "<cmd>CodeCompanionChat Toggle<CR>",
+      -- "<cmd>CodeCompanionChat adapter=gemini model=gemini-3-flash-preview Toggle<CR>",
+
       desc = "Toggle CodeCompanion Chat",
       silent = true,
       noremap = true,
@@ -182,6 +95,7 @@ I'm also sharing my `config.lua` file which I'm mapping to the `configuration` s
       mode = { "x" },
       "<A-b>",
       "<cmd>CodeCompanionChat<CR>",
+      -- "<cmd>CodeCompanionChat adapter=gemini model=gemini-3-flash-preview<CR>",
       desc = "Trigger CodeCompanion Selected to Chat",
       silent = true,
       noremap = true,

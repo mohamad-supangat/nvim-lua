@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    enabled = true,
+    enabled = vim.g.null_ls ~= 1,
     -- lazy = "VeryLazy",
     event = { "BufWritePre" },
     dependencies = {
@@ -9,23 +9,14 @@ return {
         "mason-org/mason.nvim",
         lazy = false,
       },
-      {
-        "zapling/mason-conform.nvim",
-        enabled = true,
-        opts = {},
-        dependencies = {
-          {
-            "mason-org/mason.nvim",
-            lazy = false,
-          },
-        },
-      },
     },
     keys = {
       {
         mode = { "n", "v" },
         "<leader>fm",
-        "<cmd>AllFormat<cr>",
+        function()
+          require("conform").format({ async = true, lsp_format = "first" }, function(err, did_edit) end)
+        end,
         noremap = true,
         silent = true,
         desc = "Format Buffer",
@@ -36,18 +27,23 @@ return {
       -- start of formatter {{{
       local util = require("conform.util")
 
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+
       require("conform").setup({
         formatters_by_ft = {
           ["*"] = { "trim_whitespace", "trim_newlines" },
-          lua = { "stylua" },
+          -- lua = { "stylua" },
           python = { "blue", "ruff_fix", "ruff_format" },
           php = { "php_cs_fixer", "lsp" },
           blade = { "blade-formatter" },
           javascript = { "prettier" },
           markdown = { "prettier" },
           typescript = { "prettier" },
+          javascriptreact = { "prettier" },
+          typescriptreact = { "prettier" },
           json = { "prettier" },
           jsonc = { "prettier" },
+          json5 = { "prettier" },
           vue = { "prettier" },
           pug = { "prettier" },
           html = { "prettier" },

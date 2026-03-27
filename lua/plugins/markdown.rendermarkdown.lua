@@ -1,6 +1,6 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
-  enabled = false,
+  enabled = vim.g.markdown_render == "render-markdown",
   ft = { "markdown", "Avante", "codecompanion" },
   dependencies = { "nvim-treesitter/nvim-treesitter" },
   config = function()
@@ -9,7 +9,7 @@ return {
         lsp = { enabled = true },
         blink = { enabled = true },
       },
-      file_types = { "markdown", "Avante", "codecompanion" },
+      file_types = { "markdown", "Avante", "codecompanion", "html", "yaml" },
       anti_conceal = { enabled = false },
     })
 

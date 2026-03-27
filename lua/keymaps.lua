@@ -25,6 +25,11 @@ vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true, desc = "Exit
 vim.keymap.set("n", "<leader>q", ":q<CR>", { noremap = true, silent = true, desc = "Exit Neovim" })
 vim.keymap.set("n", "<leader>qa", ":quitall!<CR>", { noremap = true, silent = true, desc = "Force Exit" })
 
+
+-- restart neovim
+vim.keymap.set("n", "<leader>R", ":restart<CR>", { noremap = true, silent = true, desc = "Force Restart" })
+
+
 -----------------------------------------------------------
 -- Plugins shortcuts:
 -----------------------------------------------------------

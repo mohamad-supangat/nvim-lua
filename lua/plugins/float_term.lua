@@ -10,33 +10,6 @@ return {
       return
     end
 
-    local gemini = fterm:new({
-      cmd = "gemini --model gemini-2.5-flash",
-      -- blend = 20,
-      border = "double",
-      dimensions = {
-        height = 0.9,
-        width = 0.7,
-      },
-    })
-
-    function _G.gemini()
-      gemini:toggle()
-    end
-
-    local aider = fterm:new({
-      cmd = "aider --no-auto-commits --pretty --stream --model gemini/gemini-1.5-flash --chat-language markdown",
-      -- blend = 20,
-      border = "double",
-      dimensions = {
-        height = 0.9,
-        width = 0.7,
-      },
-    })
-
-    function _G.aider()
-      aider:toggle()
-    end
 
     local fterm1 = fterm:new({
       cmd = os.getenv("SHELL"),
@@ -126,19 +99,64 @@ return {
       map("n", "<leader>gi", ":lua lazygit()<CR>", default_opts)
     end
 
-    if vim.g.ai == "gemini" then
-      map("n", "<A-b>", ":lua gemini()<CR>", default_opts)
-      map("t", "<A-b>", "<C-\\><C-n><CMD>lua gemini()<CR>", default_opts)
+    -- open gemini
+    if vim.g.ai == "goose" then
+      local goose = fterm:new({
+        cmd = "goose",
+        -- blend = 20,
+        border = "double",
+        dimensions = {
+          height = 0.9,
+          width = 0.7,
+        },
+      })
+
+      function _G.goose()
+        goose:toggle()
+      end
+
+      map("n", "<A-b>", ":lua goose()<CR>", default_opts)
+      map("t", "<A-b>", "<C-\\><C-n><CMD>lua goose()<CR>", default_opts)
     end
 
 
     -- open gemini
-    if vim.g.ai == "codecompanion" then
+    if vim.g.ai == "gemini" then
+      local gemini = fterm:new({
+        cmd = "gemini --model gemini-2.5-flash",
+        -- blend = 20,
+        border = "double",
+        dimensions = {
+          height = 0.9,
+          width = 0.7,
+        },
+      })
+
+      function _G.gemini()
+        gemini:toggle()
+      end
+
       map("n", "<leader>ge", ":lua gemini()<CR>", default_opts)
       map("t", "<leader>ge", "<C-\\><C-n><CMD>lua gemini()<CR>", default_opts)
     end
 
     if vim.g.ai == "aider" then
+      local aider = fterm:new({
+        auto_close = true,
+        cmd =
+        "aider --no-auto-commits --pretty --stream --model gemini/gemini-2.5-flash --chat-language id --notifications --auto-accept-architec false",
+        blend = 20,
+        border = "rounded",
+        dimensions = {
+          height = 0.9,
+          width = 0.7,
+        },
+      })
+
+      function _G.aider()
+        aider:toggle()
+      end
+
       map("n", "<A-b>", ":lua aider()<CR>", default_opts)
       map("t", "<A-b>", "<C-\\><C-n><CMD>lua aider()<CR>", default_opts)
     end

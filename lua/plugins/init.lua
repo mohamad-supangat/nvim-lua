@@ -1,8 +1,8 @@
 local variables = require("variables")
-vim.g.polyglot_disabled = variables.filetypes
+-- vim.g.polyglot_disabled = variables.filetypes
 
 return {
-  "sheerun/vim-polyglot",
+  -- "sheerun/vim-polyglot",
   -- {
   --     "nmac427/guess-indent.nvim",
   --     opts = {},

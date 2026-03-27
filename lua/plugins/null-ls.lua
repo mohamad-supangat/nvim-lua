@@ -1,10 +1,8 @@
 return {
-  "jay-babu/mason-null-ls.nvim",
-  enabled = false,
+  "nvimtools/none-ls.nvim",
+  enabled = vim.g.null_ls == 1,
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "mason-org/mason.nvim",
-    "nvimtools/none-ls.nvim",
     -- {
     --     "garymjr/nvim-snippets",
     -- },
@@ -21,17 +19,6 @@ return {
   },
 
   config = function()
-    require("mason-null-ls").setup({
-      ensure_installed = {
-        "prettier",
-        "stylua",
-        "phpcsfixer",
-        "blade-formatter",
-      },
-      automatic_installation = false,
-      handlers = {},
-    })
-
     local null_ls = require("null-ls")
     local formatting = null_ls.builtins.formatting
     local diagnostics = null_ls.builtins.diagnostics
@@ -51,15 +38,19 @@ return {
       -- on_attach = require("lsp.handlers").on_attach,
       sources = {
         completion.tags,
+        formatting.blade_formatter,
         -- completion.spell,
         -- completion.nvim_snippets,
-        formatting.phpcsfixer.with({
-          extra_args = { "--config", "/home/deve/.config/nvim/configs/php-cs-fixer.php" },
-        }),
+        -- completion.luasnip,
+        formatting.phpcsfixer,
         formatting.prettier.with({
           extra_filetypes = { "toml" },
+          condition = function(utils)
+            return utils.root_has_file({ ".prettierrc" })
+          end,
         }),
         diagnostics.fish,
+        -- diagnostics.editorconfig_checker,
         hover.dictionary,
       },
 
