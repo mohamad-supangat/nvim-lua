@@ -1,5 +1,7 @@
 local enableHistory = true
 
+local adapters = require("codecompanion.adapters")
+
 require("plugins.codecompanion.utils.chat-loading"):init()
 require("plugins.codecompanion.utils.extmarks").setup()
 --
@@ -29,8 +31,10 @@ return {
     },
     interactions = {
       chat = {
-        -- adapter = "gemini",
-        -- model = "gemini-3-flash-preview",
+        adapter = {
+          name = 'gemini',
+          model = 'gemini-3-flash-preview',
+        },
         opts = {
           completion_provider = (vim.g.completion == "blink") and "blink" or "default",
         },
@@ -38,8 +42,10 @@ return {
         },
       },
       inline = {
-        -- adapter = "gemini",
-        -- model = "gemini-3-flash-preview",
+        adapter = {
+          name = 'gemini',
+          model = 'gemini-3-flash-preview',
+        },
         keymaps = {
           accept_change = {
             modes = { n = "ga" },

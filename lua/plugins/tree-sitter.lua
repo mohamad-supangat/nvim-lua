@@ -151,12 +151,12 @@ return {
         end,
       })
 
-      vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-        pattern = "*.blade.php",
-        callback = function()
-          vim.opt.filetype = "blade"
-        end,
-      })
+      -- vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+      --   pattern = "*.blade.php",
+      --   callback = function()
+      --     vim.opt.filetype = "blade"
+      --   end,
+      -- })
 
       vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
         pattern = "*.http",

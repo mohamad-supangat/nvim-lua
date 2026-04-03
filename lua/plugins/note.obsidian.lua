@@ -4,29 +4,30 @@ if utils.is_huawei_host() then
   workspaces = {
     {
       name = "Reksa Karya",
-      path = "~/Documents/Obsidian/Reksa/",
+      path = vim.env.HOME .. "/Documents/Obsidian/Reksa",
     },
     {
       name = "Aura Komputer",
-      path = "~/Documents/Obsidian/AuraKomputer/",
+      path = vim.env.HOME .. "/Documents/Obsidian/AuraKomputer",
     },
   }
 else
   workspaces = {
     {
       name = "Aura Komputer",
-      path = "~/Documents/Obsidian/AuraKomputer/",
+      path = vim.env.HOME .. "/Documents/Obsidian/AuraKomputer",
     },
     {
       name = "Reksa Karya",
-      path = "~/Documents/Obsidian/Reksa/",
+      path = vim.env.HOME .. "/Documents/Obsidian/Reksa",
     },
   }
 end
+
 return {
-  enabled = true,
+  enabled = false,
   "obsidian-nvim/obsidian.nvim",
-  version = "*", -- recommended, use latest release instead of latest commit
+  version = "3.15.11", -- recommended, use latest release instead of latest commit
   lazy = true,
   ft = "markdown",
   cmd = { "Obsidian" },
@@ -66,6 +67,7 @@ return {
     completion = {
       blink = vim.g.completion == "blink",
     },
+    disable_frontmatter = true,
     note_id_func = function(title)
       local suffix = ""
       if title ~= nil then

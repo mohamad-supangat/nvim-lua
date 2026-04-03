@@ -40,38 +40,67 @@ return {
         },
       },
       severity_sort = true,
+      update_in_insert = true,
       -- float = {
       --   style = 'minimal',
       --   -- border = 'rounded',
       --   header = '',
       --   prefix = '',
       -- },
-      virtual_lines = false,
+      -- virtual_lines = false,
+      virtual_lines = {
+        current_line = true,
+        format = function(diagnostic)
+          local message = diagnostic.message
+          local win_width = vim.api.nvim_win_get_width(0)
+          local max_width = math.floor(win_width * 0.75)
+          local max_lines = 5
+          local max_length = max_width * max_lines
+
+          if #message > max_length then
+            message = message:sub(1, max_length - 3) .. "..."
+          end
+
+          if #message <= max_width then
+            return message
+          end
+
+          local wrapped = {}
+          local line = ""
+
+          for word in message:gmatch("%S+") do
+            local test_line = line == "" and word or line .. " " .. word
+
+            if #test_line <= max_width then
+              line = test_line
+            else
+              if line ~= "" then
+                table.insert(wrapped, line)
+                if #wrapped >= max_lines then
+                  wrapped[#wrapped] = wrapped[#wrapped] .. "..."
+                  break
+                end
+              end
+              line = word
+            end
+          end
+
+          if line ~= "" and #wrapped < max_lines then
+            table.insert(wrapped, line)
+          end
+
+          return table.concat(wrapped, "\n")
+        end,
+      },
       underline = true,
       virtual_text = true,
     })
   end,
   config = function()
-    local lspconfig = require("lspconfig")
+    local capabilities = require("config.lsp.capabilities")
 
-    vim.api.nvim_create_autocmd("LspAttach", {
-      desc = "LSP actions",
-      callback = function(event)
-        local opts = { buffer = event.buf }
-
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = event.buf, desc = "LSP: Hover Documentation" })
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = event.buf, desc = "LSP: Go to Definition" })
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = event.buf, desc = "LSP: Go to Declaration" })
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = event.buf, desc = "LSP: Go to Implementation" })
-        vim.keymap.set("n", "go", vim.lsp.buf.type_definition,
-          { buffer = event.buf, desc = "LSP: Go to Type Definition" })
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = event.buf, desc = "LSP: Find References" })
-        vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { buffer = event.buf, desc = "LSP: Signature Help" })
-        vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { buffer = event.buf, desc = "LSP: Rename Symbol" })
-        vim.keymap.set({ "n", "x" }, "<F3>", function() vim.lsp.buf.format({ async = true }) end,
-          { buffer = event.buf, desc = "LSP: Format Buffer" })
-        vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, { buffer = event.buf, desc = "LSP: Code Action" })
-      end,
+    vim.lsp.config("*", {
+      capabilities = capabilities,
     })
 
     -- start config of custom lsp
@@ -115,8 +144,6 @@ return {
       filetypes = { 'php', 'blade' },
       root_markers = { '.rootdir', 'composer.json', '.git' },
     }
-
-    vim.lsp.enable('phpantom')
 
     -- vue lang server
     local vue_language_server_path = vim.fn.expand("$MASON/packages")
@@ -168,9 +195,16 @@ return {
     vim.lsp.config("vtsls", vtsls_config)
     vim.lsp.config("vue_ls", vue_ls_config)
     vim.lsp.config("ts_ls", ts_ls_config)
-    vim.lsp.enable({ "vtsls", "vue_ls" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
 
-    vim.lsp.enable("kulala_ls")
+
+
+    vim.lsp.enable({
+      "vtsls",
+      "vue_ls",
+      'ts_ls',
+      'kulala_ls',
+      'phpantom'
+    })
 
     require("mason-lspconfig").setup({
       automatic_enable = true,
@@ -185,6 +219,61 @@ return {
         -- "jsonls",
         -- "ruff_lsp"
       },
+    })
+
+
+
+    local group = vim.api.nvim_create_augroup("UserLspConfig", {})
+    vim.api.nvim_create_autocmd("LspDetach", {
+      group = group,
+      callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if not client or not client.attached_buffers then
+          return
+        end
+        for buf_id in pairs(client.attached_buffers) do
+          if buf_id ~= ev.buf then
+            return
+          end
+        end
+        client:stop()
+      end,
+      desc = "Auto Detach LSP",
+    })
+
+
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = group,
+      desc = "Custom event for LSP Attach",
+      callback = function(event)
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+        if not client then
+          return
+        end
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = event.buf, desc = "LSP: Hover Documentation" })
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = event.buf, desc = "LSP: Go to Definition" })
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = event.buf, desc = "LSP: Go to Declaration" })
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = event.buf, desc = "LSP: Go to Implementation" })
+        vim.keymap.set("n", "go", vim.lsp.buf.type_definition,
+          { buffer = event.buf, desc = "LSP: Go to Type Definition" })
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = event.buf, desc = "LSP: Find References" })
+        vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, { buffer = event.buf, desc = "LSP: Signature Help" })
+        vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { buffer = event.buf, desc = "LSP: Rename Symbol" })
+        vim.keymap.set({ "n", "x" }, "<F3>", function() vim.lsp.buf.format({ async = true }) end,
+          { buffer = event.buf, desc = "LSP: Format Buffer" })
+        vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, { buffer = event.buf, desc = "LSP: Code Action" })
+
+
+        vim.api.nvim_buf_create_user_command(ev.buf, "LspStop", function()
+          if client:is_stopped() then
+            vim.notify(client.name:upper() .. " is already stopped", vim.log.levels.WARN)
+          else
+            client:stop(true)
+            vim.notify(client.name:upper() .. " stopped", vim.log.levels.INFO)
+          end
+        end, { desc = "Stop LSP client for this buffer" })
+      end,
     })
   end,
 }

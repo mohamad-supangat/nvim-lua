@@ -19,11 +19,7 @@ return {
   },
 
   config = function()
-    local null_ls = require("null-ls")
-    local formatting = null_ls.builtins.formatting
-    local diagnostics = null_ls.builtins.diagnostics
-    local completion = null_ls.builtins.completion
-    local hover = null_ls.builtins.hover
+    local nuls = require("null-ls")
 
     -- require("snippets").setup({
     --     create_autocmd = true,
@@ -31,27 +27,38 @@ return {
     --     friendly_snippets = true,
     -- })
 
-    null_ls.setup({
+    nuls.setup({
       cache = false,
       debug = false,
       temp_dir = "/tmp",
       -- on_attach = require("lsp.handlers").on_attach,
       sources = {
-        completion.tags,
-        formatting.blade_formatter,
-        -- completion.spell,
-        -- completion.nvim_snippets,
-        -- completion.luasnip,
-        formatting.phpcsfixer,
-        formatting.prettier.with({
-          extra_filetypes = { "toml" },
+        nuls.builtins.completion.tags,
+        nuls.builtins.formatting.blade_formatter,
+        -- nuls.builtins.completion.spell,
+        -- nuls.builtins.completion.nvim_snippets,
+        -- nuls.builtins.completion.luasnip,
+        -- nuls.builtins.formatting.biome,
+        nuls.builtins.formatting.phpcsfixer.with({
+          condition = function(utils)
+            return utils.root_has_file({ ".php_cs.dist", ".php_cs", "composer.json" })
+          end
+        }),
+        nuls.builtins.formatting.prettier.with({
+          extra_filetypes = { "toml", "css" },
           condition = function(utils)
             return utils.root_has_file({ ".prettierrc" })
           end,
         }),
-        diagnostics.fish,
-        -- diagnostics.editorconfig_checker,
-        hover.dictionary,
+
+
+        nuls.builtins.formatting.buf,
+        nuls.builtins.diagnostics.buf,
+
+
+        nuls.builtins.diagnostics.fish,
+        -- nuls.builtins.diagnostics.editorconfig_checker,
+        nuls.builtins.hover.dictionary,
       },
 
       -- on_attach = function(client, bufnr)
