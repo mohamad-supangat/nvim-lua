@@ -265,7 +265,7 @@ return {
         vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, { buffer = event.buf, desc = "LSP: Code Action" })
 
 
-        vim.api.nvim_buf_create_user_command(ev.buf, "LspStop", function()
+        vim.api.nvim_buf_create_user_command(event.buf, "LspStop", function()
           if client:is_stopped() then
             vim.notify(client.name:upper() .. " is already stopped", vim.log.levels.WARN)
           else

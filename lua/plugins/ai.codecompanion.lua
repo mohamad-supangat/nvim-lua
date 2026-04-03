@@ -1,7 +1,5 @@
 local enableHistory = true
 
-local adapters = require("codecompanion.adapters")
-
 require("plugins.codecompanion.utils.chat-loading"):init()
 require("plugins.codecompanion.utils.extmarks").setup()
 --
